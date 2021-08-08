@@ -1045,6 +1045,7 @@ body {
 }
 .post-markdown pre code,
 .post-markdown code code {
+  width: 800px;
   padding: 0px;
   background: transparent;
   font-size: 0.85rem;
@@ -1055,7 +1056,6 @@ body {
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 .post-markdown code {
-  width: 800px;
   overflow-wrap: break-word;
   padding: 3px 6px;
   color: #303133;
