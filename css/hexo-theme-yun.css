@@ -1049,6 +1049,9 @@ body {
   background: transparent;
   font-size: 0.85rem;
 }
+.post-markdown .code pre {
+  width: 700px;
+}
 .post-markdown >pre {
   width: 800px;
   padding: 0.5rem;
