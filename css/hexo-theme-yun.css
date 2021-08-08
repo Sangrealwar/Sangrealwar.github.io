@@ -1037,6 +1037,7 @@ body {
 }
 .post-markdown pre,
 .post-markdown code {
+  width: 800px;
   overflow: auto;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 0.85rem;
@@ -1045,7 +1046,6 @@ body {
 }
 .post-markdown pre code,
 .post-markdown code code {
-  width: 800px;
   padding: 0px;
   background: transparent;
   font-size: 0.85rem;
