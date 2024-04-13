@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="课程学习"><meta name="keywords" content=""><meta name="author" content="EmiyaQ"><meta name="copyright" content="EmiyaQ"><meta name="theme-color" content="#0078E7"><title>课程学习 | 冬日的阳光</title><link rel="shortcut icon" href="/yun-favicon.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script id="yun-config">
     let Yun = window.Yun || {};
     let CONFIG = {"root":"/","title":"快乐驿站","version":"0.3.1","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
-  </script><script src="//at.alicdn.com/t/font_1140697_pa6cswvjpq.js" async></script><meta name="generator" content="Hexo 4.2.0"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="bg-img-container"><div class="bg-img"></div></div><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc sidebar-nav-active hty-icon-button" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about" title="EmiyaQ"><img loading="lazy" src="/images/小猫.jpeg" alt="EmiyaQ"></a><div class="site-author-name"><a href="/about">EmiyaQ</a></div><a class="site-name" href="/about/site.html">冬日的阳光</a><sub class="site-subtitle"></sub><div class="site-desciption">人生，总有些黑暗的隧道需要自己穿越</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item site-state-posts"><a href="/archives" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">29</span></a></div><div class="site-state-item site-state-categories"><a href="/categories" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item site-state-tags"><a href="/tags" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><a class="site-state-item hty-icon-button" href="https://github.com/YunYouJun/yunyoujun.github.io/issues/96" target="_blank" rel="noopener" title="reward.comment"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"></div><script defer src="/js/sidebar.js"></script><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-progress"><div class="progress-bar"></div><div class="progress-info"><span class="progress-notice">您已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span></div></div><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JMM"><span class="toc-number">1.</span> <span class="toc-text">JMM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结构规范"><span class="toc-number">1.1.</span> <span class="toc-text">结构规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三个特性"><span class="toc-number">1.2.</span> <span class="toc-text">三个特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用概念"><span class="toc-number">1.3.</span> <span class="toc-text">常用概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volatile"><span class="toc-number">1.3.1.</span> <span class="toc-text">Volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件原理"><span class="toc-number">1.3.2.</span> <span class="toc-text">硬件原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-number">1.4.</span> <span class="toc-text">常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronized"><span class="toc-number">2.</span> <span class="toc-text">Synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MarkWord"><span class="toc-number">2.1.</span> <span class="toc-text">MarkWord</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题-1"><span class="toc-number">2.2.</span> <span class="toc-text">常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JUC"><span class="toc-number">3.</span> <span class="toc-text">JUC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AQS"><span class="toc-number">3.1.</span> <span class="toc-text">AQS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特性"><span class="toc-number">3.1.1.</span> <span class="toc-text">特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础锁（Lock）"><span class="toc-number">3.2.</span> <span class="toc-text">基础锁（Lock）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-number">3.2.1.</span> <span class="toc-text">ReentrantLock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-number">3.2.2.</span> <span class="toc-text">ReentrantReadWriteLock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-1"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-1"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StampedLock"><span class="toc-number">3.2.3.</span> <span class="toc-text">StampedLock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-2"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-2"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">3.2.4.</span> <span class="toc-text">小结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题-2"><span class="toc-number">3.2.4.1.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单对比"><span class="toc-number">3.2.4.2.</span> <span class="toc-text">简单对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步工具"><span class="toc-number">3.3.</span> <span class="toc-text">同步工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Semaphore"><span class="toc-number">3.3.1.</span> <span class="toc-text">Semaphore</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-3"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-3"><span class="toc-number">3.3.1.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CountDownLatch"><span class="toc-number">3.3.2.</span> <span class="toc-text">CountDownLatch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-4"><span class="toc-number">3.3.2.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-4"><span class="toc-number">3.3.2.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CyclicBarrier"><span class="toc-number">3.3.3.</span> <span class="toc-text">CyclicBarrier</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-5"><span class="toc-number">3.3.3.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-5"><span class="toc-number">3.3.3.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exchanger"><span class="toc-number">3.3.4.</span> <span class="toc-text">Exchanger</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-6"><span class="toc-number">3.3.4.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-6"><span class="toc-number">3.3.4.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phaser"><span class="toc-number">3.3.5.</span> <span class="toc-text">Phaser</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-7"><span class="toc-number">3.3.5.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-7"><span class="toc-number">3.3.5.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结-1"><span class="toc-number">3.3.6.</span> <span class="toc-text">小结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单对比-1"><span class="toc-number">3.3.6.1.</span> <span class="toc-text">简单对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池"><span class="toc-number">3.4.</span> <span class="toc-text">线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadPoolExecutor"><span class="toc-number">3.4.1.</span> <span class="toc-text">ThreadPoolExecutor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-8"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-8"><span class="toc-number">3.4.1.2.</span> <span class="toc-text">原理小结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#线程池构造器"><span class="toc-number">3.4.1.2.1.</span> <span class="toc-text">线程池构造器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线程池状态"><span class="toc-number">3.4.1.2.2.</span> <span class="toc-text">线程池状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线程执行"><span class="toc-number">3.4.1.2.3.</span> <span class="toc-text">线程执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拒绝策略"><span class="toc-number">3.4.1.2.4.</span> <span class="toc-text">拒绝策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线程关闭"><span class="toc-number">3.4.1.2.5.</span> <span class="toc-text">线程关闭</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ForkJoinPool"><span class="toc-number">3.4.2.</span> <span class="toc-text">ForkJoinPool</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-9"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-9"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">原理小结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinPool-1"><span class="toc-number">3.4.2.2.1.</span> <span class="toc-text">ForkJoinPool</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinTask"><span class="toc-number">3.4.2.2.2.</span> <span class="toc-text">ForkJoinTask</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinWorkThread"><span class="toc-number">3.4.2.2.3.</span> <span class="toc-text">ForkJoinWorkThread</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#WorkQueue"><span class="toc-number">3.4.2.2.4.</span> <span class="toc-text">WorkQueue</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队列（BlockQueue）"><span class="toc-number">3.5.</span> <span class="toc-text">队列（BlockQueue）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mysql事务"><span class="toc-number">4.</span> <span class="toc-text">Mysql事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务隔离级别"><span class="toc-number">4.1.</span> <span class="toc-text">事务隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVCC"><span class="toc-number">4.2.</span> <span class="toc-text">MVCC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Consistent-Nonlocking-Reads（一致性视图）"><span class="toc-number">4.2.1.</span> <span class="toc-text">Consistent Nonlocking Reads（一致性视图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Locking-Read"><span class="toc-number">4.2.2.</span> <span class="toc-text">Locking Read</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis"><span class="toc-number">5.</span> <span class="toc-text">Redis</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://sangrealwar.github.io/2024/03/11/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="EmiyaQ"><meta itemprop="description" content="课程学习"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="冬日的阳光"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">课程学习</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2024-03-11 23:25:32" itemprop="dateCreated datePublished" datetime="2024-03-11T23:25:32+08:00">2024-03-11</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2024-04-10 22:25:59" itemprop="dateModified" datetime="2024-04-10T22:25:59+08:00">2024-04-10</time></span><div class="post-count"></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><blockquote>
+  </script><script src="//at.alicdn.com/t/font_1140697_pa6cswvjpq.js" async></script><meta name="generator" content="Hexo 4.2.0"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="bg-img-container"><div class="bg-img"></div></div><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc sidebar-nav-active hty-icon-button" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about" title="EmiyaQ"><img loading="lazy" src="/images/小猫.jpeg" alt="EmiyaQ"></a><div class="site-author-name"><a href="/about">EmiyaQ</a></div><a class="site-name" href="/about/site.html">冬日的阳光</a><sub class="site-subtitle"></sub><div class="site-desciption">人生，总有些黑暗的隧道需要自己穿越</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item site-state-posts"><a href="/archives" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">29</span></a></div><div class="site-state-item site-state-categories"><a href="/categories" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item site-state-tags"><a href="/tags" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><a class="site-state-item hty-icon-button" href="https://github.com/YunYouJun/yunyoujun.github.io/issues/96" target="_blank" rel="noopener" title="reward.comment"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"></div><script defer src="/js/sidebar.js"></script><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-progress"><div class="progress-bar"></div><div class="progress-info"><span class="progress-notice">您已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span></div></div><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JMM"><span class="toc-number">1.</span> <span class="toc-text">JMM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结构规范"><span class="toc-number">1.1.</span> <span class="toc-text">结构规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三个特性"><span class="toc-number">1.2.</span> <span class="toc-text">三个特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用概念"><span class="toc-number">1.3.</span> <span class="toc-text">常用概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volatile"><span class="toc-number">1.3.1.</span> <span class="toc-text">Volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件原理"><span class="toc-number">1.3.2.</span> <span class="toc-text">硬件原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-number">1.4.</span> <span class="toc-text">常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronized"><span class="toc-number">2.</span> <span class="toc-text">Synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MarkWord"><span class="toc-number">2.1.</span> <span class="toc-text">MarkWord</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题-1"><span class="toc-number">2.2.</span> <span class="toc-text">常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JUC"><span class="toc-number">3.</span> <span class="toc-text">JUC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AQS"><span class="toc-number">3.1.</span> <span class="toc-text">AQS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特性"><span class="toc-number">3.1.1.</span> <span class="toc-text">特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础锁（Lock）"><span class="toc-number">3.2.</span> <span class="toc-text">基础锁（Lock）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-number">3.2.1.</span> <span class="toc-text">ReentrantLock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-number">3.2.2.</span> <span class="toc-text">ReentrantReadWriteLock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-1"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-1"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StampedLock"><span class="toc-number">3.2.3.</span> <span class="toc-text">StampedLock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-2"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-2"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">3.2.4.</span> <span class="toc-text">小结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题-2"><span class="toc-number">3.2.4.1.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单对比"><span class="toc-number">3.2.4.2.</span> <span class="toc-text">简单对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步工具"><span class="toc-number">3.3.</span> <span class="toc-text">同步工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Semaphore"><span class="toc-number">3.3.1.</span> <span class="toc-text">Semaphore</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-3"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-3"><span class="toc-number">3.3.1.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CountDownLatch"><span class="toc-number">3.3.2.</span> <span class="toc-text">CountDownLatch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-4"><span class="toc-number">3.3.2.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-4"><span class="toc-number">3.3.2.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CyclicBarrier"><span class="toc-number">3.3.3.</span> <span class="toc-text">CyclicBarrier</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-5"><span class="toc-number">3.3.3.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-5"><span class="toc-number">3.3.3.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exchanger"><span class="toc-number">3.3.4.</span> <span class="toc-text">Exchanger</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-6"><span class="toc-number">3.3.4.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-6"><span class="toc-number">3.3.4.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phaser"><span class="toc-number">3.3.5.</span> <span class="toc-text">Phaser</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-7"><span class="toc-number">3.3.5.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-7"><span class="toc-number">3.3.5.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结-1"><span class="toc-number">3.3.6.</span> <span class="toc-text">小结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单对比-1"><span class="toc-number">3.3.6.1.</span> <span class="toc-text">简单对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池"><span class="toc-number">3.4.</span> <span class="toc-text">线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadPoolExecutor"><span class="toc-number">3.4.1.</span> <span class="toc-text">ThreadPoolExecutor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-8"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-8"><span class="toc-number">3.4.1.2.</span> <span class="toc-text">原理小结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#线程池构造器"><span class="toc-number">3.4.1.2.1.</span> <span class="toc-text">线程池构造器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线程池状态"><span class="toc-number">3.4.1.2.2.</span> <span class="toc-text">线程池状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线程执行"><span class="toc-number">3.4.1.2.3.</span> <span class="toc-text">线程执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拒绝策略"><span class="toc-number">3.4.1.2.4.</span> <span class="toc-text">拒绝策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线程关闭"><span class="toc-number">3.4.1.2.5.</span> <span class="toc-text">线程关闭</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ForkJoinPool"><span class="toc-number">3.4.2.</span> <span class="toc-text">ForkJoinPool</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-9"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-9"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">原理小结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinPool-1"><span class="toc-number">3.4.2.2.1.</span> <span class="toc-text">ForkJoinPool</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinTask"><span class="toc-number">3.4.2.2.2.</span> <span class="toc-text">ForkJoinTask</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinWorkThread"><span class="toc-number">3.4.2.2.3.</span> <span class="toc-text">ForkJoinWorkThread</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#WorkQueue"><span class="toc-number">3.4.2.2.4.</span> <span class="toc-text">WorkQueue</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScheduledThreadPoolExecutor"><span class="toc-number">3.4.3.</span> <span class="toc-text">ScheduledThreadPoolExecutor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用姿势-10"><span class="toc-number">3.4.3.1.</span> <span class="toc-text">使用姿势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原理小结-10"><span class="toc-number">3.4.3.2.</span> <span class="toc-text">原理小结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发容器"><span class="toc-number">3.5.</span> <span class="toc-text">并发容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Queue"><span class="toc-number">3.5.1.</span> <span class="toc-text">Queue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#接口"><span class="toc-number">3.5.1.1.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现"><span class="toc-number">3.5.1.2.</span> <span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set"><span class="toc-number">3.5.2.</span> <span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#接口-1"><span class="toc-number">3.5.2.1.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现-1"><span class="toc-number">3.5.2.2.</span> <span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map"><span class="toc-number">3.5.3.</span> <span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#接口-2"><span class="toc-number">3.5.3.1.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现-2"><span class="toc-number">3.5.3.2.</span> <span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List"><span class="toc-number">3.5.4.</span> <span class="toc-text">List</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#接口-3"><span class="toc-number">3.5.4.1.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现-3"><span class="toc-number">3.5.4.2.</span> <span class="toc-text">实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原子类"><span class="toc-number">3.6.</span> <span class="toc-text">原子类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mysql事务"><span class="toc-number">4.</span> <span class="toc-text">Mysql事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务隔离级别"><span class="toc-number">4.1.</span> <span class="toc-text">事务隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVCC"><span class="toc-number">4.2.</span> <span class="toc-text">MVCC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Consistent-Nonlocking-Reads（一致性视图）"><span class="toc-number">4.2.1.</span> <span class="toc-text">Consistent Nonlocking Reads（一致性视图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Locking-Read"><span class="toc-number">4.2.2.</span> <span class="toc-text">Locking Read</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis"><span class="toc-number">5.</span> <span class="toc-text">Redis</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://sangrealwar.github.io/2024/03/11/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="EmiyaQ"><meta itemprop="description" content="课程学习"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="冬日的阳光"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">课程学习</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2024-03-11 23:25:32" itemprop="dateCreated datePublished" datetime="2024-03-11T23:25:32+08:00">2024-03-11</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2024-04-13 18:37:59" itemprop="dateModified" datetime="2024-04-13T18:37:59+08:00">2024-04-13</time></span><div class="post-count"></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><blockquote>
 <p>来自图灵课程学习</p>
 </blockquote>
 <h1 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h1><p>Java内存模型，通过特定操作协议，对内存或高速缓存进行读写过程的一种描述。JMM是一种在对线程并发情况下对于共享变量读写的<strong>规范</strong>，屏蔽了不同操作系统的差异，而Jvm内存结构是处于Java虚拟机层面，是运行时对Java进程占用内存的逻辑划分。</p>
@@ -461,8 +461,375 @@
 
 
 
-<h2 id="队列（BlockQueue）"><a href="#队列（BlockQueue）" class="headerlink" title="队列（BlockQueue）"></a>队列（BlockQueue）</h2><p>类继承关系</p>
+<h3 id="ScheduledThreadPoolExecutor"><a href="#ScheduledThreadPoolExecutor" class="headerlink" title="ScheduledThreadPoolExecutor"></a>ScheduledThreadPoolExecutor</h3><h4 id="使用姿势-10"><a href="#使用姿势-10" class="headerlink" title="使用姿势"></a>使用姿势</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> ScheduledThreadPoolExecutor executor = <span class="keyword">new</span> ScheduledThreadPoolExecutor(<span class="number">3</span>);</span><br><span class="line">        executor.schedule(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(LocalDateTime.now()+<span class="string">"\t"</span>+Thread.currentThread().getName() + <span class="string">"：我在运行"</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">10</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(LocalDateTime.now()+<span class="string">"\t"</span>+Thread.currentThread().getName() + <span class="string">"：运行结束"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="number">10</span>, TimeUnit.SECONDS);</span><br><span class="line">        System.out.println(LocalDateTime.now()+<span class="string">"\t创建线程结束"</span>);</span><br><span class="line">        </span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="number">2024</span>-<span class="number">04</span>-<span class="number">13</span>T18:<span class="number">25</span>:<span class="number">32.293</span>	创建线程结束</span><br><span class="line"><span class="number">2024</span>-<span class="number">04</span>-<span class="number">13</span>T18:<span class="number">25</span>:<span class="number">42.172</span>	pool-<span class="number">1</span>-thread-<span class="number">1</span>：我在运行</span><br><span class="line"><span class="number">2024</span>-<span class="number">04</span>-<span class="number">13</span>T18:<span class="number">25</span>:<span class="number">42.182</span>	pool-<span class="number">1</span>-thread-<span class="number">1</span>：运行结束</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="原理小结-10"><a href="#原理小结-10" class="headerlink" title="原理小结"></a>原理小结</h4><blockquote>
+<p>和ThreadPoolExecutor类似，将Runnable封装成ScheduledFutureTask，阻塞队列用DelayedWorkQueue，内部没有直接继承PriorityBlockingQueue，自己实现了优先级队列，因为线程池调度会利用阻塞队列的take。因此天然等待最早到时间的线程。</p>
+</blockquote>
+<h2 id="并发容器"><a href="#并发容器" class="headerlink" title="并发容器"></a>并发容器</h2><p>类继承关系</p>
 <p><img src="/2024/03/11/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/6.png" alt loading="lazy"></p>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
+<p>解释表头，第一列表示相关类型的操作（入队，出队，检索队头元素），第一行表示当相关操作第一时间不符合条件（如队头队尾无元素）时触发的操作（如抛异常，返回特定值，阻塞，超时阻塞）</p>
+</blockquote>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
+<li>Queue</li>
+</ul>
+<blockquote>
+<p>普通队列</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Throws exception</th>
+<th>Returns special value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Insert</td>
+<td>add(e)</td>
+<td>offer(e)</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>remove()</td>
+<td>poll()</td>
+</tr>
+<tr>
+<td>Examine</td>
+<td>element()</td>
+<td>peek()</td>
+</tr>
+</tbody></table>
+<ul>
+<li>BlockingQueue</li>
+</ul>
+<blockquote>
+<p>阻塞队列</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Throws exception</th>
+<th>special value</th>
+<th>Blocks</th>
+<th>Times out</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Insert</td>
+<td>add(e)</td>
+<td>offer(e)</td>
+<td>put(e)</td>
+<td>offer(e, time, unit)</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>remove()</td>
+<td>poll()</td>
+<td>take()</td>
+<td>poll(time, unit)</td>
+</tr>
+<tr>
+<td>Examine</td>
+<td>element()</td>
+<td>peek()</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>Dueue</li>
+</ul>
+<blockquote>
+<p>双端队列</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>First Element (Head)</th>
+<th>First Element (Head)</th>
+<th>Last Element (Tail)</th>
+<th>Last Element (Tail)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Throws exception</td>
+<td>Special value</td>
+<td>Throws exception</td>
+<td>Special value</td>
+</tr>
+<tr>
+<td>Insert</td>
+<td>addFirst(e)</td>
+<td>offerFirst(e)</td>
+<td>addLast(e)</td>
+<td>offerLast(e)</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>remove()</td>
+<td>poll()</td>
+<td>removeLast()</td>
+<td>pollLast()</td>
+</tr>
+<tr>
+<td>Examine</td>
+<td>element()</td>
+<td>peek()</td>
+<td>getLast()</td>
+<td>peekLast()</td>
+</tr>
+</tbody></table>
+<ul>
+<li>BlockingDeque</li>
+</ul>
+<blockquote>
+<p>阻塞双端队列</p>
+</blockquote>
+<p>First Element (Head)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Throws exception</th>
+<th>Special value</th>
+<th>Blocks</th>
+<th>Times out</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Insert</td>
+<td>addFirst(e)</td>
+<td>offerFirst(e)</td>
+<td>putFirst(e)</td>
+<td>offerFirst(e, time, unit)</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>removeFirst()</td>
+<td>pollFirst()</td>
+<td>takeFirst()</td>
+<td>pollFirst(time, unit)</td>
+</tr>
+<tr>
+<td>Examine</td>
+<td>getFirst()</td>
+<td>peekFirst()</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Last Element (Tail)，与上面类似</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Throws exception</th>
+<th>Special value</th>
+<th>Blocks</th>
+<th>Times out</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Insert</td>
+<td>addLast(e)</td>
+<td>offerLast(e)</td>
+<td>putLast(e)</td>
+<td>offerLast(e, time, unit)</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>removeLast()</td>
+<td>pollLast()</td>
+<td>takeLast()</td>
+<td>pollLast(time, unit)</td>
+</tr>
+<tr>
+<td>Examine</td>
+<td>getLast()</td>
+<td>peekLast()</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>TransferQueue</li>
+</ul>
+<blockquote>
+<p>传输队列，是一种特殊的阻塞队列，发送放会等待消费方检索数据</p>
+</blockquote>
+<p>主要方法：</p>
+<p>tryTransfer(E e) 和tryTransfer(E e, long timeout, TimeUnit unit)尝试传输，当没有对象时，返回false</p>
+<p>transfer(E e)是阻塞传输，一直等待消费</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>ConcurrentLinkedQueue</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>利用链表存储，基于自旋和CAS实现入队出队</p>
+<ul>
+<li>ArrayBlockingQueue</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>利用数组存储，环形入队出队，使用ReentrantLock实现线程安全，两个条件变量notFull和notEmpty，当队满时，put方法在<strong>notFull</strong>上等待，当队没有元素时，take方法在<strong>notEmpty</strong>上等待。</p>
+<ul>
+<li>LinkedBlockingQueue</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>利用链表存储，入队和出队采用两个RentrantLock锁，同时用AtomicInteger存储队列元素个数。不支持公平非公平</p>
+<ul>
+<li>PriorityBlockingQueue</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>利用数组存储，无界，最大/最小堆实现优先级。利用RentrantLock加锁，只有出队take有条件变量<strong>notEmpty</strong> 等待</p>
+<ul>
+<li>SynchronousQueue</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>利用栈或队列结构的节点对象，存放入队等待的节点，当出队线程加入后，弹出匹配的节点线程，并交换数据</p>
+<ul>
+<li>DelayQueue</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>利用PriorityBlockingQueue存放元素，利用ReentrantLock加锁，入队不等待，出队等待。当时间没到时，等待【剩余时间】</p>
+<ul>
+<li>LinkedBlockingDeque</li>
+</ul>
+<blockquote>
+<p>1.6版本</p>
+</blockquote>
+<p>利用链表存储，双端入队出队共用一把ReentrantLock锁，双端队列用来实现【工作窃取】</p>
+<ul>
+<li>ConcurrentLinkedDeque</li>
+</ul>
+<blockquote>
+<p>1.7版本</p>
+</blockquote>
+<p>利用链表存储，采用自旋和CAS实现【无锁】，逻辑简单，实现比较复杂</p>
+<ul>
+<li>LinkedTransferQueue</li>
+</ul>
+<blockquote>
+<p>1.7版本</p>
+</blockquote>
+<p>继承了SynchronousQueue的功能，由于继承了tryTransfer，可以实现异步入队，不用等待。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">LinkedTransferQueue&lt;Integer&gt; arrayBlockingQueue = <span class="keyword">new</span> LinkedTransferQueue();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> finalI = i;</span><br><span class="line">            <span class="keyword">if</span>(finalI ==<span class="number">0</span>)&#123;</span><br><span class="line">                Thread t1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                        Integer poll = <span class="keyword">null</span>;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            poll = arrayBlockingQueue.take();</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">                        &#125;</span><br><span class="line">                        System.out.println(<span class="string">"消费"</span>+poll);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, <span class="string">"consumer"</span> + i);</span><br><span class="line">                t1.start();</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                Thread t1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                        <span class="keyword">boolean</span> b = arrayBlockingQueue.tryTransfer(finalI);</span><br><span class="line">                        System.out.println(finalI + <span class="string">"\t"</span> + b);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, <span class="string">"producer"</span> + i);</span><br><span class="line">                t1.start();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="number">2</span>	<span class="keyword">false</span></span><br><span class="line"><span class="number">4</span>	<span class="keyword">false</span></span><br><span class="line"><span class="number">1</span>	<span class="keyword">true</span></span><br><span class="line">消费<span class="number">1</span></span><br><span class="line"><span class="number">3</span>	<span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h4 id="接口-1"><a href="#接口-1" class="headerlink" title="接口"></a>接口</h4><ul>
+<li>Set</li>
+</ul>
+<blockquote>
+<p>不解释，无重复元素集合</p>
+</blockquote>
+<ul>
+<li>SortedSet</li>
+</ul>
+<blockquote>
+<p>有序的无重复元素集合</p>
+</blockquote>
+<ul>
+<li>NavigableSet</li>
+</ul>
+<blockquote>
+<p>提供定位检索方法的SortedSet，例如比某个元素大，小，移除最小，最大，降序升序等方法</p>
+</blockquote>
+<h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>CopyOnWriteArraySet</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>直接内部代理CopyOnWriteArrayList，实现并发操作</p>
+<ul>
+<li>ConcurrentSkipListSet</li>
+</ul>
+<blockquote>
+<p>1.6版本</p>
+</blockquote>
+<p>直接内部代理ConcurrentNavigableMap，实现并发操作</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h4 id="接口-2"><a href="#接口-2" class="headerlink" title="接口"></a>接口</h4><ul>
+<li>Map</li>
+</ul>
+<blockquote>
+<p>不解释，字典</p>
+</blockquote>
+<ul>
+<li>SortedMap</li>
+</ul>
+<blockquote>
+<p>有序的无重复Key的字典，根据Key排序</p>
+</blockquote>
+<ul>
+<li>NavigableMap</li>
+</ul>
+<blockquote>
+<p>提供定位检索方法的SortedMap，和NavigableSet类似，只不过根据Key进行定位</p>
+</blockquote>
+<ul>
+<li>ConcurrentMap</li>
+</ul>
+<blockquote>
+<p>提供并发安全操作的能力</p>
+</blockquote>
+<ul>
+<li>ConcurrentNavigableMap</li>
+</ul>
+<blockquote>
+<p>提供支持定位检索方法的并发安全操作的能力</p>
+</blockquote>
+<h4 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>ConcurrentHashMap</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>高频面试点，底层基于</p>
+<ul>
+<li>ConcurrentSkipListMap</li>
+</ul>
+<blockquote>
+<p>1.6版本</p>
+</blockquote>
+<p>为了高效检索，利用多层二级索引实现跳表，自旋和CAS并发操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Head nodes          Index nodes                                          </span><br><span class="line">+-+    right        +-+                      +-+                         </span><br><span class="line">|2|----------------&gt;| |---------------------&gt;| |-&gt;null                   </span><br><span class="line">+-+                 +-+                      +-+                         </span><br><span class="line"> | down              |                        |                          </span><br><span class="line"> v                   v                        v                          </span><br><span class="line">+-+            +-+  +-+       +-+            +-+       +-+               </span><br><span class="line">|1|-----------&gt;| |-&gt;| |------&gt;| |-----------&gt;| |------&gt;| |-&gt;null         </span><br><span class="line">+-+            +-+  +-+       +-+            +-+       +-+               </span><br><span class="line"> v              |    |         |              |         |                </span><br><span class="line">Nodes  next     v    v         v              v         v                </span><br><span class="line">+-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+               </span><br><span class="line">| |-&gt;|A|-&gt;|B|-&gt;|C|-&gt;|D|-&gt;|E|-&gt;|F|-&gt;|G|-&gt;|H|-&gt;|I|-&gt;|J|-&gt;|K|-&gt;null         </span><br><span class="line">+-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+  +-+</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><h4 id="接口-3"><a href="#接口-3" class="headerlink" title="接口"></a>接口</h4><ul>
+<li>List</li>
+</ul>
+<blockquote>
+<p>不解释，链表</p>
+</blockquote>
+<h4 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>CopyOnWriteArrayList</li>
+</ul>
+<blockquote>
+<p>1.5版本</p>
+</blockquote>
+<p>利用数组存储，写时复制，读取的时候可以不用加锁，适合于”读多写少的场景”，占用内存较多</p>
+<h2 id="原子类"><a href="#原子类" class="headerlink" title="原子类"></a>原子类</h2><p>基于CAS为了实现无锁算法，AtomicInteger，AtomicReference，AtomicXXXFieldUpdater。1.8提供了LongAdder，利用分段的思想，分散热点</p>
 <h1 id="Mysql事务"><a href="#Mysql事务" class="headerlink" title="Mysql事务"></a>Mysql事务</h1><h2 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h2><p>查看当前事务隔离级别（8.0之前）</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @@tx_isolation</span><br></pre></td></tr></table></figure>
 
