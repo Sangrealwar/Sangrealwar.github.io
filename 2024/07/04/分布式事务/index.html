@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="分布式事务"><meta name="keywords" content=""><meta name="author" content="EmiyaQ"><meta name="copyright" content="EmiyaQ"><meta name="theme-color" content="#0078E7"><title>分布式事务 | 冬日的阳光</title><link rel="shortcut icon" href="/yun-favicon.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script id="yun-config">
     let Yun = window.Yun || {};
     let CONFIG = {"root":"/","title":"快乐驿站","version":"0.3.1","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
-  </script><script src="//at.alicdn.com/t/font_1140697_pa6cswvjpq.js" async></script><meta name="generator" content="Hexo 4.2.0"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="bg-img-container"><div class="bg-img"></div></div><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc sidebar-nav-active hty-icon-button" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about" title="EmiyaQ"><img loading="lazy" src="/images/小猫.jpeg" alt="EmiyaQ"></a><div class="site-author-name"><a href="/about">EmiyaQ</a></div><a class="site-name" href="/about/site.html">冬日的阳光</a><sub class="site-subtitle"></sub><div class="site-desciption">人生，总有些黑暗的隧道需要自己穿越</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item site-state-posts"><a href="/archives" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">32</span></a></div><div class="site-state-item site-state-categories"><a href="/categories" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item site-state-tags"><a href="/tags" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><a class="site-state-item hty-icon-button" href="https://github.com/YunYouJun/yunyoujun.github.io/issues/96" target="_blank" rel="noopener" title="reward.comment"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"></div><script defer src="/js/sidebar.js"></script><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-progress"><div class="progress-bar"></div><div class="progress-info"><span class="progress-notice">您已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span></div></div><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是事务"><span class="toc-number">1.</span> <span class="toc-text">什么是事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID"><span class="toc-number">1.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">1.2.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2PL（Two-Phase-Locking）"><span class="toc-number">1.3.</span> <span class="toc-text">2PL（Two-Phase-Locking）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T-O（Timestamp-Ordering）"><span class="toc-number">1.4.</span> <span class="toc-text">T&#x2F;O（Timestamp Ordering）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVCC（Multi-Version-Concurrency-Control）"><span class="toc-number">1.5.</span> <span class="toc-text">MVCC（Multi-Version Concurrency Control）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是分布式系统"><span class="toc-number">2.</span> <span class="toc-text">什么是分布式系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FLP"><span class="toc-number">2.1.</span> <span class="toc-text">FLP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAP（Consistency-Availability-Partition-tolerance）"><span class="toc-number">2.2.</span> <span class="toc-text">CAP（Consistency Availability Partition-tolerance）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Consitncy"><span class="toc-number">2.2.1.</span> <span class="toc-text">Consitncy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Availability"><span class="toc-number">2.2.2.</span> <span class="toc-text">Availability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition-tolerance"><span class="toc-number">2.2.3.</span> <span class="toc-text">Partition-tolerance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BASE"><span class="toc-number">2.3.</span> <span class="toc-text">BASE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basically-Available-基本可用"><span class="toc-number">2.3.1.</span> <span class="toc-text">Basically Available(基本可用)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Soft-state-柔性状态"><span class="toc-number">2.3.2.</span> <span class="toc-text">Soft state(柔性状态)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eventually-consistent-最终一致"><span class="toc-number">2.3.3.</span> <span class="toc-text">Eventually consistent(最终一致)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一致性"><span class="toc-number">2.4.</span> <span class="toc-text">一致性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是分布式事务"><span class="toc-number">3.</span> <span class="toc-text">什么是分布式事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常见做法"><span class="toc-number">3.1.</span> <span class="toc-text">常见做法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单粗暴"><span class="toc-number">3.1.1.</span> <span class="toc-text">简单粗暴</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地消息表"><span class="toc-number">3.1.2.</span> <span class="toc-text">本地消息表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处-1"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题-1"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2PC（Two-Phase-Commit）"><span class="toc-number">3.1.3.</span> <span class="toc-text">2PC（Two-Phase Commit）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处-2"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题-2"><span class="toc-number">3.1.3.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCC"><span class="toc-number">3.1.4.</span> <span class="toc-text">TCC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处-3"><span class="toc-number">3.1.4.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题-3"><span class="toc-number">3.1.4.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务消息"><span class="toc-number">3.1.5.</span> <span class="toc-text">事务消息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处-4"><span class="toc-number">3.1.5.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题-4"><span class="toc-number">3.1.5.2.</span> <span class="toc-text">问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附"><span class="toc-number">4.</span> <span class="toc-text">附</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://sangrealwar.github.io/2024/07/04/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="EmiyaQ"><meta itemprop="description" content="分布式事务"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="冬日的阳光"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">分布式事务</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2024-07-04 21:50:01" itemprop="dateCreated datePublished" datetime="2024-07-04T21:50:01+08:00">2024-07-04</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2024-07-08 23:10:58" itemprop="dateModified" datetime="2024-07-08T23:10:58+08:00">2024-07-08</time></span><div class="post-count"></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><meta name="referrer" content="no-referrer">
+  </script><script src="//at.alicdn.com/t/font_1140697_pa6cswvjpq.js" async></script><meta name="generator" content="Hexo 4.2.0"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="bg-img-container"><div class="bg-img"></div></div><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc sidebar-nav-active hty-icon-button" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about" title="EmiyaQ"><img loading="lazy" src="/images/小猫.jpeg" alt="EmiyaQ"></a><div class="site-author-name"><a href="/about">EmiyaQ</a></div><a class="site-name" href="/about/site.html">冬日的阳光</a><sub class="site-subtitle"></sub><div class="site-desciption">人生，总有些黑暗的隧道需要自己穿越</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item site-state-posts"><a href="/archives" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">32</span></a></div><div class="site-state-item site-state-categories"><a href="/categories" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item site-state-tags"><a href="/tags" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><a class="site-state-item hty-icon-button" href="https://github.com/YunYouJun/yunyoujun.github.io/issues/96" target="_blank" rel="noopener" title="reward.comment"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"></div><script defer src="/js/sidebar.js"></script><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-progress"><div class="progress-bar"></div><div class="progress-info"><span class="progress-notice">您已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span></div></div><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是事务"><span class="toc-number">1.</span> <span class="toc-text">什么是事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID"><span class="toc-number">1.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">1.2.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2PL（Two-Phase-Locking）"><span class="toc-number">1.3.</span> <span class="toc-text">2PL（Two-Phase-Locking）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T-O（Timestamp-Ordering）"><span class="toc-number">1.4.</span> <span class="toc-text">T&#x2F;O（Timestamp Ordering）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVCC（Multi-Version-Concurrency-Control）"><span class="toc-number">1.5.</span> <span class="toc-text">MVCC（Multi-Version Concurrency Control）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是分布式系统"><span class="toc-number">2.</span> <span class="toc-text">什么是分布式系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FLP"><span class="toc-number">2.1.</span> <span class="toc-text">FLP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAP（Consistency-Availability-Partition-tolerance）"><span class="toc-number">2.2.</span> <span class="toc-text">CAP（Consistency Availability Partition-tolerance）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Consitncy"><span class="toc-number">2.2.1.</span> <span class="toc-text">Consitncy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Availability"><span class="toc-number">2.2.2.</span> <span class="toc-text">Availability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition-tolerance"><span class="toc-number">2.2.3.</span> <span class="toc-text">Partition-tolerance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BASE"><span class="toc-number">2.3.</span> <span class="toc-text">BASE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basically-Available-基本可用"><span class="toc-number">2.3.1.</span> <span class="toc-text">Basically Available(基本可用)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Soft-state-柔性状态"><span class="toc-number">2.3.2.</span> <span class="toc-text">Soft state(柔性状态)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eventually-consistent-最终一致"><span class="toc-number">2.3.3.</span> <span class="toc-text">Eventually consistent(最终一致)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一致性"><span class="toc-number">2.4.</span> <span class="toc-text">一致性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是分布式事务"><span class="toc-number">3.</span> <span class="toc-text">什么是分布式事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关概念"><span class="toc-number">3.1.</span> <span class="toc-text">相关概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程实践"><span class="toc-number">3.2.</span> <span class="toc-text">工程实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2PC（Two-Phase-Commit）"><span class="toc-number">3.2.1.</span> <span class="toc-text">2PC（Two-Phase Commit）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCC"><span class="toc-number">3.2.2.</span> <span class="toc-text">TCC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处-1"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题-1"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地消息表"><span class="toc-number">3.2.3.</span> <span class="toc-text">本地消息表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处-2"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题-2"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务消息"><span class="toc-number">3.2.4.</span> <span class="toc-text">事务消息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#好处-3"><span class="toc-number">3.2.4.1.</span> <span class="toc-text">好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题-3"><span class="toc-number">3.2.4.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最大努力通知"><span class="toc-number">3.2.5.</span> <span class="toc-text">最大努力通知</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附"><span class="toc-number">4.</span> <span class="toc-text">附</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://sangrealwar.github.io/2024/07/04/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="EmiyaQ"><meta itemprop="description" content="分布式事务"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="冬日的阳光"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">分布式事务</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2024-07-04 21:50:01" itemprop="dateCreated datePublished" datetime="2024-07-04T21:50:01+08:00">2024-07-04</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2024-07-09 11:13:53" itemprop="dateModified" datetime="2024-07-09T11:13:53+08:00">2024-07-09</time></span><div class="post-count"></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><meta name="referrer" content="no-referrer">
 
 <h1 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h1><h2 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h2><p>原子性（Atomicity）：事务要么全部做，要么全部不做。</p>
 <p>一致性（Consistency）：事务使系统从一个一致性的状态转换到另一个一致性的状态。</p>
@@ -95,30 +95,96 @@
 <h2 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h2><h3 id="Basically-Available-基本可用"><a href="#Basically-Available-基本可用" class="headerlink" title="Basically Available(基本可用)"></a>Basically Available(基本可用)</h3><p>是指分布式系统在出现故障的时候，允许损失部分可用性，即保证核心可用，支持分区失败。</p>
 <h3 id="Soft-state-柔性状态"><a href="#Soft-state-柔性状态" class="headerlink" title="Soft state(柔性状态)"></a>Soft state(柔性状态)</h3><p>是指允许系统存在中间状态，而该中间状态不会影响系统整体可用性。</p>
 <h3 id="Eventually-consistent-最终一致"><a href="#Eventually-consistent-最终一致" class="headerlink" title="Eventually consistent(最终一致)"></a>Eventually consistent(最终一致)</h3><p>系统中的所有数据副本经过一定时间后，最终能够达到一致的状态。</p>
-<h2 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h2><p>强一致性</p>
+<h2 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h2><p>顺序一致性</p>
+<p>线性一致性</p>
+<p>强一致性</p>
 <p>弱一致性</p>
 <p>无一致性</p>
-<h1 id="什么是分布式事务"><a href="#什么是分布式事务" class="headerlink" title="什么是分布式事务"></a>什么是分布式事务</h1><p>在分布式场景下，不同节点通过网络连接在一起，共同提供服务，单机事务随之也升级为分布式事务。预期下，我们希望一个业务流程，可以经过多个分布式节点，同样可以实现类似于单体应用下的ACID特性，即业务操作是原子的，业务结果前后是一致的。为了尽可能满足ACID，业界有多种分布式事务的实现方案。不同的方案各有优劣，都在强一致性与高可用之间寻求平衡。</p>
-<h2 id="常见做法"><a href="#常见做法" class="headerlink" title="常见做法"></a>常见做法</h2><h3 id="简单粗暴"><a href="#简单粗暴" class="headerlink" title="简单粗暴"></a>简单粗暴</h3><blockquote>
-<p>无一致性</p>
-</blockquote>
+<h1 id="什么是分布式事务"><a href="#什么是分布式事务" class="headerlink" title="什么是分布式事务"></a>什么是分布式事务</h1><p>分布式事务可以理解为：由分布在不同节点的本地事务，通过协调调度，使整体满足ACID的事务。</p>
+<p>在分布式场景下，不同节点通过网络连接在一起，共同提供服，预期下，我们希望一个业务流程，可以经过多个分布式节点，同样可以实现类似于单体应用下的ACID特性，即业务操作是原子的，业务结果前后是一致的。由于网络的不确定性，分布式事务只能尽可能满足ACID。业界有多种分布式事务的实现方案，不同的方案各有优劣，都在一致性与隔离性之间寻求平衡。</p>
+<p>举个无一致性特性例子</p>
 <ul>
 <li>直接使用DB本地事务内调用第三方接口（RPC，MQ）</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSave</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">//开启事务</span></span><br><span class="line">  startTransaction();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//DB保存，执行场景A</span></span><br><span class="line">  saveDB();</span><br><span class="line">  <span class="comment">//调用第三方接口，执行场景B</span></span><br><span class="line">  callRPC();</span><br><span class="line">  <span class="comment">//调用第三方接口，执行场景C</span></span><br><span class="line">  sendMq();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//提交事务</span></span><br><span class="line">  commitTransaction();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h4 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h4><ol>
+<ul>
+<li>好处</li>
+</ul>
+<ol>
 <li>实现简单粗暴</li>
 <li>一定程度保证第三方接口100%调用成功</li>
 </ol>
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ol>
+<ul>
+<li>问题</li>
+</ul>
+<ol>
 <li>顺序依赖：第三方接口如果依赖本地事务提交后的数据，会由于当前事务未提交而查询不到最新数据，造成流程不可预期</li>
 <li>幻读：ABC三个执行场景，如果执行场景B成功后，但执行场景C【调用超时未响应】、【调用异常报错】、【本地事务超时回滚】，如果此时回滚当前事务A，会造成执行场景B已被执行，但不应该执行的情况。</li>
 </ol>
-<h3 id="本地消息表"><a href="#本地消息表" class="headerlink" title="本地消息表"></a>本地消息表</h3><blockquote>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
+<li>强一致性<ul>
+<li>2PC<ul>
+<li>XA协议</li>
+</ul>
+</li>
+<li>3PC</li>
+</ul>
+</li>
+<li>柔性事务，最终一致性<ul>
+<li>TCC<ul>
+<li>每个业务操作分为三个业务接口</li>
+</ul>
+</li>
+<li>可靠消息<ul>
+<li>本地消息表/本地事务表</li>
+<li>事务消息</li>
+</ul>
+</li>
+<li>最大努力通知</li>
+</ul>
+</li>
+<li></li>
+<li>Seata</li>
+<li>Saga长事务</li>
+</ul>
+<h2 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h2><h3 id="2PC（Two-Phase-Commit）"><a href="#2PC（Two-Phase-Commit）" class="headerlink" title="2PC（Two-Phase Commit）"></a>2PC（Two-Phase Commit）</h3><blockquote>
+<p>强一致性，只是概念协议，实际工程落地需要结合数据库（如mysql支持2PC协议）</p>
+</blockquote>
+<p>前提假设：存在一个节点作为协调者，其他节点作为参与者，节点之间通信正常；节点采用预写日志，保证持久性。一般数据库会实现2PC协议</p>
+<ul>
+<li>准备阶段：协调者向每个参与者发送Prepare消息，每个参与者本地执行事务，但事务并不提交。如果执行成功，则返回协调者同意，否则，返回终止。</li>
+<li>提交阶段：协调者如果收到终止消息，则向所有参与者发送回滚消息。如果协调者都返回同意，则发送提交命令。</li>
+</ul>
+<h4 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h4><ol>
+<li>利用数据库本地事务特性，在准备阶段会锁定资源，提交阶段在网络正常的情况下，能达到强一致的效果</li>
+<li>数据库自身通过 undo/redo日志，实现了2PC，业务侵入较低</li>
+</ol>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ol>
+<li>性能差，准备阶段数据被锁定</li>
+<li>协调者处于单点状态，严重依赖协调者的稳定性，一旦协调者在提交阶段崩溃，会导致锁定的数据库资源无法释放</li>
+<li>网络异常，参与者在提交阶段如果没有收到提交命令，会导致数据不一致</li>
+</ol>
+<p>XA（eXtend Architecture）</p>
+<p>3PC（Three-Phase Commit），3PC在2PC的基础上，增加了预准备阶段，增加了参与者未收到提交命令后自动提交的机制。通过预准备阶段，进一步降低准备阶段锁定数据的概率，同时降低提交阶段数据不一致的风险。简而言之是通过降低一致性，提高整体性能。</p>
+<h3 id="TCC"><a href="#TCC" class="headerlink" title="TCC"></a>TCC</h3><blockquote>
 <p>最终一致性（弱一致性）</p>
+</blockquote>
+<p>2PC和3PC都是数据库层面的事务提交回滚，TCC（Try、Confirm、Cancel ）在业务上，显示定义预提交，确认，取消三个接口，一个业务动作需要改造成3个接口，且接口必须实现幂等。操作流程和2PC类似，协调者（业务发起方）通过Try接口调用参与者（业务配合方）锁定资源，如果下游参与者都返回成功，协调者则发送Confirm通知参与者执行资源。如果有一个参与者返回失败，协调者则发送Cancel通知参与者回滚锁定资源。</p>
+<ul>
+<li>幂等：由于网络不可信，三个业务接口均实现幂等</li>
+<li>空回滚：Try未接收到，但是收到了Cancel，需要Cancel消息能够正常处理</li>
+<li>悬挂：一开始Try未接收到，Cancel处理之后，又收到Try消息，需要能正常忽略此Try消息</li>
+</ul>
+<h4 id="好处-1"><a href="#好处-1" class="headerlink" title="好处"></a>好处</h4><ol>
+<li>性能较高，TCC三个接口本质上都是单独的本地事务，阻塞时间少</li>
+<li>业界通用，理解成本低。即使调用第三方接口，也可以通过业务上回滚，达到类似TCC的效果</li>
+</ol>
+<h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><ol>
+<li>业务侵入性高，需要额外处理空回滚，悬挂等问题，工程上较为复杂</li>
+</ol>
+<h3 id="本地消息表"><a href="#本地消息表" class="headerlink" title="本地消息表"></a>本地消息表</h3><blockquote>
+<p>最终一致性（弱一致性），属于可靠消息最终一致性</p>
 </blockquote>
 <ul>
 <li>新建本地消息表，每一个场景新建一张表（也可以加类型字段区分）</li>
@@ -127,58 +193,35 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`xxx_log`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`message_id`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'消息id'</span>,</span><br><span class="line">  <span class="string">`message_data`</span> <span class="built_in">varchar</span>(<span class="number">1000</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'消息内容体'</span>,</span><br><span class="line">  <span class="string">`status`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'状态（ready,finish）'</span>,</span><br><span class="line">  <span class="string">`business_time`</span> datetime(<span class="number">6</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'业务时间'</span>,</span><br><span class="line">  <span class="string">`create_time`</span> datetime(<span class="number">6</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'创建时间'</span>,</span><br><span class="line">  <span class="string">`modify_time`</span> datetime(<span class="number">6</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'更新时间'</span>,</span><br><span class="line">  <span class="string">`ext`</span> <span class="built_in">varchar</span>(<span class="number">500</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>),</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`idx_time`</span> (<span class="string">`status`</span>,<span class="string">`business_time`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4 <span class="keyword">COMMENT</span>=<span class="string">'本地消息表'</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="好处-1"><a href="#好处-1" class="headerlink" title="好处"></a>好处</h4><ol>
+<h4 id="好处-2"><a href="#好处-2" class="headerlink" title="好处"></a>好处</h4><ol>
 <li>实现相对简单</li>
 <li>进一步保证第三方接口100%调用成功</li>
 <li>确保本地事务的第一优先级</li>
 </ol>
-<h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><ol>
+<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h4><ol>
 <li>不支持回滚，因为本地事务已经保存，第三方接口处理成功与否，不影响本地事务的执行，因此严格来说，这种不算事务</li>
 <li>每一个场景都需要建一张表，复用性不高</li>
-</ol>
-<h3 id="2PC（Two-Phase-Commit）"><a href="#2PC（Two-Phase-Commit）" class="headerlink" title="2PC（Two-Phase Commit）"></a>2PC（Two-Phase Commit）</h3><p>前提假设：存在一个节点作为协调者，其他节点作为参与者，节点之间通信正常；节点采用预写日志，保证持久性。一般数据库会实现2PC协议</p>
-<ul>
-<li>准备阶段：协调者向每个参与者发送Prepare消息，每个参与者本地执行事务，但事务并不提交。如果执行成功，则返回协调者同意，否则，返回终止。</li>
-<li>提交阶段：协调者如果收到终止消息，则向所有参与者发送回滚消息。如果协调者都返回同意，则发送提交命令。</li>
-</ul>
-<h4 id="好处-2"><a href="#好处-2" class="headerlink" title="好处"></a>好处</h4><ol>
-<li>利用数据库本地事务特性，在准备阶段会锁定资源，提交阶段在网络正常的情况下，能达到强一致的效果</li>
-<li>数据库自身通过 undo/redo日志，实现了2PC，业务侵入较低</li>
-</ol>
-<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h4><ol>
-<li>性能差，准备阶段数据被锁定</li>
-<li>协调者处于单点状态，严重依赖协调者的稳定性，一旦协调者在提交阶段崩溃，会导致锁定的数据库资源无法释放</li>
-<li>网络异常，参与者在提交阶段如果没有收到提交命令，会导致数据不一致</li>
-</ol>
-<p>简单提一下3PC（Three-Phase Commit），3PC在2PC的基础上，增加了预准备阶段，增加了参与者未收到提交命令后自动提交的机制。通过预准备阶段，进一步降低准备阶段锁定数据的概率，同时降低提交阶段数据不一致的风险。简而言之是通过降低一致性，提高整体性能。</p>
-<h3 id="TCC"><a href="#TCC" class="headerlink" title="TCC"></a>TCC</h3><p>2PC和3PC都是数据库层面的事务提交回滚，TCC（Try、Confirm、Cancel ）在业务上，显示定义预提交，确认，取消三个接口，一个业务动作需要改造成3个接口，且接口必须实现幂等。操作流程和2PC类似，协调者（业务发起方）通过Try接口调用参与者（业务配合方）锁定资源，如果下游参与者都返回成功，协调者则发送Confirm通知参与者执行资源。如果有一个参与者返回失败，协调者则发送Cancel通知参与者回滚锁定资源。</p>
-<ul>
-<li>幂等：由于网络不可信，三个业务接口均实现幂等</li>
-<li>空回滚：Try未接收到，但是收到了Cancel，需要Cancel消息能够正常处理</li>
-<li>悬挂：一开始Try未接收到，Cancel处理之后，又收到Try消息，需要能正常忽略此Try消息</li>
-</ul>
-<h4 id="好处-3"><a href="#好处-3" class="headerlink" title="好处"></a>好处</h4><ol>
-<li>性能较高，TCC三个接口本质上都是单独的本地事务，阻塞时间少</li>
-<li>业界通用，理解成本低。即使调用第三方接口，也可以通过业务上回滚，达到类似TCC的效果</li>
-</ol>
-<h4 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h4><ol>
-<li>业务侵入性高，需要额外处理空回滚，悬挂等问题，工程上较为复杂</li>
+<li>由于依赖本地数据库存放消息，并发量不高</li>
 </ol>
 <h3 id="事务消息"><a href="#事务消息" class="headerlink" title="事务消息"></a>事务消息</h3><blockquote>
-<p> TCC的异步版本</p>
+<p> 本地消息表的中间件版本，属于可靠消息最终一致性</p>
 </blockquote>
 <ul>
-<li>发送parpered消息（携带业务唯一id），类似与Try</li>
-<li>业务方执行本地事务（保存业务唯一id），类似于Confirm</li>
-<li>发送commit消息。如果commit消息发送失败/下游未收到commit消息，业务方提供反查接口，根据业务唯一id确定事务是否执行成功，以判断消息是否应该处理，还是重新拉取。</li>
+<li>准备阶段：发送parpered消息（携带业务唯一id），类似与Try</li>
+<li>执行阶段：业务方执行本地事务（保存业务唯一id），类似于Confirm</li>
+<li>确认/回滚阶段：发送commit消息。如果commit消息发送失败/下游未收到commit消息，业务方提供反查接口，根据业务唯一id确定事务是否执行成功，以判断消息是否应该处理，还是重新拉取。事务消息回滚与本地事务回滚类似于Cancel。</li>
 </ul>
-<h4 id="好处-4"><a href="#好处-4" class="headerlink" title="好处"></a>好处</h4><ol>
+<h4 id="好处-3"><a href="#好处-3" class="headerlink" title="好处"></a>好处</h4><ol>
 <li>封装良好，由消息中间件实现本地消息表的逻辑</li>
 <li>业务侵入性较低</li>
 </ol>
-<h4 id="问题-4"><a href="#问题-4" class="headerlink" title="问题"></a>问题</h4><ol>
+<h4 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h4><ol>
 <li>不是所有MQ组件都支持，目前已知，RocketMQ支持事务消息。</li>
 </ol>
+<h3 id="最大努力通知"><a href="#最大努力通知" class="headerlink" title="最大努力通知"></a>最大努力通知</h3><blockquote>
+<p>与可靠消息相比，最大的区别在于，业务操作完，不保证一定发送消息。</p>
+</blockquote>
+<p>最大努力通知的作用场景主要是外部系统。考虑外部网络环境的不可控因素，无法试用事务消息保证数据的最终一致，而且消息发送涉及外部网络（大概率是RPC接口），可能出现超时的情况，无法确定消息发送的情况。</p>
 <h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>参考：《Designing Data-Intensive Applications》</p>
 <p>参考：<a href="https://zhuanlan.zhihu.com/p/480379228" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/480379228</a></p>
 <p>CAP论文：<a href="https://groups.csail.mit.edu/tds/papers/Gilbert/Brewer2.pdf" target="_blank" rel="noopener">https://groups.csail.mit.edu/tds/papers/Gilbert/Brewer2.pdf</a></p>
