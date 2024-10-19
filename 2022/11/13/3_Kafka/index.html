@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="人生，总有些黑暗的隧道需要自己穿越">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            Kafka |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Keep Theme","author":"Keep Team","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Keep Theme
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Kafka
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Keep Team</span>
+                                
+                                    <span class="author-badge">Lv4</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2022-11-13 10:10:39</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sun Aug 04 2024 23:36:52 GMT+0800">2024-08-04 23:36:52</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%84%E4%BB%B6/">分布式组件</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BB%84%E4%BB%B6/">组件</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <meta name="referrer" content="no-referrer">
+
+<p>Kafka作为高性能事件流平台，可以存储，发布订阅，处理各种流事件，被广泛用于消息中间件，流处理组件等应用上。</p>
+<p>Log消息存储</p>
+<p><a href="https://kafka.apache.org/0100/documentation.html#log" target="_blank" rel="noopener">https://kafka.apache.org/0100/documentation.html#log</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><ul>
+<li>发送消息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/kafka-console-producer.sh --broker-list localhost:9092  --topic tmp-offset</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>消费消息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic tmp-offset --from-beginning --group aaaa123</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看消费者偏移量</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic tmp-offset</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="spring-kafka"><a href="#spring-kafka" class="headerlink" title="spring-kafka"></a>spring-kafka</h2><ul>
+<li>定义kafka配置</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ConsumerFactory&lt;Integer, String&gt; <span class="title">consumerFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DefaultKafkaConsumerFactory&lt;&gt;(consumerProps());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Map&lt;String, Object&gt; <span class="title">consumerProps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; props = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, <span class="string">"localhost:9092"</span>);</span><br><span class="line">        props.put(ConsumerConfig.GROUP_ID_CONFIG, <span class="string">"group"</span>);</span><br><span class="line">        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, IntegerDeserializer<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, <span class="string">"earliest"</span>);</span><br><span class="line">        <span class="comment">//2 手动提交offset</span></span><br><span class="line">        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,<span class="string">"false"</span>);</span><br><span class="line"><span class="comment">//3. 分配策略，改为随机分配</span></span><br><span class="line">        <span class="comment">//props.put(ConsumerConfig.PARTITION_ASSIGNMENT_STRATEGY_CONFIG, "org.apache.kafka.clients.consumer.RoundRobinAssignor");</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ProducerFactory&lt;Integer, String&gt; <span class="title">producerFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DefaultKafkaProducerFactory&lt;&gt;(senderProps());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Map&lt;String, Object&gt; <span class="title">senderProps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; props = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, <span class="string">"localhost:9092"</span>);</span><br><span class="line">        props.put(ProducerConfig.LINGER_MS_CONFIG, <span class="number">10</span>);</span><br><span class="line">        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        <span class="keyword">return</span> props;</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> KafkaTemplate&lt;Integer, String&gt; <span class="title">kafkaTemplate</span><span class="params">(ProducerFactory&lt;Integer, String&gt; producerFactory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> KafkaTemplate&lt;Integer, String&gt;(producerFactory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> KafkaListenerContainerFactory&lt;ConcurrentMessageListenerContainer&lt;Integer, String&gt;&gt; kafkaContainerFactory(ConsumerFactory&lt;Integer, String&gt; consumerFactory) &#123;</span><br><span class="line">        ConcurrentKafkaListenerContainerFactory&lt;Integer, String&gt; factory = <span class="keyword">new</span> ConcurrentKafkaListenerContainerFactory&lt;&gt;();</span><br><span class="line">        factory.setConsumerFactory(consumerFactory);</span><br><span class="line">        factory.setConcurrency(<span class="number">3</span>);</span><br><span class="line">        factory.getContainerProperties().setPollTimeout(<span class="number">3000</span>);</span><br><span class="line">        <span class="keyword">return</span> factory;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>消费者</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class TestConsumer &#123;</span><br><span class="line"></span><br><span class="line">    @KafkaListener(topics &#x3D; &quot;bid-uc&quot;,</span><br><span class="line">            groupId &#x3D; &quot;saas-mcloud-cdp-bid-uc-tag-core&quot;,</span><br><span class="line">            containerFactory &#x3D; &quot;kafkaContainerFactory&quot;)</span><br><span class="line">    public void test(ConsumerRecord&lt;String, String&gt; record)&#123;</span><br><span class="line">        System.out.println(&quot;项目2收到消息：&quot;+record.value());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看topic详情，调整partitions到3（提前设置好partitions）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --zookeeper localhost:2181 --describe --topic bid-uc</span><br><span class="line">./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group saas-mcloud-cdp-bid-uc-tag-core</span><br><span class="line">./kafka-topics.sh --zookeeper localhost:2181 --alter --topic bid-uc --partitions 3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发送消息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;kafka-console-producer.sh --broker-list localhost:9092  --topic bid-uc 123</span><br></pre></td></tr></table></figure>
+
+<p>当topic已经创建后，partitions调整到3，等待一段时间后，kafka会自动重新分配。</p>
+<ul>
+<li>根据时间重放消息</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 定义消费者</span></span><br><span class="line">Map&lt;String, Object&gt; props = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, <span class="string">"localhost:9092"</span>);</span><br><span class="line">props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, IntegerDeserializer<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"><span class="comment">//消费组名</span></span><br><span class="line">props.put(ConsumerConfig.GROUP_ID_CONFIG, <span class="string">"aaaa123"</span>);</span><br><span class="line"><span class="comment">//取消自动提交</span></span><br><span class="line">props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, <span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//批量消费数量</span></span><br><span class="line">props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, <span class="number">10</span>);</span><br><span class="line"><span class="comment">//批量消费数量</span></span><br><span class="line">props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, <span class="number">2000</span>);</span><br><span class="line"><span class="comment">//重置策略</span></span><br><span class="line">props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, <span class="string">"latest"</span>);</span><br><span class="line"></span><br><span class="line">String topicName=<span class="string">"tmp-offset"</span>;</span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line">KafkaConsumer kafkaConsumer = <span class="keyword">new</span> KafkaConsumer(props);</span><br><span class="line">kafkaConsumer.subscribe(Arrays.asList(topicName));</span><br><span class="line"></span><br><span class="line"><span class="comment">//等待重分配后，保证kafkaConsumer.assignment()有值</span></span><br><span class="line"><span class="keyword">while</span> (kafkaConsumer.assignment().isEmpty()) &#123;</span><br><span class="line">  kafkaConsumer.poll(Duration.ofMillis(<span class="number">100</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//指定时间点</span></span><br><span class="line"><span class="keyword">long</span> startTime = LocalDateTime.of(<span class="number">2023</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">19</span>, <span class="number">29</span>).</span><br><span class="line">  toInstant(ZoneOffset.ofHours(<span class="number">8</span>)).toEpochMilli();</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过通过seek重定位到待消费的地方</span></span><br><span class="line">Map&lt;TopicPartition, Long&gt; timeToSearch = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Set&lt;TopicPartition&gt; assignment = kafkaConsumer.assignment();</span><br><span class="line"><span class="keyword">for</span> (TopicPartition topicPartition : assignment) &#123;</span><br><span class="line">  timeToSearch.put(topicPartition, startTime);</span><br><span class="line">&#125;</span><br><span class="line">Map&lt;TopicPartition, OffsetAndTimestamp&gt; map = kafkaConsumer.offsetsForTimes(timeToSearch);</span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;TopicPartition, OffsetAndTimestamp&gt; entry : map.entrySet()) &#123;</span><br><span class="line">  System.out.println(<span class="string">"entry.getValue().offset()="</span>+entry.getValue().offset());</span><br><span class="line">  kafkaConsumer.seek(entry.getKey(), entry.getValue().offset());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//开始消费</span></span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">  ConsumerRecords&lt;String, String&gt; records = kafkaConsumer.poll(Duration.ofMillis(<span class="number">100</span>));</span><br><span class="line">  <span class="keyword">for</span> (ConsumerRecord&lt;String, String&gt; record : records) &#123;</span><br><span class="line">    System.out.printf(<span class="string">"消费到消息 partition = %d, offset = %d, key = %s, value = %s%n"</span>, record.partition(),record.offset(), record.key(), record.value());</span><br><span class="line">  &#125;</span><br><span class="line">  Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="Offset为什么会中间不连续"><a href="#Offset为什么会中间不连续" class="headerlink" title="Offset为什么会中间不连续"></a>Offset为什么会中间不连续</h2><p>大概率是启用了事务，开启事务时，Kafka会先提交消息，占用offset，但该消息并不被”读已提交隔离级别的”的消费者可见，直到再次发送方确定事务提交后，消费者才能看到该消息。</p>
+<h2 id="如果本地没有提交偏移量，那下次拉取还能拉取到这个消息吗？"><a href="#如果本地没有提交偏移量，那下次拉取还能拉取到这个消息吗？" class="headerlink" title="如果本地没有提交偏移量，那下次拉取还能拉取到这个消息吗？"></a>如果本地没有提交偏移量，那下次拉取还能拉取到这个消息吗？</h2><p>严格来说，需要分为3种场景，简而言之，保险起见，可以调用seek方法，重置消费者的Subscription，确保能够再次拉取到消息</p>
+<ul>
+<li>a) 消费者客户端重启，此时由于<strong>Subscriptions重置</strong>，会从当前offset开始拉取，则下次拉取可以拉到旧消息；</li>
+<li>b) 消费者未重启，消费线程报错，但恰好本轮poll时间结束，进入下一轮拉取，未提交偏移量，那在下一次拉取时，由于<strong>Subscriptitions会重置</strong>，依然可以拉取到旧消息；</li>
+<li>c) 消费者未重启，消费线程报错，但依然在本轮poll内，由于消费者拉取时，缓存了Subscriptitions，不会重置，因此，会拉取到最新的消息。</li>
+</ul>
+<p>Fetch流程图</p>
+<p><img src="/2022/11/13/3_Kafka/image7.png" alt="image-20230228221535616" loading="lazy"></p>
+<p>源码流程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line">org.apache.kafka.clients.consumer.KafkaConsumer#poll(org.apache.kafka.common.utils.Timer, boolean)</span><br><span class="line"></span><br><span class="line">private ConsumerRecords&lt;K, V&gt; poll(final Timer timer, final boolean includeMetadataInTimeout) &#123;</span><br><span class="line">        acquireAndEnsureOpen();</span><br><span class="line">        try &#123;</span><br><span class="line">            &#x2F;&#x2F; 省略校验 </span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; poll for new data until the timeout expires</span><br><span class="line">            do &#123;</span><br><span class="line">                &#x2F;&#x2F; 省略前置处理，updateAssignmentMetadataIfNeeded需要重点关注下，这里是缓存消费方偏移量的地方，通过定时拉取，获取每个topic，partition的当前offset（未提交的offset）</span><br><span class="line">                </span><br><span class="line">								&#x2F;&#x2F; 拉取的核心方法</span><br><span class="line">                final Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; records &#x3D; pollForFetches(timer);</span><br><span class="line">                if (!records.isEmpty()) &#123;</span><br><span class="line">                    &#x2F;&#x2F; 省略拉取到消息的超时处理</span><br><span class="line"></span><br><span class="line">										&#x2F;&#x2F; 返回结果</span><br><span class="line">                    return this.interceptors.onConsume(new ConsumerRecords&lt;&gt;(records));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; while (timer.notExpired());</span><br><span class="line"></span><br><span class="line">            return ConsumerRecords.empty();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            release();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    org.apache.kafka.clients.consumer.KafkaConsumer#pollForFetches</span><br><span class="line">    private Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; pollForFetches(Timer timer) &#123;</span><br><span class="line">        long pollTimeout &#x3D; coordinator &#x3D;&#x3D; null ? timer.remainingMs() :</span><br><span class="line">                Math.min(coordinator.timeToNextPoll(timer.currentTimeMs()), timer.remainingMs());</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 尝试获取拉取到的数据</span><br><span class="line">        final Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; records &#x3D; fetcher.fetchedRecords();</span><br><span class="line">        if (!records.isEmpty()) &#123;</span><br><span class="line">            return records;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 发送拉取数据的请求</span><br><span class="line">        fetcher.sendFetches();</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 省略一堆看不懂的有关时间和的处理</span><br><span class="line"></span><br><span class="line">    		&#x2F;&#x2F; 获取拉取的数据</span><br><span class="line">        return fetcher.fetchedRecords();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    org.apache.kafka.clients.consumer.internals.Fetcher#sendFetches</span><br><span class="line">    public synchronized int sendFetches() &#123;</span><br><span class="line">        &#x2F;&#x2F; Update metrics in case there was an assignment change</span><br><span class="line">        sensors.maybeUpdateAssignment(subscriptions);</span><br><span class="line"></span><br><span class="line">        Map&lt;Node, FetchSessionHandler.FetchRequestData&gt; fetchRequestMap &#x3D; prepareFetchRequests();</span><br><span class="line">        for (Map.Entry&lt;Node, FetchSessionHandler.FetchRequestData&gt; entry : fetchRequestMap.entrySet()) &#123;</span><br><span class="line">            &#x2F;&#x2F; 省略 构造拉取数据请求</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F; 发起客户端调用，拉取数据，返回Future对象</span><br><span class="line">            RequestFuture&lt;ClientResponse&gt; future &#x3D; client.send(fetchTarget, request);</span><br><span class="line">          </span><br><span class="line">          	&#x2F;&#x2F; 省略部分代码</span><br><span class="line">            this.nodesWithPendingFetchRequests.add(entry.getKey().id());</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F; Future调用成功后回调</span><br><span class="line">            future.addListener(new RequestFutureListener&lt;ClientResponse&gt;() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void onSuccess(ClientResponse resp) &#123;</span><br><span class="line">                    synchronized (Fetcher.this) &#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">                            FetchResponse&lt;Records&gt; response &#x3D; (FetchResponse&lt;Records&gt;) resp.responseBody();</span><br><span class="line">                            </span><br><span class="line">                        		&#x2F;&#x2F; 省略拉取到数据的处理方法</span><br><span class="line">                            for (Map.Entry&lt;TopicPartition, FetchResponse.PartitionData&lt;Records&gt;&gt; entry : response.responseData().entrySet()) &#123;</span><br><span class="line">                                TopicPartition partition &#x3D; entry.getKey();</span><br><span class="line">                                FetchRequest.PartitionData requestData &#x3D; data.sessionPartitions().get(partition);</span><br><span class="line">                                if (requestData &#x3D;&#x3D; null) &#123;</span><br><span class="line">                                	 &#x2F;&#x2F; 省略未获取到数据的情况</span><br><span class="line">                                &#125; else &#123;</span><br><span class="line">                                    long fetchOffset &#x3D; requestData.fetchOffset;</span><br><span class="line">                                    &#x2F;&#x2F; 省略获取到数据的处理</span><br><span class="line">                                    </span><br><span class="line">                                    &#x2F;&#x2F; 1. 重点，返回参数里，会根据请求参数，获取最新未完成提交的fetchOffset（情况1：消费方未提交offset时异常，那重启后，这里一般会返回未提交的最后一个位点，以便能够继续拉取消息，情况2：消费方已经启动了，但是offset落后集群，但是此时来了一条新数据，这里一般会返回最新的offset，因为请求参数里，携带的是最早的offset）</span><br><span class="line">                                    completedFetches.add(new CompletedFetch(partition, fetchOffset, fetchData, metricAggregator,</span><br><span class="line">                                            resp.requestHeader().apiVersion()));</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line"></span><br><span class="line">                            sensors.fetchLatency.record(resp.requestLatencyMs());</span><br><span class="line">                        &#125; finally &#123;</span><br><span class="line">                            nodesWithPendingFetchRequests.remove(fetchTarget.id());</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                @Override</span><br><span class="line">                public void onFailure(RuntimeException e) &#123;</span><br><span class="line">                    &#x2F;&#x2F;省略失败处理</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        return fetchRequestMap.size();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    org.apache.kafka.clients.consumer.internals.Fetcher#fetchedRecords</span><br><span class="line">    public Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; fetchedRecords() &#123;</span><br><span class="line">        Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; fetched &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">        int recordsRemaining &#x3D; maxPollRecords;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            while (recordsRemaining &gt; 0) &#123;</span><br><span class="line">                if (nextInLineRecords &#x3D;&#x3D; null || nextInLineRecords.isFetched) &#123;</span><br><span class="line">                    CompletedFetch completedFetch &#x3D; completedFetches.peek();</span><br><span class="line">                    if (completedFetch &#x3D;&#x3D; null) break;</span><br><span class="line"></span><br><span class="line">                    try &#123;</span><br><span class="line">                    		&#x2F;&#x2F; 2. 这里从已完成的拉取里面（completedFetch）获取构造获取下一次拉取的数据</span><br><span class="line">                        nextInLineRecords &#x3D; parseCompletedFetch(completedFetch);</span><br><span class="line">                    &#125; catch (Exception e) &#123;</span><br><span class="line">                        &#x2F;&#x2F; 省略异常处理</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#x2F;&#x2F;3. 获取完就移除completedFetch队头元素</span><br><span class="line">                    completedFetches.poll();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                  	&#x2F;&#x2F; 利用上一个if中构造的nextInLineRecords，解析nextInLineRecords，获取到这一批的数据</span><br><span class="line">                    List&lt;ConsumerRecord&lt;K, V&gt;&gt; records &#x3D; fetchRecords(nextInLineRecords, recordsRemaining);</span><br><span class="line">                    TopicPartition partition &#x3D; nextInLineRecords.partition;</span><br><span class="line">                    if (!records.isEmpty()) &#123;</span><br><span class="line">                        &#x2F;&#x2F; 省略获取到数据的处理</span><br><span class="line">                        </span><br><span class="line">                        &#x2F;&#x2F; 并继续尝试获取下一批</span><br><span class="line">                        recordsRemaining -&#x3D; records.size();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (KafkaException e) &#123;</span><br><span class="line">            if (fetched.isEmpty())</span><br><span class="line">                throw e;</span><br><span class="line">        &#125;</span><br><span class="line">        return fetched;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    org.apache.kafka.clients.consumer.internals.Fetcher#fetchRecords</span><br><span class="line">    private List&lt;ConsumerRecord&lt;K, V&gt;&gt; fetchRecords(PartitionRecords partitionRecords, int maxRecords) &#123;</span><br><span class="line">        if (!subscriptions.isAssigned(partitionRecords.partition)) &#123;</span><br><span class="line">             &#x2F;&#x2F; 省略</span><br><span class="line">        &#125; else if (!subscriptions.isFetchable(partitionRecords.partition)) &#123;</span><br><span class="line">            &#x2F;&#x2F; 省略</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            SubscriptionState.FetchPosition position &#x3D; subscriptions.position(partitionRecords.partition);</span><br><span class="line">            if (partitionRecords.nextFetchOffset &#x3D;&#x3D; position.offset) &#123;</span><br><span class="line">								&#x2F;&#x2F; 重点返回数据方法，该方法会更新partitionRecords的nextFetchOffset，不断拉取数据</span><br><span class="line">                List&lt;ConsumerRecord&lt;K, V&gt;&gt; partRecords &#x3D; partitionRecords.fetchRecords(maxRecords);</span><br><span class="line"></span><br><span class="line">                if (partitionRecords.nextFetchOffset &gt; position.offset) &#123;</span><br><span class="line">                		&#x2F;&#x2F; 如果新的下一段offset大于本地缓存的offset，则需要更新本地offset缓存</span><br><span class="line">                    SubscriptionState.FetchPosition nextPosition &#x3D; new SubscriptionState.FetchPosition(</span><br><span class="line">                            partitionRecords.nextFetchOffset,</span><br><span class="line">                            partitionRecords.lastEpoch,</span><br><span class="line">                            position.currentLeader);</span><br><span class="line">                    log.trace(&quot;Returning fetched records at offset &#123;&#125; for assigned partition &#123;&#125; and update &quot; +</span><br><span class="line">                            &quot;position to &#123;&#125;&quot;, position, partitionRecords.partition, nextPosition);</span><br><span class="line">                    subscriptions.position(partitionRecords.partition, nextPosition);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F; 省略更新其他数据</span><br><span class="line">                </span><br><span class="line">                &#x2F;&#x2F; 返回拉取的数据对象</span><br><span class="line">                return partRecords;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                &#x2F;&#x2F; 省略</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        partitionRecords.drain();</span><br><span class="line">        return emptyList();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h1><blockquote>
+<p>监控的指标有很多，这里以监控消费偏移量作为示例，其他指标类似</p>
+</blockquote>
+<h2 id="指标来源"><a href="#指标来源" class="headerlink" title="指标来源"></a>指标来源</h2><p>数据有多种来源</p>
+<ol>
+<li>Kafka自带的命令行，需要进去集群环境</li>
+<li>Kafka集群和消费者应用暴露的jmx指标，无第三方，且指标丰富</li>
+<li>Kafka_exporter收集指标，第三方托管，使用起来方便</li>
+</ol>
+<h3 id="命令行-1"><a href="#命令行-1" class="headerlink" title="命令行"></a>命令行</h3><p>查看消费的消息，需要指定到消费分组，可以看到当前提交偏移量为1，lag=2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  bin .&#x2F;kafka-consumer-groups.sh --bootstrap-server localhost:9092  --describe --group myGroup</span><br><span class="line"></span><br><span class="line">TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                     HOST            CLIENT-ID</span><br><span class="line">demo-topic      0          1               3               2               consumer-1-a86bbec5-c078-4f8e-864f-0a0b6b4717f6 &#x2F;127.0.0.1      consumer-1</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Jmx指标"><a href="#Jmx指标" class="headerlink" title="Jmx指标"></a>Jmx指标</h3><p>查看对应kafka版本暴露的jmx指标，这里使用的是kafka的2.1.0版本，<a href="https://kafka.apache.org/21/documentation.html#monitoring" target="_blank" rel="noopener">https://kafka.apache.org/21/documentation.html#monitoring</a></p>
+<blockquote>
+<p>需要注意的是，server在kafka集群端暴露，producer和consumer是在具体的实例上暴露</p>
+</blockquote>
+<p>服务端启动时，是需要暴露jmx端口的，这里需要改一下启动参数，修改kafka-server-start.sh文件，在开头增加参数，启动即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JMX_PORT=9581</span><br></pre></td></tr></table></figure>
+
+<p>此时，使用jdk自带的jconsoles可以查看到对应mbean</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/jconsole</span><br></pre></td></tr></table></figure>
+
+<p>页面如下</p>
+<p><img src="/2022/11/13/3_Kafka/image1.png" alt="image-20230228221535616" loading="lazy"></p>
+<p>这里是消费者实例的jmx，可以看到消费过2个消息，但并不是lag！（没找到只通过jmx如何判断lag的方式）</p>
+<p><img src="/2022/11/13/3_Kafka/image2.png" alt="image-20230228221535616" loading="lazy"></p>
+<p>另外还有一点，如果要暴露到prometheus，由于jmx的格式不适应prometheus，prometheus提供了kafka的转换agent，地址为：</p>
+<p><a href="https://github.com/prometheus/jmx_exporter" target="_blank" rel="noopener">https://github.com/prometheus/jmx_exporter</a></p>
+<p>放在kafka启动目录下，指定jmx暴露代理，修改kafka启动目录下的kafka-server-start.sh文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> KAFKA_OPTS=<span class="string">"-javaagent:/Users/weiqian/Documents/1_apache/apache-kafka-2.12-2.1.0/bin/jmx_prometheus_javaagent-0.17.0.jar=9990:/Users/weiqian/Documents/1_apache/apache-kafka-2.12-2.1.0/bin/jmx-kafka.yml"</span></span><br></pre></td></tr></table></figure>
+
+<p>其中jmx-kafka.yml是jmx_exporter提供的示例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">lowercaseOutputName: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">rules:</span><br><span class="line"><span class="comment"># Special cases and very specific rules</span></span><br><span class="line">- pattern : kafka.server&lt;<span class="built_in">type</span>=(.+), name=(.+), clientId=(.+), topic=(.+), partition=(.*)&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_server_<span class="variable">$1_</span><span class="variable">$2</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    clientId: <span class="string">"<span class="variable">$3</span>"</span></span><br><span class="line">    topic: <span class="string">"<span class="variable">$4</span>"</span></span><br><span class="line">    partition: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">- pattern : kafka.server&lt;<span class="built_in">type</span>=(.+), name=(.+), clientId=(.+), brokerHost=(.+), brokerPort=(.+)&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_server_<span class="variable">$1_</span><span class="variable">$2</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    clientId: <span class="string">"<span class="variable">$3</span>"</span></span><br><span class="line">    broker: <span class="string">"<span class="variable">$4</span>:<span class="variable">$5</span>"</span></span><br><span class="line">- pattern : kafka.coordinator.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_coordinator_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generic per-second counters with 0-2 key/value pairs</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)PerSec\w*, (.+)=(.+), (.+)=(.+)&gt;&lt;&gt;Count</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_total</span></span><br><span class="line">  <span class="built_in">type</span>: COUNTER</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">    <span class="string">"<span class="variable">$6</span>"</span>: <span class="string">"<span class="variable">$7</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)PerSec\w*, (.+)=(.+)&gt;&lt;&gt;Count</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_total</span></span><br><span class="line">  <span class="built_in">type</span>: COUNTER</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)PerSec\w*&gt;&lt;&gt;Count</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_total</span></span><br><span class="line">  <span class="built_in">type</span>: COUNTER</span><br><span class="line"></span><br><span class="line"><span class="comment"># Quota specific rules</span></span><br><span class="line">- pattern: kafka.server&lt;<span class="built_in">type</span>=(.+), user=(.+), client-id=(.+)&gt;&lt;&gt;([a-z-]+)</span><br><span class="line">  name: kafka_server_quota_<span class="variable">$4</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    resource: <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">    user: <span class="string">"<span class="variable">$2</span>"</span></span><br><span class="line">    clientId: <span class="string">"<span class="variable">$3</span>"</span></span><br><span class="line">- pattern: kafka.server&lt;<span class="built_in">type</span>=(.+), client-id=(.+)&gt;&lt;&gt;([a-z-]+)</span><br><span class="line">  name: kafka_server_quota_<span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    resource: <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">    clientId: <span class="string">"<span class="variable">$2</span>"</span></span><br><span class="line">- pattern: kafka.server&lt;<span class="built_in">type</span>=(.+), user=(.+)&gt;&lt;&gt;([a-z-]+)</span><br><span class="line">  name: kafka_server_quota_<span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    resource: <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">    user: <span class="string">"<span class="variable">$2</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Generic gauges with 0-2 key/value pairs</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+), (.+)=(.+), (.+)=(.+)&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">    <span class="string">"<span class="variable">$6</span>"</span>: <span class="string">"<span class="variable">$7</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+), (.+)=(.+)&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line"></span><br><span class="line"><span class="comment"># Emulate Prometheus 'Summary' metrics for the exported 'Histogram's.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Note that these are missing the '_sum' metric!</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+), (.+)=(.+), (.+)=(.+)&gt;&lt;&gt;Count</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_count</span></span><br><span class="line">  <span class="built_in">type</span>: COUNTER</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">    <span class="string">"<span class="variable">$6</span>"</span>: <span class="string">"<span class="variable">$7</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+), (.+)=(.*), (.+)=(.+)&gt;&lt;&gt;(\d+)thPercentile</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">    <span class="string">"<span class="variable">$6</span>"</span>: <span class="string">"<span class="variable">$7</span>"</span></span><br><span class="line">    quantile: <span class="string">"0.<span class="variable">$8</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+), (.+)=(.+)&gt;&lt;&gt;Count</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_count</span></span><br><span class="line">  <span class="built_in">type</span>: COUNTER</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+), (.+)=(.*)&gt;&lt;&gt;(\d+)thPercentile</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br><span class="line">    quantile: <span class="string">"0.<span class="variable">$6</span>"</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)&gt;&lt;&gt;Count</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_count</span></span><br><span class="line">  <span class="built_in">type</span>: COUNTER</span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)&gt;&lt;&gt;(\d+)thPercentile</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    quantile: <span class="string">"0.<span class="variable">$4</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Generic gauges for MeanRate Percent</span></span><br><span class="line"><span class="comment"># Ex) kafka.server&lt;type=KafkaRequestHandlerPool, name=RequestHandlerAvgIdlePercent&gt;&lt;&gt;MeanRate</span></span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)Percent\w*&gt;&lt;&gt;MeanRate</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_percent</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)Percent\w*&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_percent</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">- pattern: kafka.(\w+)&lt;<span class="built_in">type</span>=(.+), name=(.+)Percent\w*, (.+)=(.+)&gt;&lt;&gt;Value</span><br><span class="line">  name: kafka_<span class="variable">$1_</span><span class="variable">$2_</span><span class="variable">$3_percent</span></span><br><span class="line">  <span class="built_in">type</span>: GAUGE</span><br><span class="line">  labels:</span><br><span class="line">    <span class="string">"<span class="variable">$4</span>"</span>: <span class="string">"<span class="variable">$5</span>"</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Kafka-Exporter"><a href="#Kafka-Exporter" class="headerlink" title="Kafka_Exporter"></a>Kafka_Exporter</h3><p>exporter的方式就比较简单了，直接启动kafka_exporter包，配置kafka的监听路径，地址：<a href="https://github.com/danielqsj/kafka_exporter" target="_blank" rel="noopener">https://github.com/danielqsj/kafka_exporter</a> 启动命令为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./kafka_exporter --kafka.server=localhost:9092</span><br><span class="line"></span><br><span class="line">I1015 16:13:40.495902   12383 kafka_exporter.go:800] Starting kafka_exporter (version=1.7.0, branch=HEAD, revision=7e840e81a0170375214e2c1e1dc7ce94aeff8712)</span><br><span class="line">I1015 16:13:40.501380   12383 kafka_exporter.go:971] Listening on HTTP :9308</span><br></pre></td></tr></table></figure>
+
+<p>访问<a href="http://127.0.0.1:9308/metrics" target="_blank" rel="noopener">http://127.0.0.1:9308/metrics</a> 可以看到监控信息</p>
+<p><img src="/2022/11/13/3_Kafka/image3.png" alt="image-20230228221535616" loading="lazy"></p>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p>直接采用常用的Prometheus+grafana，</p>
+<h3 id="Prometheus"><a href="#Prometheus" class="headerlink" title="Prometheus"></a>Prometheus</h3><p>下载Prometheus安装包，官网如下：<a href="https://prometheus.io/docs/introduction/first_steps/" target="_blank" rel="noopener">https://prometheus.io/docs/introduction/first_steps/</a></p>
+<p>需要配置相关的exporter的端口，这里参考官方文档即可，prometheus.yml如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my global config</span></span><br><span class="line">global:</span><br><span class="line">  scrape_interval: 15s <span class="comment"># Set the scrape interval to every 15 seconds. Default is every 1 minute.</span></span><br><span class="line">  evaluation_interval: 15s <span class="comment"># Evaluate rules every 15 seconds. The default is every 1 minute.</span></span><br><span class="line">  <span class="comment"># scrape_timeout is set to the global default (10s).</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># A scrape configuration containing exactly one endpoint to scrape:</span></span><br><span class="line"><span class="comment"># Here it's Prometheus itself.</span></span><br><span class="line">scrape_configs:</span><br><span class="line">  - job_name: <span class="string">"elasticsearch_exporter"</span></span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [<span class="string">"localhost:9114"</span>]</span><br><span class="line"></span><br><span class="line">  - job_name: <span class="string">"kafka_jmx"</span></span><br><span class="line">    metrics_path: /metrics</span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [<span class="string">'127.0.0.1:9990'</span>]</span><br><span class="line"></span><br><span class="line">  - job_name: <span class="string">"kafka_export"</span></span><br><span class="line">    metrics_path: /metrics</span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [<span class="string">'127.0.0.1:9308'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./prometheus --config.file=prometheus.yml</span><br></pre></td></tr></table></figure>
+
+<p>默认访问：<a href="http://localhost:9090/" target="_blank" rel="noopener">http://localhost:9090/</a></p>
+<p><img src="/2022/11/13/3_Kafka/image4.png" alt="image-20230228221535616" loading="lazy"></p>
+<h3 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a>Grafana</h3><p>下载Grafana安装包，官网如下：<a href="https://grafana.com/docs/grafana/latest/getting-started/get-started-grafana-prometheus/" target="_blank" rel="noopener">https://grafana.com/docs/grafana/latest/getting-started/get-started-grafana-prometheus/</a></p>
+<p>启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./grafana-server web</span><br></pre></td></tr></table></figure>
+
+<p>访问：<a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000/</a></p>
+<p><img src="/2022/11/13/3_Kafka/image5.png" alt="image-20230228221535616" loading="lazy"></p>
+<p>当然，这里的模板还是要借鉴一下神通广大的网友，自己配费劲，比如：<a href="https://grafana.com/grafana/dashboards/7589-kafka-exporter-overview/" target="_blank" rel="noopener">https://grafana.com/grafana/dashboards/7589-kafka-exporter-overview/</a></p>
+<p><img src="/2022/11/13/3_Kafka/image6.png" alt="image-20230228221535616" loading="lazy"></p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BB%84%E4%BB%B6/">组件</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2022/11/26/3_Elasticsearch/"
+                                   title="Elasticsearch"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Elasticsearch</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2022/07/23/2_%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4/"
+                                   title="常用工具命令"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">常用工具命令</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
