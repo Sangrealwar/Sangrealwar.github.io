@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="人生，总有些黑暗的隧道需要自己穿越">
+    <meta name="author" content="EmiyaQ">
+    
+    <title>
+        
+            《微服务系列》笔记 |
+        
+        The winter sunshine
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"The winter sunshine","author":"EmiyaQ","avatar":"/images/pig.png","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","categories":"/categories"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               The winter sunshine
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        《微服务系列》笔记
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/pig.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">EmiyaQ</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2022-01-06 15:16:22</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Thu Aug 01 2024 22:40:37 GMT+0800">2024-08-01 22:40:37</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <blockquote>
+<p>摘自：Chris Richardson 微服务系列，博客地址：<a class="link"   target="_blank" rel="noopener" href="http://blog.daocloud.io/microservices-1/" >http://blog.daocloud.io/microservices-1/<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h1 id="一、微服务架构概念"><a href="#一、微服务架构概念" class="headerlink" title="一、微服务架构概念"></a>一、微服务架构概念</h1><blockquote>
+<p>以一个打车软件为例，描述微服务的架构是因何诞生</p>
+</blockquote>
+<h2 id="单体应用"><a href="#单体应用" class="headerlink" title="单体应用"></a>单体应用</h2><p>一般的单体应用，应用的核心是商务逻辑，由服务，领域对象和各模块事件组成，依赖各种适配器与外部进行交互，比如，数据库访问组件，web的ui组件和Rest-Api等，框架依赖语言，打包成特定文件（war包），部署在特定服务器上（tomcat），早期，配合ide开发还是比较方便的，应用可以简单的复制，做负载均衡进行扩展</p>
+<h2 id="重构困难"><a href="#重构困难" class="headerlink" title="重构困难"></a>重构困难</h2><p>开发方面考虑：随着开发时间的增长，代码库也越来越大，各种包之间的依赖越来越理不清，更加不可能由一个人了解整个项目，最终修复bug和实现新功能就越发耗时，长此以往，代码库越来越难以理解。这种项目最终延迟开发时间，应用越大，启动时间越长，等待时间越长，效率越低。<br>部署方面考虑：复杂的应用想要更新单个部分，也需重新部署整个应用，带来的漫长的等待时间加上全面的测试。<br>安全性考虑：所有模块运行在同一进程中，一旦出现bug，会影响其他模块，导致应用出现bug，可靠性降低。<br>最后，框架重写变得更为艰难，难以大范围的采用新框架。</p>
+<h2 id="采用微服务"><a href="#采用微服务" class="headerlink" title="采用微服务"></a>采用微服务</h2><p>一个微服务一般完成某个特定的功能，每个微服务有着自己的商务逻辑和各种接口，有的微服务通过暴露api被其他服务或客户端调用，运行时，每个实例可能是云虚拟机或docker容器。<br>应用的功能由自身的微服务实施，网页应用被拆分成一套简单的网页应用（乘客应用和司机应用），每个后端服务包括一个REST API和由其他服务提供的服务API，这些服务可以用基于消息的异步通信。<br>有的REST API也对乘客和司机的移动应用开放，虽然这些应用不能直接访问后端服务器，但是可以通过名为”Api Gateway”的中间人调节，Api Gateway负责负载均衡、缓存、访问控制、api计费、监控等，通过nginx高效实施。<br>Scale Cube的3D模型显示，x轴表示的是horizontal dumplication，通过负载均衡器后的多个应用实现；y轴表示functional decomposition，通过微服务的架构范式实现；z轴data partitioning，通过数据分割，将需求路由到相关服务。<br>微服务架构范式对应用和数据库的关系影响巨大，每个服务有自身的数据库计划，不与其他服务共享一个数据库，虽然会带来部分数据的重复，但是可以保证松耦合，发挥微服务的作用。</p>
+<h2 id="微服务的好处"><a href="#微服务的好处" class="headerlink" title="微服务的好处"></a>微服务的好处</h2><p>第一：首先是解耦，分解巨大的单体应用，在功能不变的情况下，应用被分解成多个可管理的分支或服务，每个服务有用rpc或者消息驱动api定义的边界。<br>第二：还是开发的适用性，每个服务可以由专门的开发团队来开发，可以根据api采用相应的技术，而不拘泥于过时的技术。因为单个服务相对简单，即使用新技术重写，难度也大大的降低。<br>第三：微服务独立部署，可以部署在docker容器或不同虚拟机上，ui可以快速部署测试，也可以持续化部署。<br>第四：可以使得每个服务独立扩展。哪个服务依赖什么，就单独换某个服务或某个服务的环境。</p>
+<h2 id="微服务的不足"><a href="#微服务的不足" class="headerlink" title="微服务的不足"></a>微服务的不足</h2><p>第一：微服务过于的小，也影响开发和部署，微服务最终的结果是通过拆分应用实现快速开发和部署。<br>第二：由于微服务是分布式系统，必然会带来开发上的复杂性，开发者需要在RPC或消息传递之间选择并完成进程间的通讯机制，同时还需要写代码处理消息传递过慢或不可用等局部失效的问题。<br>第三：分区的数据库架构。在单体式应用中，同时更新多个业务主题可以依靠数据库来保证原子性。但对于微服务来说，数据库可能多重多样，使用分布式事务并不一定是好的选择，不仅仅因为CAP理论，更由于消息传递中间件和nosql数据库不支持（大概是不支持事务回滚机制），不得不采用最终一致性，从而增加开发的难度。<br>第四：测试基于微服务的应用也比较复杂，测试单个服务，需要启动它有关的所有服务。<br>第五：应用的改变会影响多个服务，可能这些服务之间有依赖关系，A依赖B，B依赖C，在单体应用中，只需修改相关模块，整合变化，部署就好了。但是在微服务中，需要考虑服务的依赖，要先更新C然后是B最后才是A。但是，一般来说，变化一般只影响一个服务。<br>第六：部署麻烦，因为每个服务都可能有自己的数据库和消息中间件等基础服务。这需要大量的配置，监控，同时，还需要一个”服务发现机制”，用来发现与它通讯的服务的地址（包括服务器和端口），部署一个微服务应用需要有足够的控制部署方法，并实现高度自动化。自动化方法之一是采用Cloud Foundry这样的PaaS服务，或者从Mesos或Kubernets集群管理方案入手，配合docker，构建自己的基础PaaS系统。作为软件的应用交付方法，nginx可以方便的在微服务层面提供缓冲，权限、监控等功能。</p>
+<h1 id="二、使用Api网关构建微服务"><a href="#二、使用Api网关构建微服务" class="headerlink" title="二、使用Api网关构建微服务"></a><strong>二、使用Api网关构建微服务</strong></h1><blockquote>
+<p>从一个问题出发，讲解Api网关搭建的必要性</p>
+</blockquote>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>提问微服务会暴露一系列的细粒度的接口，客户端如何与服务端交互？</p>
+<p>回答<br>客户端与微服务通信，因为每个服务都有一个公开的端口，该url映射到微服务的负载均衡器，由后者在可用实例上分发请求。<br>分析</p>
+<ol>
+<li>客户端与每个微服务暴露的api粒度不匹配。再更复杂的应用中，客户端要发送更多的请求，导致客户端通过LAN发送许多请求，在公网上效率低下，移动网根本不行，同时还导致客户端代码复杂。</li>
+<li>部分微服务的协议对web不友好，可能有的服务使用二进制RPC，有的可能使用AMQP协议，对浏览器和防火墙不好，尽可能使用HTTP或WebSocket之类的协议。</li>
+<li>使得微服务难以重构。随着事件的推移，可能需要拆分服务或合并服务。</li>
+</ol>
+<p>结论：<strong>不可行</strong></p>
+<p>回答<br>构建Api网关。API网关类似于Facade，是进入系统的唯一节点，在服务器端。API网关封装了内部系统架构，提供各个API给客户端。在API网关做服务的合并处理，协议的转换。<br>分析<br>优点：封装了内部结构，减少客户端和服务端交互，简化客户端代码。利用Http协议提供统一接口，屏蔽了不同微服务之间的通信细节。<br>缺点：增加了一个必须的组件，可能成为开发瓶颈。<br>结论：<strong>推荐采用</strong></p>
+<h2 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h2><ol>
+<li>性能考虑，API网关必须搭建在支持异步，I&#x2F;O非阻塞的平台上，类似于Netty、Spring Reactor。或者node.js，或者Nginx Plus。</li>
+<li>响应式编程。对于客户端的部分请求，API网关需要合并请求，并发的执行请求，达到最小化相应时间的目的。但是，有的请求之间存在依赖，比如，请求订单详情必须先查询用户信息。传统的异步回调的方法使代码变得混乱，难以理解且容易出错。</li>
+<li>服务调用。基于微服务应用程序是一个分布式系统，需要一种进程间通讯机制。一种是使用异步的，基于消息传递的机制。一种是使用HTTP或Thrift那样的同步机制。</li>
+<li>服务发现。在微服务架构中，应用程序的服务位置经常随系统的升级发生变化。</li>
+<li>局部失效。当一个服务调用另一个服务时，后者相应慢或不可用时，API网关不能应为无限期的等待下游服务而阻塞。需要根据业务需求做出相应的处理。如果缓存可用。可以考虑利用缓存，减少客户端的体验。</li>
+</ol>
+<h1 id="三、微服务架构中的进程间通信"><a href="#三、微服务架构中的进程间通信" class="headerlink" title="三、微服务架构中的进程间通信"></a>三、微服务架构中的进程间通信</h1><blockquote>
+<p>单体应用中，各模块之间是通过编程语言级别的方法或函数调用的，但是在微服务中，各个服务是基于分布式运行在多台机器上，通常每个服务都是一个进程，服务之间的交互必须通过进程通信（IPC）来实现</p>
+</blockquote>
+<h2 id="交互模式"><a href="#交互模式" class="headerlink" title="交互模式"></a>交互模式</h2><p>从两个维度归类，第一个维度是一对一还是一对多，一对一是指每个客户端请求有一个服务实例来响应。一对多是指每个客户端请求有多个服务实例来响应。第二个维度是这些交互是同步还是异步的。</p>
+<ul>
+<li><p>一对一</p>
+<ul>
+<li>请求&#x2F;响应，客户端向服务端请求，等待响应，客户端期望即使响应，并在等待中阻塞线程。</li>
+<li>通知：客户端请求，但不期望服务端响应。</li>
+<li>请求&#x2F;异步响应，客户端发送请求，服务端异步响应请求，客户端不阻塞，并默认认为响应不会立刻到达。</li>
+</ul>
+</li>
+<li><p>一对多</p>
+<ul>
+<li>发布&#x2F;订阅，客户端发布消息，被多个服务消费。</li>
+<li>发布&#x2F;异步响应：客户端发布消息，然后异步等待响应。</li>
+</ul>
+</li>
+</ul>
+<h2 id="定义Api"><a href="#定义Api" class="headerlink" title="定义Api"></a>定义Api</h2><p>API是服务端和客户端的契约，重点是使用某种交互定义语言（IDL），API的定义依赖于选定的IPC机制，如果使用消息机制，API则由消息通道（channel）和消息类型构成，如果采用HTTP机制，API则由url和请求、响应格式构成。</p>
+<h2 id="Api的迭代"><a href="#Api的迭代" class="headerlink" title="Api的迭代"></a>Api的迭代</h2><p>在常见的单体应用中，Api如果修改会直接修改所有调用者。但是在微服务中，通常不能强制客户端和服务端保持同步更新，此外，还需要增量部署服务的新版本，保持和旧版本同时运行。在设计客户端和服务时，很有必要遵循健壮性原则。但如果Api需要进行大范围改动，且不兼容旧版本，需要让旧版本运行一段时间，或部署不同实例，每个实例处理一个版本的请求。</p>
+<h2 id="处理局部失败"><a href="#处理局部失败" class="headerlink" title="处理局部失败"></a>处理局部失败</h2><p>分布式系统普遍存在局部失败的问题，由于服务端和客户端是独立的进程，服务端可能无法及时响应客户端请求，造成客户端无限等待，不仅影响用户体验，而且还会占用之前的资源。Netfilix提供了较好的解决方案：</p>
+<ol>
+<li>网络超时。</li>
+<li>限制请求次数。</li>
+<li>断路器模式（Cicuit Breaker Pattern）记录成功和失败请求的数量。如果失效率超过一个阈值，触发断路器使得后续请求立刻失败。如果大量失败请求，可能这个服务不可用。失效期后，客户端再试，如果成功，关闭断路器。</li>
+<li>提供回滚，当一个请求失败后进行回滚。例如返回缓存数据或一个系统默认值。</li>
+</ol>
+<h2 id="IPC技术"><a href="#IPC技术" class="headerlink" title="IPC技术"></a>IPC技术</h2><p>服务间通讯可以使用同步的请求&#x2F;响应模式，比如基于HTTP的REST或Thrift。也可以选择异步的、基于消息的通信模式，比如AMQP或者STOMP。可以选择JSON或XML，也可以选择效率更高的Protocol Buffer或Avro<br>异步，基于消息的异步通信。客户端通过想服务端发送请求，服务端如果回复，则发送另一条独立的消息给客户端。消息一般包含数据头（即发送方的元数据）和消息正文。消息通过渠道发送，任何数量的生产者都可以发送消息到渠道，任何消费者可以从渠道接受数据。渠道一般是点对点和发布订阅模式。<br>优点：第一，解耦客户端和服务端，客户端和服务端不需要发现机制确定服务实例的位置；第二，消息缓冲，在消息模式中，消息中间人将所有写入渠道的消息按照队列方式管理，直到被消费者消费；第三，消息机制支持所有交互模式；第四，基于RPC的通信机制让唤醒远程服务就像调用本地服务一样，但是并不可能完全一样，消息机制让这些差异直观明确。<br>缺点：第一，操作复杂，消息系统需要单独安装，配置和部署，且消息代理必须高可用，否则系统可靠性受到影响；第二，实现基于请求&#x2F;响应模式的复杂性，每个请求消息必须包含一个回复渠道ID和相关ID。服务端发送一个包含相关ID的响应消息到渠道，使用相关ID来将响应对应到发出请求的客户端。<br>同步，基于请求&#x2F;响应的进程通信。客户端向服务端发送请求，服务端处理请求并返回响应。有的客户端会采用异步的，基于事件驱动的客户端diamagnetic，然而，客户端需要响应即使返回，这里有两种常见协议。 <br>REST<br>REST基于HTTP协议，其核心概念是资源典型地代表单一业务对象或一组业务对象、业务对象包括“消费者”或产品。REST提供了一系列架构系统参数。<br>REST有一个成熟度模型，包含一下四个层次：<br>level 0：本层及的web服务只使用HTTP作为传输方式，实际上只是远程方法调用的具体形式，如SOAP和XML-RPC。<br>level 1：引入了资源的概念，要执行对资源的操作，客户端发出指定的执行的操作和任何参数的POST请求。<br>level 2：使用HTTP语法来执行操作，如GET表示获取、POST表示创建，PUT表示更新，请求参数和主题指定操作的参数。<br>level 3：基于HATEOAS（Hypertext As The Engine Of application），基本思想是由GET请求返回资源信息中包含的连接，这些连接能执行该资源允许的操作。例如，客户端通过订单资源中包含的连接取消某以订单，GET请求被发送去获取该订单。<br>Thrift（不熟）</p>
+<h2 id="消息格式"><a href="#消息格式" class="headerlink" title="消息格式"></a>消息格式</h2><p>一般是文本和二进制，文本有json和xml，二进制有Protocol Buffer和Avro</p>
+<h1 id="四、服务发现的可行方案以及实践案例"><a href="#四、服务发现的可行方案以及实践案例" class="headerlink" title="四、服务发现的可行方案以及实践案例"></a>四、服务发现的可行方案以及实践案例</h1><p>基于云端的微服务架构中，服务实例的网路地址是动态分配的，由于扩展升级，服务实例经常动态改变。客户端代码需要更为复杂的机制去发现服务。一般有两种模式，一种是客户端发现，一种是服务端发现。</p>
+<ol>
+<li>客户端发现模式</li>
+</ol>
+<p>客户端从服务注册服务中查询，然后使用负载均衡算法从多个实例中选择一个，然后发出请求。客户端发现模式相对直接，但客户端与服务注册绑定，针对服务端用到的每个编程语言和框架，实现客户端的服务发现逻辑。</p>
+<ol start="2">
+<li>服务端发现模式</li>
+</ol>
+<p>客户端通过负载均衡器向某个服务发出请求，负载均衡器查询服务注册表，并将请求转发到可用的得服务实例。例如，HTTP服务器与类似Nginx这样的负载均衡可以作为服务端的发现混衡器。优点是客户端无需关注发现的细节，减少发现逻辑，缺点是负载混衡器需要部署和管理。</p>
+<ol start="3">
+<li>服务注册表</li>
+</ol>
+<p>服务注册表是包含服务实例的网络地址数据库，必须高可用，且随时更新，如：zookeeper</p>
+<ol start="4">
+<li>服务注册方式。</li>
+</ol>
+<p>一种是自注册方式，服务实例负责在服务注册表中注册和注销，如果需要，一个服务实例也要发送心跳来保证注册信息不会过时。这种方式简单，但需要将服务实例和服务注册表耦合，且在每个编程语言和框架内实现注册代码。<br>一种是第三方注册模式。被称为服务注册器的另外一个系统模块注册服务实例。服务注册器会通过查询部署环境和订阅事件的方式跟踪运行实例的更改。如，Registrator，能够自动注册和注销被部署为docker容器的服务实例。优点是解耦，缺点和服务端发现机制一样，需要单独部署一个高可用的系统组件。</p>
+<h1 id="五、微服务的事件驱动数据管理"><a href="#五、微服务的事件驱动数据管理" class="headerlink" title="五、微服务的事件驱动数据管理"></a>五、<strong>微服务的事件驱动数据管理</strong></h1><blockquote>
+<p>微服务及分布式数据管理中存在的问题及解决方案</p>
+</blockquote>
+<p>单体应用通常使用单个关系型数据库，好处是可以使用ACID事务，提供了原子性，一致性，隔离性和持久性。可以简单的开始事务及提交事务。另一个好处是可以是以哦那个SQL，RDBMS查询调度器决定执行最优方法，由于所有数据都在一个数据库中，很容易查询。但是，微服务中，每个微服务有专门的数据用于该微服务，仅通过API访问，这种数据封装保证了微服务的松散耦合，并且可以独立更新，但如果多个服务访问相同数据，架构更新会耗费时间，也需要所有服务的协调更新。但是，不同的微服务通常使用不同类型的数据库。现代应用存储和处理各种类型的数据，关系型数据库并非总是好的选择。<br>小结：分区的，多语言留存的架构对于数据存储有很多好处，包括服务的松耦合，更高的性能和可扩展性，但是也带来了分布式数据管理的挑战。</p>
+<ul>
+<li>挑战1：</li>
+</ul>
+<p>如何实现业务逻辑，保证多种服务的一致性。例如，在下单过程中，订单服务管理订单，客户服务管理用户信息。在微服务架构中，订单表和客户表分别为客户服务和订单服务私有。订单服务无法直接访问客户表，只能通过客户服务提供的api，订购服务可通过分布式事务（2pc也叫两步提交。其实就是弄个事务协调器，干啥事先跟协调器说一下，最终协调好了再一起提交事务）。</p>
+<ul>
+<li>挑战2：</li>
+</ul>
+<p>检索多个服务数据的查询。例如，应用需要显示一位客户和最近的订单，订单服务只能通过订单主键查询订单，不提供根据客户查询订单。</p>
+<h2 id="事件驱动架构"><a href="#事件驱动架构" class="headerlink" title="事件驱动架构"></a>事件驱动架构</h2><p>当有显著事件发生时，如更新业务实体，某微服务会发布事件，其他微服务订阅这些事件，当某一微服务接收到事件就可以更新自己的业务实体，实现更多的事件被发布。<br>用户能够使用事件跨多个服务的业务逻辑。事务由一系列步骤组成，每一步有一个微服务更新业务实体，然后发布促发下一步事件。微服务之间通过消息代理来交换事件。<br>例如：<br>（1）订单服务创建状态为NEW的订单（向订单表添加一条记录），并发布“订单已创建事件”。<br>（2）客户服务获取“订单已创建”，为此	订单保留信用（添加一条客户信用记录），发布“信用保留”事件。<br>（3）订单服务获取“信用保留”事件，把订单状态修改为OPEN（修改订单的状态）。<br>基于（a）每个服务自动更新数据库和发布事件，以及（b）消息代理确保事件传递至少一次，用户能跨越多个服务完成业务逻辑。但，此时业务操作并非ACID业务，这种模式提供弱确定性，这种模型也被称为BASE模型。<br>用户也可以使用事件来维护不同微服务用友的预连接数据的物化视图（就是一些关联不同服务的视图），维护此视图的服务订阅事件，并更新视图。例如，当这个物化视图的服务收到客户或订单发出的服务，就会更新客户订单查看的数据存储。用户能够通过其他方式查询这个视图，通过预览查询服务（就是这个物化视图提供的另外一个查询服务）预览数据存储，处理来自客户和最近订单的请求。<br><strong>优点</strong>：可以使事务跨多个服务并提供最终一致性，也让应用维护物化视图。<br><strong>缺点</strong>：编程模型更为复杂；由于临时事务造成的变化显而易见，因此应用必须处理不一致的数据；此外如果应用从物化视图读物的数据没有更新，也会不一致；用户必须检测并忽略重复事件。</p>
+<h2 id="实现原子化"><a href="#实现原子化" class="headerlink" title="实现原子化"></a>实现原子化</h2><p>事件驱动架构存在以原子粒度更新数据库并发布事件的问题。例如，上述的订单服务中，下订单时，插入订单记录和发布事件必须有原子性，如果订单插入数据后，没有发布事件，也会使系统变得不一致，此时只能使用分布式事务。然而很难实现。<br>（1）一种方式是使用本地事务发布事件。通过使用多步骤过程来发布事件，该进程只包含本地事务。在存储业务实体状态的数据库中，有一个事件表充当消息队列。应用启动一个本地数据库事务，更新业务实体的状态，同时在事件表插入一个事件，并提交该事务。<br>例如，订单服务在订单表插入一条记录，然后在事件表中插入“订单已创建”的事件。事件发布线程在事件表中查询未发布的事件，并发布，然后更新事件表，将事件标记为已发布。<br><strong>优点</strong>：保证每个更新都有对应的事件发布，且不依赖2PC.此外，应用发布业务级别的事务，消除了推断事件的需要。<br><strong>缺点</strong>：开发难度大，开发者必须牢记发布事件，且nosql支持力度不大。<br>（2）挖掘数据库事务日志。通过线程和进程他觉数据库事务或提交日志来发布事件。<br>优缺点很明显，事务发布独立应用逻辑，缺点是和数据库绑定。</p>
+<h2 id="事件源（事件驱动的微服务架构的支柱）"><a href="#事件源（事件驱动的微服务架构的支柱）" class="headerlink" title="事件源（事件驱动的微服务架构的支柱）"></a>事件源（事件驱动的微服务架构的支柱）</h2><p>通过采取一种截然不同的、以事件为中心的方法来留存业务实体。不同于存储实体的当前状态，应用存储状态改变的事件序列。应用通过重播事件来重构实体的当前状态。每当业务实体的状态改变，新事件就被附加到事件列表。<br>例如，在传统的方法中，每个订单映射为订单表的一行。使用事件源时，订单服务以状态更改事件的方式存储订单。包括已创建、已批准、已发货等等，并存储足够的信息，以便重建订单状态（订单表存储订单的基本信息，状态信息由事件表来重建）。<br>事件数据长期保存在事件数据库中，使用API添加和检索实体事件。事件存储类似上述的事件代理，服务通过API订阅事件，将事件传达给订阅者。<br><strong>优点</strong>：只要状态改变就可靠的发布事件，同时由于存储的是事件而不是领域对象，也避免了对象关系阻抗不匹配的问题。事件源提供了100%可靠的业务实体变化的审计日志，使得获取任何时间点的实体状态变为可能。业务逻辑由松耦合的、事件交换的业务实体构成，便于从单体应用想微服务架构迁移。<br><strong>缺点</strong>：由于采用了不同的编程风格，有一定的学习曲线，事件存储只支持通过主键查询实体，用户需要使用CQRS完成查询，应用必须处理最终一致性的数据。</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2022/01/06/a9f57d4a/"
+                                   title="Regular-正则表达式"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Regular-正则表达式</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2021/12/24/b829b66a/"
+                                   title="Zookeeper"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Zookeeper</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A6%82%E5%BF%B5"><span class="nav-text">一、微服务架构概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BD%93%E5%BA%94%E7%94%A8"><span class="nav-text">单体应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E5%9B%B0%E9%9A%BE"><span class="nav-text">重构困难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E7%94%A8%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">采用微服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">微服务的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="nav-text">微服务的不足</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8Api%E7%BD%91%E5%85%B3%E6%9E%84%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">二、使用Api网关构建微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="nav-text">实现细节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="nav-text">三、微服务架构中的进程间通信</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%BC%8F"><span class="nav-text">交互模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89Api"><span class="nav-text">定义Api</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Api%E7%9A%84%E8%BF%AD%E4%BB%A3"><span class="nav-text">Api的迭代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%B1%80%E9%83%A8%E5%A4%B1%E8%B4%A5"><span class="nav-text">处理局部失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPC%E6%8A%80%E6%9C%AF"><span class="nav-text">IPC技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F"><span class="nav-text">消息格式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%96%B9%E6%A1%88%E4%BB%A5%E5%8F%8A%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B"><span class="nav-text">四、服务发现的可行方案以及实践案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="nav-text">五、微服务的事件驱动数据管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%9E%B6%E6%9E%84"><span class="nav-text">事件驱动架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%AD%90%E5%8C%96"><span class="nav-text">实现原子化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%BA%90%EF%BC%88%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E6%94%AF%E6%9F%B1%EF%BC%89"><span class="nav-text">事件源（事件驱动的微服务架构的支柱）</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">EmiyaQ</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A6%82%E5%BF%B5"><span class="nav-text">一、微服务架构概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BD%93%E5%BA%94%E7%94%A8"><span class="nav-text">单体应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E5%9B%B0%E9%9A%BE"><span class="nav-text">重构困难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E7%94%A8%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">采用微服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">微服务的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="nav-text">微服务的不足</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8Api%E7%BD%91%E5%85%B3%E6%9E%84%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">二、使用Api网关构建微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="nav-text">实现细节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="nav-text">三、微服务架构中的进程间通信</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%BC%8F"><span class="nav-text">交互模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89Api"><span class="nav-text">定义Api</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Api%E7%9A%84%E8%BF%AD%E4%BB%A3"><span class="nav-text">Api的迭代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%B1%80%E9%83%A8%E5%A4%B1%E8%B4%A5"><span class="nav-text">处理局部失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPC%E6%8A%80%E6%9C%AF"><span class="nav-text">IPC技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F"><span class="nav-text">消息格式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%96%B9%E6%A1%88%E4%BB%A5%E5%8F%8A%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B"><span class="nav-text">四、服务发现的可行方案以及实践案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="nav-text">五、微服务的事件驱动数据管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%9E%B6%E6%9E%84"><span class="nav-text">事件驱动架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%AD%90%E5%8C%96"><span class="nav-text">实现原子化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%BA%90%EF%BC%88%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E6%94%AF%E6%9F%B1%EF%BC%89"><span class="nav-text">事件源（事件驱动的微服务架构的支柱）</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
