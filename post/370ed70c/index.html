@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="人生，总有些黑暗的隧道需要自己穿越">
+    <meta name="author" content="EmiyaQ">
+    
+    <title>
+        
+            《Presto实战》笔记 |
+        
+        The winter sunshine
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"The winter sunshine","author":"EmiyaQ","avatar":"/images/pig.png","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","categories":"/categories"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               The winter sunshine
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        《Presto实战》笔记
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/pig.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">EmiyaQ</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2023-02-13 18:44:46</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sat Oct 19 2024 22:09:43 GMT+0800">2024-10-19 22:09:43</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <meta name="referrer" content="no-referrer"/>
+
+<blockquote>
+<p> Presto是一款开源的高效的查询引擎。目前市面上有两款Presto，一个是Prestodb，由Facebook开源维护。一个是Trino（又名Prestosql），由Starburst公司开源维护。其中Presto的核心创始人之前在Facebook研发，19年后离开Facebook，重新fork分支后开发了trino，所以两款Presto的基础思想都类似，为避免歧义，本文分析的是trino，以下Presto均代表Trino。</p>
+</blockquote>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在大数据的背景下，数据存储日益增多：关系型，文档型，NoSql，键值对，对象存储。每一种存储都有特定的查询方式，且数据存储在不同的孤岛上。数据分析师想要分析时，往往需要通过ETL过程数据抽取到数据仓库中，这个过程费时费力。而Presto通过众所周知的技术执行分布式查询，包括并行处理，跨集群节点管道执行，多线程执行模型，高效的内存结构和Java字节码生成等技术，实现高性能的联邦查询。</p>
+<h1 id="常规概念"><a href="#常规概念" class="headerlink" title="常规概念"></a>常规概念</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Presto是java程序，且需要至少java11。同时需要python2.6版本以上。启动是需要日志配置，节点配置，jvm配置。添加好数据源之后，run起来即可</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>Presto提供了cli，通过执行对应的presto-cli-xxx-executable.jar即可查询，每一个命令以”;”结束。下载地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O presto https://repo.maven.apache.org/maven2/io/prestosql/presto-cli/330/presto-cli-330-executable.jar</span><br></pre></td></tr></table></figure>
+
+<p>java程序可以通过Presto-JDBC驱动连接Presto，下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.maven.apache.org/maven2/io/prestosql/presto-jdbc/330/presto-jdbc-330.jar</span><br></pre></td></tr></table></figure>
+
+<p>启动Presto后，有一个UI界面，可以查看presto的查询任务运行信息，默认路径是<a class="link"   target="_blank" rel="noopener" href="http://localhost:8080/" >http://localhost:8080<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="源码本地启动"><a href="#源码本地启动" class="headerlink" title="源码本地启动"></a>源码本地启动</h2><p>git地址：<a class="link"   target="_blank" rel="noopener" href="https://github.com/trinodb/trino" >https://github.com/trinodb/trino<i class="fas fa-external-link-alt"></i></a> 基本问题不大，就是注意一下，低版本中使用了antlr4，这是一个语言识别的工具。不做特殊处理，会导致编译时找不到类，这些类需要通过antlr4生成。在Idea中可以通过安装插件。（注，不要用trino较高的版本，比如强制要求jdk17及以上的版本，会存在SA无法加载的情况）</p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image1.png"
+                        alt="image-20220625171540368"
+                 ></p>
+<p>启动时，按照官网的执行顺序</p>
+<ol>
+<li>先编译一下，编译前记得启动docker！</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mvnw clean install -DskipTests</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>启动devService</li>
+</ol>
+<blockquote>
+<p>Trino comes with sample configuration that should work out-of-the-box for development. Use the following options to create a run configuration:</p>
+</blockquote>
+<blockquote>
+<p>Main Class: io.trino.server.DevelopmentServer<br>VM Options: -ea -Dconfig&#x3D;etc&#x2F;config.properties -Dlog.levels-file&#x3D;etc&#x2F;log.properties -Djdk.attach.allowAttachSelf&#x3D;true<br>Working directory: $MODULE_DIR$<br>Use classpath of module: trino-server-dev</p>
+</blockquote>
+<ol start="3">
+<li>由于maven仓库于2020年不支持http://repo1.maven.org&#x2F;maven2和http://repo.maven.apache.org&#x2F;maven2&#x2F;（详见：<a class="link"   target="_blank" rel="noopener" href="https://links.sonatype.com/central/501-https-required" >https://links.sonatype.com/central/501-https-required<i class="fas fa-external-link-alt"></i></a> ，且maven-compat:3.0.4默认的远程respority是http开头，所以无法正常启动，因此，为了本地能正常启动，修改了parent的pom文件，在根目录的pom.xml中增加以下配置</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.airlift<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>airbase<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>134<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.trino<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>trino-root<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>412<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">		//省略...</span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 手动指定maven的仓库地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>central<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>Central Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repo.maven.apache.org/maven2<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">layout</span>&gt;</span>default<span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>在根目录执行启动命令行连接，client&#x2F;trino-cli&#x2F;target&#x2F;trino-cli-*-executable.jar</p>
+</li>
+<li><p>导入数据，需要通过java命令行打开jar时，使用batch mode导入</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  trino git:(my_study) ✗ java -jar client/trino-cli/target/trino-cli-*-executable.jar -f iris-data-set/iris-data-set.sql</span><br><span class="line">USE</span><br><span class="line">CREATE TABLE</span><br><span class="line">INSERT: 150 rows</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>查看导入数据</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  trino git:(my_study) ✗ java -jar client/trino-cli/target/trino-cli-*-executable.jar</span><br><span class="line">trino&gt; <span class="keyword">select</span> * from memory.default.iris;</span><br><span class="line"> sepal_length_cm | sepal_width_cm | petal_length_cm | petal_width_cm |  species</span><br><span class="line">-----------------+----------------+-----------------+----------------+------------</span><br><span class="line">             5.1 |            3.5 |             1.4 |            0.2 | setosa</span><br><span class="line">             4.9 |            3.0 |             1.4 |            0.2 | setosa</span><br><span class="line">             4.7 |            3.2 |             1.3 |            0.2 | setosa</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="深入理解Presto"><a href="#深入理解Presto" class="headerlink" title="深入理解Presto"></a>深入理解Presto</h1><h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>Presto是一个分布式SQL查询引擎，类似于大规模并行处理MPP（Massively parallel processing），通过分配处理任务来实现横向扩展提高强大的处理能力。包含协调器和工作节点的架构图如下</p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image2.png"
+                        alt="image-202206251715403"
+                 ></p>
+<ul>
+<li>协调器</li>
+</ul>
+<p>协调器负责<strong>接收用户Sql请求</strong>，<strong>解析查询语句</strong>，<strong>规划查询执行</strong>并<strong>管理工作节点</strong>，是Presto的大脑，客户端直接连接的就是它。一旦接收到一条Sql语句，协调器负责解析、分析、优化和调度查询任务。查询语句会被翻译成一系列的任务（task），任务被分发到各个工作节点执行，工作节点处理数据的同时，协调器会将结果抽取出来放到缓冲区。一旦客户端读完缓冲区的内容，迭代器会代表客户端想工作节点请求更多数据，工作节点也不断从数据源交互读取数据，直至查询结束。</p>
+<ul>
+<li>节点发现服务</li>
+</ul>
+<p>每一个Presto实例启动时会注册到发现服务并定期发送心跳信号。为了简化部署，<strong>Presto协调器通常会运行一个内嵌版节点发现服务</strong>，因此工作节点将发现服务的配置指想协调器的主机名和端口</p>
+<ul>
+<li>工作节点</li>
+</ul>
+<p>工作节点使用连接器从数据源获取数据，它们之间也会交换中间数据。 工作节点会在启动时将自己注册到节点发现服务。</p>
+<blockquote>
+<p> 上述节点通信均以HTTP格式</p>
+</blockquote>
+<h2 id="查询过程"><a href="#查询过程" class="headerlink" title="查询过程"></a>查询过程</h2><h3 id="基于连接器的架构"><a href="#基于连接器的架构" class="headerlink" title="基于连接器的架构"></a>基于连接器的架构</h3><p>Presto提供了服务提供者接口（SPI），连接器实现API的三部分：</p>
+<ol>
+<li>获取表、视图、schema元数据的操作</li>
+<li>产生数据分区的逻辑单元的操作，用于Presto的并行读写</li>
+<li>在源数据和查询引擎所需的内存数据格式</li>
+</ol>
+<h3 id="执行模型"><a href="#执行模型" class="headerlink" title="执行模型"></a>执行模型</h3><p>Sql语句以文本的形式提交到协调器，协调器解析和分析这条语句，之后创建一个由Presto内部数据结构表示的执行计划，叫做<strong>查询计划</strong>。利用源数据SPI和数据统计SPI创建查询计划，协调器会通过SPI直接连接到数据源，收集有关表和其他源数据的信息</p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image3.png"
+                        alt="image-202206251715403"
+                 ></p>
+<ul>
+<li>元数据SPI</li>
+</ul>
+<p>可以获取表、列和数据结构信息</p>
+<ul>
+<li>统计SPI</li>
+</ul>
+<p>获取行数和表大小信息，从而在计划期间进行基于代价的查询优化。</p>
+<h3 id="查询计划解析"><a href="#查询计划解析" class="headerlink" title="查询计划解析"></a>查询计划解析</h3><ol>
+<li>协调器将查询计划切分成Stage，从而分配给集群中的多个工作节点进行并行处理，Stage的数量依赖于查询的复杂度。分布式查询计划定义了Stage和查询方式</li>
+<li>协调器使用它在工作节点上进一步计划和调度任务，一个Stage通常包含一个或多个任务，每个任务负责处理一小部分任务</li>
+<li>源Stage的任务以page的形式生产数据，每个page都是以列式存储格式标识一系列行，这些page传输到下流的中间Stage，Exchange算子从上游Stage中读取数据，从而在不同的Stage之间传输page。</li>
+<li>任务运行时分配给一个工作节点的计划片段，在任务创建之后，它会为每个切面初始化一个驱动。每个驱动都是包含多个算子的<strong>流水线</strong>的一个实例，并且负责处理切片的数据。<strong>算子</strong>处理数据并为下游算子生产输出数据，最后一个算子会将输出的page放置在任务的输出缓冲区中。</li>
+</ol>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>要处理一条查询，协调器首先根据来自连接器的元数据创建切片列表。使用该切片列表，协调器开始在工作节点上调度任务，获取其中的数据。在查询执行期间，协调器跟踪所有可用的切片和工作节点上执行的位置。一旦任务完成了处理，并产生了很多供下游处理的切片，协调器会继续调度更多任务处理他们，直到没有待处理的切片</p>
+<h2 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h2><ol>
+<li>解析分析</li>
+</ol>
+<p>识别查询用的表</p>
+<p>识别用到的列</p>
+<p>识别ROW值中的字段引用（如c.bound）</p>
+<ol start="2">
+<li>初始化查询计划</li>
+</ol>
+<h2 id="优化规则"><a href="#优化规则" class="headerlink" title="优化规则"></a>优化规则</h2><h3 id="谓词下推"><a href="#谓词下推" class="headerlink" title="谓词下推"></a>谓词下推</h3><p>最简单和最重要的规则，这一规则将过滤条件移动到尽可能接近数据源的位置，因此数据量在查询开始后尽可能的缩减。这一规则是将Filter算子的一部分条件保留在新Filter算子中，另一部分和下层的CrossJoin算子合并成新的InnerJoin算子。</p>
+<p>优化前：</p>
+<p>– Filter [c.nationkey &#x3D; n.nationkey AND c.custkey &#x3D; o.custkey]</p>
+<p>​	– CrossJoin</p>
+<p>​		– CrossJoin</p>
+<p>优化后：</p>
+<p>– Filter[c.nationkey &#x3D; n.nationkey]</p>
+<p>​	– InnerJoin[o.custkey &#x3D; c.custkey]</p>
+<p>​		– CrosJoin</p>
+<h3 id="Cross-Join消除"><a href="#Cross-Join消除" class="headerlink" title="Cross Join消除"></a>Cross Join消除</h3><p>CrossJoin是（表没有Join条件的笛卡尔积），在绝大数实际场景下，我们不希望产生Cross Join。</p>
+<p>优化前：</p>
+<p>– Filter[c.nationkey &#x3D; n.nationkey]</p>
+<p>​	– InnerJoin[o.custkey &#x3D; c.custkey]</p>
+<p>​		– CrosJoin</p>
+<p>优化后：</p>
+<p>– InnerJoin[c.custkey &#x3D; o.custkey]</p>
+<p>​	– InnerJoin[n.nationkey &#x3D; c.nationkey]</p>
+<h3 id="TopN"><a href="#TopN" class="headerlink" title="TopN"></a>TopN</h3><p>通常，如果一个查询有limit语句，那么它之前会有一个order  by语句，常规方式，计算复杂度是O(行数* log(行数))，空间复杂度是O(行数)，因此有一个优化规则将order by 紧跟着limit会合并成TopN计划节点，在查询执行时，TopN节点在堆中维护所需行数的结果，以流处理的方式读取输入数据并更新堆。这样计算复杂度简化为O(行数* log(limit))，空间复杂度为O(limit)。</p>
+<h3 id="局部聚合"><a href="#局部聚合" class="headerlink" title="局部聚合"></a>局部聚合</h3><p>也就是预聚合，通过预聚合，减少经由下游join的数据量。预聚合不一定总能提高性能，因此优化规划目前默认是禁用的，可以通过push_partial_aggregation_through_join来激活。</p>
+<h3 id="Lateral-Join-去关联化"><a href="#Lateral-Join-去关联化" class="headerlink" title="Lateral-Join 去关联化"></a>Lateral-Join 去关联化</h3><p>Lateral（侧面）连接，是一种常见的join关联，在其他的组件中均有体现。例如，PostgreSQL，hive，flink。Lateral-Join相当于以nation作为外层表，region作为内层表，每获取外层表的每一行，对应查询内层表遍历查询。mysql 8同样支持Lateral派生表，最主要的使用场景就是【如何查找每个部门中薪水最高的 Top 5 和对应的员工】，mysql语句如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	d.department_name,</span><br><span class="line">	t.first_name,</span><br><span class="line">	t.last_name,</span><br><span class="line">	t.salaryFROM departments dLEFT</span><br><span class="line">	<span class="keyword">JOIN</span> <span class="keyword">LATERAL</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		e.department_id,</span><br><span class="line">		e.first_name,</span><br><span class="line">		e.last_name,</span><br><span class="line">		e.salaryFROM employees eWHERE e.department_id <span class="operator">=</span> d.department_idORDER <span class="keyword">BY</span> e.salary <span class="keyword">DESC</span> </span><br><span class="line">		LIMIT <span class="number">5</span> </span><br><span class="line">	) tON d.department_id <span class="operator">=</span> t.department_id </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">	d.department_name,</span><br><span class="line">	t.salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Presto，对于如下sql：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	(<span class="keyword">select</span> name <span class="keyword">from</span> region r <span class="keyword">where</span> regionkey <span class="operator">=</span> n.regionkey)</span><br><span class="line">		<span class="keyword">as</span> region_name,</span><br><span class="line">	n.name <span class="keyword">as</span> nation_name</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	nation n</span><br></pre></td></tr></table></figure>
+
+<p>会变换成</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	r.name <span class="keyword">as</span> region_name,</span><br><span class="line">	n.name <span class="keyword">as</span> nation_name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	nation n <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> region r <span class="keyword">on</span> regionkey <span class="operator">=</span> n.regionkey</span><br></pre></td></tr></table></figure>
+
+<p>同时，为了维持【相同regionkey的重复条目会执行失败】，Presto在join之外还会进行额外查询，如果检测出重复行，则查询失败。</p>
+<blockquote>
+<p> 子查询1</p>
+</blockquote>
+<h3 id="Semi-Join-去关联化"><a href="#Semi-Join-去关联化" class="headerlink" title="Semi-Join 去关联化"></a>Semi-Join 去关联化</h3><p>上面是处理Select的子查询，in之中同样存在子查询，和Lateral Join一样，同样可以通过循环外部查询行并多次调用子查询来实现。Presto会通过去除关联条件，将外部查询join一起，确保join不会重复返回结果行。</p>
+<blockquote>
+<p>子查询2</p>
+</blockquote>
+<h2 id="基于代价的优化器"><a href="#基于代价的优化器" class="headerlink" title="基于代价的优化器"></a>基于代价的优化器</h2><ul>
+<li>代价的概念</li>
+</ul>
+<p>无论在单查询还是并发查询任务中，<strong>CPU时间</strong>、内存需求和<strong>网络带宽</strong>的使用都是构成查询执行的三个维度，这构成了Presto的代价</p>
+<ul>
+<li>Join的代价</li>
+</ul>
+<p>使用&#x3D;join两个表时，Presto实现HashJoin的扩展版算法。其中一个表称为<strong>构建侧</strong>，这个表的内容以Join条件使用的列作为键，构成一个散列查询表。另一个表称为<strong>探测侧</strong>，一旦散列查询表构建完成，就会使用探测表行去构建侧的散列表中匹配行，默认情况下，Presto会使用三层散列以尽可能并行处理：</p>
+<ol>
+<li>基于Join条件列的散列值将两个Join的表的内容分配到各个工作节点。应该匹配在一起的行具有相同的join条件列，因此也会分配到同一个节点。</li>
+<li>在节点级别，构建侧进一步使用散列函数将任务分散到多个工作线程。多线程提高吞吐量。</li>
+<li>每个工作线程最后给出最后给出完成散列查询表的一个分区，每个分区合并会形成第二层查询散列表，因此我们通过将探测侧处理也分散到多个线程。</li>
+</ol>
+<p>为了控制Join的内存开销，哪张表会成为构建表由CBO选择，为达到这一目的，CBO需要了解Join表的大小，这些数据由表统计信息提供。</p>
+<h3 id="表统计信息"><a href="#表统计信息" class="headerlink" title="表统计信息"></a>表统计信息</h3><p>表统计信息由连接器提供，包括：</p>
+<ol>
+<li>表中行的数量</li>
+<li>列中不同值的数量（基数）</li>
+<li>列中NULL值所占比例</li>
+<li>列的最大值，最小值</li>
+<li>列平均数据大小</li>
+<li>…</li>
+</ol>
+<h3 id="Join方式"><a href="#Join方式" class="headerlink" title="Join方式"></a>Join方式</h3><ul>
+<li>广播式（broadcast）</li>
+</ul>
+<p>构建侧广播到并行执行的Join的所有工作节点。在构建侧数据较小，或者探测侧数据较大时效果明显。</p>
+<ul>
+<li>分布式（Hash）</li>
+</ul>
+<p>数据根据分区算法重分布，通过某种分区算法，将匹配的Join键值发送到同一节点。在两边数据量均很大，而一台机器无法保存构建侧全部数据时，效果明显。</p>
+<h3 id="使用表统计信息"><a href="#使用表统计信息" class="headerlink" title="使用表统计信息"></a>使用表统计信息</h3><p>截止目前，明确Hive连接器提供了表统计信息，其他数据源对应连接器并未找到相关文档支持。接口为：io.trino.spi.connector.ConnectorMetadata#getTableStatistics</p>
+<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>每个查询都被翻译为分布式查询计划，查询计划由任务组成的多个Stage构成，数据以切片形式由连接器返回，并在多个Stage中执行，直到最终结果可用并由协调器提供给用户。</p>
+<h1 id="论文知识点"><a href="#论文知识点" class="headerlink" title="论文知识点"></a>论文知识点</h1><blockquote>
+<p>论文连接：<a class="link"   target="_blank" rel="noopener" href="https://trino.io/Presto_SQL_on_Everything.pdf" >https://trino.io/Presto_SQL_on_Everything.pdf<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>可选配置，常规内存池、预留内存池。当查询超过常规内存池时，可以将查询中最耗费内存的一个查询转移到预留内存池，如果内存池和预留内存池都慢了，则该节点上的所有查询均被暂停。预留内存池需要有足够的查询，这样配置起来有点浪费，可以不配置预留内存池，使用集群杀死大部分查询。</p>
+<h2 id="失败容忍"><a href="#失败容忍" class="headerlink" title="失败容忍"></a>失败容忍</h2><p>Presto<strong>没有</strong>内置失败重试策略，协调器失败会导致集群不可用，工作节点失败会导致该节点的所有查询失败。</p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>选择Jvm的G1垃圾回收器，同时避免大内存的对象分配</p>
+<h2 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h2><ul>
+<li>表达式计算</li>
+</ul>
+<p>为了加快生产计算速度，Presto使用字节码生成处理本地变量，函数调用，变量引用，惰性短路操作。</p>
+<ul>
+<li>JIT启发式优化</li>
+</ul>
+<p>为几个关键运算和运算组合运算生成字节码，生成器利用上级知识生成比一般循环更易于优化的字节码</p>
+<blockquote>
+<p>字节码生成提高了将中间结果存储在寄存器或缓存中而不是内存中的能力</p>
+</blockquote>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="组件介绍"><a href="#组件介绍" class="headerlink" title="组件介绍"></a>组件介绍</h2><ul>
+<li>生产部署配置</li>
+<li>连接器介绍，Hive连接器最为完善，因为是主要就是接入Hive数据源</li>
+<li>常用Sql命令</li>
+<li>高级Sql特效（函数，表达式）</li>
+</ul>
+<blockquote>
+<p>内容太多，详情请参考官网文档：<a class="link"   target="_blank" rel="noopener" href="https://trino.io/docs/current/" >https://trino.io/docs/current/<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h2 id="Presto实际应用"><a href="#Presto实际应用" class="headerlink" title="Presto实际应用"></a>Presto实际应用</h2><h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><ul>
+<li>Ldap</li>
+<li>Kerberos</li>
+</ul>
+<h3 id="与其他工具集成"><a href="#与其他工具集成" class="headerlink" title="与其他工具集成"></a>与其他工具集成</h3><ul>
+<li>集成Superset</li>
+<li>RubiX缓存框架提高性能</li>
+</ul>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/post/1e95818b/"
+                                   title="Kudu"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Kudu</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/post/d32d37e5/"
+                                   title="Elasticsearch"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Elasticsearch</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%A6%82%E5%BF%B5"><span class="nav-text">常规概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E6%9C%AC%E5%9C%B0%E5%90%AF%E5%8A%A8"><span class="nav-text">源码本地启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Presto"><span class="nav-text">深入理解Presto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%BF%87%E7%A8%8B"><span class="nav-text">查询过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%BF%9E%E6%8E%A5%E5%99%A8%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="nav-text">基于连接器的架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="nav-text">执行模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%AE%A1%E5%88%92%E8%A7%A3%E6%9E%90"><span class="nav-text">查询计划解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="nav-text">查询优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E8%A7%84%E5%88%99"><span class="nav-text">优化规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%93%E8%AF%8D%E4%B8%8B%E6%8E%A8"><span class="nav-text">谓词下推</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-Join%E6%B6%88%E9%99%A4"><span class="nav-text">Cross Join消除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TopN"><span class="nav-text">TopN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E8%81%9A%E5%90%88"><span class="nav-text">局部聚合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lateral-Join-%E5%8E%BB%E5%85%B3%E8%81%94%E5%8C%96"><span class="nav-text">Lateral-Join 去关联化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-Join-%E5%8E%BB%E5%85%B3%E8%81%94%E5%8C%96"><span class="nav-text">Semi-Join 去关联化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E4%BB%A3%E4%BB%B7%E7%9A%84%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-text">基于代价的优化器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-text">表统计信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Join%E6%96%B9%E5%BC%8F"><span class="nav-text">Join方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%A1%A8%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-text">使用表统计信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-text">论文知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-text">内存分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B1%E8%B4%A5%E5%AE%B9%E5%BF%8D"><span class="nav-text">失败容忍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-text">代码生成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-text">组件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presto%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-text">Presto实际应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8"><span class="nav-text">安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7%E9%9B%86%E6%88%90"><span class="nav-text">与其他工具集成</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">EmiyaQ</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%A6%82%E5%BF%B5"><span class="nav-text">常规概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E6%9C%AC%E5%9C%B0%E5%90%AF%E5%8A%A8"><span class="nav-text">源码本地启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Presto"><span class="nav-text">深入理解Presto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%BF%87%E7%A8%8B"><span class="nav-text">查询过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%BF%9E%E6%8E%A5%E5%99%A8%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="nav-text">基于连接器的架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="nav-text">执行模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%AE%A1%E5%88%92%E8%A7%A3%E6%9E%90"><span class="nav-text">查询计划解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="nav-text">查询优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E8%A7%84%E5%88%99"><span class="nav-text">优化规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%93%E8%AF%8D%E4%B8%8B%E6%8E%A8"><span class="nav-text">谓词下推</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-Join%E6%B6%88%E9%99%A4"><span class="nav-text">Cross Join消除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TopN"><span class="nav-text">TopN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E8%81%9A%E5%90%88"><span class="nav-text">局部聚合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lateral-Join-%E5%8E%BB%E5%85%B3%E8%81%94%E5%8C%96"><span class="nav-text">Lateral-Join 去关联化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-Join-%E5%8E%BB%E5%85%B3%E8%81%94%E5%8C%96"><span class="nav-text">Semi-Join 去关联化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E4%BB%A3%E4%BB%B7%E7%9A%84%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-text">基于代价的优化器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-text">表统计信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Join%E6%96%B9%E5%BC%8F"><span class="nav-text">Join方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%A1%A8%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-text">使用表统计信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-text">论文知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-text">内存分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B1%E8%B4%A5%E5%AE%B9%E5%BF%8D"><span class="nav-text">失败容忍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-text">代码生成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-text">组件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presto%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-text">Presto实际应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8"><span class="nav-text">安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7%E9%9B%86%E6%88%90"><span class="nav-text">与其他工具集成</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
