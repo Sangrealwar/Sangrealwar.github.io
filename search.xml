@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>测试的</title>
+    <url>/2024/10/19/%E6%B5%8B%E8%AF%95%E7%9A%84/</url>
+    <content><![CDATA[<p>12</p>
+]]></content>
+  </entry>
+  <entry>
     <title>0_知识图谱</title>
     <url>/2024/10/19/0-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</url>
     <content><![CDATA[]]></content>
@@ -4154,15 +4160,17 @@
   <entry>
     <title>《深入理解Java虚拟机》笔记</title>
     <url>/2022/01/06/1_%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
 
 <blockquote>
 <p>读《深入理解Java虚拟机 JVM高级特性与最佳实践》笔记</p>
 </blockquote>
+<p>1</p>
+<p>1</p>
 <h1 id="内存区域分析"><a href="#内存区域分析" class="headerlink" title="内存区域分析"></a>内存区域分析</h1><h2 id="运行区数据区域"><a href="#运行区数据区域" class="headerlink" title="运行区数据区域"></a>运行区数据区域</h2><blockquote>
 <p>jvm中整体的内存区域</p>
 </blockquote>
-<p>![image-20220201112959311](/Users/weiqian/Library/Application Support/typora-user-images/image-20220201112959311.png)</p>
+<p>![image-20220201112959311](&#x2F;Users&#x2F;weiqian&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20220201112959311.png)</p>
 <p>程序计数器：因为java虚拟机需要通过多线程轮流切换，并分配处理器执行时间来实现多线程，在某一个时刻，一个处理器（一般来说也就是一个内核)只会执行一条指令，因此，为了线程切换后能回复到正确的位置，每条线程需要一个独立的程序计数器，<strong>各条线程之间互不影</strong>响。【异常】，这块区域是java中唯一没有规定任何OutOfMemoryError的区域</p>
 <p><strong>虚拟机栈</strong>（也就是通常意义上讲的堆栈中的栈）：<strong>生命周期与线程相同</strong>，每个方法在执行的同时创建一个栈帧，方法从调用到执行结束，对应着栈帧入栈到出栈的过程，里面存放着局部变量表，比方说各种基本类型，对象引用（这里这是一个引用，具体的对象信息还是在堆上）。【异常】，如果线程请求栈深度大于虚拟机允许的深度，将抛出StoackOverflowError异常，一般无限递归会报这个错。如果虚拟机栈允许动态扩展，但是扩展时无法申请足够的内存，会抛出OutOfMemoryError异常。</p>
 <p>本地方法栈：和虚拟机栈类似，只不过本地方法栈是虚拟机为Native方法准备的。【异常】，如果线程请求栈深度大于虚拟机允许的深度，将抛出StoackOverflowError异常，一般无限递归会报这个错。如果虚拟机栈允许动态扩展，但是扩展时无法申请足够的内存，会抛出OutOfMemoryError异常。</p>
@@ -4174,7 +4182,7 @@
 <p>举个例子，某一个对象创建的内存占用</p>
 </blockquote>
 <h3 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h3><p>虚拟机执行new指令时，会加载对象符号引用，并判断对象是否加载，解析，初始化。执行响应的类加载后，虚拟机将开始为新生代分配内存，对象所需内存大小在类加载完成后便可完全确定，分配过程为了考虑并发情况，通过CAS配上分配失败重试保证分配的原子性。接下来虚拟机对对象进行必要的设置，比如填充类的元数据信息，对象哈希码，对象GC代信息。执行new指令后，对象字段都给了零值，接着才开始执行真正的构造函数（init()）。</p>
-<h3 id="对象内存布局"><a href="#对象内存布局" class="headerlink" title="对象内存布局"></a>对象内存布局</h3><p>![image-20220201113014460](/Users/weiqian/Library/Application Support/typora-user-images/image-20220201113014460.png)</p>
+<h3 id="对象内存布局"><a href="#对象内存布局" class="headerlink" title="对象内存布局"></a>对象内存布局</h3><p>![image-20220201113014460](&#x2F;Users&#x2F;weiqian&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20220201113014460.png)</p>
 ]]></content>
       <categories>
         <category>读书笔记</category>
