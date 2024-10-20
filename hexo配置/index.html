@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Oct 20 2024 12:44:39 GMT+0800">2024-10-20 12:44:39</span>
+                <span class="datetime" data-updated="Sun Oct 20 2024 12:45:35 GMT+0800">2024-10-20 12:45:35</span>
             </span>
         
 
@@ -248,7 +248,13 @@
                     
                          <h1 id="插件库"><a href="#插件库" class="headerlink" title="插件库"></a>插件库</h1><p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/plugins/" >https://hexo.io/plugins/<i class="fas fa-external-link-alt"></i></a></p>
 <h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p><a class="link"   target="_blank" rel="noopener" href="https://keep-docs.xpoet.cn/basis/get-start/install-theme.html" >https://keep-docs.xpoet.cn/basis/get-start/install-theme.html<i class="fas fa-external-link-alt"></i></a></p>
-<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>最新版的hexo-asset-image和官方的hexo-renderer-marked在处理markdown的图片时，因为某些未知bug，导致无法正常渲染，经测试，把</p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>最新版的hexo-asset-image和官方的hexo-renderer-marked在处理markdown的图片时，因为某些未知bug，导致无法正常渲染，经测试，修改_config.yml可以勉强解决</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原来</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line"></span><br><span class="line">修改为</span><br><span class="line">permalink: :title/</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h1><blockquote>
 <p>没有采用！</p>
 </blockquote>
