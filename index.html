@@ -198,8 +198,20 @@
                         
                             编程语言Java基础
 
+Java虚拟机笔记
+
+Java多线程笔记
+
 设计模式：待补充
-应用组件框架存储Mysql
+架构思想微服务笔记
+
+数据密集型应用系统设计笔记
+
+分布式事务
+
+
+
+应用组件存储Mysql
 
 Redis
 
@@ -209,11 +221,7 @@ Hive
 
 Kudu
 
-Kafka
-
-
-
-计算其他
+...
                         
                     </div>
 
@@ -224,8 +232,8 @@ Kafka
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sun Oct 20 2024 10:51:55 GMT+0800"
-                >2024-10-20 10:51:55</span>
+                                                                                data-updated="Sun Oct 20 2024 11:40:13 GMT+0800"
+                >2024-10-20 11:40:13</span>
             </span>
         
 
@@ -730,18 +738,24 @@ https://docs.oracle.com/javase/specs/jv...
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/post/4654f436/">
-                            Kudu源码阅读
+                        <a href="/post/c533f13b/">
+                            存储选型测试
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            Kudu读取过程
+                            
 
-Tablet的rowset结构
 
-1234567891011121314struct TabletComponents : public RefCountedThreadSafe&lt;TabletComponents&gt; &...
+
+测试背景待测试中间件，impala+kudu，presto+kudu，starrocks
+数据量100W，20个字段
+写入：javaClient
+查询：分页，多条件
+环境：docker
+测试表
+123456789101112131415161...
                         
                     </div>
 
@@ -760,15 +774,6 @@ Tablet的rowset结构
         
 
         
-            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul class="post-category-ul">
-                    
-                            <li class="category-item"><a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%84%E4%BB%B6/">分布式组件</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
 
         
 
@@ -779,7 +784,7 @@ Tablet的rowset结构
     </div>
 
     
-        <a class="home-read-more" href="/post/4654f436/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/post/c533f13b/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
