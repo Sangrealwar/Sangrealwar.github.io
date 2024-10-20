@@ -53,12 +53,14 @@
 
 <a href="/2022/02/09/5_Java%E7%9A%84log%E6%A1%86%E6%9E%B6/" title="Java的各种Log框架">Java的log框架</a>
 
+<a href="/2022/05/09/3_Quarkus/" title="Quarkus">云原生框架初探</a>
 
 
 
-
-<h1 id="工作杂谈"><a href="#工作杂谈" class="headerlink" title="工作杂谈"></a>工作杂谈</h1><h2 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h2><h2 id="WBS"><a href="#WBS" class="headerlink" title="WBS"></a>WBS</h2><p>关于估时</p>
-<p>关于项目管理</p>
+<h1 id="工作杂谈"><a href="#工作杂谈" class="headerlink" title="工作杂谈"></a>工作杂谈</h1><h2 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h2><p>关于扩展性</p>
+<p>关于可读性</p>
+<h2 id="WBS"><a href="#WBS" class="headerlink" title="WBS"></a>WBS</h2><p>关于估时</p>
+<p>关于项目管理方式</p>
 <h2 id="解决范式"><a href="#解决范式" class="headerlink" title="解决范式"></a>解决范式</h2><p>分布式环境下，请求响应可能出现3种状态：成功，失败，无响应</p>
 <p>处理同步：耗时</p>
 <p>处理异步：乱序</p>
