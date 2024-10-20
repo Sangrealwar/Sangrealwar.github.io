@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="人生，总有些黑暗的隧道需要自己穿越">
+    <meta name="author" content="EmiyaQ">
+    
+    <title>
+        
+            常用代码块 |
+        
+        The winter sunshine
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"sangrealwar.github.io","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"The winter sunshine","author":"EmiyaQ","avatar":"/images/pig.png","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","categories":"/categories"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               The winter sunshine
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        常用代码块
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/pig.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">EmiyaQ</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2022-05-07 10:10:17</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sat Oct 19 2024 22:09:43 GMT+0800">2024-10-19 22:09:43</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/">工作日常</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E4%BB%A3%E7%A0%81/">代码</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="过滤富文本中，A标签里href的外链"><a href="#过滤富文本中，A标签里href的外链" class="headerlink" title="过滤富文本中，A标签里href的外链"></a>过滤富文本中，A标签里href的外链</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ATagUtils</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">Pattern</span> <span class="variable">aHrefCompile</span> <span class="operator">=</span> Pattern.compile(<span class="string">&quot;href=\&quot;((?!\&quot;).)*\&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">Pattern</span> <span class="variable">allATagCompile</span> <span class="operator">=</span> Pattern.compile(<span class="string">&quot;&lt;a[^&gt;]*&gt;((?!&lt;/a&gt;).)*&lt;/a&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理A标签，去除不在合法域名内的href属性</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> legalDomains 合法域名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> testStr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">dealATag</span><span class="params">(Collection&lt;String&gt; legalDomains, String testStr)</span> &#123;</span><br><span class="line">        <span class="comment">//1从文本内容提取所有的a标签</span></span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">updated</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">        <span class="type">Matcher</span> <span class="variable">m</span> <span class="operator">=</span> allATagCompile.matcher(testStr);</span><br><span class="line">        <span class="keyword">while</span> (m.find()) &#123;</span><br><span class="line">            <span class="type">boolean</span> <span class="variable">shouldIgnore</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">filepath</span> <span class="operator">=</span> m.group(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">            <span class="type">StringBuffer</span> <span class="variable">replaceUpdated</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">            <span class="comment">//匹配a标签内的href</span></span><br><span class="line">            <span class="type">Matcher</span> <span class="variable">mHref</span> <span class="operator">=</span> aHrefCompile.matcher(filepath);</span><br><span class="line">            <span class="keyword">while</span> (mHref.find()) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">hrefPath</span> <span class="operator">=</span> mHref.group(<span class="number">0</span>);</span><br><span class="line">                <span class="comment">//取到href里面的内容字符串,href=&quot;&#123;&#125;&quot;，就是&#123;&#125;这部分</span></span><br><span class="line">                hrefPath = hrefPath.substring(<span class="number">6</span>, hrefPath.length() - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//url格式：protocol :// hostname[:port] / path / [:parameters][?query]#fragment</span></span><br><span class="line">                <span class="comment">//判断是否有【://】，如果没有，则认为均是内链，跳过判断</span></span><br><span class="line">                <span class="type">int</span> <span class="variable">doubleSlanting</span> <span class="operator">=</span> hrefPath.indexOf(<span class="string">&quot;://&quot;</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">supposeDomain</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (doubleSlanting &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="comment">//取 hostname[:port]，如果没有/，或者第一个就是/ ，则认为该字符串为域名</span></span><br><span class="line">                    hrefPath = hrefPath.substring(doubleSlanting + <span class="number">3</span>);</span><br><span class="line">                    <span class="type">int</span> <span class="variable">slanting</span> <span class="operator">=</span> hrefPath.indexOf(<span class="string">&quot;/&quot;</span>);</span><br><span class="line">                    <span class="keyword">if</span> (slanting &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        supposeDomain = hrefPath;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        supposeDomain = hrefPath.substring(<span class="number">0</span>, slanting);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (supposeDomain == <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//比对a标签内的域名是否需过滤</span></span><br><span class="line">                <span class="keyword">if</span> (legalDomains != <span class="literal">null</span> &amp;&amp; legalDomains.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (String ignore : legalDomains) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (supposeDomain.equals(ignore)) &#123;</span><br><span class="line">                            shouldIgnore = <span class="literal">true</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (shouldIgnore) &#123;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//去除正则匹配出来的href属性</span></span><br><span class="line">                mHref.appendReplacement(replaceUpdated, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            mHref.appendTail(replaceUpdated);</span><br><span class="line">            m.appendReplacement(updated, replaceUpdated.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        m.appendTail(updated);</span><br><span class="line">        <span class="keyword">return</span> updated.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Redis缓存读取防击穿样板代码"><a href="#Redis缓存读取防击穿样板代码" class="headerlink" title="Redis缓存读取防击穿样板代码"></a>Redis缓存读取防击穿样板代码</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import com.alibaba.fastjson.JSON;</span><br><span class="line">import lombok.AllArgsConstructor;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.redisson.api.RLock;</span><br><span class="line">import org.redisson.api.RedissonClient;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @Description: redis操作，仅依赖redis底层以及分布式锁，存储单个值的时候需要注意，如果是incr等redis操作，由于json序列化之后存储的Value是字符串，可能会导致redis脚本执行异常</span><br><span class="line"> * 1. 目前仅支持单对象</span><br><span class="line"> * 2. 依赖fastjson实现对空对象的处理，null对象会被fastjson序列化成&quot;null&quot;字符串，&quot;null&quot;字符串会被反序列化为&quot;&#123;&#125;&quot;</span><br><span class="line"> *</span><br><span class="line"> * @Author; weiqian</span><br><span class="line"> * @Date: 2021/9/27 11:05 上午</span><br><span class="line"> * @Version:</span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@Component</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">public class RedisReaderHelper &#123;</span><br><span class="line">		//redis读取bean</span><br><span class="line">    private final RedisService redisService;</span><br><span class="line">    private final RedissonClient redisson;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从缓存中加载数据，缓存存储方式为Json字符串</span><br><span class="line">     * @param returnClass 加载的数据类型</span><br><span class="line">     * @param cacheKey 缓存key</span><br><span class="line">     * @param lockKey 缓存加锁Key</span><br><span class="line">     * @param normalSecond 正常缓存存活时间，单位：秒</span><br><span class="line">     * @param loadFromDB 缓存失效后，从db加载数据的方法</span><br><span class="line">     * @param &lt;Return&gt; 泛型：返回对象</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public &lt;Return&gt; Return loadAndSaveToJsonString(Class&lt;Return&gt; returnClass,</span><br><span class="line">                                                   String cacheKey,</span><br><span class="line">                                                   String lockKey,</span><br><span class="line">                                                   long normalSecond,</span><br><span class="line">                                                   Supplier&lt;Return&gt; loadFromDB) &#123;</span><br><span class="line">        return this.loadAndSaveToJsonString(</span><br><span class="line">                returnClass,</span><br><span class="line">                cacheKey,</span><br><span class="line">                lockKey,</span><br><span class="line">                normalSecond,</span><br><span class="line">                TimeUnit.MINUTES.toSeconds(1),</span><br><span class="line">                null,</span><br><span class="line">                loadFromDB);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从缓存中加载数据，缓存存储方式为Json字符串</span><br><span class="line">     * @param returnClass 加载的数据类型</span><br><span class="line">     * @param cacheKey 缓存key</span><br><span class="line">     * @param lockKey 缓存加锁Key</span><br><span class="line">     * @param normalSecond 正常缓存存活时间，单位：秒</span><br><span class="line">     * @param nullSupplier 空数据缓存存活时间，单位：秒</span><br><span class="line">     * @param loadFromDB 缓存失效后，从db加载数据的方法</span><br><span class="line">     * @param &lt;Return&gt; 泛型：返回对象</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public &lt;Return&gt; Return loadAndSaveToJsonString(Class&lt;Return&gt; returnClass,</span><br><span class="line">                                                   String cacheKey,</span><br><span class="line">                                                   String lockKey,</span><br><span class="line">                                                   long normalSecond,</span><br><span class="line">                                                   Supplier&lt;Return&gt; nullSupplier,</span><br><span class="line">                                                   Supplier&lt;Return&gt; loadFromDB) &#123;</span><br><span class="line">        return this.loadAndSaveToJsonString(</span><br><span class="line">                returnClass,</span><br><span class="line">                cacheKey,</span><br><span class="line">                lockKey,</span><br><span class="line">                normalSecond,</span><br><span class="line">                TimeUnit.MINUTES.toSeconds(1),</span><br><span class="line">                nullSupplier,</span><br><span class="line">                loadFromDB);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从缓存中加载数据，缓存存储方式为Json字符串</span><br><span class="line">     * @param returnClass 加载的数据类型</span><br><span class="line">     * @param cacheKey 缓存key</span><br><span class="line">     * @param lockKey 缓存加锁Key</span><br><span class="line">     * @param normalSecond 正常缓存存活时间，单位：秒</span><br><span class="line">     * @param nullSecond 空数据缓存存活时间，单位：秒</span><br><span class="line">     * @param nullSupplier 缓存未命中时，空数据的提供方法</span><br><span class="line">     * @param loadFromDB 缓存失效后，从db加载数据的方法</span><br><span class="line">     * @param &lt;Return&gt; 泛型：返回对象</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private &lt;Return&gt; Return loadAndSaveToJsonString(Class&lt;Return&gt; returnClass,</span><br><span class="line">                                                    String cacheKey,</span><br><span class="line">                                                    String lockKey,</span><br><span class="line">                                                    long normalSecond,</span><br><span class="line">                                                    long nullSecond,</span><br><span class="line">                                                    Supplier&lt;Return&gt; nullSupplier,</span><br><span class="line">                                                    Supplier&lt;Return&gt; loadFromDB) &#123;</span><br><span class="line">        Return returnObj;</span><br><span class="line">        if (nullSupplier == null) &#123;</span><br><span class="line">            returnObj = null;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            returnObj = nullSupplier.get();</span><br><span class="line">        &#125;</span><br><span class="line">        long waitTime = 50;</span><br><span class="line">        int i = 0;</span><br><span class="line">        while (i &lt; 3) &#123;</span><br><span class="line">            Object obj = redisService.get(cacheKey);</span><br><span class="line">            if (obj instanceof String) &#123;</span><br><span class="line">                return JSON.parseObject((String) obj, returnClass);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //防止缓存击透</span><br><span class="line">            RLock lock = redisson.getLock(lockKey);</span><br><span class="line">            if (!lock.tryLock()) &#123;</span><br><span class="line">                //当没有获取到锁时，休眠 x ms，再次尝试</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(waitTime);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    return returnObj;</span><br><span class="line">                &#125;</span><br><span class="line">                i++;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            try &#123;</span><br><span class="line">                Return fromDB = loadFromDB.get();</span><br><span class="line">                if (fromDB != null) &#123;</span><br><span class="line">                    redisService.set(cacheKey, JSON.toJSONString(fromDB), normalSecond);</span><br><span class="line">                    //获取到数据</span><br><span class="line">                    returnObj = fromDB;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    //防止缓存穿透</span><br><span class="line">                    redisService.set(cacheKey, JSON.toJSONString(returnObj), nullSecond);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; finally &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    lock.unlock();</span><br><span class="line">                &#125; catch (Exception e) &#123;</span><br><span class="line">                    log.warn(&quot;可能存在嵌套加锁的情况，异常堆栈如下\n&quot;, e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">        return returnObj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="批量分批执行"><a href="#批量分批执行" class="headerlink" title="批量分批执行"></a>批量分批执行</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">     * 批量</span><br><span class="line">     *</span><br><span class="line">     * @param keys</span><br><span class="line">     * @param batch</span><br><span class="line">     * @param function</span><br><span class="line">     * @param &lt;T&gt;</span><br><span class="line">     */</span><br><span class="line">    public static  &lt;T&gt; void batchRun(List&lt;T&gt; keys, int batch, Consumer&lt;List&lt;T&gt;&gt; function) &#123;</span><br><span class="line">        if (batch == 0) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        int size = keys.size();</span><br><span class="line">        int page = 0;</span><br><span class="line">        int maxSize = (int) Math.ceil(size / batch);</span><br><span class="line">        while (page &lt;= maxSize) &#123;</span><br><span class="line">            List&lt;T&gt; part = keys.stream().skip(page * batch).limit(batch).collect(Collectors.toList());</span><br><span class="line">            if (part.size() == 0) &#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            function.accept(part);</span><br><span class="line">            page++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="位的与非判断"><a href="#位的与非判断" class="headerlink" title="位的与非判断"></a>位的与非判断</h1><blockquote>
+<p>用位来存储不同情况的组合状态</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//具体的组合子类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">exercise</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">1</span>; <span class="comment">// 锻炼</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">eatBreakfast</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">2</span>; <span class="comment">//吃早餐</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">readBook</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">3</span>;  <span class="comment">//读书</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">drinkMilk</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">//喝牛奶</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">study</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">5</span>; <span class="comment">//学习</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//不同组合</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">type1</span> <span class="operator">=</span> exercise | eatBreakfast;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">type2</span> <span class="operator">=</span> eatBreakfast;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">type3</span> <span class="operator">=</span> exercise | eatBreakfast | readBook | study;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">type4</span> <span class="operator">=</span> exercise | eatBreakfast | drinkMilk | study;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">all</span> <span class="operator">=</span> exercise | eatBreakfast | readBook | drinkMilk | study;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断组合内是否存在子组合</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">canStep</span><span class="params">(<span class="type">int</span> type, <span class="type">int</span> step)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (type &amp; step) == step;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> BitCompare.canStep(type1, exercise);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E4%BB%A3%E7%A0%81/">代码</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2022/05/09/3_Quarkus/"
+                                   title="Quarkus"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Quarkus</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2022/02/20/3_Flink/"
+                                   title="Flink（未完成）"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Flink（未完成）</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%EF%BC%8CA%E6%A0%87%E7%AD%BE%E9%87%8Chref%E7%9A%84%E5%A4%96%E9%93%BE"><span class="nav-text">过滤富文本中，A标签里href的外链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E7%BC%93%E5%AD%98%E8%AF%BB%E5%8F%96%E9%98%B2%E5%87%BB%E7%A9%BF%E6%A0%B7%E6%9D%BF%E4%BB%A3%E7%A0%81"><span class="nav-text">Redis缓存读取防击穿样板代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E5%88%86%E6%89%B9%E6%89%A7%E8%A1%8C"><span class="nav-text">批量分批执行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E7%9A%84%E4%B8%8E%E9%9D%9E%E5%88%A4%E6%96%AD"><span class="nav-text">位的与非判断</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">EmiyaQ</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%EF%BC%8CA%E6%A0%87%E7%AD%BE%E9%87%8Chref%E7%9A%84%E5%A4%96%E9%93%BE"><span class="nav-text">过滤富文本中，A标签里href的外链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E7%BC%93%E5%AD%98%E8%AF%BB%E5%8F%96%E9%98%B2%E5%87%BB%E7%A9%BF%E6%A0%B7%E6%9D%BF%E4%BB%A3%E7%A0%81"><span class="nav-text">Redis缓存读取防击穿样板代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E5%88%86%E6%89%B9%E6%89%A7%E8%A1%8C"><span class="nav-text">批量分批执行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E7%9A%84%E4%B8%8E%E9%9D%9E%E5%88%A4%E6%96%AD"><span class="nav-text">位的与非判断</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
