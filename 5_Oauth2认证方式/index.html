@@ -267,17 +267,22 @@
                     
 
                     
-                         <meta name="referrer" content="no-referrer">
+                         <meta name="referrer" content="no-referrer"/>
 
 <blockquote>
-<p>认证方式文档：<a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749#section-3.1.2">https://tools.ietf.org/html/rfc6749#section-3.1.2<i class="fas fa-external-link-alt"></i></a></p>
+<p>认证方式文档：<a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749#section-3.1.2" >https://tools.ietf.org/html/rfc6749#section-3.1.2<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h1 id="Authorization-Code-Grant"><a href="#Authorization-Code-Grant" class="headerlink" title="Authorization Code Grant"></a>Authorization Code Grant</h1><blockquote>
 <p>授权码认证。是最完整，安全性最高的认证方式，在客户端不授信，客户端不存储认账账号，且支持重定向的方式传递信息。</p>
 </blockquote>
 <p>支持刷新token需要支持重定向</p>
 <p>交互图如下</p>
-<p><img lazyload alt="image" data-src="/./5_Oauth2%E8%AE%A4%E8%AF%81%E6%96%B9%E5%BC%8F/image1.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./5_Oauth2%E8%AE%A4%E8%AF%81%E6%96%B9%E5%BC%8F/image1.png"
+                       
+                 ></p>
 <blockquote>
 <p>A，B，C表示同一个操作在不同终端的调用情况</p>
 </blockquote>
@@ -297,7 +302,12 @@
 </blockquote>
 <p>需要支持重定向</p>
 <p>交互图如下</p>
-<p><img lazyload alt="image" data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1610509249943-fe95814e-0ebd-42b2-ac11-06678e539b80.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1610509249943-fe95814e-0ebd-42b2-ac11-06678e539b80.png"
+                        alt="image.png"
+                 ></p>
 <blockquote>
 <p>A，B，C表示同一个操作在不同终端的调用情况</p>
 </blockquote>
@@ -309,7 +319,12 @@
 <h1 id="Resource-Owner-Password-Credentials-Grant"><a href="#Resource-Owner-Password-Credentials-Grant" class="headerlink" title="Resource Owner Password Credentials Grant"></a>Resource Owner Password Credentials Grant</h1><blockquote>
 <p>账号密码授权认证模式。该方式适用于客户端是授信的，拥有账号密码信息，此时通过传递帐号密码信息，获取到用户标识，且不需要基于重定向传递参数。支持刷新token</p>
 </blockquote>
-<p>支持刷新token<br>、<br>交互图如下：<br><img lazyload alt="image" data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1616317116966-a2a86654-927b-4256-b1d8-6444235f7211.png"></p>
+<p>支持刷新token<br>、<br>交互图如下：<br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1616317116966-a2a86654-927b-4256-b1d8-6444235f7211.png"
+                        alt="image.png"
+                 ></p>
 <ol>
 <li>.客户端向资源所有者申请认证，客户端保存着用户信息</li>
 <li>客户端携带者从资源所有者获取的认证信息，请求认证服务器，获取token</li>
@@ -318,7 +333,12 @@
 <h1 id="Client-Credentials-Grant"><a href="#Client-Credentials-Grant" class="headerlink" title="Client Credentials Grant"></a>Client Credentials Grant</h1><blockquote>
 <p>客户端认证。该方式适用于客户端是授信的，且无帐号密码，无需登录标识。不支持刷新token</p>
 </blockquote>
-<p>交互图如下：<br><img lazyload alt="image" data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1616317413222-9485f92b-3345-4d6a-9b21-94931703a179.png"></p>
+<p>交互图如下：<br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1616317413222-9485f92b-3345-4d6a-9b21-94931703a179.png"
+                        alt="image.png"
+                 ></p>
 <ol>
 <li>直接根据clientid和密钥向认证中心获取token</li>
 <li>获取成功</li>

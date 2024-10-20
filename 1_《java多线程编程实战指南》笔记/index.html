@@ -264,7 +264,7 @@
                     
 
                     
-                         <meta name="referrer" content="no-referrer">
+                         <meta name="referrer" content="no-referrer"/>
 
 <h1 id="并发简史"><a href="#并发简史" class="headerlink" title="并发简史"></a>并发简史</h1><ul>
 <li>为什么需要多个程序同时进行呢：<ul>
@@ -333,7 +333,12 @@
 <ul>
 <li>逸出</li>
 </ul>
-<p>发布的意思是指使对象能够在当前的作用域之外使用。例如将对象的引用保存在一个公有的静态变量中，以便任何类和线程都能看到该对象。<br>利用匿名内部类时也可能会逸出当前对象，并且在构造函数中发布对象时，只是发布了一个尚未构造完成的对象。构造函数形如：<br><img lazyload alt="image" data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1617270767983-1c5a4618-8b32-4651-97dc-9678c8dcec6a.png"><br>需要确保构造函数结束后，this引用才可以被其他线程使用。</p>
+<p>发布的意思是指使对象能够在当前的作用域之外使用。例如将对象的引用保存在一个公有的静态变量中，以便任何类和线程都能看到该对象。<br>利用匿名内部类时也可能会逸出当前对象，并且在构造函数中发布对象时，只是发布了一个尚未构造完成的对象。构造函数形如：<br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.nlark.com/yuque/0/2021/png/406465/1617270767983-1c5a4618-8b32-4651-97dc-9678c8dcec6a.png"
+                        alt="image.png"
+                 ><br>需要确保构造函数结束后，this引用才可以被其他线程使用。</p>
 <ul>
 <li>不变性<ul>
 <li>ad hoc线程封</li>

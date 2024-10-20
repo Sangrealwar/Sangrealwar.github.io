@@ -255,7 +255,7 @@
                     
 
                     
-                         <meta name="referrer" content="no-referrer">
+                         <meta name="referrer" content="no-referrer"/>
 
 <blockquote>
 <p> Presto是一款开源的高效的查询引擎。目前市面上有两款Presto，一个是Prestodb，由Facebook开源维护。一个是Trino（又名Prestosql），由Starburst公司开源维护。其中Presto的核心创始人之前在Facebook研发，19年后离开Facebook，重新fork分支后开发了trino，所以两款Presto的基础思想都类似，为避免歧义，本文分析的是trino，以下Presto均代表Trino。</p>
@@ -268,9 +268,14 @@
 <p>java程序可以通过Presto-JDBC驱动连接Presto，下载</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.maven.apache.org/maven2/io/prestosql/presto-jdbc/330/presto-jdbc-330.jar</span><br></pre></td></tr></table></figure>
 
-<p>启动Presto后，有一个UI界面，可以查看presto的查询任务运行信息，默认路径是<a class="link" target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="源码本地启动"><a href="#源码本地启动" class="headerlink" title="源码本地启动"></a>源码本地启动</h2><p>git地址：<a class="link" target="_blank" rel="noopener" href="https://github.com/trinodb/trino">https://github.com/trinodb/trino<i class="fas fa-external-link-alt"></i></a> 基本问题不大，就是注意一下，低版本中使用了antlr4，这是一个语言识别的工具。不做特殊处理，会导致编译时找不到类，这些类需要通过antlr4生成。在Idea中可以通过安装插件。（注，不要用trino较高的版本，比如强制要求jdk17及以上的版本，会存在SA无法加载的情况）</p>
-<p><img lazyload alt="image" data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image1.png"></p>
+<p>启动Presto后，有一个UI界面，可以查看presto的查询任务运行信息，默认路径是<a class="link"   target="_blank" rel="noopener" href="http://localhost:8080/" >http://localhost:8080<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="源码本地启动"><a href="#源码本地启动" class="headerlink" title="源码本地启动"></a>源码本地启动</h2><p>git地址：<a class="link"   target="_blank" rel="noopener" href="https://github.com/trinodb/trino" >https://github.com/trinodb/trino<i class="fas fa-external-link-alt"></i></a> 基本问题不大，就是注意一下，低版本中使用了antlr4，这是一个语言识别的工具。不做特殊处理，会导致编译时找不到类，这些类需要通过antlr4生成。在Idea中可以通过安装插件。（注，不要用trino较高的版本，比如强制要求jdk17及以上的版本，会存在SA无法加载的情况）</p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image1.png"
+                        alt="image-20220625171540368"
+                 ></p>
 <p>启动时，按照官网的执行顺序</p>
 <ol>
 <li>先编译一下，编译前记得启动docker！</li>
@@ -287,7 +292,7 @@
 <p>Main Class: io.trino.server.DevelopmentServer<br>VM Options: -ea -Dconfig&#x3D;etc&#x2F;config.properties -Dlog.levels-file&#x3D;etc&#x2F;log.properties -Djdk.attach.allowAttachSelf&#x3D;true<br>Working directory: $MODULE_DIR$<br>Use classpath of module: trino-server-dev</p>
 </blockquote>
 <ol start="3">
-<li>由于maven仓库于2020年不支持http://repo1.maven.org&#x2F;maven2和http://repo.maven.apache.org&#x2F;maven2&#x2F;（详见：<a class="link" target="_blank" rel="noopener" href="https://links.sonatype.com/central/501-https-required">https://links.sonatype.com/central/501-https-required<i class="fas fa-external-link-alt"></i></a> ，且maven-compat:3.0.4默认的远程respority是http开头，所以无法正常启动，因此，为了本地能正常启动，修改了parent的pom文件，在根目录的pom.xml中增加以下配置</li>
+<li>由于maven仓库于2020年不支持http://repo1.maven.org&#x2F;maven2和http://repo.maven.apache.org&#x2F;maven2&#x2F;（详见：<a class="link"   target="_blank" rel="noopener" href="https://links.sonatype.com/central/501-https-required" >https://links.sonatype.com/central/501-https-required<i class="fas fa-external-link-alt"></i></a> ，且maven-compat:3.0.4默认的远程respority是http开头，所以无法正常启动，因此，为了本地能正常启动，修改了parent的pom文件，在根目录的pom.xml中增加以下配置</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.airlift<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>airbase<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>134<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.trino<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>trino-root<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>412<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">		//省略...</span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 手动指定maven的仓库地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>central<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>Central Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repo.maven.apache.org/maven2<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">layout</span>&gt;</span>default<span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -309,7 +314,12 @@
 
 
 <h1 id="深入理解Presto"><a href="#深入理解Presto" class="headerlink" title="深入理解Presto"></a>深入理解Presto</h1><h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>Presto是一个分布式SQL查询引擎，类似于大规模并行处理MPP（Massively parallel processing），通过分配处理任务来实现横向扩展提高强大的处理能力。包含协调器和工作节点的架构图如下</p>
-<p><img lazyload alt="image" data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image2.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image2.png"
+                        alt="image-202206251715403"
+                 ></p>
 <ul>
 <li>协调器</li>
 </ul>
@@ -332,7 +342,12 @@
 <li>在源数据和查询引擎所需的内存数据格式</li>
 </ol>
 <h3 id="执行模型"><a href="#执行模型" class="headerlink" title="执行模型"></a>执行模型</h3><p>Sql语句以文本的形式提交到协调器，协调器解析和分析这条语句，之后创建一个由Presto内部数据结构表示的执行计划，叫做<strong>查询计划</strong>。利用源数据SPI和数据统计SPI创建查询计划，协调器会通过SPI直接连接到数据源，收集有关表和其他源数据的信息</p>
-<p><img lazyload alt="image" data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image3.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/image3.png"
+                        alt="image-202206251715403"
+                 ></p>
 <ul>
 <li>元数据SPI</li>
 </ul>
@@ -427,7 +442,7 @@
 <h3 id="使用表统计信息"><a href="#使用表统计信息" class="headerlink" title="使用表统计信息"></a>使用表统计信息</h3><p>截止目前，明确Hive连接器提供了表统计信息，其他数据源对应连接器并未找到相关文档支持。接口为：io.trino.spi.connector.ConnectorMetadata#getTableStatistics</p>
 <h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>每个查询都被翻译为分布式查询计划，查询计划由任务组成的多个Stage构成，数据以切片形式由连接器返回，并在多个Stage中执行，直到最终结果可用并由协调器提供给用户。</p>
 <h1 id="论文知识点"><a href="#论文知识点" class="headerlink" title="论文知识点"></a>论文知识点</h1><blockquote>
-<p>论文连接：<a class="link" target="_blank" rel="noopener" href="https://trino.io/Presto_SQL_on_Everything.pdf">https://trino.io/Presto_SQL_on_Everything.pdf<i class="fas fa-external-link-alt"></i></a></p>
+<p>论文连接：<a class="link"   target="_blank" rel="noopener" href="https://trino.io/Presto_SQL_on_Everything.pdf" >https://trino.io/Presto_SQL_on_Everything.pdf<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>可选配置，常规内存池、预留内存池。当查询超过常规内存池时，可以将查询中最耗费内存的一个查询转移到预留内存池，如果内存池和预留内存池都慢了，则该节点上的所有查询均被暂停。预留内存池需要有足够的查询，这样配置起来有点浪费，可以不配置预留内存池，使用集群杀死大部分查询。</p>
 <h2 id="失败容忍"><a href="#失败容忍" class="headerlink" title="失败容忍"></a>失败容忍</h2><p>Presto<strong>没有</strong>内置失败重试策略，协调器失败会导致集群不可用，工作节点失败会导致该节点的所有查询失败。</p>
@@ -450,7 +465,7 @@
 <li>高级Sql特效（函数，表达式）</li>
 </ul>
 <blockquote>
-<p>内容太多，详情请参考官网文档：<a class="link" target="_blank" rel="noopener" href="https://trino.io/docs/current/">https://trino.io/docs/current/<i class="fas fa-external-link-alt"></i></a></p>
+<p>内容太多，详情请参考官网文档：<a class="link"   target="_blank" rel="noopener" href="https://trino.io/docs/current/" >https://trino.io/docs/current/<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h2 id="Presto实际应用"><a href="#Presto实际应用" class="headerlink" title="Presto实际应用"></a>Presto实际应用</h2><h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><ul>
 <li>Ldap</li>

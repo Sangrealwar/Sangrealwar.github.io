@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Oct 20 2024 10:49:22 GMT+0800">2024-10-20 10:49:22</span>
+                <span class="datetime" data-updated="Sun Oct 20 2024 12:41:39 GMT+0800">2024-10-20 12:41:39</span>
             </span>
         
 
@@ -258,14 +258,24 @@
                          <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><blockquote>
 <p>无特殊说明，下文使用的引擎均指InnoDB</p>
 </blockquote>
-<h2 id="InnoDB引擎"><a href="#InnoDB引擎" class="headerlink" title="InnoDB引擎"></a>InnoDB引擎</h2><p>官网InnoDB架构：<a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html">https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html<i class="fas fa-external-link-alt"></i></a> </p>
-<p><img lazyload alt="image" data-src="/Users/weiqian/Documents/3_study/hexo/source/_posts/3-Mysql/7.png"></p>
+<h2 id="InnoDB引擎"><a href="#InnoDB引擎" class="headerlink" title="InnoDB引擎"></a>InnoDB引擎</h2><p>官网InnoDB架构：<a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html" >https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html<i class="fas fa-external-link-alt"></i></a> </p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/3-Mysql/7.png"
+                       
+                 ></p>
 <h3 id="In-Memory"><a href="#In-Memory" class="headerlink" title="In-Memory"></a>In-Memory</h3><ul>
 <li>Buffer Pool</li>
 </ul>
 <p>提高读取的效率，缓存池分成页进行管理，同时为了管理缓存，有一个链表，使用LRU算法淘汰最近最少用的缓存</p>
 <p>官网的缓冲链表结构图</p>
-<p><img lazyload alt="image" data-src="/Users/weiqian/Documents/3_study/hexo/source/_posts/3-Mysql/8.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/3-Mysql/8.png"
+                       
+                 ></p>
 <p>头部（Head）表示最近访问，尾部（Tail）表示最少使用。默认3&#x2F;8是较少使用的，5&#x2F;8是较频繁使用的。old sublist针对缓冲池污染（无索引扫描大量数据但只查询到部分数据）的操作，表示进入old sublist时必须停留的时间（毫秒），才能进入old sublist</p>
 <p>如果修改数据时，当二级索引不在Buffer Pool里时，会将更新保存在change buffer，在数据加在到buffer pool时，合并之前change buffer的数据</p>
 <h3 id="On-Disk"><a href="#On-Disk" class="headerlink" title="On-Disk"></a>On-Disk</h3><ul>
@@ -400,7 +410,7 @@
 
 
 <h2 id="Binlog"><a href="#Binlog" class="headerlink" title="Binlog"></a>Binlog</h2><blockquote>
-<p> 配置：<a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html">https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html<i class="fas fa-external-link-alt"></i></a></p>
+<p> 配置：<a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html" >https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <p>常用于主从复制</p>
 <ul>
@@ -471,7 +481,7 @@
 <p>搭建两个mysql，用自定义的网络，选择bridge模式，这样可以指定ip</p>
 <p>版本选择5.7</p>
 <p>详细参考：</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/replication-howto.html">https://dev.mysql.com/doc/refman/5.7/en/replication-howto.html<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/replication-howto.html" >https://dev.mysql.com/doc/refman/5.7/en/replication-howto.html<i class="fas fa-external-link-alt"></i></a></p>
 <ol>
 <li>docker构建mysql容器，并启动，要求slave能够连接到主库</li>
 </ol>
@@ -518,20 +528,20 @@
 
 <h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>5051	2	AD	<br>5215	2	ad	asdasd<br>5174	2	BY-01	<br>5162	2	dd	dd</p>
 <h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3><p>为什么ad会夹在AD和BY-01之间呢</p>
-<h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>简而言之，是因为表创建时，crowd_name定义了字段的字符集，但没有定义排序规则，所以采用了字段字符集的排序规则。（详见：<a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/charset-column.html%EF%BC%89%EF%BC%8C%E8%80%8Cutf8%E7%9A%84%E9%BB%98%E8%AE%A4%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99%E4%B8%BAutf8_general_ci%E6%9F%A5%E8%AF%A2%EF%BC%8C%E8%AF%A6%E8%A7%81%EF%BC%88https://dev.mysql.com/doc/refman/5.7/en/show-collation.html%EF%BC%89%EF%BC%8C%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87show%E6%8C%87%E4%BB%A4%E7%9C%8B%E5%AD%97%E6%AE%B5%E7%9A%84%E6%8E%92%E5%BA%8F%E9%9B%86%E3%80%82utf8mb4_bin%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81%E6%8E%92%E5%BA%8F%E5%8F%AF%E4%BB%A5%E6%9C%89%E6%95%88%E7%9A%84%E8%AF%86%E5%88%AB%E5%A4%A7%E5%B0%8F%E5%86%99%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%8E%92%E5%BA%8F%E6%AF%94%E8%BE%83%E7%9A%84%E6%98%AF%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E6%95%B0%E5%80%BC%EF%BC%8C%E8%80%8Cutf8_general_ci%E5%BE%88%E5%8F%AF%E6%83%9C%EF%BC%8C%E6%98%AF%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99%E7%9A%84%E3%80%82">https://dev.mysql.com/doc/refman/5.7/en/charset-column.html），而utf8的默认排序规则为utf8_general_ci查询，详见（https://dev.mysql.com/doc/refman/5.7/en/show-collation.html），可以通过show指令看字段的排序集。utf8mb4_bin二进制编码排序可以有效的识别大小写，因为排序比较的是二进制的数值，而utf8_general_ci很可惜，是忽略大小写的。<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>简而言之，是因为表创建时，crowd_name定义了字段的字符集，但没有定义排序规则，所以采用了字段字符集的排序规则。（详见：<a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/charset-column.html%EF%BC%89%EF%BC%8C%E8%80%8Cutf8%E7%9A%84%E9%BB%98%E8%AE%A4%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99%E4%B8%BAutf8_general_ci%E6%9F%A5%E8%AF%A2%EF%BC%8C%E8%AF%A6%E8%A7%81%EF%BC%88https://dev.mysql.com/doc/refman/5.7/en/show-collation.html%EF%BC%89%EF%BC%8C%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87show%E6%8C%87%E4%BB%A4%E7%9C%8B%E5%AD%97%E6%AE%B5%E7%9A%84%E6%8E%92%E5%BA%8F%E9%9B%86%E3%80%82utf8mb4_bin%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81%E6%8E%92%E5%BA%8F%E5%8F%AF%E4%BB%A5%E6%9C%89%E6%95%88%E7%9A%84%E8%AF%86%E5%88%AB%E5%A4%A7%E5%B0%8F%E5%86%99%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%8E%92%E5%BA%8F%E6%AF%94%E8%BE%83%E7%9A%84%E6%98%AF%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E6%95%B0%E5%80%BC%EF%BC%8C%E8%80%8Cutf8_general_ci%E5%BE%88%E5%8F%AF%E6%83%9C%EF%BC%8C%E6%98%AF%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99%E7%9A%84%E3%80%82" >https://dev.mysql.com/doc/refman/5.7/en/charset-column.html），而utf8的默认排序规则为utf8_general_ci查询，详见（https://dev.mysql.com/doc/refman/5.7/en/show-collation.html），可以通过show指令看字段的排序集。utf8mb4_bin二进制编码排序可以有效的识别大小写，因为排序比较的是二进制的数值，而utf8_general_ci很可惜，是忽略大小写的。<i class="fas fa-external-link-alt"></i></a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="variable">@s</span> <span class="operator">=</span> _utf8 <span class="string">&#x27;AD&#x27;</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">SET</span> <span class="variable">@s1</span> <span class="operator">=</span> _utf8 <span class="string">&#x27;BY-01&#x27;</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">SET</span> <span class="variable">@s2</span> <span class="operator">=</span> _utf8 <span class="string">&#x27;ad&#x27;</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">SELECT</span>   HEX(WEIGHT_STRING(<span class="variable">@s</span>)),HEX(WEIGHT_STRING(<span class="variable">@s1</span>)),HEX(WEIGHT_STRING(<span class="variable">@s2</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">00410044</span>	<span class="number">00420059002</span>D00300031	<span class="number">00410044</span></span><br></pre></td></tr></table></figure>
 
 <p>可以看出</p>
 <p>AD和ad的权重都是一样的，所以BY就排在下面了（如果相同了咋办，相同了，谁排在前面谁就在前面呀，一般是按id）</p>
 <h3 id="附参考"><a href="#附参考" class="headerlink" title="附参考"></a>附参考</h3><p>来自mysql5.7官网</p>
 <p>字符集命名规范</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html">https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html" >https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html<i class="fas fa-external-link-alt"></i></a></p>
 <p>字符集排序的介绍</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/charset-general.html">https://dev.mysql.com/doc/refman/5.7/en/charset-general.html<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/charset-general.html" >https://dev.mysql.com/doc/refman/5.7/en/charset-general.html<i class="fas fa-external-link-alt"></i></a></p>
 <p>查看字符的排序值，确定排序顺序</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_weight-string">https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_weight-string<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_weight-string" >https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_weight-string<i class="fas fa-external-link-alt"></i></a></p>
 <p>查看表的排序集</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/show-columns.html">https://dev.mysql.com/doc/refman/5.7/en/show-columns.html<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/show-columns.html" >https://dev.mysql.com/doc/refman/5.7/en/show-columns.html<i class="fas fa-external-link-alt"></i></a></p>
 
                     
                 </div>

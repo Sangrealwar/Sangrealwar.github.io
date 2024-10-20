@@ -282,7 +282,7 @@
 <p>批量获取&#x2F;批量设置</p>
 <p>Getset&#x2F;GetDel&#x2F;GetEx</p>
 <p>Get操作后附带的操作，其中，GetSet是1.0版本就有的，而GetDel&#x2F;GetEx需要到6.2之后</p>
-<p>其他命令参考文档：<a class="link" target="_blank" rel="noopener" href="https://redis.io/commands/append">https://redis.io/commands/append<i class="fas fa-external-link-alt"></i></a></p>
+<p>其他命令参考文档：<a class="link"   target="_blank" rel="noopener" href="https://redis.io/commands/append" >https://redis.io/commands/append<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>作为最常用的Redis命令，可以原子设置过期时间，避免缓存-数据库一致性这个问题，常用于验证码缓存等短期缓存场景。</p>
 <h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><p>Lpush&#x2F;Lpush，Lpop&#x2F;Lpop</p>
 <p>从左侧&#x2F;从右侧插入，相对的是从左侧&#x2F;从右侧弹出</p>
@@ -290,7 +290,7 @@
 <p>检索在一定范围内的元素</p>
 <p>Ltrim</p>
 <p>截取一定范围内的元素</p>
-<p>其他命令参考：<a class="link" target="_blank" rel="noopener" href="https://redis.io/commands/blmove">https://redis.io/commands/blmove<i class="fas fa-external-link-alt"></i></a></p>
+<p>其他命令参考：<a class="link"   target="_blank" rel="noopener" href="https://redis.io/commands/blmove" >https://redis.io/commands/blmove<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><p>底层是链表结构，消费者模型可用于队列，可方便的获取最新一次的数据。</p>
 <h2 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h2><h3 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h3><p>Hset&#x2F;Hget，Hmset&#x2F;Hmget</p>
 <p>设置&#x2F;获取，批量设置&#x2F;批量获取。</p>
@@ -298,7 +298,7 @@
 <p>增加&#x2F;减少某个key的值</p>
 <p>Hsetnx</p>
 <p>类似煜setnx</p>
-<p>其他命令参考：<a class="link" target="_blank" rel="noopener" href="https://redis.io/commands/hdel">https://redis.io/commands/hdel<i class="fas fa-external-link-alt"></i></a></p>
+<p>其他命令参考：<a class="link"   target="_blank" rel="noopener" href="https://redis.io/commands/hdel" >https://redis.io/commands/hdel<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><p>哈希结构，可以比较方便的表示对象内的字段关系，hash里面的key没有独立的过期时间，过期时间跟着大的Key而定。</p>
 <h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><h3 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h3><p>Sadd</p>
 <p>添加某个元素</p>
@@ -308,7 +308,7 @@
 <p>返回元素长度</p>
 <p>Sunionstore&#x2F;Sinter&#x2F;Sdiff</p>
 <p>取并集&#x2F;交集&#x2F;差集</p>
-<p>其他命令参考：<a class="link" target="_blank" rel="noopener" href="https://redis.io/commands/sadd">https://redis.io/commands/sadd<i class="fas fa-external-link-alt"></i></a></p>
+<p>其他命令参考：<a class="link"   target="_blank" rel="noopener" href="https://redis.io/commands/sadd" >https://redis.io/commands/sadd<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><p>集合，无排序，可排除重复项。利用并交差，可以快速检索出两个列表的关系，例如关注了同一个人的用户。</p>
 <h2 id="sort-set"><a href="#sort-set" class="headerlink" title="sort set"></a>sort set</h2><h3 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h3><p>Zadd</p>
 <p>增加元素</p>
@@ -318,7 +318,7 @@
 <p>查看某个元素属于什么索引（不是评分）</p>
 <p>Zinter&#x2F;Zunion&#x2F;Zdiff</p>
 <p>于set的命令相似</p>
-<p>其他命令参考：<a class="link" target="_blank" rel="noopener" href="https://redis.io/commands/bzmpop">https://redis.io/commands/bzmpop<i class="fas fa-external-link-alt"></i></a></p>
+<p>其他命令参考：<a class="link"   target="_blank" rel="noopener" href="https://redis.io/commands/bzmpop" >https://redis.io/commands/bzmpop<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-4"><a href="#特点-4" class="headerlink" title="特点"></a>特点</h3><p>set升级版，增加了score，可以根据评分进行排序，底层利用skiplist。常用于排行榜。</p>
 <h2 id="bitmap"><a href="#bitmap" class="headerlink" title="bitmap"></a>bitmap</h2><h3 id="常用命令-5"><a href="#常用命令-5" class="headerlink" title="常用命令"></a>常用命令</h3><p>Setbit&#x2F;Getbit</p>
 <p>设置&#x2F;获取。设置的偏移量必须是Integer类型。</p>
@@ -328,13 +328,13 @@
 <p>对string进行位运算</p>
 <p>Bitpos</p>
 <p>查找指定0&#x2F;1的第一位</p>
-<p>其他命令参考：<a class="link" target="_blank" rel="noopener" href="https://redis.io/commands/setbit">https://redis.io/commands/setbit<i class="fas fa-external-link-alt"></i></a></p>
+<p>其他命令参考：<a class="link"   target="_blank" rel="noopener" href="https://redis.io/commands/setbit" >https://redis.io/commands/setbit<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-5"><a href="#特点-5" class="headerlink" title="特点"></a>特点</h3><p>位图，是一种特殊的String，可以标识2^32个bi位，可以通过高效的存储结构，利用少量的空间存储大量的数据。例如，布隆过滤器，可以基于bitmap来实现，使用时通过某种hash函数，将数据转化为位表示。也可以用于记录签到，打卡等一次性开关活动。</p>
 <h2 id="hyperLogLogs"><a href="#hyperLogLogs" class="headerlink" title="hyperLogLogs"></a>hyperLogLogs</h2><h3 id="常用命令-6"><a href="#常用命令-6" class="headerlink" title="常用命令"></a>常用命令</h3><p>Pfadd</p>
 <p>增加元素</p>
 <p>Pfcount</p>
 <p>返回有多少基数</p>
-<p>其他命令参考：<a class="link" target="_blank" rel="noopener" href="https://redis.io/commands/pfadd">https://redis.io/commands/pfadd<i class="fas fa-external-link-alt"></i></a></p>
+<p>其他命令参考：<a class="link"   target="_blank" rel="noopener" href="https://redis.io/commands/pfadd" >https://redis.io/commands/pfadd<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-6"><a href="#特点-6" class="headerlink" title="特点"></a>特点</h3><p>也是一种特殊的String，在允许误差的情况下，快速计算基数（也就是不重复的元素<strong>个</strong>数），常用的数据结构有（set，bitmap）</p>
 
                     

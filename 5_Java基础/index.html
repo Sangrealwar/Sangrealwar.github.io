@@ -256,10 +256,10 @@
 
                     
                          <blockquote>
-<p>2015年，jdk8虚拟机规范：<a class="link" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html">https://docs.oracle.com/javase/specs/jvms/se8/html/index.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>2015年，jdk8虚拟机规范：<a class="link"   target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html" >https://docs.oracle.com/javase/specs/jvms/se8/html/index.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h1 id="运行内存区"><a href="#运行内存区" class="headerlink" title="运行内存区"></a>运行内存区</h1><blockquote>
-<p><a class="link" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5">https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5" >https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <ul>
 <li><p>程序计数器</p>
@@ -300,7 +300,7 @@
 </li>
 </ul>
 <h1 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h1><blockquote>
-<p><a class="link" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html#jvms-5.3">https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html#jvms-5.3<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html#jvms-5.3" >https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html#jvms-5.3<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h1 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h1><p>Java内存模型，通过特定操作协议，对内存或高速缓存进行读写过程的一种描述。JMM是一种在对线程并发情况下对于共享变量读写的<strong>规范</strong>，屏蔽了不同操作系统的差异，而Jvm内存结构是处于Java虚拟机层面，是运行时对Java进程占用内存的逻辑划分。</p>
 <h2 id="结构规范"><a href="#结构规范" class="headerlink" title="结构规范"></a>结构规范</h2><p>所有变量都存储在主内存中，每个线程还有自己的工作内存，线程的工作内存保存了该线程使用的变量的主内存副本，线程对变量的所有操作（读取，赋值等）都必须在工作内存中进行，不能直接读写主内存。不同线程也不能直接访问对方工作内存中的变量，线程之间值的传递都需要通过主内存完成</p>
@@ -330,7 +330,7 @@
 </ul>
 <h1 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h1><blockquote>
 <p>无特殊说明，默认指1.8版本的HotSpot虚拟机</p>
-<p>参考资料：<a class="link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzIwNDAyOTI2Nw==&mid=2247494932&idx=1&sn=1e0a7a74e947dd03967c36cc3270f8a1&chksm=96c4c128a1b3483e78405fa2b1cf2f2f901b91593c56fc4d6ee086eb1b7c8a27e4d9be1fbf7d&token=2016670857&lang=zh_CN#rd">https://mp.weixin.qq.com/s?__biz=MzIwNDAyOTI2Nw==&amp;mid=2247494932&amp;idx=1&amp;sn=1e0a7a74e947dd03967c36cc3270f8a1&amp;chksm=96c4c128a1b3483e78405fa2b1cf2f2f901b91593c56fc4d6ee086eb1b7c8a27e4d9be1fbf7d&amp;token=2016670857&amp;lang=zh_CN#rd<i class="fas fa-external-link-alt"></i></a> </p>
+<p>参考资料：<a class="link"   target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzIwNDAyOTI2Nw==&mid=2247494932&idx=1&sn=1e0a7a74e947dd03967c36cc3270f8a1&chksm=96c4c128a1b3483e78405fa2b1cf2f2f901b91593c56fc4d6ee086eb1b7c8a27e4d9be1fbf7d&token=2016670857&lang=zh_CN#rd" >https://mp.weixin.qq.com/s?__biz=MzIwNDAyOTI2Nw==&amp;mid=2247494932&amp;idx=1&amp;sn=1e0a7a74e947dd03967c36cc3270f8a1&amp;chksm=96c4c128a1b3483e78405fa2b1cf2f2f901b91593c56fc4d6ee086eb1b7c8a27e4d9be1fbf7d&amp;token=2016670857&amp;lang=zh_CN#rd<i class="fas fa-external-link-alt"></i></a> </p>
 <p>查看默认配置</p>
 <p>java -XX:+PrintFlagsInitial  -version | grep CMS</p>
 <p>查看当前配置</p>
@@ -344,17 +344,32 @@
 <li>标记清理</li>
 </ul>
 <p>容易产生内存碎片</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/10.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/10.png"
+                       
+                 ></p>
 <ul>
 <li>复制</li>
 </ul>
 <p>内存占用较高，不容易产生内存碎片</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/11.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/11.png"
+                       
+                 ></p>
 <ul>
 <li>标记整理</li>
 </ul>
 <p>标记后，让所有对象向一端移动，再清理边界外区域</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/12.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/12.png"
+                       
+                 ></p>
 <h3 id="三色标记法"><a href="#三色标记法" class="headerlink" title="三色标记法"></a>三色标记法</h3><p>黑色：表示对象被标记存活，并且该对象所有引用都已经被扫描过。不应该被回收，不会引用任何白色对象</p>
 <p>灰色：表示对象被标记存活，但其引用还没有全部被扫描，可能引用白色对象</p>
 <p>白色：表示对象尚未被访问，初始所有对象都是白色</p>
@@ -410,12 +425,17 @@
 </tr>
 </tbody></table>
 <h2 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h2><blockquote>
-<p>oracle介绍：<a class="link" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector">https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector<i class="fas fa-external-link-alt"></i></a></p>
+<p>oracle介绍：<a class="link"   target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector" >https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector<i class="fas fa-external-link-alt"></i></a></p>
 <p>启用Cms收集器</p>
 </blockquote>
 <p>全称Concurrent Mark Sweep，1.4推出，在1.9标记弃用，14版本正式弃用，与ParNewGC（清理年轻代）配套使用。CMS是一种以获取最短回收停顿时间为目标的收集器。</p>
 <p>CMS及之前的收集器对内存的划分</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/14.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/14.png"
+                       
+                 ></p>
 <ul>
 <li>整体过程</li>
 </ul>
@@ -442,11 +462,16 @@
 </li>
 </ul>
 <h2 id="G1"><a href="#G1" class="headerlink" title="G1"></a>G1</h2><blockquote>
-<p> oracle介绍：<a class="link" target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html">https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html<i class="fas fa-external-link-alt"></i></a> </p>
+<p> oracle介绍：<a class="link"   target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html" >https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html<i class="fas fa-external-link-alt"></i></a> </p>
 </blockquote>
 <p>全称Garbage-First，1.7推出，开创了面向局部收集和基于Region的内存布局形式。面向大内存多核，期望建立 “停顿预测模型”的收集器，旨在能够支持指定在长度微M毫秒的时间片段内，消耗在垃圾收集上的时间大概率不超过N毫秒的目标。</p>
 <p>内存分配模型：</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/13.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/13.png"
+                       
+                 ></p>
 <blockquote>
 <p>内存被划分为相等大小的内存区，每个块有着自己的功能，但年轻代&#x2F;老年代并没有固定的大小，更灵活。”化整为零”的思想。</p>
 </blockquote>
@@ -497,24 +522,39 @@
 <h2 id="MarkWord"><a href="#MarkWord" class="headerlink" title="MarkWord"></a>MarkWord</h2><ul>
 <li>Java对象结构如下</li>
 </ul>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/4.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/4.png"
+                       
+                 ></p>
 <p>可以通过代码查看对象空间，需要引入</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.openjdk.jol<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jol-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(ClassLayout.parseInstance(lock).toPrintable());</span><br></pre></td></tr></table></figure>
 
 <p>在64位虚拟机默认配置下（开启指针压缩），一个普通的对象内存结构如下（对象头8字节，类指针4字节）</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/3.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/3.png"
+                       
+                 ></p>
 <ul>
 <li>MarkWord</li>
 </ul>
 <blockquote>
 <p>markWord结构，hotspot源码位置markOop.hpp</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://hg.openjdk.org/jdk8u/jdk8u/hotspot/file/69087d08d473/src/share/vm/oops/markOop.hpp">https://hg.openjdk.org/jdk8u/jdk8u/hotspot/file/69087d08d473/src/share/vm/oops/markOop.hpp<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://hg.openjdk.org/jdk8u/jdk8u/hotspot/file/69087d08d473/src/share/vm/oops/markOop.hpp" >https://hg.openjdk.org/jdk8u/jdk8u/hotspot/file/69087d08d473/src/share/vm/oops/markOop.hpp<i class="fas fa-external-link-alt"></i></a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bit-format of an object header (most significant first, big endian layout below):</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  32 bits:</span></span><br><span class="line"><span class="comment">//  --------</span></span><br><span class="line"><span class="comment">//             hash:25 ------------&gt;| age:4    biased_lock:1 lock:2 (normal object)</span></span><br><span class="line"><span class="comment">//             JavaThread*:23 epoch:2 age:4    biased_lock:1 lock:2 (biased object)</span></span><br><span class="line"><span class="comment">//             size:32 ------------------------------------------&gt;| (CMS free block)</span></span><br><span class="line"><span class="comment">//             PromotedObject*:29 ----------&gt;| promo_bits:3 -----&gt;| (CMS promoted object)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  64 bits:</span></span><br><span class="line"><span class="comment">//  --------</span></span><br><span class="line"><span class="comment">//  unused:25 hash:31 --&gt;| unused:1   age:4    biased_lock:1 lock:2 (normal object)</span></span><br><span class="line"><span class="comment">//  JavaThread*:54 epoch:2 unused:1   age:4    biased_lock:1 lock:2 (biased object)</span></span><br><span class="line"><span class="comment">//  PromotedObject*:61 ---------------------&gt;| promo_bits:3 -----&gt;| (CMS promoted object)</span></span><br><span class="line"><span class="comment">//  size:64 -----------------------------------------------------&gt;| (CMS free block)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  unused:25 hash:31 --&gt;| cms_free:1 age:4    biased_lock:1 lock:2 (COOPs &amp;&amp; normal object)</span></span><br><span class="line"><span class="comment">//  JavaThread*:54 epoch:2 cms_free:1 age:4    biased_lock:1 lock:2 (COOPs &amp;&amp; biased object)</span></span><br><span class="line"><span class="comment">//  narrowOop:32 unused:24 cms_free:1 unused:4 promo_bits:3 -----&gt;| (COOPs &amp;&amp; CMS promoted object)</span></span><br><span class="line"><span class="comment">//  unused:21 size:35 --&gt;| cms_free:1 unused:7 ------------------&gt;| (COOPs &amp;&amp; CMS free block)</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>以64位举例</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/1.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/1.png"
+                       
+                 ></p>
 <h2 id="常见问题-1"><a href="#常见问题-1" class="headerlink" title="常见问题"></a>常见问题</h2><ul>
 <li>如果调用了hashCode，则不能启用偏向锁，因为没有56bit存放了线程ID，没地方放hashCode，hashCode会存在线程栈帧中</li>
 <li>偏向锁轻微竞争时，会升级为轻量级锁。当要升级为重量锁时，偏向锁会撤销为无锁状态，再进入下一阶段</li>
@@ -522,7 +562,7 @@
 <h1 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h1><blockquote>
 <p>java.util.concurrent包</p>
 <p>下面主要有3类，atomic，locks，同步工具，线程池等</p>
-<p>参考文献A：<a class="link" target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015558984">https://segmentfault.com/a/1190000015558984<i class="fas fa-external-link-alt"></i></a> </p>
+<p>参考文献A：<a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015558984" >https://segmentfault.com/a/1190000015558984<i class="fas fa-external-link-alt"></i></a> </p>
 </blockquote>
 <h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><p>当前主要使用MESA模型的管程模型，以下是典型的管程模型，主要元素包括</p>
 <ol>
@@ -535,7 +575,12 @@
 
 
 
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/2.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/2.png"
+                       
+                 ></p>
 <blockquote>
 <p>上文提到的Synchronized是jvm层面提供的管程实现，只有一个条件变量，ObjectMonitor（重量级锁），但由于需要上下文切换（重量级锁时），性能不好，且粒度较粗，无法自定义解锁，非公平。为此，juc包下，提供了AQS，全称：AbstractQueuedSynchronizer</p>
 </blockquote>
@@ -822,7 +867,12 @@
 </ul>
 <h4 id="使用姿势-8"><a href="#使用姿势-8" class="headerlink" title="使用姿势"></a>使用姿势</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ThreadPoolExecutor thread = new ThreadPoolExecutor(2,</span><br><span class="line">        5,</span><br><span class="line">        1,</span><br><span class="line">        TimeUnit.SECONDS,</span><br><span class="line">        new LinkedBlockingDeque&lt;&gt;(1),</span><br><span class="line">        new ThreadFactoryOne(),</span><br><span class="line">        new ThreadPoolExecutor.DiscardOldestPolicy());</span><br><span class="line">for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">    thread.execute(() -&gt; &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;：我在运行&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;运行完了&quot;);</span><br></pre></td></tr></table></figure>
 
-<h4 id="原理小结-8"><a href="#原理小结-8" class="headerlink" title="原理小结"></a>原理小结</h4><p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/5.png"></p>
+<h4 id="原理小结-8"><a href="#原理小结-8" class="headerlink" title="原理小结"></a>原理小结</h4><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/5.png"
+                       
+                 ></p>
 <h5 id="线程池构造器"><a href="#线程池构造器" class="headerlink" title="线程池构造器"></a>线程池构造器</h5><ul>
 <li>核心线程 corePoolSize</li>
 <li>最大线程数 maximumPoolSize</li>
@@ -923,7 +973,12 @@
 <p>和ThreadPoolExecutor类似，将Runnable封装成ScheduledFutureTask，阻塞队列用DelayedWorkQueue，内部没有直接继承PriorityBlockingQueue，自己实现了优先级队列，因为线程池调度会利用阻塞队列的take。因此天然等待最早到时间的线程。</p>
 </blockquote>
 <h2 id="并发容器"><a href="#并发容器" class="headerlink" title="并发容器"></a>并发容器</h2><p>类继承关系</p>
-<p><img lazyload alt="image" data-src="/5_Java%E5%9F%BA%E7%A1%80/6.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/5_Java%E5%9F%BA%E7%A1%80/6.png"
+                       
+                 ></p>
 <h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
 <p>解释表头，第一列表示相关类型的操作（入队，出队，检索队头元素），第一行表示当相关操作第一时间不符合条件（如队头队尾无元素）时触发的操作（如抛异常，返回特定值，阻塞，超时阻塞）</p>
 </blockquote>

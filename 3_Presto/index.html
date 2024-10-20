@@ -262,7 +262,12 @@
 <p>在BI业务中，如果业务方想要在PB级别数据库中快速提取数据，形成报表，往往有以下几种方式。1. 通过Hive实现数据提取，2. 开发对应的取数程序，按照固定报表格式，形成BI报表，供业务方查询。3. 依赖关系型数据库（如Oracle，PostgreSQL）连表查询。但上述方式，hive取数耗时较久，取数程序报表格式固定不灵活，连表查询分库分表无法实现。这种场景业界也有许多组件选型，例如Impala，kylin，druid，starRocks等。相比之下，我们选择了Presto，能够低延时的满足灵活分析的场景，而且存算分离后，也可以通过横向扩展来应对峰值查询。</p>
 <p>本文以查询计划生成为切入点，分享实践中对慢Sql的定位与优化，以此加深对Presto的了解。</p>
 <h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><p>Presto架构图如下：</p>
-<p><img lazyload alt="image" data-src="/./3_Presto/image2.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image2.png"
+                        alt="image-202206251715403"
+                 ></p>
 <h2 id="查询计划是什么"><a href="#查询计划是什么" class="headerlink" title="查询计划是什么"></a>查询计划是什么</h2><p>查询计划是一个过程，是由 LogicalPlanner根据Sql语句分析后的结果，生成逻辑执行计划，逻辑执行计划经过各种优化器处理后，最终输出的查询执行计划分段，并交由调度执行器分配到不同的worker执行。</p>
 <p>查询计划的直观体现：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Fragment 1 [HASH]</span><br><span class="line">    CPU: 2.65ms, Scheduled: 2.81ms, Input: 0 rows (0B); per task: avg.: 0.00 std.dev.: 0.00, Output: 0 rows (0B)</span><br><span class="line">    Output layout: [u_key]</span><br><span class="line">    Output partitioning: SINGLE []</span><br><span class="line">    Stage Execution Strategy: UNGROUPED_EXECUTION</span><br><span class="line">    Project[]</span><br><span class="line">    │   Layout: [u_key:varchar]</span><br><span class="line">    │   Estimates: &#123;rows: ? (?), cpu: ?, memory: ?, network: ?&#125;</span><br><span class="line">    │   CPU: 0.00ns (?%), Scheduled: 0.00ns (0.00%), Output: 0 rows (0B)</span><br><span class="line">    │   Input avg.: 0.00 rows, Input std.dev.: ?%</span><br><span class="line">    └─ Aggregate(FINAL)[u_key][$hashvalue]</span><br><span class="line">       │   Layout: [u_key:varchar, $hashvalue:bigint]</span><br><span class="line">       │   Estimates: &#123;rows: ? (?), cpu: ?, memory: ?, network: ?&#125;</span><br><span class="line">       │   CPU: 0.00ns (?%), Scheduled: 0.00ns (0.00%), Output: 0 rows (0B)</span><br><span class="line">       │   Input avg.: 0.00 rows, Input std.dev.: ?%</span><br><span class="line">       │   Collisions avg.: ? (?% est.), Collisions std.dev.: ?%</span><br><span class="line">       └─ LocalExchange[HASH][$hashvalue] (&quot;u_key&quot;)</span><br><span class="line">          │   Layout: [u_key:varchar, $hashvalue:bigint]</span><br><span class="line">          │   Estimates: &#123;rows: ? (?), cpu: ?, memory: ?, network: ?&#125;</span><br><span class="line">          │   CPU: 0.00ns (?%), Scheduled: 0.00ns (0.00%), Output: 0 rows (0B)</span><br><span class="line">          │   Input avg.: 0.00 rows, Input std.dev.: ?%</span><br><span class="line">          └─ RemoteSource[2]</span><br><span class="line">                 Layout: [u_key:varchar, $hashvalue_4:bigint]</span><br><span class="line">                 CPU: 0.00ns (?%), Scheduled: 0.00ns (0.00%), Output: 0 rows (0B)</span><br><span class="line">                 Input avg.: 0.00 rows, Input std.dev.: ?%</span><br></pre></td></tr></table></figure>
@@ -270,7 +275,12 @@
 
 
 <h2 id="查询计划的生成过程"><a href="#查询计划的生成过程" class="headerlink" title="查询计划的生成过程"></a>查询计划的生成过程</h2><p>查询过程中的核心类图交互关系如下，其中，查询计划生成后，会由SqlQueryExecution进行调度执行</p>
-<p><img lazyload alt="image" data-src="/./3_Presto/image4.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image4.png"
+                        alt="image-2022062517"
+                 ></p>
 <h3 id="Client端"><a href="#Client端" class="headerlink" title="Client端"></a>Client端</h3><p>jdbc驱动首先通过TrinoDriver初始化一个TrinoConnection连接，该连接通过注册TrinoStatement来实现具体的sql执行，这个操作和常见的数据库连接类似，在TrinoStatemen最终会将查询委托给internalExecute方法。</p>
 <p>该方法通过TrinoConnection的startQuery方法（io.trino.jdbc.TrinoConnection#startQuery）创建StatementClientV1对象，这里设置好角色权限，请求uri，超时时间等。同时通过静态方法TrinoResultSet.create，获取返回结果（currentResult字段）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">io.trino.jdbc.TrinoStatement#internalExecute</span><br><span class="line">final boolean internalExecute(String sql)</span><br><span class="line">            throws SQLException</span><br><span class="line">    &#123;</span><br><span class="line">        ...前置检查...</span><br><span class="line">        </span><br><span class="line">        StatementClient client = null;</span><br><span class="line">        TrinoResultSet resultSet = null;</span><br><span class="line">        try &#123;</span><br><span class="line">        		//执行查询请求</span><br><span class="line">            client = connection().startQuery(sql, getStatementSessionProperties());</span><br><span class="line">            if (client.isFinished()) &#123;</span><br><span class="line">                QueryStatusInfo finalStatusInfo = client.finalStatusInfo();</span><br><span class="line">                if (finalStatusInfo.getError() != null) &#123;</span><br><span class="line">                    throw resultsException(finalStatusInfo);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            executingClient.set(client);</span><br><span class="line">            WarningsManager warningsManager = new WarningsManager();</span><br><span class="line">            currentWarningsManager.set(Optional.of(warningsManager));</span><br><span class="line">            //获取查询结果</span><br><span class="line">            resultSet = TrinoResultSet.create(this, client, maxRows.get(), progressConsumer, warningsManager);</span><br><span class="line"></span><br><span class="line">						...拿到返回的数据，如果是更新，则需处理事务相关变量</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        ...各种catch，清理变量，关闭连接</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -286,7 +296,12 @@
 
 
 
-<h3 id="Server端"><a href="#Server端" class="headerlink" title="Server端"></a>Server端</h3><h4 id="与客户端数据交互"><a href="#与客户端数据交互" class="headerlink" title="与客户端数据交互"></a>与客户端数据交互</h4><p><img lazyload alt="image" data-src="/./3_Presto/image10.png"></p>
+<h3 id="Server端"><a href="#Server端" class="headerlink" title="Server端"></a>Server端</h3><h4 id="与客户端数据交互"><a href="#与客户端数据交互" class="headerlink" title="与客户端数据交互"></a>与客户端数据交互</h4><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image10.png"
+                        alt="image-2022062517"
+                 ></p>
 <ul>
 <li>主要逻辑</li>
 </ul>
@@ -302,7 +317,12 @@
 <p>Web接口的控制类，负责接收jdbc客户端发起查询请求，并触发DispatchManager创建查询。</p>
 <p>ExecutingStatementResource</p>
 <p>Web接口的控制类，负责接收jdbc客户端获取查询结果，接收QueryStateMachine填充的查询结果，返回客户端。</p>
-<h4 id="语法解析及发起查询"><a href="#语法解析及发起查询" class="headerlink" title="语法解析及发起查询"></a>语法解析及发起查询</h4><p><img lazyload alt="image" data-src="/./3_Presto/image11.png"></p>
+<h4 id="语法解析及发起查询"><a href="#语法解析及发起查询" class="headerlink" title="语法解析及发起查询"></a>语法解析及发起查询</h4><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image11.png"
+                        alt="image-2022062517"
+                 ></p>
 <ul>
 <li>主要逻辑</li>
 </ul>
@@ -352,7 +372,12 @@
 <li>主要类</li>
 </ul>
 <p>DispatchManager</p>
-<h4 id="生成逻辑执行计划"><a href="#生成逻辑执行计划" class="headerlink" title="生成逻辑执行计划"></a>生成逻辑执行计划</h4><p><img lazyload alt="image" data-src="/./3_Presto/image12.png"></p>
+<h4 id="生成逻辑执行计划"><a href="#生成逻辑执行计划" class="headerlink" title="生成逻辑执行计划"></a>生成逻辑执行计划</h4><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image12.png"
+                        alt="image-2022062517"
+                 ></p>
 <ul>
 <li>主要逻辑</li>
 </ul>
@@ -401,7 +426,12 @@
 <h4 id="分布式执行"><a href="#分布式执行" class="headerlink" title="分布式执行"></a>分布式执行</h4><blockquote>
 <p>以Query，None重试策略为例，默认为None</p>
 </blockquote>
-<p><img lazyload alt="image" data-src="/./3_Presto/image13.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image13.png"
+                        alt="image-2022062517"
+                 ></p>
 <ul>
 <li>核心逻辑</li>
 </ul>
@@ -450,8 +480,13 @@
 <li>查询结果是经过多个Worker的结果组合而成，尽量减少最小粒度的查询能有效降低网络传输，提高查询性能</li>
 </ol>
 <h2 id="慢查询监控"><a href="#慢查询监控" class="headerlink" title="慢查询监控"></a>慢查询监控</h2><p>根据业务定义，这里我们认为超过5分钟的查询即为慢查询</p>
-<p>定位慢查询，首先需要能够收集慢查询的信息，这里Presto提供了 <a class="link" target="_blank" rel="noopener" href="https://trino.io/docs/current/admin/event-listeners-http.html">EventListener<i class="fas fa-external-link-alt"></i></a> ，Presto会将执行计划通过http发送到指定url，收集到执行计划后，我们可以将执行耗时及查询id输出到grafana上，以便后续分析，监控页面如下：</p>
-<p><img lazyload alt="image" data-src="/./3_Presto/image7.png"></p>
+<p>定位慢查询，首先需要能够收集慢查询的信息，这里Presto提供了 <a class="link"   target="_blank" rel="noopener" href="https://trino.io/docs/current/admin/event-listeners-http.html" >EventListener<i class="fas fa-external-link-alt"></i></a> ，Presto会将执行计划通过http发送到指定url，收集到执行计划后，我们可以将执行耗时及查询id输出到grafana上，以便后续分析，监控页面如下：</p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image7.png"
+                        alt="image-202206251715403"
+                 ></p>
 <ul>
 <li>查询计划可视化</li>
 </ul>
@@ -501,7 +536,12 @@
 <p>io.prestosql.execution.SqlStageExecution#scheduleSplits</p>
 <p>利用PlanFragment构建Map&lt;PlanNodeId, SplitSource&gt;的关系，在找到Map&lt;PlanNodeId, TableInfo&gt; 的关系，将这个关系保存在StageExecutionPlan中</p>
 <p>最后将调度结果存入执行计划缓存，以便页面观看</p>
-<p><img lazyload alt="image" data-src="/./3_Presto/image9.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3_Presto/image9.png"
+                        alt="image-202206251715403"
+                 ></p>
 <h1 id="奇怪的坑"><a href="#奇怪的坑" class="headerlink" title="奇怪的坑"></a>奇怪的坑</h1><h2 id="本地调试启动死循环"><a href="#本地调试启动死循环" class="headerlink" title="本地调试启动死循环"></a>本地调试启动死循环</h2><ul>
 <li>现象：</li>
 </ul>
@@ -514,7 +554,7 @@
 </ul>
 <p>经过各种排查，在jdk的bug管理中找到蛛丝马迹，记录里表示，某使用者，用jol-0.17（也是trino依赖的版本），jdk21运行时，发现运行到attachMethod.invoke(agent, (int) request.getProcessId()); mac会崩溃，重启多次无效。另一个大神排查表示，怀疑是连接SA有问题，可以使用参数调过连接SA</p>
 <p>链接如下：</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://bugs.openjdk.org/browse/CODETOOLS-7903447?jql=resolution%20in%20(Unresolved,%20Fixed)%20AND%20component%20=%20tools%20AND%20Subcomponent%20=%20jol%20AND%20text%20~%20%22mac%22">https://bugs.openjdk.org/browse/CODETOOLS-7903447?jql=resolution%20in%20(Unresolved%2C%20Fixed)%20AND%20component%20%3D%20tools%20AND%20Subcomponent%20%3D%20jol%20AND%20text%20~%20%22mac%22<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://bugs.openjdk.org/browse/CODETOOLS-7903447?jql=resolution%20in%20(Unresolved,%20Fixed)%20AND%20component%20=%20tools%20AND%20Subcomponent%20=%20jol%20AND%20text%20~%20%22mac%22" >https://bugs.openjdk.org/browse/CODETOOLS-7903447?jql=resolution%20in%20(Unresolved%2C%20Fixed)%20AND%20component%20%3D%20tools%20AND%20Subcomponent%20%3D%20jol%20AND%20text%20~%20%22mac%22<i class="fas fa-external-link-alt"></i></a></p>
 <ul>
 <li>小结：</li>
 </ul>
@@ -522,14 +562,14 @@
 <h2 id="本地调试无法连接maven父项目"><a href="#本地调试无法连接maven父项目" class="headerlink" title="本地调试无法连接maven父项目"></a>本地调试无法连接maven父项目</h2><ul>
 <li>现象：</li>
 </ul>
-<p>本地启动时，不管是trino父项目，还是子项目，均会报错提示无法连接到 <a class="link" target="_blank" rel="noopener" href="http://repo.maven.apache.org/maven2">http://repo.maven.apache.org/maven2<i class="fas fa-external-link-alt"></i></a> 但直接访问url<strong>貌似</strong>是可以的</p>
+<p>本地启动时，不管是trino父项目，还是子项目，均会报错提示无法连接到 <a class="link"   target="_blank" rel="noopener" href="http://repo.maven.apache.org/maven2" >http://repo.maven.apache.org/maven2<i class="fas fa-external-link-alt"></i></a> 但直接访问url<strong>貌似</strong>是可以的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] Non-resolvable import POM: Could not transfer artifact com.google.cloud:google-cloud-bigquerystorage-bom:pom:3.9.0 from/to central (http://repo.maven.apache.org/maven2): Failed to transfer http://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-bigquerystorage-bom/3.9.0/google-cloud-bigquerystorage-bom-3.9.0.pom. Error code 501, HTTPS Required @ com.google.cloud:google-cloud-bom:0.226.0, /Users/weiqian/.m2/repository/com/google/cloud/google-cloud-bom/0.226.0/google-cloud-bom-0.226.0.pom, line 179, column 19</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>处理过程：</li>
 </ul>
 <p>当pom中依赖父项目，且未配置relarelativePath时，父项目会默认从远程拉取。在org.apache.maven.model.building.DefaultModelBuilder#build(org.apache.maven.model.building.ModelBuildingRequest, java.util.Collection&lt;java.lang.String&gt;)构建过程中，会向远程下载父项目jar包。</p>
-<p>但又因为airlift.resolver（版本1.6）项目在解析pom时，固定使用了http:&#x2F;&#x2F;，无法修改，参考<a class="link" target="_blank" rel="noopener" href="https://github.com/airlift/resolver/pull/21">git记录<i class="fas fa-external-link-alt"></i></a>。该committer申请了pr，但该项目太老了，最新一次发布在2019年，也没有将bugfix合并至最新版本。</p>
+<p>但又因为airlift.resolver（版本1.6）项目在解析pom时，固定使用了http:&#x2F;&#x2F;，无法修改，参考<a class="link"   target="_blank" rel="noopener" href="https://github.com/airlift/resolver/pull/21" >git记录<i class="fas fa-external-link-alt"></i></a>。该committer申请了pr，但该项目太老了，最新一次发布在2019年，也没有将bugfix合并至最新版本。</p>
 <p>而maven在很早的时候就不允许http下载，必须修改为https，因此下载失败。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">io.airlift.resolver.ArtifactResolver#getMavenProject</span><br><span class="line"></span><br><span class="line">PlexusContainer container = container();</span><br><span class="line">org.apache.maven.repository.RepositorySystem lrs = container.lookup(org.apache.maven.repository.RepositorySystem.class);</span><br><span class="line">ProjectBuilder projectBuilder = container.lookup(ProjectBuilder.class);</span><br><span class="line">ProjectBuildingRequest request = new DefaultProjectBuildingRequest();</span><br><span class="line">request.setSystemProperties(requiredSystemProperties());</span><br><span class="line">request.setRepositorySession(repositorySystemSession);</span><br><span class="line">request.setProcessPlugins(false);</span><br><span class="line">request.setLocalRepository(lrs.createDefaultLocalRepository());</span><br><span class="line">request.setRemoteRepositories(Arrays.asList(new ArtifactRepository[] &#123;lrs.createDefaultRemoteRepository()&#125;.clone()));</span><br><span class="line">ProjectBuildingResult result = projectBuilder.build(pomFile, request);</span><br></pre></td></tr></table></figure>
 
@@ -544,9 +584,9 @@
 
 
 <h2 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h2><h1 id="阶段小结"><a href="#阶段小结" class="headerlink" title="阶段小结"></a>阶段小结</h1><p>本文主要以查询计划为分析点，介绍了Presto在查询执行和优化上的一些设计理念，以及分享实际工作中是如何定位和优化慢查询。Presto的源码模块结构较为清晰，且大量使用异步线程，提高查询性能。其中一些常用的查询优化手段，例如广播join，谓词下推，在其他的查询引擎中也都存在，对学习其他框架有参考作用，只有了解Presto的底层原理，才能更好的理解优化策略，更好的指导工作与学习。</p>
-<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/linjunjunjun/article/details/124831612">presto查询流程<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/zhanyuanlin/article/details/131214028">Presto(Trino)的逻辑执行计划和Fragment生成过程<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/zhanyuanlin/article/details/131343786">Presto(Trino)分布式(物理)执行计划的生成和调度<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/linjunjunjun/article/details/124831612" >presto查询流程<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/zhanyuanlin/article/details/131214028" >Presto(Trino)的逻辑执行计划和Fragment生成过程<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/zhanyuanlin/article/details/131343786" >Presto(Trino)分布式(物理)执行计划的生成和调度<i class="fas fa-external-link-alt"></i></a></p>
 <h2 id="本地调试用表结构"><a href="#本地调试用表结构" class="headerlink" title="本地调试用表结构"></a>本地调试用表结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">创建表</span><br><span class="line">CREATE TABLE  memory.default.ncdp_dwb_channel_user_attribute_bos (</span><br><span class="line">   u_key varchar,</span><br><span class="line">   bos_id varchar,</span><br><span class="line">   name varchar</span><br><span class="line">);</span><br><span class="line">INSERT INTO memory.&quot;default&quot;.ncdp_dwb_channel_user_attribute_bos (u_key , bos_id,   name) VALUES(&#x27;1000000027&#x27; , &#x27;4000180336837&#x27;, &#x27;张三&#x27;);</span><br><span class="line">INSERT INTO memory.&quot;default&quot;.ncdp_dwb_channel_user_attribute_bos (u_key , bos_id,   name) VALUES(&#x27;1000000028&#x27; , &#x27;4000180336837&#x27;, &#x27;李四&#x27;);</span><br><span class="line">INSERT INTO memory.&quot;default&quot;.ncdp_dwb_channel_user_attribute_bos (u_key , bos_id,   name) VALUES(&#x27;1000000029&#x27; , &#x27;4000180336837&#x27;, &#x27;王五&#x27;);</span><br><span class="line"></span><br><span class="line">select * from memory.default.ncdp_dwb_channel_user_attribute_bos where u_key =&#x27;1000000029&#x27;</span><br></pre></td></tr></table></figure>
 
 

@@ -255,13 +255,13 @@
                     
 
                     
-                         <meta name="referrer" content="no-referrer">
+                         <meta name="referrer" content="no-referrer"/>
 
 
 
 <p><em>Lucene</em>是apache软件基金会 jakarta项目组的一个子项目，是一个开放源代码的全文检索引擎工具包</p>
 <p>作为elasticsearch的基础构建，提供了强大的分词搜索功能，在倒排索引的基础之上，也进行了压缩、分块索引，达到优化的目的。</p>
-<p>官网：<a class="link" target="_blank" rel="noopener" href="https://lucene.apache.org/">https://lucene.apache.org/<i class="fas fa-external-link-alt"></i></a></p>
+<p>官网：<a class="link"   target="_blank" rel="noopener" href="https://lucene.apache.org/" >https://lucene.apache.org/<i class="fas fa-external-link-alt"></i></a></p>
 <p>版本：9.2.0</p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在Lucene中基本概念是Index，Document，Field，Term。Index包含多个Document，Document包含一系列Field，Field是一系列Term的命名，Term是具体存储的二进制文件。</p>
 <p>倒排索引（Inverted Indexing）。Lucene为了使基于Term的查询更高效，在Index中存储了term和term的统计信息，这种存储结构被称为倒排索引。倒排索引是一个列表，存储了每一个term被那个document包含。</p>
@@ -286,7 +286,12 @@
 </blockquote>
 <p>考虑到Terms Dicttionary很大，无法直接存入内存，这里将部分前缀通过FST存储。所以FST只存储了部分前缀信息，后缀信息需要继续到tim文件中查找。</p>
 <p>FST类似以下存储结构</p>
-<p><img lazyload alt="image" data-src="/Users/weiqian/Documents/3_study/hexo/source/_posts/Lucene/image-20220626170304537.png"></p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/Users/weiqian/Documents/3_study/hexo/source/_posts/Lucene/image-20220626170304537.png"
+                        alt="image-20220626170304537"
+                 ></p>
 <h2 id="查询逻辑"><a href="#查询逻辑" class="headerlink" title="查询逻辑"></a>查询逻辑</h2><p>通过 Term Index 数据（.tip文件）中的 StartFP 获取指定字段的 FST<br>通过 FST 找到指定 Term 在 Term Dictionary（.tim 文件）可能存在的 Block<br>将对应 Block 加载内存，遍历 Block 中的 Entry，通过后缀（Suffix）判断是否存在指定 Term<br>存在则通过 Entry 的 TermStat 数据中各个文件的 FP 获取 Posting 数据<br>如果需要获取 Term 对应的所有 DocId 则直接遍历 TermFreqs，如果获取指定 DocId 数据则通过 SkipData 快速跳转</p>
 
                     
