@@ -267,14 +267,14 @@
                     
 
                     
-                         <meta name="referrer" content="no-referrer"/>
+                         <meta name="referrer" content="no-referrer">
 
 <h1 id="源头"><a href="#源头" class="headerlink" title="源头"></a>源头</h1><p>java里的日志框架很多，像log4j2、slf4j、logback之间的关系剪不断理还乱，日志依赖冲突也是maven中依赖冲突的最常见的一类，这里做一个整理。</p>
 <h1 id="常见框架"><a href="#常见框架" class="headerlink" title="常见框架"></a>常见框架</h1><h2 id="Common-logging"><a href="#Common-logging" class="headerlink" title="Common-logging"></a>Common-logging</h2><blockquote>
-<p>官网：<a class="link"   target="_blank" rel="noopener" href="https://commons.apache.org/proper/commons-logging/" >https://commons.apache.org/proper/commons-logging/<i class="fas fa-external-link-alt"></i></a></p>
+<p>官网：<a class="link" target="_blank" rel="noopener" href="https://commons.apache.org/proper/commons-logging/">https://commons.apache.org/proper/commons-logging/<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h2 id="SLF4J"><a href="#SLF4J" class="headerlink" title="SLF4J"></a>SLF4J</h2><blockquote>
-<p>官网：<a class="link"   target="_blank" rel="noopener" href="https://www.slf4j.org/manual.html" >https://www.slf4j.org/manual.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>官网：<a class="link" target="_blank" rel="noopener" href="https://www.slf4j.org/manual.html">https://www.slf4j.org/manual.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <p>Slf4j（Simple Logging Facade For Java），是一个log框架的门面类，可以在部署时，由终端用户选择对应的日志实现框架，提供了流式api接口，常见的实现有</p>
 <p>slf4j-log4j12（log4j1.2）</p>
@@ -287,25 +287,20 @@
 <p>log4j-slf4j-impl（log4j2）</p>
 <p>使用时，只需要在你的class路径下替换对应的jar包，例如，将java.util.logging替换成log4j，只需要替换调slf4j-jdk14-1.7.36.jar with slf4j-log4j12-1.7.36.jar包。<strong>不过</strong>，由于slf4j不依赖特定的类加载器，所以，在编译时，必须保证有且仅有一个日志实现，否则就会异常。</p>
 <p>借用官网的图</p>
-<p><img  
-                       lazyload
-                       alt="image"
-                       data-src="/./5_Java%E7%9A%84log%E6%A1%86%E6%9E%B6/image1.png"
-                       
-                 ></p>
+<p><img lazyload alt="image" data-src="/./5_Java%E7%9A%84log%E6%A1%86%E6%9E%B6/image1.png"></p>
 <h2 id="Log4j2"><a href="#Log4j2" class="headerlink" title="Log4j2"></a>Log4j2</h2><blockquote>
-<p>官网：<a class="link"   target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/" >https://logging.apache.org/log4j/2.x/<i class="fas fa-external-link-alt"></i></a></p>
+<p>官网：<a class="link" target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/">https://logging.apache.org/log4j/2.x/<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <p>Log4j2是一款高性能的日志实现框架，在Log4j1基础上做了性能优化，在2015年log4j1就停止维护，大部分开发者转移到log4j2上，继续开源维护。更新的还比较频繁，截止22年1-20号，最新更新时间是21年12-28号是log4j的升级版，是log4j1那一波人重新出来另起炉灶。提供了自己的接口及实现类，也可以支持Sl4j（log4j-slf4j-impl）</p>
 <p>当然，也可以从Log4j2的api接口里路由到Slf4j，然后调用Slf4j的实现包（尽管很蛋疼，且会损失性能，不过也是支持的，相关的包是log4j-to-slf4j）注：log4j-to-slf4j-2.x.jar和log4j-slf4j-impl-2.x.jar不要同时使用。</p>
-<p>Log4j2里面包含的包：<a class="link"   target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/runtime-dependencies.html" >https://logging.apache.org/log4j/2.x/runtime-dependencies.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>Log4j2里面包含的包：<a class="link" target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/runtime-dependencies.html">https://logging.apache.org/log4j/2.x/runtime-dependencies.html<i class="fas fa-external-link-alt"></i></a></p>
 <p>log4j-api（核心接口定义）</p>
 <p>log4j-core（核心实现）</p>
 <p>log4j-jul（jul适配兼容）</p>
 <p>log4j-to-slf4j（slf4j转发）</p>
 <p>log4j-slf4j-impl（slf4j接口实现）</p>
-<p>性能测试，异步写入性能比较好：<a class="link"   target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/performance.html" >https://logging.apache.org/log4j/2.x/performance.html<i class="fas fa-external-link-alt"></i></a></p>
-<p>log4j2日志文件加载顺序：<a class="link"   target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/manual/configuration.html#XML" >https://logging.apache.org/log4j/2.x/manual/configuration.html#XML<i class="fas fa-external-link-alt"></i></a></p>
+<p>性能测试，异步写入性能比较好：<a class="link" target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/performance.html">https://logging.apache.org/log4j/2.x/performance.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>log4j2日志文件加载顺序：<a class="link" target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/manual/configuration.html#XML">https://logging.apache.org/log4j/2.x/manual/configuration.html#XML<i class="fas fa-external-link-alt"></i></a></p>
 <p>Log4j has the ability to automatically configure itself during initialization. When Log4j starts it will locate all the ConfigurationFactory plugins and arrange them in weighted order from highest to lowest. As delivered, Log4j contains four ConfigurationFactory implementations: one for JSON, one for YAML, one for properties, and one for XML.</p>
 <ol>
 <li>Log4j will inspect the “log4j2.configurationFile” system property and, if set, will attempt to load the configuration using the ConfigurationFactory that matches the file extension. Note that this is not restricted to a location on the local file system and may contain a URL.</li>
@@ -320,11 +315,11 @@
 <li>If no configuration file could be located the DefaultConfiguration will be used. This will cause logging output to go to the console.</li>
 </ol>
 <h2 id="Log4j1-x"><a href="#Log4j1-x" class="headerlink" title="Log4j1.x"></a>Log4j1.x</h2><blockquote>
-<p>官网：<a class="link"   target="_blank" rel="noopener" href="https://logging.apache.org/log4j/1.2/index.html" >https://logging.apache.org/log4j/1.2/index.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>官网：<a class="link" target="_blank" rel="noopener" href="https://logging.apache.org/log4j/1.2/index.html">https://logging.apache.org/log4j/1.2/index.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<p>apach较早的日志版本，维护到2015年后就不在维护了，历史资料保存，但不提供更新，](<a class="link"   target="_blank" rel="noopener" href="https://logging.apache.org/log4j/1.2/index.html)%EF%BC%8C%E4%B9%9F%E6%8F%90%E4%BE%9B%E4%BA%86%E5%8C%85%E4%B8%8Eslf4j%E9%9B%86%E6%88%90%EF%BC%88slf4j-log4j12%EF%BC%89%EF%BC%8C%E5%90%8E%E7%BB%AD%E7%BB%B4%E6%8A%A4%E7%9A%84%E6%98%AFLogback%E3%80%82" >https://logging.apache.org/log4j/1.2/index.html)，也提供了包与slf4j集成（slf4j-log4j12），后续维护的是Logback。<i class="fas fa-external-link-alt"></i></a></p>
+<p>apach较早的日志版本，维护到2015年后就不在维护了，历史资料保存，但不提供更新，](<a class="link" target="_blank" rel="noopener" href="https://logging.apache.org/log4j/1.2/index.html)%EF%BC%8C%E4%B9%9F%E6%8F%90%E4%BE%9B%E4%BA%86%E5%8C%85%E4%B8%8Eslf4j%E9%9B%86%E6%88%90%EF%BC%88slf4j-log4j12%EF%BC%89%EF%BC%8C%E5%90%8E%E7%BB%AD%E7%BB%B4%E6%8A%A4%E7%9A%84%E6%98%AFLogback%E3%80%82">https://logging.apache.org/log4j/1.2/index.html)，也提供了包与slf4j集成（slf4j-log4j12），后续维护的是Logback。<i class="fas fa-external-link-alt"></i></a></p>
 <h2 id="Logback"><a href="#Logback" class="headerlink" title="Logback"></a>Logback</h2><blockquote>
-<p>官网：<a class="link"   target="_blank" rel="noopener" href="https://logback.qos.ch/" >https://logback.qos.ch/<i class="fas fa-external-link-alt"></i></a></p>
+<p>官网：<a class="link" target="_blank" rel="noopener" href="https://logback.qos.ch/">https://logback.qos.ch/<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <p>Logback，logback把日志分为3个模块，并实现了slf4j的接口，方便与slf4j集成（logback-classic）</p>
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>

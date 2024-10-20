@@ -255,25 +255,15 @@
                     
 
                     
-                         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>引自官网介绍，<a class="link"   target="_blank" rel="noopener" href="https://hive.apache.org/" >https://hive.apache.org/<i class="fas fa-external-link-alt"></i></a></p>
+                         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>引自官网介绍，<a class="link" target="_blank" rel="noopener" href="https://hive.apache.org/">https://hive.apache.org/<i class="fas fa-external-link-alt"></i></a></p>
 <p>The Apache Hive ™ is a distributed, fault-tolerant data warehouse system that enables analytics at a massive scale and facilitates reading, writing, and managing petabytes of data residing in distributed storage using SQL.</p>
 <blockquote>
 <p>Hive是一个分布式，具有容错性的数据仓库系统，允许分析人员使用Sql管理大规模读写，PB级别数据的分布式存储。</p>
 </blockquote>
 <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="安装hadoop"><a href="#安装hadoop" class="headerlink" title="安装hadoop"></a>安装hadoop</h2><p>下载release包，这里下载的是hadoop-3.3.1</p>
 <p>Mac允许SSH</p>
-<p><img  
-                       lazyload
-                       alt="image"
-                       data-src="/3_Hive/1.png"
-                        alt="image-20230228221535616"
-                 ></p>
-<p><img  
-                       lazyload
-                       alt="image"
-                       data-src="/3_Hive/2.png"
-                        alt="image-20230228221535616"
-                 ></p>
+<p><img lazyload alt="image" data-src="/3_Hive/1.png"></p>
+<p><img lazyload alt="image" data-src="/3_Hive/2.png"></p>
 <h3 id="伪分布式"><a href="#伪分布式" class="headerlink" title="伪分布式"></a>伪分布式</h3><ol>
 <li>修改etc&#x2F;hadoop&#x2F;hdfs-site.xml文件</li>
 </ol>
@@ -295,13 +285,13 @@
 
 <blockquote>
 <p>如果启动时，datanode出现如下报错：</p>
-<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link"   href="mailto:&#52;&#52;&#x39;&#52;&#x30;&#x40;&#119;&#x65;&#105;&#113;&#x69;&#x61;&#x6e;&#x64;&#x65;&#77;&#x61;&#x63;&#66;&#111;&#x6f;&#107;&#x2d;&#x50;&#x72;&#111;&#46;&#108;&#x6f;&#x63;&#x61;&#x6c;" >&#52;&#52;&#x39;&#52;&#x30;&#x40;&#119;&#x65;&#105;&#113;&#x69;&#x61;&#x6e;&#x64;&#x65;&#77;&#x61;&#x63;&#66;&#111;&#x6f;&#107;&#x2d;&#x50;&#x72;&#111;&#46;&#108;&#x6f;&#x63;&#x61;&#x6c;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</p>
+<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link" href="mailto:&#x34;&#52;&#x39;&#52;&#x30;&#x40;&#119;&#101;&#105;&#113;&#x69;&#97;&#110;&#100;&#x65;&#x4d;&#97;&#x63;&#66;&#111;&#111;&#x6b;&#45;&#80;&#114;&#x6f;&#x2e;&#x6c;&#111;&#x63;&#97;&#x6c;">&#x34;&#52;&#x39;&#52;&#x30;&#x40;&#119;&#101;&#105;&#113;&#x69;&#97;&#110;&#100;&#x65;&#x4d;&#97;&#x63;&#66;&#111;&#111;&#x6b;&#45;&#80;&#114;&#x6f;&#x2e;&#x6c;&#111;&#x63;&#97;&#x6c;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</registering></p>
 </blockquote>
 <p>说明clusterID已经创建过，简单暴力的方式（不适合生产），就是直接删除datanode下的文件，然后重新</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#rm -rf /tmp/hadoop-&#123;username&#125;/*</span></span><br><span class="line"><span class="comment">#rm -rf /tmp/hadoop-root/*</span></span><br></pre></td></tr></table></figure>
 
 <ol start="4">
-<li>启动NameNode daemon 和DataNode daemon，NameNode的web界面url：<a class="link"   target="_blank" rel="noopener" href="http://localhost:9870/" >http://localhost:9870/<i class="fas fa-external-link-alt"></i></a></li>
+<li>启动NameNode daemon 和DataNode daemon，NameNode的web界面url：<a class="link" target="_blank" rel="noopener" href="http://localhost:9870/">http://localhost:9870/<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
 
@@ -348,7 +338,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
 
 <ol start="4">
-<li>启动，webui：<a class="link"   target="_blank" rel="noopener" href="http://localhost:8088/cluster/apps" >http://localhost:8088/cluster/apps<i class="fas fa-external-link-alt"></i></a></li>
+<li>启动，webui：<a class="link" target="_blank" rel="noopener" href="http://localhost:8088/cluster/apps">http://localhost:8088/cluster/apps<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
 
@@ -381,12 +371,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin/hadoop fs -<span class="built_in">mkdir</span>       /tmp</span><br><span class="line">bin/hadoop fs -<span class="built_in">mkdir</span>       /user/hive/warehouse</span><br><span class="line">bin/hadoop fs -<span class="built_in">chmod</span> g+w   /tmp</span><br><span class="line">bin/hadoop fs -<span class="built_in">chmod</span> g+w   /user/hive/warehouse</span><br></pre></td></tr></table></figure>
 
 <p>效果如下：</p>
-<p><img  
-                       lazyload
-                       alt="image"
-                       data-src="/3_Hive/3.png"
-                        alt="image-20230228221535616"
-                 ></p>
+<p><img lazyload alt="image" data-src="/3_Hive/3.png"></p>
 <ol start="3">
 <li>更改元数据，采用mysql，在conf目录下创建hive-site.xml</li>
 </ol>
@@ -406,14 +391,9 @@
 
 
 <h2 id="使用TPC-DS压测"><a href="#使用TPC-DS压测" class="headerlink" title="使用TPC-DS压测"></a>使用TPC-DS压测</h2><ol>
-<li>由于TPC-DS测试数据生成脚本是基于linux环境，这里在mac上创建一个虚拟机，解压tpc-ds的文件，官网路径：<a class="link"   target="_blank" rel="noopener" href="https://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request5.asp?bm_type=TPC-DS&bm_vers=3.2.0&mode=CURRENT-ONLY%EF%BC%8C%E8%A7%A3%E5%8E%8B%E5%90%8E%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%A6%82%E4%B8%8B" >https://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request5.asp?bm_type=TPC-DS&amp;bm_vers=3.2.0&amp;mode=CURRENT-ONLY，解压后文件目录如下<i class="fas fa-external-link-alt"></i></a></li>
+<li>由于TPC-DS测试数据生成脚本是基于linux环境，这里在mac上创建一个虚拟机，解压tpc-ds的文件，官网路径：<a class="link" target="_blank" rel="noopener" href="https://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request5.asp?bm_type=TPC-DS&bm_vers=3.2.0&mode=CURRENT-ONLY%EF%BC%8C%E8%A7%A3%E5%8E%8B%E5%90%8E%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%A6%82%E4%B8%8B">https://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request5.asp?bm_type=TPC-DS&amp;bm_vers=3.2.0&amp;mode=CURRENT-ONLY，解压后文件目录如下<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
-<p><img  
-                       lazyload
-                       alt="image"
-                       data-src="/3_Hive/4.png"
-                        alt="image-20230228221535616"
-                 ></p>
+<p><img lazyload alt="image" data-src="/3_Hive/4.png"></p>
 <ol start="2">
 <li>进入tools目录，执行make命令编译，（这里如果是mac的话，value.h文件会报错）</li>
 </ol>
@@ -422,12 +402,7 @@
 <ol start="3">
 <li>tools目录下，可以看到建表语句，tpcds.sql</li>
 </ol>
-<p><img  
-                       lazyload
-                       alt="image"
-                       data-src="/3_Hive/5.png"
-                        alt="image-20230228221535616"
-                 ></p>
+<p><img lazyload alt="image" data-src="/3_Hive/5.png"></p>
 <ol start="4">
 <li>hive需要修改几个地方，完整的建表和数据导入语句如下</li>
 </ol>

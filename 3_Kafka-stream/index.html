@@ -264,10 +264,10 @@
                     
 
                     
-                         <meta name="referrer" content="no-referrer"/>
+                         <meta name="referrer" content="no-referrer">
 
 <blockquote>
-<p> 官网操作手册：<a class="link"   target="_blank" rel="noopener" href="https://kafka.apache.org/31/documentation/streams/developer-guide/" >https://kafka.apache.org/31/documentation/streams/developer-guide/<i class="fas fa-external-link-alt"></i></a></p>
+<p> 官网操作手册：<a class="link" target="_blank" rel="noopener" href="https://kafka.apache.org/31/documentation/streams/developer-guide/">https://kafka.apache.org/31/documentation/streams/developer-guide/<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <p>Kafka Streams是个客户端类库，通过存储在输入和输出都存储在Kafka集群中，有着编写方便和部署便捷的优点。</p>
 <h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ol>
@@ -287,12 +287,7 @@
 <p>Kafka Streams会根据输入分区创建固定数量的任务。每一个任务关联输入流（Topic）的分区列表，关联分区的任务不会改变，所以每一个任务都是一个固定的执行并行单元。任务可以基于分配的分区进行初始化。他们会为分配的分区和消息处理维护缓冲区，导致streams的任务可以独立运行无需人工干预。</p>
 <p>简单来说，最大的并行读取决于能运行多少个任务，决定于有多少个输入分区数，尽管运行多个实例，但多余的示例会处于闲置状态，等待运行的实例故障后，会接替继续工作。</p>
 <p>非常重要的是，Kafka Streams不是资源管理，但是库会运行在每一个streams处理应用程序上，不管多个示例是在同一个物理机还是分割在不同物理机，任务会由库自动分配地运行在每一个应用实例上，分配的任务不会改变，如果某一个应用下线，则关联的任务会自动在另一个应用上重启，继续消费分区消息。</p>
-<h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><h3 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h3><p><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://cdn.nlark.com/yuque/0/2022/png/406465/1645170601355-00e54680-9f6f-4082-8220-1ba81e6ec211.png"
-                        alt="img"
-                 ></p>
+<h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><h3 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h3><p><img lazyload alt="image" data-src="https://cdn.nlark.com/yuque/0/2022/png/406465/1645170601355-00e54680-9f6f-4082-8220-1ba81e6ec211.png"></p>
 <ul>
 <li><p>stream，表示误解的时序性的数据集，流是有顺序的可重现的失败容忍的不可变的数据片段。</p>
 </li>
@@ -315,7 +310,7 @@
 <h3 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h3><p>输入可以是Kafka stream或者Ktable，但是输出一直是KTable。</p>
 <h3 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h3><p>可以使用聚合函数，同时可以对窗口使用宽限期，以接收迟到的记录。在窗口+宽限期都过去之后，这条记录将会被丢弃。</p>
 <h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><p>允许聚合，分组等相关操作。本地存储存在在KV数据库、内存或其他地方。同时Kafka Streams支持直接操作状态存储。</p>
-<h3 id="处理过程保证"><a href="#处理过程保证" class="headerlink" title="处理过程保证"></a>处理过程保证</h3><p>在Kafka0.11.0之前的版本，Kafka仅支持<strong>至少一次</strong>的传输保证，所以以Kafka作为后端存储（例如使用Kafka输入或输出）的流处理系统都无法实现<strong>精确一次</strong>的语义。在0.11.0版本，Kafka支持允许事务（<a class="link"   target="_blank" rel="noopener" href="https://kafka.apache.org/documentation/#semantics" >https://kafka.apache.org/documentation/#semantics<i class="fas fa-external-link-alt"></i></a> ），以实现精确一次的语义。2.6.0还做了一波升级。</p>
+<h3 id="处理过程保证"><a href="#处理过程保证" class="headerlink" title="处理过程保证"></a>处理过程保证</h3><p>在Kafka0.11.0之前的版本，Kafka仅支持<strong>至少一次</strong>的传输保证，所以以Kafka作为后端存储（例如使用Kafka输入或输出）的流处理系统都无法实现<strong>精确一次</strong>的语义。在0.11.0版本，Kafka支持允许事务（<a class="link" target="_blank" rel="noopener" href="https://kafka.apache.org/documentation/#semantics">https://kafka.apache.org/documentation/#semantics<i class="fas fa-external-link-alt"></i></a> ），以实现精确一次的语义。2.6.0还做了一波升级。</p>
 
                     
                 </div>
