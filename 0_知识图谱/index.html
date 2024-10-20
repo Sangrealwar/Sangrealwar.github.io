@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Oct 20 2024 15:38:03 GMT+0800">2024-10-20 15:38:03</span>
+                <span class="datetime" data-updated="Sun Oct 20 2024 15:44:40 GMT+0800">2024-10-20 15:44:40</span>
             </span>
         
 
@@ -249,11 +249,10 @@
                          <h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><ul>
 <li>基础知识</li>
 </ul>
-<a href="/5_Java%E5%9F%BA%E7%A1%80/" title="Java基础知识">Java基础</a> <a href="/1_%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《深入理解Java虚拟机》笔记">Java虚拟机笔记</a>
+<a href="/5_Java%E5%9F%BA%E7%A1%80/" title="Java基础知识">Java基础</a>
 
-<ul>
-<li>多线程</li>
-</ul>
+<a href="/1_%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《深入理解Java虚拟机》笔记">Java虚拟机笔记</a>
+
 <a href="/1_%E3%80%8Ajava%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《java多线程编程实战指南》笔记">Java多线程笔记</a>
 
 <ul>
@@ -268,22 +267,36 @@
 
 <a href="/4_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" title="分布式事务">分布式事务</a>
 
-<p>领域驱动设计</p>
 <blockquote>
-<p>待补充</p>
+<p>待设计：领域驱动设计</p>
 </blockquote>
-<h1 id="应用组件"><a href="#应用组件" class="headerlink" title="应用组件"></a>应用组件</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>最常用的OLTP存储：<a href="/3-Mysql/" title="3_Mysql">Mysql</a></p>
+<h1 id="应用组件"><a href="#应用组件" class="headerlink" title="应用组件"></a>应用组件</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><ul>
+<li>常见业务系统搭配</li>
+</ul>
+<p>最常用的OLTP存储：<a href="/3-Mysql/" title="3_Mysql">Mysql</a></p>
 <p>最常用的内存存储：<a href="/3_Redis/" title="Redis使用指南">Redis</a></p>
 <p>最常用的搜索平台，常用于分库分表后数据检索，是一个典型的一层MapReduce模型的存储组件：<a href="/3_Elasticsearch/" title="Elasticsearch">Elasticsearch</a></p>
+<p>常用的分布式协调存储，常用于微服务下的配置中心，服务注册中心等，少部分用于分布式锁：<a href="/3_Zookeeper/" title="Zookeeper">Zookeeper</a></p>
+<blockquote>
+<p>待补充rocketmq</p>
+</blockquote>
+<ul>
+<li>大数据搭配</li>
+</ul>
 <p>传统的OLAP大数据组件，物美价廉，能提供较为稳定的大规模数据计算查询：<a href="/3_Hive/" title="Hive初识">Hive</a></p>
 <p>OLAP的一种存储组件，介于Hbase和Hive之间的分布式数据列式存储：<a href="/3_Kudu/" title="Kudu">Kudu</a></p>
 <p>老牌的消息队列，性价比高，吞吐量高：<a href="/3_Kafka/" title="Kafka">Kafka</a></p>
-<p>常用的分布式协调存储，常用于微服务下的配置中心，服务注册中心等，少部分用于分布式锁：<a href="/3_Zookeeper/" title="Zookeeper">Zookeeper</a></p>
 <p>较新的OLAP和OLTP的存储</p>
 <blockquote>
 <p>待补充Starrocks</p>
 </blockquote>
-<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><p>常用的流式计算，内嵌存储，提供端到端一致性计算：<a href="/3_Flink/" title="Flink（未完成）">Flink</a></p>
+<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ul>
+<li>常见业务系统搭配</li>
+</ul>
+<p>常用的流式实时计算，内嵌存储，提供端到端一致性计算：<a href="/3_Flink/" title="Flink（未完成）">Flink</a></p>
+<ul>
+<li>大数据搭配</li>
+</ul>
 <p>搭配Kudu，在多数据源基础上实现联邦聚合查询，内存级计算，性能较高：<a href="/3_Presto/" title="Presto">Presto</a> <a href="/1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《Presto实战》笔记">Presto实战笔记</a></p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>认证授权的常规方式：<a href="/5_Oauth2%E8%AE%A4%E8%AF%81%E6%96%B9%E5%BC%8F/" title="Oauth2">Oauth2</a></p>
 <p>各种混乱的日志框架：<a href="/5_Java%E7%9A%84log%E6%A1%86%E6%9E%B6/" title="Java的各种Log框架">Java的log框架</a></p>
