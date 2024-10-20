@@ -57,7 +57,11 @@
 
 
 
-<h1 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h1><h2 id="WBS"><a href="#WBS" class="headerlink" title="WBS"></a>WBS</h2><h2 id="解决范式"><a href="#解决范式" class="headerlink" title="解决范式"></a>解决范式</h2>]]></content>
+<h1 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h1><h2 id="WBS"><a href="#WBS" class="headerlink" title="WBS"></a>WBS</h2><h2 id="解决范式"><a href="#解决范式" class="headerlink" title="解决范式"></a>解决范式</h2><p>分布式环境下，请求响应可能出现3种状态</p>
+<p>处理同步：耗时</p>
+<p>处理异步：乱序</p>
+<p>处理异常：</p>
+]]></content>
   </entry>
   <entry>
     <title>3_Mysql</title>
