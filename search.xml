@@ -4936,6 +4936,28 @@
                  ></p>
 <p>侧重点在于<strong>访问频次</strong>。根据访问次数排序，当数据被访问时，向前排序，可采用采用小顶堆，插入，删除，访问数据操作复杂度（Ologn）</p>
 <p>如果采用LRU，当访问量很高的数据，最近没有访问时，会被淘汰掉，因此不太适合热点数据，热点数据主要是指访问频次高的。</p>
+<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>主要利用String</p>
+<h2 id="限流-令牌桶"><a href="#限流-令牌桶" class="headerlink" title="限流&#x2F;令牌桶"></a>限流&#x2F;令牌桶</h2><blockquote>
+<p> Sentinel，Redisson</p>
+</blockquote>
+<p>主要利用Hash和zset，作为HashKey存储配置，zset根据时间戳评分检索（使用zrangebyscore）。统计令牌桶数量，令牌桶是滑动窗口。</p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>主要利用String（SetNx，Get），可重入的主要利用Hash结构（hincrby，pexpire），根据线程ID作为重入标识。</p>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>入队：利用List，a) 列表里有数据时，lindex定位到位置，linsert插入到指定位置前&#x2F;后，b)rpush插入到空列表里</p>
+<p>出队：lpop</p>
+<p>注：因为在入队、出队时，会加锁。因为看门狗机制，会定时续期。</p>
+<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>String（setbit）</p>
 <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><blockquote>
 <p>较为常用的数据结构，Value最大范围可以达到512MB，但是工作中使用考虑到使用效率问题，一般参考阿里巴巴的开发手册要求，认为超过1M的数据可认为是大数据</p>
 </blockquote>
@@ -5005,28 +5027,6 @@
 <p>返回有多少基数</p>
 <p>其他命令参考：<a class="link"   href="https://redis.io/commands/pfadd" >https://redis.io/commands/pfadd<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-6"><a href="#特点-6" class="headerlink" title="特点"></a>特点</h3><p>也是一种特殊的String，在允许误差的情况下，快速计算基数（也就是不重复的元素<strong>个</strong>数），常用的数据结构有（set，bitmap）</p>
-<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><blockquote>
-<p>Redisson</p>
-</blockquote>
-<p>主要利用String</p>
-<h2 id="限流-令牌桶"><a href="#限流-令牌桶" class="headerlink" title="限流&#x2F;令牌桶"></a>限流&#x2F;令牌桶</h2><blockquote>
-<p> Sentinel，Redisson</p>
-</blockquote>
-<p>主要利用Hash和zset，作为HashKey存储配置，zset根据时间戳评分检索（使用zrangebyscore）。统计令牌桶数量，令牌桶是滑动窗口。</p>
-<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><blockquote>
-<p>Redisson</p>
-</blockquote>
-<p>主要利用String（SetNx，Get），可重入的主要利用Hash结构（hincrby，pexpire），根据线程ID作为重入标识。</p>
-<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><blockquote>
-<p>Redisson</p>
-</blockquote>
-<p>入队：利用List，a) 列表里有数据时，lindex定位到位置，linsert插入到指定位置前&#x2F;后，b)rpush插入到空列表里</p>
-<p>出队：lpop</p>
-<p>注：因为在入队、出队时，会加锁。因为看门狗机制，会定时续期。</p>
-<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><blockquote>
-<p>Redisson</p>
-</blockquote>
-<p>String（setbit）</p>
 ]]></content>
       <categories>
         <category>分布式组件</category>
