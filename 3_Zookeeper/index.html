@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sat Oct 19 2024 22:09:43 GMT+0800">2024-10-19 22:09:43</span>
+                <span class="datetime" data-updated="Mon Nov 18 2024 18:14:34 GMT+0800">2024-11-18 18:14:34</span>
             </span>
         
 
@@ -273,7 +273,7 @@
 <blockquote>
 <p> ZooKeeper is a high-performance coordination service for distributed applications. It exposes common services - such as naming, configuration management, synchronization, and group services - in a simple interface so you don’t have to write them from scratch. You can use it off-the-shelf to implement consensus, group management, leader election, and presence protocols. And you can build on it for your own, specific needs.</p>
 </blockquote>
-<p>是一个高性能的分布式协调服务，常用于注册中心服务发现，它被设计为易于编程，使用类似于文件系统的树状结构数据模型，使用java运行。</p>
+<p>是一个高性能的分布式协调服务，常用于注册中心服务发现，它被设计为易于编程，使用类似于文件系统的树状结构数据模型，使用java运行。常见的CP系统，保证C（集群节点的一致性），以及P（允许部分节点失败重新选举leader）。</p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><ol>
 <li><p>简单</p>
 <p>允许多个分布式进程通过共享的分层命名空间协调，由znode组成（数据注册器），类似文件和目录，但是不是文件存储，zookeeper的数据保存在内存里，所以zookeeper才有高吞吐量和低延迟。</p>

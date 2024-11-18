@@ -104,6 +104,11 @@
 ]]></content>
   </entry>
   <entry>
+    <title>4_算法学习</title>
+    <url>/4-%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h1>]]></content>
+  </entry>
+  <entry>
     <title>3_Mysql</title>
     <url>/3-Mysql/</url>
     <content><![CDATA[<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><blockquote>
@@ -1497,7 +1502,7 @@
 </tr>
 </tbody></table>
 <h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><h3 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h3><blockquote>
-<p>常用线程池，继承自AbstractExecutorService，有任务需要执行时，会将任务分配给线程，如果当下没有线程，泽辉放入队列，等待线程可用时，取出任务执行。</p>
+<p>常用线程池，继承自AbstractExecutorService，有任务需要执行时，会将任务分配给线程，如果当下没有线程，则会放入队列，等待线程可用时，取出任务执行。</p>
 </blockquote>
 <ul>
 <li>特点<ul>
@@ -3843,7 +3848,7 @@
 <h4 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h4><p>关系模型定义了数据的格式，关系只是元祖的集合，查询优化器自动决定以何种顺序执行查询，相当于访问路径。最大的好处是，只需要构造一次查询优化器，所有使用该数据库的所有应用都从中受益。</p>
 <h4 id="文档数据库的比较"><a href="#文档数据库的比较" class="headerlink" title="文档数据库的比较"></a>文档数据库的比较</h4><p>文档数据库的父记录今保存了嵌套记录（支持了一对多的关系），同时在表达多对多关系时，相关项也保留唯一标识符引用，在文档模型中称为文档引用。</p>
 <h3 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h3><p>如果应用数据具有类似文档的一对多关系树，那么使用文档模型更为适合，而关系型模型则倾向于某种数据的分解。</p>
-<h4 id="文档模型中的模式灵活性"><a href="#文档模型中的模式灵活性" class="headerlink" title="文档模型中的模式灵活性"></a>文档模型中的模式灵活性</h4><p>文档数据有时称为无模式，因为读数据的代码通常采用某种结构，银耳存在某种隐形模式，而不是由数据库强制执行。更准确的说，读时模式（数据结构是隐式的，读取时解析）与写时模式（模式是显式的，并且数据库确保数据写入时必须遵守）相对应。两种方式有利有弊，写时模式升级伴随着字段变更，停机更新（也不全是，可以通过字段兼容的方式）。</p>
+<h4 id="文档模型中的模式灵活性"><a href="#文档模型中的模式灵活性" class="headerlink" title="文档模型中的模式灵活性"></a>文档模型中的模式灵活性</h4><p>文档数据有时称为无模式，因为读数据的代码通常采用某种结构，因而存在某种隐形模式，而不是由数据库强制执行。更准确的说，读时模式（数据结构是隐式的，读取时解析）与写时模式（模式是显式的，并且数据库确保数据写入时必须遵守）相对应。两种方式有利有弊，写时模式升级伴随着字段变更，停机更新（也不全是，可以通过字段兼容的方式）。</p>
 <h4 id="查询局部性"><a href="#查询局部性" class="headerlink" title="查询局部性"></a>查询局部性</h4><p>文档模型可以提供查询局部性（如果查询需要包含文档的大部分信息，那文档模型可以减少多次查询），减少磁盘IO。</p>
 <h4 id="融合"><a href="#融合" class="headerlink" title="融合"></a>融合</h4><p>大部分关系型数据库如mysql也支持了xml，json。并同时支持xml字段查询。文档数据库如RethinkDB方面，也在探索支持关系型类似的链接，未来可探讨融合发展。</p>
 <h2 id="数据查询语言"><a href="#数据查询语言" class="headerlink" title="数据查询语言"></a>数据查询语言</h2><p>声明式查询语言。相比而言，命令式指定了特定的执行顺序，很难在多核和多台机器上并行化。在web浏览器中被广泛应用（CSS样式表）。</p>
@@ -4667,7 +4672,7 @@
 <blockquote>
 <p> ZooKeeper is a high-performance coordination service for distributed applications. It exposes common services - such as naming, configuration management, synchronization, and group services - in a simple interface so you don’t have to write them from scratch. You can use it off-the-shelf to implement consensus, group management, leader election, and presence protocols. And you can build on it for your own, specific needs.</p>
 </blockquote>
-<p>是一个高性能的分布式协调服务，常用于注册中心服务发现，它被设计为易于编程，使用类似于文件系统的树状结构数据模型，使用java运行。</p>
+<p>是一个高性能的分布式协调服务，常用于注册中心服务发现，它被设计为易于编程，使用类似于文件系统的树状结构数据模型，使用java运行。常见的CP系统，保证C（集群节点的一致性），以及P（允许部分节点失败重新选举leader）。</p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><ol>
 <li><p>简单</p>
 <p>允许多个分布式进程通过共享的分层命名空间协调，由znode组成（数据注册器），类似文件和目录，但是不是文件存储，zookeeper的数据保存在内存里，所以zookeeper才有高吞吐量和低延迟。</p>
@@ -4841,15 +4846,102 @@
   <entry>
     <title>Redis使用指南</title>
     <url>/3_Redis/</url>
-    <content><![CDATA[<h1 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h1><p>主从（主读写，从读）</p>
+    <content><![CDATA[<h1 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h1><h2 id="部署形式"><a href="#部署形式" class="headerlink" title="部署形式"></a>部署形式</h2><p>主从（主读写，从读）</p>
 <p>哨兵模式（故障自动转移）</p>
 <p>集群模式（分片部署）</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>本来查询时，是集中在缓存，但缓存失效时，会查询到数据库，如果是热点访问，会给数据库带来非预期的压力。</p>
+<p>解决方案：</p>
+<ul>
+<li>前置拦截过滤</li>
+<li>如果DB数据为空，Mock一个缓存（但需要注意缓存一致性，有效期较短）</li>
+<li>增加布隆过滤器</li>
+</ul>
+<p>缓存击穿，在缓存穿透的基础上，增加一个突然某个时间点，容易导致下游数据库压力剧增</p>
+<p>解决方案：</p>
+<ul>
+<li>缓存失效时增加互斥锁</li>
+<li>数据永不过期</li>
+</ul>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>当某一时间突然大量缓存过期，导致下游数据库压力剧增。</p>
+<p>解决方案：</p>
+<ul>
+<li>随机过期时间</li>
+<li>保持Redis稳定性</li>
+</ul>
+<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>定时过期</p>
+<p>针对Key设置过期时间，内存友好，CPU不友好，容易影响吞吐量</p>
+<p>惰性过期</p>
+<p>当访问Key时，判断Key是否过期，对CPU友好，但内存过期慢。</p>
+<p>定期过期</p>
+<p>每个一定时间，扫描一定数量的过期Key，可以指定扫描的间隔，以及每一次扫描的限定耗时。</p>
+<h1 id="内存淘汰策略"><a href="#内存淘汰策略" class="headerlink" title="内存淘汰策略"></a>内存淘汰策略</h1><p>8种策略</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LRU（最近最少使用）</th>
+<th>LFU（最近最久使用）</th>
+<th>随机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>从过期的Key中检索</td>
+<td>volatile-lru</td>
+<td>volatile-lfu</td>
+<td>volatile-random</td>
+</tr>
+<tr>
+<td>从所有Key中检索</td>
+<td>allkeys-lru</td>
+<td>allkeys-lfu</td>
+<td>allkeys-random</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>优先删除剩余时间短的</td>
+<td>volatile-ttl</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>拒绝操作</td>
+<td>noeviction（默认）</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>LRU（Least Recently Used，最近最久未使用）</li>
+</ul>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/3_Redis/image1.png"
+                        alt="image-20220511165119708"
+                 ></p>
+<p>侧重点在于<strong>时间</strong>，当数据被访问时，加入链表头部，新数据同样放链表头部。尾部的数据就是最近最久未访问的淘汰数据。</p>
+<ul>
+<li>LFU（Least Frequently Used，最近最少未使用）</li>
+</ul>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/3_Redis/image2.png"
+                        alt="image-20220511165119708"
+                 ></p>
+<p>侧重点在于<strong>访问频次</strong>。根据访问次数排序，当数据被访问时，向前排序，可采用采用小顶堆，插入，删除，访问数据操作复杂度（Ologn）</p>
+<p>如果采用LRU，当访问量很高的数据，最近没有访问时，会被淘汰掉，因此不太适合热点数据，热点数据主要是指访问频次高的。</p>
 <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><blockquote>
 <p>较为常用的数据结构，Value最大范围可以达到512MB，但是工作中使用考虑到使用效率问题，一般参考阿里巴巴的开发手册要求，认为超过1M的数据可认为是大数据</p>
 </blockquote>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>Set&#x2F;get</p>
 <p>设置&#x2F;获取key中的值，不支持直接设置过期时间</p>
-<p>etnx</p>
+<p>Setnx</p>
 <p>是”<strong>SET</strong> if <strong>N</strong>ot e<strong>X</strong>ists”的简写，原子命令，如果存在则不会更新</p>
 <p>Setex</p>
 <p>设置值的同时设置过期时间，类似的有PsetEx</p>
@@ -4887,7 +4979,7 @@
 <p>取并集&#x2F;交集&#x2F;差集</p>
 <p>其他命令参考：<a class="link"   href="https://redis.io/commands/sadd" >https://redis.io/commands/sadd<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><p>集合，无排序，可排除重复项。利用并交差，可以快速检索出两个列表的关系，例如关注了同一个人的用户。</p>
-<h2 id="sort-set"><a href="#sort-set" class="headerlink" title="sort set"></a>sort set</h2><h3 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h3><p>Zadd</p>
+<h2 id="sort-set（zset）"><a href="#sort-set（zset）" class="headerlink" title="sort set（zset）"></a>sort set（zset）</h2><h3 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h3><p>Zadd</p>
 <p>增加元素</p>
 <p>Zrange</p>
 <p>检索指定评分的元素，可以降序</p>
@@ -4913,6 +5005,28 @@
 <p>返回有多少基数</p>
 <p>其他命令参考：<a class="link"   href="https://redis.io/commands/pfadd" >https://redis.io/commands/pfadd<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="特点-6"><a href="#特点-6" class="headerlink" title="特点"></a>特点</h3><p>也是一种特殊的String，在允许误差的情况下，快速计算基数（也就是不重复的元素<strong>个</strong>数），常用的数据结构有（set，bitmap）</p>
+<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>主要利用String</p>
+<h2 id="限流-令牌桶"><a href="#限流-令牌桶" class="headerlink" title="限流&#x2F;令牌桶"></a>限流&#x2F;令牌桶</h2><blockquote>
+<p> Sentinel，Redisson</p>
+</blockquote>
+<p>主要利用Hash和zset，作为HashKey存储配置，zset根据时间戳评分检索（使用zrangebyscore）。统计令牌桶数量，令牌桶是滑动窗口。</p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>主要利用String（SetNx，Get），可重入的主要利用Hash结构（hincrby，pexpire），根据线程ID作为重入标识。</p>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>入队：利用List，a) 列表里有数据时，lindex定位到位置，linsert插入到指定位置前&#x2F;后，b)rpush插入到空列表里</p>
+<p>出队：lpop</p>
+<p>注：因为在入队、出队时，会加锁。因为看门狗机制，会定时续期。</p>
+<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><blockquote>
+<p>Redisson</p>
+</blockquote>
+<p>String（setbit）</p>
 ]]></content>
       <categories>
         <category>分布式组件</category>
