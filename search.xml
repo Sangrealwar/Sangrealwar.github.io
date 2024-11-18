@@ -115,23 +115,25 @@
 <p>无特殊说明，下文使用的引擎均指InnoDB</p>
 </blockquote>
 <h2 id="InnoDB引擎"><a href="#InnoDB引擎" class="headerlink" title="InnoDB引擎"></a>InnoDB引擎</h2><p>官网InnoDB架构：<a class="link"   href="https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html" >https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html<i class="fas fa-external-link-alt"></i></a> </p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3-Mysql/7.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <h3 id="In-Memory"><a href="#In-Memory" class="headerlink" title="In-Memory"></a>In-Memory</h3><ul>
 <li>Buffer Pool</li>
 </ul>
 <p>提高读取的效率，缓存池分成页进行管理，同时为了管理缓存，有一个链表，使用LRU算法淘汰最近最少用的缓存</p>
 <p>官网的缓冲链表结构图</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3-Mysql/8.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>头部（Head）表示最近访问，尾部（Tail）表示最少使用。默认3&#x2F;8是较少使用的，5&#x2F;8是较频繁使用的。old sublist针对缓冲池污染（无索引扫描大量数据但只查询到部分数据）的操作，表示进入old sublist时必须停留的时间（毫秒），才能进入old sublist</p>
 <p>如果修改数据时，当二级索引不在Buffer Pool里时，会将更新保存在change buffer，在数据加在到buffer pool时，合并之前change buffer的数据</p>
 <h3 id="On-Disk"><a href="#On-Disk" class="headerlink" title="On-Disk"></a>On-Disk</h3><ul>
@@ -989,32 +991,37 @@
 <li>标记清理</li>
 </ul>
 <p>容易产生内存碎片</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/10.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <ul>
 <li>复制</li>
 </ul>
 <p>内存占用较高，不容易产生内存碎片</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/11.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <ul>
 <li>标记整理</li>
 </ul>
 <p>标记后，让所有对象向一端移动，再清理边界外区域</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/12.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
+
+
 <h3 id="三色标记法"><a href="#三色标记法" class="headerlink" title="三色标记法"></a>三色标记法</h3><p>黑色：表示对象被标记存活，并且该对象所有引用都已经被扫描过。不应该被回收，不会引用任何白色对象</p>
 <p>灰色：表示对象被标记存活，但其引用还没有全部被扫描，可能引用白色对象</p>
 <p>白色：表示对象尚未被访问，初始所有对象都是白色</p>
@@ -1075,12 +1082,13 @@
 </blockquote>
 <p>全称Concurrent Mark Sweep，1.4推出，在1.9标记弃用，14版本正式弃用，与ParNewGC（清理年轻代）配套使用。CMS是一种以获取最短回收停顿时间为目标的收集器。</p>
 <p>CMS及之前的收集器对内存的划分</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/14.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <ul>
 <li>整体过程</li>
 </ul>
@@ -1111,12 +1119,13 @@
 </blockquote>
 <p>全称Garbage-First，1.7推出，开创了面向局部收集和基于Region的内存布局形式。面向大内存多核，期望建立 “停顿预测模型”的收集器，旨在能够支持指定在长度微M毫秒的时间片段内，消耗在垃圾收集上的时间大概率不超过N毫秒的目标。</p>
 <p>内存分配模型：</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/13.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <blockquote>
 <p>内存被划分为相等大小的内存区，每个块有着自己的功能，但年轻代&#x2F;老年代并没有固定的大小，更灵活。”化整为零”的思想。</p>
 </blockquote>
@@ -1167,24 +1176,30 @@
 <h2 id="MarkWord"><a href="#MarkWord" class="headerlink" title="MarkWord"></a>MarkWord</h2><ul>
 <li>Java对象结构如下</li>
 </ul>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/4.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
+
+
 <p>可以通过代码查看对象空间，需要引入</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.openjdk.jol<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jol-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(ClassLayout.parseInstance(lock).toPrintable());</span><br></pre></td></tr></table></figure>
 
 <p>在64位虚拟机默认配置下（开启指针压缩），一个普通的对象内存结构如下（对象头8字节，类指针4字节）</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/3.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
+
+
 <ul>
 <li>MarkWord</li>
 </ul>
@@ -1194,12 +1209,17 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Bit-format of an object header (most significant first, big endian layout below):</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  32 bits:</span></span><br><span class="line"><span class="comment">//  --------</span></span><br><span class="line"><span class="comment">//             hash:25 ------------&gt;| age:4    biased_lock:1 lock:2 (normal object)</span></span><br><span class="line"><span class="comment">//             JavaThread*:23 epoch:2 age:4    biased_lock:1 lock:2 (biased object)</span></span><br><span class="line"><span class="comment">//             size:32 ------------------------------------------&gt;| (CMS free block)</span></span><br><span class="line"><span class="comment">//             PromotedObject*:29 ----------&gt;| promo_bits:3 -----&gt;| (CMS promoted object)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  64 bits:</span></span><br><span class="line"><span class="comment">//  --------</span></span><br><span class="line"><span class="comment">//  unused:25 hash:31 --&gt;| unused:1   age:4    biased_lock:1 lock:2 (normal object)</span></span><br><span class="line"><span class="comment">//  JavaThread*:54 epoch:2 unused:1   age:4    biased_lock:1 lock:2 (biased object)</span></span><br><span class="line"><span class="comment">//  PromotedObject*:61 ---------------------&gt;| promo_bits:3 -----&gt;| (CMS promoted object)</span></span><br><span class="line"><span class="comment">//  size:64 -----------------------------------------------------&gt;| (CMS free block)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  unused:25 hash:31 --&gt;| cms_free:1 age:4    biased_lock:1 lock:2 (COOPs &amp;&amp; normal object)</span></span><br><span class="line"><span class="comment">//  JavaThread*:54 epoch:2 cms_free:1 age:4    biased_lock:1 lock:2 (COOPs &amp;&amp; biased object)</span></span><br><span class="line"><span class="comment">//  narrowOop:32 unused:24 cms_free:1 unused:4 promo_bits:3 -----&gt;| (COOPs &amp;&amp; CMS promoted object)</span></span><br><span class="line"><span class="comment">//  unused:21 size:35 --&gt;| cms_free:1 unused:7 ------------------&gt;| (COOPs &amp;&amp; CMS free block)</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>以64位举例</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/1.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
+
+
+
+
 <h2 id="常见问题-1"><a href="#常见问题-1" class="headerlink" title="常见问题"></a>常见问题</h2><ul>
 <li>如果调用了hashCode，则不能启用偏向锁，因为没有56bit存放了线程ID，没地方放hashCode，hashCode会存在线程栈帧中</li>
 <li>偏向锁轻微竞争时，会升级为轻量级锁。当要升级为重量锁时，偏向锁会撤销为无锁状态，再进入下一阶段</li>
@@ -1220,12 +1240,13 @@
 
 
 
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/2.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <blockquote>
 <p>上文提到的Synchronized是jvm层面提供的管程实现，只有一个条件变量，ObjectMonitor（重量级锁），但由于需要上下文切换（重量级锁时），性能不好，且粒度较粗，无法自定义解锁，非公平。为此，juc包下，提供了AQS，全称：AbstractQueuedSynchronizer</p>
 </blockquote>
@@ -1512,12 +1533,13 @@
 </ul>
 <h4 id="使用姿势-8"><a href="#使用姿势-8" class="headerlink" title="使用姿势"></a>使用姿势</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ThreadPoolExecutor thread = new ThreadPoolExecutor(2,</span><br><span class="line">        5,</span><br><span class="line">        1,</span><br><span class="line">        TimeUnit.SECONDS,</span><br><span class="line">        new LinkedBlockingDeque&lt;&gt;(1),</span><br><span class="line">        new ThreadFactoryOne(),</span><br><span class="line">        new ThreadPoolExecutor.DiscardOldestPolicy());</span><br><span class="line">for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">    thread.execute(() -&gt; &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;：我在运行&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;运行完了&quot;);</span><br></pre></td></tr></table></figure>
 
-<h4 id="原理小结-8"><a href="#原理小结-8" class="headerlink" title="原理小结"></a>原理小结</h4><p><img  
+<h4 id="原理小结-8"><a href="#原理小结-8" class="headerlink" title="原理小结"></a>原理小结</h4><img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/5.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <h5 id="线程池构造器"><a href="#线程池构造器" class="headerlink" title="线程池构造器"></a>线程池构造器</h5><ul>
 <li>核心线程 corePoolSize</li>
 <li>最大线程数 maximumPoolSize</li>
@@ -1618,12 +1640,13 @@
 <p>和ThreadPoolExecutor类似，将Runnable封装成ScheduledFutureTask，阻塞队列用DelayedWorkQueue，内部没有直接继承PriorityBlockingQueue，自己实现了优先级队列，因为线程池调度会利用阻塞队列的take。因此天然等待最早到时间的线程。</p>
 </blockquote>
 <h2 id="并发容器"><a href="#并发容器" class="headerlink" title="并发容器"></a>并发容器</h2><p>类继承关系</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/5_Java%E5%9F%BA%E7%A1%80/6.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
 <p>解释表头，第一列表示相关类型的操作（入队，出队，检索队头元素），第一行表示当相关操作第一时间不符合条件（如队头队尾无元素）时触发的操作（如抛异常，返回特定值，阻塞，超时阻塞）</p>
 </blockquote>
@@ -2547,18 +2570,22 @@
 </blockquote>
 <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="安装hadoop"><a href="#安装hadoop" class="headerlink" title="安装hadoop"></a>安装hadoop</h2><p>下载release包，这里下载的是hadoop-3.3.1</p>
 <p>Mac允许SSH</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Hive/1.png"
-                        alt="image-20230228221535616"
-                 ></p>
-<p><img  
+                        class="" title="image-20230228221535616"
+                 >
+
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Hive/2.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
+
+
 <h3 id="伪分布式"><a href="#伪分布式" class="headerlink" title="伪分布式"></a>伪分布式</h3><ol>
 <li>修改etc&#x2F;hadoop&#x2F;hdfs-site.xml文件</li>
 </ol>
@@ -2580,7 +2607,7 @@
 
 <blockquote>
 <p>如果启动时，datanode出现如下报错：</p>
-<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link"   href="mailto:&#x34;&#x34;&#x39;&#x34;&#48;&#x40;&#119;&#x65;&#105;&#x71;&#x69;&#97;&#110;&#100;&#x65;&#77;&#x61;&#x63;&#x42;&#111;&#x6f;&#x6b;&#x2d;&#80;&#114;&#111;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;" >&#x34;&#x34;&#x39;&#x34;&#48;&#x40;&#119;&#x65;&#105;&#x71;&#x69;&#97;&#110;&#100;&#x65;&#77;&#x61;&#x63;&#x42;&#111;&#x6f;&#x6b;&#x2d;&#80;&#114;&#111;&#x2e;&#x6c;&#x6f;&#99;&#x61;&#x6c;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</p>
+<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link"   href="mailto:&#x34;&#52;&#57;&#x34;&#48;&#64;&#119;&#x65;&#105;&#x71;&#105;&#x61;&#110;&#100;&#x65;&#77;&#97;&#x63;&#66;&#111;&#111;&#x6b;&#45;&#x50;&#x72;&#x6f;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;" >&#x34;&#52;&#57;&#x34;&#48;&#64;&#119;&#x65;&#105;&#x71;&#105;&#x61;&#110;&#100;&#x65;&#77;&#97;&#x63;&#66;&#111;&#111;&#x6b;&#45;&#x50;&#x72;&#x6f;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</p>
 </blockquote>
 <p>说明clusterID已经创建过，简单暴力的方式（不适合生产），就是直接删除datanode下的文件，然后重新</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#rm -rf /tmp/hadoop-&#123;username&#125;/*</span></span><br><span class="line"><span class="comment">#rm -rf /tmp/hadoop-root/*</span></span><br></pre></td></tr></table></figure>
@@ -2666,12 +2693,13 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin/hadoop fs -<span class="built_in">mkdir</span>       /tmp</span><br><span class="line">bin/hadoop fs -<span class="built_in">mkdir</span>       /user/hive/warehouse</span><br><span class="line">bin/hadoop fs -<span class="built_in">chmod</span> g+w   /tmp</span><br><span class="line">bin/hadoop fs -<span class="built_in">chmod</span> g+w   /user/hive/warehouse</span><br></pre></td></tr></table></figure>
 
 <p>效果如下：</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Hive/3.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
 <ol start="3">
 <li>更改元数据，采用mysql，在conf目录下创建hive-site.xml</li>
 </ol>
@@ -2693,12 +2721,13 @@
 <h2 id="使用TPC-DS压测"><a href="#使用TPC-DS压测" class="headerlink" title="使用TPC-DS压测"></a>使用TPC-DS压测</h2><ol>
 <li>由于TPC-DS测试数据生成脚本是基于linux环境，这里在mac上创建一个虚拟机，解压tpc-ds的文件，官网路径：<a class="link"   href="https://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request5.asp?bm_type=TPC-DS&bm_vers=3.2.0&mode=CURRENT-ONLY%EF%BC%8C%E8%A7%A3%E5%8E%8B%E5%90%8E%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%A6%82%E4%B8%8B" >https://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request5.asp?bm_type=TPC-DS&amp;bm_vers=3.2.0&amp;mode=CURRENT-ONLY，解压后文件目录如下<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Hive/4.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
 <ol start="2">
 <li>进入tools目录，执行make命令编译，（这里如果是mac的话，value.h文件会报错）</li>
 </ol>
@@ -2707,12 +2736,13 @@
 <ol start="3">
 <li>tools目录下，可以看到建表语句，tpcds.sql</li>
 </ol>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Hive/5.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
 <ol start="4">
 <li>hive需要修改几个地方，完整的建表和数据导入语句如下</li>
 </ol>
@@ -2760,12 +2790,13 @@
 <p>变更历史：<a class="link"   href="https://kudu.apache.org/blog/" >https://kudu.apache.org/blog/<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Kudu是一款分布式，列式，OLAP的存储引擎。在OLAP负载下有着较快的处理速度，结构化数据模型，随机和顺序工作场景下的高性能，HDFS&#x2F;impala&#x2F;NiFi&#x2F;Spark&#x2F;hive等集成，健壮&#x2F;灵活的一致性模型，RPC加密解密，高可用（Raft），自动失败监测（失败分片自动转移到另一个tabletServer上），机架感知，多行事务，易于管理，逻辑备份。</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kudu/2.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
 <p>​																						Kudu网络架构（来自官网）</p>
 <h2 id="Docker本地安装"><a href="#Docker本地安装" class="headerlink" title="Docker本地安装"></a>Docker本地安装</h2><ul>
 <li>下载git源码</li>
@@ -2807,12 +2838,13 @@
 
 
 <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="Tablet"><a href="#Tablet" class="headerlink" title="Tablet"></a>Tablet</h2><p>Tablet刷新过程（来自官网）</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kudu/4.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>小结（来自官网）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+-----------+</span><br><span class="line">| MemRowSet |</span><br><span class="line">+-----------+</span><br><span class="line">  |</span><br><span class="line">  | flush: creates a new DiskRowSet 0</span><br><span class="line">  v</span><br><span class="line">+---------------+</span><br><span class="line">| DiskRowSet 0  |</span><br><span class="line">+---------------+</span><br><span class="line"></span><br><span class="line">DiskRowSet 1:</span><br><span class="line">+---------+     +------------+      +---------+     +---------+     +---------+     +---------+</span><br><span class="line">| UNDOs 0 | --&gt; | base data  | &lt;--- | REDOs 0 | &lt;-- | REDOS 1 | &lt;-- | REDOs 2 | &lt;-- | REDOs 3 |</span><br><span class="line">+---------+     +------------+      +---------+     +---------+     +---------+     +---------+</span><br><span class="line">\____________________________________________________________/</span><br><span class="line">                           | major compaction</span><br><span class="line">                           v</span><br><span class="line"></span><br><span class="line">+---------+     +------------+      +---------+     +---------+</span><br><span class="line">| UNDOs 0&#x27;| --&gt; | base data&#x27; | &lt;--- | REDOs 2 | &lt;-- | REDOs 3 |</span><br><span class="line">+---------+     +------------+      +---------+     +---------+</span><br><span class="line">\____________________________/</span><br><span class="line">      compaction result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DiskRowSet 2:</span><br><span class="line">+---------+     +------------+      +---------+     +---------+     +---------+     +---------+</span><br><span class="line">| UNDOs 0 | --&gt; | base data  | &lt;--- | REDOs 0 | &lt;-- | REDOS 1 | &lt;-- | REDOs 2 | &lt;-- | REDOs 3 |</span><br><span class="line">+---------+     +------------+      +---------+     +---------+     +---------+     +---------+</span><br><span class="line">                                    \_________________________/</span><br><span class="line">                                         | minor compaction</span><br><span class="line">                                         v</span><br><span class="line">+---------+     +------------+      +---------+      +---------+     +---------+</span><br><span class="line">| UNDOs 0 | --&gt; | base data  | &lt;--- | REDOS 0&#x27;|  &lt;-- | REDOs 2 | &lt;-- | REDOs 3 |</span><br><span class="line">+---------+     +------------+      +---------+      +---------+     +---------+</span><br><span class="line">                                    \_________/</span><br><span class="line">                                 compaction result</span><br><span class="line"></span><br><span class="line">+-----------------+ \</span><br><span class="line">| DiskRowSet 3    | |</span><br><span class="line">+-----------------+ |</span><br><span class="line">                    |</span><br><span class="line">+-----------------+ |                              +----------------+</span><br><span class="line">| DiskRowSet 4    | |===&gt; Merging compaction ===&gt;  | new DiskRowSet |</span><br><span class="line">+-----------------+ |                              +----------------+</span><br><span class="line">                    |</span><br><span class="line">+-----------------+ |</span><br><span class="line">| DiskRowSet 5    | |</span><br><span class="line">+-----------------+ /</span><br></pre></td></tr></table></figure>
 
@@ -2826,12 +2858,13 @@
 <blockquote>
 <p>通过各种迭代器，从内存和磁盘中读取相关数据，这里的迭代器各种封装，最终磁盘底层由CFile或DeltaTracker检索，内存检索BTree，并结合去重，合并，谓词下推，Key范围剪枝等迭代器进行优化，最终返回数据</p>
 </blockquote>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kudu/5.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <ul>
 <li>主要写入操作</li>
 </ul>
@@ -2846,12 +2879,17 @@
 <li>多个DiskRowSet会触发Merge Compact，减少重复的主键Key的重叠率。</li>
 </ol>
 </blockquote>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kudu/3.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
+
+
+
+
 <h2 id="查询加速"><a href="#查询加速" class="headerlink" title="查询加速"></a>查询加速</h2><h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>Hase</p>
 <p>Range</p>
 <p>混合</p>
@@ -3538,12 +3576,15 @@
 <li>c) 消费者未重启，消费线程报错，但依然在本轮poll内，由于消费者拉取时，缓存了Subscriptitions，不会重置，因此，会拉取到最新的消息。</li>
 </ul>
 <p>Fetch流程图</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kafka/image7.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
+
+
 <p>源码流程</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">org.apache.kafka.clients.consumer.KafkaConsumer#poll(org.apache.kafka.common.utils.Timer, <span class="type">boolean</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> ConsumerRecords&lt;K, V&gt; <span class="title function_">poll</span><span class="params">(<span class="keyword">final</span> Timer timer, <span class="keyword">final</span> <span class="type">boolean</span> includeMetadataInTimeout)</span> &#123;</span><br><span class="line">  acquireAndEnsureOpen();</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 省略校验 </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// poll for new data until the timeout expires</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">      <span class="comment">// 省略前置处理，updateAssignmentMetadataIfNeeded需要重点关注下，这里是缓存消费方偏移量的地方，通过定时拉取，获取每个topic，partition的当前offset（未提交的offset）</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 拉取的核心方法</span></span><br><span class="line">      <span class="keyword">final</span> Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; records = pollForFetches(timer);</span><br><span class="line">      <span class="keyword">if</span> (!records.isEmpty()) &#123;</span><br><span class="line">        <span class="comment">// 省略拉取到消息的超时处理</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 返回结果</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.interceptors.onConsume(<span class="keyword">new</span> <span class="title class_">ConsumerRecords</span>&lt;&gt;(records));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">while</span> (timer.notExpired());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ConsumerRecords.empty();</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    release();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">org.apache.kafka.clients.consumer.KafkaConsumer#pollForFetches</span><br><span class="line">  <span class="keyword">private</span> Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; <span class="title function_">pollForFetches</span><span class="params">(Timer timer)</span> &#123;</span><br><span class="line">  <span class="type">long</span> <span class="variable">pollTimeout</span> <span class="operator">=</span> coordinator == <span class="literal">null</span> ? timer.remainingMs() :</span><br><span class="line">  Math.min(coordinator.timeToNextPoll(timer.currentTimeMs()), timer.remainingMs());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 尝试获取拉取到的数据</span></span><br><span class="line">  <span class="keyword">final</span> Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; records = fetcher.fetchedRecords();</span><br><span class="line">  <span class="keyword">if</span> (!records.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">return</span> records;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 发送拉取数据的请求</span></span><br><span class="line">  fetcher.sendFetches();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 省略一堆看不懂的有关时间和的处理</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取拉取的数据</span></span><br><span class="line">  <span class="keyword">return</span> fetcher.fetchedRecords();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">org.apache.kafka.clients.consumer.internals.Fetcher#sendFetches</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">int</span> <span class="title function_">sendFetches</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="comment">// Update metrics in case there was an assignment change</span></span><br><span class="line">  sensors.maybeUpdateAssignment(subscriptions);</span><br><span class="line"></span><br><span class="line">  Map&lt;Node, FetchSessionHandler.FetchRequestData&gt; fetchRequestMap = prepareFetchRequests();</span><br><span class="line">  <span class="keyword">for</span> (Map.Entry&lt;Node, FetchSessionHandler.FetchRequestData&gt; entry : fetchRequestMap.entrySet()) &#123;</span><br><span class="line">    <span class="comment">// 省略 构造拉取数据请求</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发起客户端调用，拉取数据，返回Future对象</span></span><br><span class="line">    RequestFuture&lt;ClientResponse&gt; future = client.send(fetchTarget, request);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 省略部分代码</span></span><br><span class="line">    <span class="built_in">this</span>.nodesWithPendingFetchRequests.add(entry.getKey().id());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Future调用成功后回调</span></span><br><span class="line">    future.addListener(<span class="keyword">new</span> <span class="title class_">RequestFutureListener</span>&lt;ClientResponse&gt;() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onSuccess</span><span class="params">(ClientResponse resp)</span> &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (Fetcher.<span class="built_in">this</span>) &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">            FetchResponse&lt;Records&gt; response = (FetchResponse&lt;Records&gt;) resp.responseBody();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 省略拉取到数据的处理方法</span></span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;TopicPartition, FetchResponse.PartitionData&lt;Records&gt;&gt; entry : response.responseData().entrySet()) &#123;</span><br><span class="line">              <span class="type">TopicPartition</span> <span class="variable">partition</span> <span class="operator">=</span> entry.getKey();</span><br><span class="line">              FetchRequest.<span class="type">PartitionData</span> <span class="variable">requestData</span> <span class="operator">=</span> data.sessionPartitions().get(partition);</span><br><span class="line">              <span class="keyword">if</span> (requestData == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 省略未获取到数据的情况</span></span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">long</span> <span class="variable">fetchOffset</span> <span class="operator">=</span> requestData.fetchOffset;</span><br><span class="line">                <span class="comment">// 省略获取到数据的处理</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// 1. 重点，返回参数里，会根据请求参数，获取最新未完成提交的fetchOffset（情况1：消费方未提交offset时异常，那重启后，这里一般会返回未提交的最后一个位点，以便能够继续拉取消息，情况2：消费方已经启动了，但是offset落后集群，但是此时来了一条新数据，这里一般会返回最新的offset，因为请求参数里，携带的是最早的offset）</span></span><br><span class="line">                completedFetches.add(<span class="keyword">new</span> <span class="title class_">CompletedFetch</span>(partition, fetchOffset, fetchData, metricAggregator,</span><br><span class="line">                                                        resp.requestHeader().apiVersion()));</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            sensors.fetchLatency.record(resp.requestLatencyMs());</span><br><span class="line">          &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            nodesWithPendingFetchRequests.remove(fetchTarget.id());</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailure</span><span class="params">(RuntimeException e)</span> &#123;</span><br><span class="line">        <span class="comment">//省略失败处理</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fetchRequestMap.size();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">org.apache.kafka.clients.consumer.internals.Fetcher#fetchedRecords</span><br><span class="line">  <span class="keyword">public</span> Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; <span class="title function_">fetchedRecords</span><span class="params">()</span> &#123;</span><br><span class="line">  Map&lt;TopicPartition, List&lt;ConsumerRecord&lt;K, V&gt;&gt;&gt; fetched = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">  <span class="type">int</span> <span class="variable">recordsRemaining</span> <span class="operator">=</span> maxPollRecords;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (recordsRemaining &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (nextInLineRecords == <span class="literal">null</span> || nextInLineRecords.isFetched) &#123;</span><br><span class="line">        <span class="type">CompletedFetch</span> <span class="variable">completedFetch</span> <span class="operator">=</span> completedFetches.peek();</span><br><span class="line">        <span class="keyword">if</span> (completedFetch == <span class="literal">null</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="comment">// 2. 这里从已完成的拉取里面（completedFetch）获取构造获取下一次拉取的数据</span></span><br><span class="line">          nextInLineRecords = parseCompletedFetch(completedFetch);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">          <span class="comment">// 省略异常处理</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//3. 获取完就移除completedFetch队头元素</span></span><br><span class="line">        completedFetches.poll();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 利用上一个if中构造的nextInLineRecords，解析nextInLineRecords，获取到这一批的数据</span></span><br><span class="line">        List&lt;ConsumerRecord&lt;K, V&gt;&gt; records = fetchRecords(nextInLineRecords, recordsRemaining);</span><br><span class="line">        <span class="type">TopicPartition</span> <span class="variable">partition</span> <span class="operator">=</span> nextInLineRecords.partition;</span><br><span class="line">        <span class="keyword">if</span> (!records.isEmpty()) &#123;</span><br><span class="line">          <span class="comment">// 省略获取到数据的处理</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">// 并继续尝试获取下一批</span></span><br><span class="line">          recordsRemaining -= records.size();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (KafkaException e) &#123;</span><br><span class="line">    <span class="keyword">if</span> (fetched.isEmpty())</span><br><span class="line">      <span class="keyword">throw</span> e;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fetched;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">org.apache.kafka.clients.consumer.internals.Fetcher#fetchRecords</span><br><span class="line">  <span class="keyword">private</span> List&lt;ConsumerRecord&lt;K, V&gt;&gt; <span class="title function_">fetchRecords</span><span class="params">(PartitionRecords partitionRecords, <span class="type">int</span> maxRecords)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!subscriptions.isAssigned(partitionRecords.partition)) &#123;</span><br><span class="line">    <span class="comment">// 省略</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!subscriptions.isFetchable(partitionRecords.partition)) &#123;</span><br><span class="line">    <span class="comment">// 省略</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    SubscriptionState.<span class="type">FetchPosition</span> <span class="variable">position</span> <span class="operator">=</span> subscriptions.position(partitionRecords.partition);</span><br><span class="line">    <span class="keyword">if</span> (partitionRecords.nextFetchOffset == position.offset) &#123;</span><br><span class="line">      <span class="comment">// 重点返回数据方法，该方法会更新partitionRecords的nextFetchOffset，不断拉取数据</span></span><br><span class="line">      List&lt;ConsumerRecord&lt;K, V&gt;&gt; partRecords = partitionRecords.fetchRecords(maxRecords);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (partitionRecords.nextFetchOffset &gt; position.offset) &#123;</span><br><span class="line">        <span class="comment">// 如果新的下一段offset大于本地缓存的offset，则需要更新本地offset缓存</span></span><br><span class="line">        SubscriptionState.<span class="type">FetchPosition</span> <span class="variable">nextPosition</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SubscriptionState</span>.FetchPosition(</span><br><span class="line">          partitionRecords.nextFetchOffset,</span><br><span class="line">          partitionRecords.lastEpoch,</span><br><span class="line">          position.currentLeader);</span><br><span class="line">        log.trace(<span class="string">&quot;Returning fetched records at offset &#123;&#125; for assigned partition &#123;&#125; and update &quot;</span> +</span><br><span class="line">                  <span class="string">&quot;position to &#123;&#125;&quot;</span>, position, partitionRecords.partition, nextPosition);</span><br><span class="line">        subscriptions.position(partitionRecords.partition, nextPosition);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 省略更新其他数据</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 返回拉取的数据对象</span></span><br><span class="line">      <span class="keyword">return</span> partRecords;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 省略</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  partitionRecords.drain();</span><br><span class="line">  <span class="keyword">return</span> emptyList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3583,19 +3624,23 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/jconsole</span><br></pre></td></tr></table></figure>
 
 <p>页面如下</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kafka/image1.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
+
+
 <p>这里是消费者实例的jmx，可以看到消费过2个消息，但并不是lag！（没找到只通过jmx如何判断lag的方式）</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kafka/image2.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
 <p>另外还有一点，如果要暴露到prometheus，由于jmx的格式不适应prometheus，prometheus提供了kafka的转换agent，地址为：</p>
 <p><a class="link"   href="https://github.com/prometheus/jmx_exporter" >https://github.com/prometheus/jmx_exporter<i class="fas fa-external-link-alt"></i></a></p>
 <p>放在kafka启动目录下，指定jmx暴露代理，修改kafka启动目录下的kafka-server-start.sh文件</p>
@@ -3612,12 +3657,15 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./kafka_exporter --kafka.server=localhost:9092</span><br><span class="line"></span><br><span class="line">I1015 16:13:40.495902   12383 kafka_exporter.go:800] Starting kafka_exporter (version=1.7.0, branch=HEAD, revision=7e840e81a0170375214e2c1e1dc7ce94aeff8712)</span><br><span class="line">I1015 16:13:40.501380   12383 kafka_exporter.go:971] Listening on HTTP :9308</span><br></pre></td></tr></table></figure>
 
 <p>访问<a class="link"   href="http://127.0.0.1:9308/metrics" >http://127.0.0.1:9308/metrics<i class="fas fa-external-link-alt"></i></a> 可以看到监控信息</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kafka/image3.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
+
+
 <h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p>直接采用常用的Prometheus+grafana，</p>
 <h3 id="Prometheus"><a href="#Prometheus" class="headerlink" title="Prometheus"></a>Prometheus</h3><p>下载Prometheus安装包，官网如下：<a class="link"   href="https://prometheus.io/docs/introduction/first_steps/" >https://prometheus.io/docs/introduction/first_steps/<i class="fas fa-external-link-alt"></i></a></p>
 <p>需要配置相关的exporter的端口，这里参考官方文档即可，prometheus.yml如下</p>
@@ -3627,30 +3675,34 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./prometheus --config.file=prometheus.yml</span><br></pre></td></tr></table></figure>
 
 <p>默认访问：<a class="link"   href="http://localhost:9090/" >http://localhost:9090/<i class="fas fa-external-link-alt"></i></a></p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kafka/image4.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
+
+
 <h3 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a>Grafana</h3><p>下载Grafana安装包，官网如下：<a class="link"   href="https://grafana.com/docs/grafana/latest/getting-started/get-started-grafana-prometheus/" >https://grafana.com/docs/grafana/latest/getting-started/get-started-grafana-prometheus/<i class="fas fa-external-link-alt"></i></a></p>
 <p>启动</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./grafana-server web</span><br></pre></td></tr></table></figure>
 
 <p>访问：<a class="link"   href="http://localhost:3000/" >http://localhost:3000/<i class="fas fa-external-link-alt"></i></a></p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kafka/image5.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
+
 <p>当然，这里的模板还是要借鉴一下神通广大的网友，自己配费劲，比如：<a class="link"   href="https://grafana.com/grafana/dashboards/7589-kafka-exporter-overview/" >https://grafana.com/grafana/dashboards/7589-kafka-exporter-overview/<i class="fas fa-external-link-alt"></i></a></p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Kafka/image6.png"
-                        alt="image-20230228221535616"
-                 ></p>
+                        class="" title="image-20230228221535616"
+                 >
 ]]></content>
       <categories>
         <category>分布式组件</category>
@@ -3960,12 +4012,13 @@
     <url>/3_Quarkus/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer"/>
 
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p><img  
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><img  
                        lazyload
                        alt="image"
                        data-src="/3_Quarkus/image-20220509222033634.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>标榜为<strong>Supersonic Subatomic Java</strong>（亚原子超音速Java）</p>
 <blockquote>
 <p>A Kubernetes Native Java stack tailored for OpenJDK HotSpot and GraalVM, crafted from the best of breed Java libraries and standards.</p>
@@ -4005,39 +4058,46 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Create a project with groupId=org.acme, artifactId=bar, and version=1.0.0-SNAPSHOT</span></span><br><span class="line">quarkus create app bar</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a project with groupId=com.foo, artifactId=bar, and version=1.0.0-SNAPSHOT</span></span><br><span class="line">quarkus create app com.foo:bar</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a project with groupId=com.foo, artifactId=bar, and version=1.0</span></span><br><span class="line">quarkus create app com.foo:bar:1.0</span><br></pre></td></tr></table></figure>
 
 <p>接着就可以得到类似这样的项目</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Quarkus/image-20220511165008252.png"
-                        alt="image-20220511165008252"
-                 ></p>
+                        class="" title="image-20220511165008252"
+                 >
+
 <p>启动有两种方法，方法1，安装Quarkus Run Configs插件（不安装好像也可以），通过Run&#x2F;Debug的模式启动</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Quarkus/image-20220511165119708.png"
-                        alt="image-20220511165119708"
-                 ></p>
-<p><img  
+                        class="" title="image-20220511165119708"
+                 >
+
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Quarkus/image-20220511165204348.png"
-                        alt="image-20220511165204348"
-                 ></p>
+                        class="" title="image-20220511165204348"
+                 >
+
 <p>启动后</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Quarkus/image-20220511211025445.png"
-                        alt="image-20220511211025445"
-                 ></p>
+                        class="" title="image-20220511211025445"
+                 >
+
 <p>访问后</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Quarkus/image-20220511211104601.png"
-                        alt="image-20220511211104601"
-                 ></p>
+                        class="" title="image-20220511211104601"
+                 >
+
+
+
 <h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>Github地址</p>
 <p><a class="link"   href="https://github.com/quarkusio/quarkus" >https://github.com/quarkusio/quarkus<i class="fas fa-external-link-alt"></i></a></p>
 <p>官网地址</p>
@@ -4918,22 +4978,24 @@
 <ul>
 <li>LRU（Least Recently Used，最近最久未使用）</li>
 </ul>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Redis/image1.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>侧重点在于<strong>时间</strong>，当数据被访问时，加入链表头部，新数据同样放链表头部。尾部的数据就是最近最久未访问的淘汰数据。</p>
 <ul>
 <li>LFU（Least Frequently Used，最近最少未使用）</li>
 </ul>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Redis/image2.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>侧重点在于<strong>访问频次</strong>。根据访问次数排序，当数据被访问时，向前排序，可采用采用小顶堆，插入，删除，访问数据操作复杂度（Ologn）</p>
 <p>如果采用LRU，当访问量很高的数据，最近没有访问时，会被淘汰掉，因此不太适合热点数据，热点数据主要是指访问频次高的。</p>
 <h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><blockquote>

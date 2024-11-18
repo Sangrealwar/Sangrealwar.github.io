@@ -336,22 +336,24 @@
 <ul>
 <li>LRU（Least Recently Used，最近最久未使用）</li>
 </ul>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Redis/image1.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>侧重点在于<strong>时间</strong>，当数据被访问时，加入链表头部，新数据同样放链表头部。尾部的数据就是最近最久未访问的淘汰数据。</p>
 <ul>
 <li>LFU（Least Frequently Used，最近最少未使用）</li>
 </ul>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3_Redis/image2.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>侧重点在于<strong>访问频次</strong>。根据访问次数排序，当数据被访问时，向前排序，可采用采用小顶堆，插入，删除，访问数据操作复杂度（Ologn）</p>
 <p>如果采用LRU，当访问量很高的数据，最近没有访问时，会被淘汰掉，因此不太适合热点数据，热点数据主要是指访问频次高的。</p>
 <h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><blockquote>

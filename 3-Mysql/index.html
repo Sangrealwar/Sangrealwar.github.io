@@ -259,23 +259,25 @@
 <p>无特殊说明，下文使用的引擎均指InnoDB</p>
 </blockquote>
 <h2 id="InnoDB引擎"><a href="#InnoDB引擎" class="headerlink" title="InnoDB引擎"></a>InnoDB引擎</h2><p>官网InnoDB架构：<a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html" >https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html<i class="fas fa-external-link-alt"></i></a> </p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3-Mysql/7.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <h3 id="In-Memory"><a href="#In-Memory" class="headerlink" title="In-Memory"></a>In-Memory</h3><ul>
 <li>Buffer Pool</li>
 </ul>
 <p>提高读取的效率，缓存池分成页进行管理，同时为了管理缓存，有一个链表，使用LRU算法淘汰最近最少用的缓存</p>
 <p>官网的缓冲链表结构图</p>
-<p><img  
+<img  
                        lazyload
                        alt="image"
                        data-src="/3-Mysql/8.png"
-                       
-                 ></p>
+                        class=""
+                 >
+
 <p>头部（Head）表示最近访问，尾部（Tail）表示最少使用。默认3&#x2F;8是较少使用的，5&#x2F;8是较频繁使用的。old sublist针对缓冲池污染（无索引扫描大量数据但只查询到部分数据）的操作，表示进入old sublist时必须停留的时间（毫秒），才能进入old sublist</p>
 <p>如果修改数据时，当二级索引不在Buffer Pool里时，会将更新保存在change buffer，在数据加在到buffer pool时，合并之前change buffer的数据</p>
 <h3 id="On-Disk"><a href="#On-Disk" class="headerlink" title="On-Disk"></a>On-Disk</h3><ul>
