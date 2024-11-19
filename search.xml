@@ -976,7 +976,7 @@
 </li>
 </ul>
 <h1 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h1><blockquote>
-<p>无特殊说明，默认指1.8版本的HotSpot虚拟机</p>
+<p>无特殊说明，默认指1.8版本的HotSpot虚拟机 </p>
 <p>参考资料： <a class="link"   href="https://mp.weixin.qq.com/s?biz=MzIwNDAyOTI2Nw==&mid=2247494932&idx=1&sn=1e0a7a74e947dd03967c36cc3270f8a1&chksm=96c4c128a1b3483e78405fa2b1cf2f2f901b91593c56fc4d6ee086eb1b7c8a27e4d9be1fbf7d&token=2016670857&lang=zh_CN#rd" >https://mp.weixin.qq.com/s?biz=MzIwNDAyOTI2Nw==&amp;mid=2247494932&amp;idx=1&amp;sn=1e0a7a74e947dd03967c36cc3270f8a1&amp;chksm=96c4c128a1b3483e78405fa2b1cf2f2f901b91593c56fc4d6ee086eb1b7c8a27e4d9be1fbf7d&amp;token=2016670857&amp;lang=zh_CN#rd<i class="fas fa-external-link-alt"></i></a> </p>
 <p>查看默认配置</p>
 <p>java -XX:+PrintFlagsInitial  -version | grep CMS</p>
@@ -1077,7 +1077,7 @@
 </tr>
 </tbody></table>
 <h2 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h2><blockquote>
-<p>oracle介绍：<a class="link"   href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector" >https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector<i class="fas fa-external-link-alt"></i></a></p>
+<p>oracle介绍： <a class="link"   href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector" >https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector<i class="fas fa-external-link-alt"></i></a></p>
 <p>启用Cms收集器</p>
 </blockquote>
 <p>全称Concurrent Mark Sweep，1.4推出，在1.9标记弃用，14版本正式弃用，与ParNewGC（清理年轻代）配套使用。CMS是一种以获取最短回收停顿时间为目标的收集器。</p>
