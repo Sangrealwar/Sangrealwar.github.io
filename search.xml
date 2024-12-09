@@ -248,7 +248,7 @@
 </tr>
 <tr>
 <td>高可用</td>
-<td>主从复制（binlog）| WAL预写</td>
+<td>主从复制（binlog）</br> WAL预写</td>
 <td>副本</td>
 <td></td>
 <td></td>
