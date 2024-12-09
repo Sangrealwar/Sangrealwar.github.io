@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Nov 19 2024 21:57:35 GMT+0800">2024-11-19 21:57:35</span>
+                <span class="datetime" data-updated="Thu Nov 21 2024 23:37:51 GMT+0800">2024-11-21 23:37:51</span>
             </span>
         
 
@@ -523,7 +523,7 @@
 <p>Object都有一个监视器，对象监视器</p>
 <ul>
 <li>非公平的，当都在申请锁时，最后一个会优先获取到锁</li>
-<li>重量级锁，由于会造成用户态到内核态的切换（CAS是用户态操作）</li>
+<li>Synchroinzied是重量级锁，由于会造成用户态到内核态的切换（CAS是用户态操作）</li>
 <li>轻量级锁，偏向锁，失败后会膨胀到重量锁</li>
 <li>锁状态和标记存储在对象头里</li>
 <li>由于有延迟偏向（4s），不是所有对象立刻会开启偏向锁状态</li>
@@ -577,7 +577,7 @@
 
 <h2 id="常见问题-1"><a href="#常见问题-1" class="headerlink" title="常见问题"></a>常见问题</h2><ul>
 <li>如果调用了hashCode，则不能启用偏向锁，因为没有56bit存放了线程ID，没地方放hashCode，hashCode会存在线程栈帧中</li>
-<li>偏向锁轻微竞争时，会升级为轻量级锁。当要升级为重量锁时，偏向锁会撤销为无锁状态，再进入下一阶段</li>
+<li>偏向锁轻微竞争时（有线程A申请锁，但发现锁已经偏向到另一个线程B），会升级为轻量级锁。升级成轻量级锁是，线程A和线程B都需要在安全点的时候，在线程栈中拷贝对象头信息（hashcode，年龄等信息），然后利用CAS尝试修改轻量级锁的指针，自旋争抢锁，如果一定次数失败后，会升级成重量级锁（也就是利用CAS修改指针，指向重量级锁监视器）</li>
 </ul>
 <h1 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h1><blockquote>
 <p>java.util.concurrent包</p>
@@ -1334,7 +1334,7 @@
 <blockquote>
 <p>1.5版本</p>
 </blockquote>
-<p>高频面试点，底层和TreeMap类似，put时，采用CAS插入Key，当node冲突后，利用node对象锁（synchroized）加入冲突链表</p>
+<p>高频面试点，底层和TreeMap类似，put时，采用CAS插入Key，当node冲突后，利用node对象锁（synchronized）加入冲突链表</p>
 <ul>
 <li>ConcurrentSkipListMap</li>
 </ul>

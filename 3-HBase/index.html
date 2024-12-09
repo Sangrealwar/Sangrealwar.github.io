@@ -9,7 +9,7 @@
     
     <title>
         
-            4_算法学习 |
+            3_HBase |
         
         The winter sunshine
     </title>
@@ -189,7 +189,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        4_算法学习
+                        3_HBase
                     </div>
                 
 
@@ -215,12 +215,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-05 16:18:38</span>
+                <span class="datetime">2024-11-27 21:46:28</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Nov 19 2024 00:13:13 GMT+0800">2024-11-19 00:13:13</span>
+                <span class="datetime" data-updated="Sun Dec 01 2024 20:29:05 GMT+0800">2024-12-01 20:29:05</span>
             </span>
         
 
@@ -246,7 +246,56 @@
                     
 
                     
-                         <h1 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h1>
+                         <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol>
+<li>在hadoop目录，使用当前用户格式化namenode，然后启动</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br><span class="line"></span><br><span class="line">sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在zookeeper目录启动</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>修改hbase的配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">vim conf/hbase-env.sh</span><br><span class="line"></span><br><span class="line"># 指定javaHome</span><br><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vim conf/hbase-site.xml</span><br><span class="line"></span><br><span class="line"># 配置里增加zookeeper配置，伪分布式</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line"> &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;127.0.0.1&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line"> &lt;!--默认HMaster HTTP访问端⼝--&gt;</span><br><span class="line"> &lt;property&gt;</span><br><span class="line"> &lt;name&gt;hbase.master.info.port&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;16010&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line">&lt;!--默认HRegionServer HTTP访问端⼝--&gt;</span><br><span class="line"> &lt;property&gt;</span><br><span class="line"> &lt;name&gt;hbase.regionserver.info.port&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;16030&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>启动hbase</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-hbase.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>进入命令行</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase shell</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create &#x27;test&#x27;, &#x27;cf&#x27;</span><br><span class="line">list &#x27;test&#x27;	</span><br><span class="line">describe &#x27;test&#x27;</span><br><span class="line">put &#x27;test&#x27;, &#x27;row1&#x27;, &#x27;cf:a&#x27;, &#x27;value1&#x27;</span><br><span class="line">put &#x27;test&#x27;, &#x27;row2&#x27;, &#x27;cf:b&#x27;, &#x27;value2&#x27;</span><br><span class="line">put &#x27;test&#x27;, &#x27;row3&#x27;, &#x27;cf:c&#x27;, &#x27;value3&#x27;</span><br><span class="line">scan &#x27;test&#x27;</span><br><span class="line">get &#x27;test&#x27;, &#x27;row1&#x27;</span><br><span class="line">disable &#x27;test&#x27;</span><br><span class="line">enable &#x27;test&#x27;</span><br><span class="line">disable &#x27;test&#x27;</span><br><span class="line">drop &#x27;test&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="废弃"><a href="#废弃" class="headerlink" title="废弃"></a>废弃</h1><p>如果报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2024-11-27 23:04:14,215 WARN  [master/localhost:16000:becomeActiveMaster] master.HMaster: hbase:meta,,1.1588230740 is NOT online; state=&#123;1588230740 state=OPEN, ts=1732718226106, server=localhost,16020,1701004028619&#125;; ServerCrashProcedures=<span class="literal">true</span>. Master startup cannot progress, <span class="keyword">in</span> holding-pattern <span class="keyword">until</span> region onlined</span><br></pre></td></tr></table></figure>
+
+<p>使用hbck尝试修复时报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hbase:009:0&gt; assign <span class="string">&#x27;hbase:meta&#x27;</span></span><br><span class="line"></span><br><span class="line">ERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing</span><br><span class="line">	at org.apache.hadoop.hbase.master.HMaster.checkInitialized(HMaster.java:2826)</span><br><span class="line">	at org.apache.hadoop.hbase.master.MasterRpcServices.assignRegion(MasterRpcServices.java:644)</span><br><span class="line">	at org.apache.hadoop.hbase.shaded.protobuf.generated.MasterProtos$MasterService<span class="variable">$2</span>.callBlockingMethod(MasterProtos.java)</span><br><span class="line">	at org.apache.hadoop.hbase.ipc.RpcServer.call(RpcServer.java:392)</span><br><span class="line">	at org.apache.hadoop.hbase.ipc.CallRunner.run(CallRunner.java:133)</span><br><span class="line">	at org.apache.hadoop.hbase.ipc.RpcExecutor<span class="variable">$Handler</span>.run(RpcExecutor.java:354)</span><br><span class="line">	at org.apache.hadoop.hbase.ipc.RpcExecutor<span class="variable">$Handler</span>.run(RpcExecutor.java:334)</span><br><span class="line"></span><br><span class="line">For usage try <span class="string">&#x27;help &quot;assign&quot;&#x27;</span></span><br><span class="line"></span><br><span class="line">Took 8.1626 seconds</span><br></pre></td></tr></table></figure>
+
+<p>下载hbck2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/apache/hbase-operator-tools.git</span><br></pre></td></tr></table></figure>
+
+<p>构建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean install -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure>
+
+
+
+
                     
                 </div>
 
@@ -269,14 +318,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/3-SpringBoot/"
-                                   title="3_SpringBoot"
+                                   href="/4-%E5%AD%98%E5%82%A8%E7%BB%84%E4%BB%B6%E6%A6%82%E8%BF%B0/"
+                                   title="4_存储组件概述"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">3_SpringBoot</span>
+                                        <span class="post-nav-title-item text-ellipsis">4_存储组件概述</span>
                                         <span class="post-nav-item">上一篇</span>
                                     </span>
                                 </a>
@@ -286,11 +335,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/3-Mysql/"
-                                   title="3_Mysql"
+                                   href="/3-Netty/"
+                                   title="3_Netty"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">3_Mysql</span>
+                                        <span class="post-nav-title-item text-ellipsis">3_Netty</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -318,7 +367,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#KMP%E7%AE%97%E6%B3%95"><span class="nav-text">KMP算法</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%9F%E5%BC%83"><span class="nav-text">废弃</span></a></li></ol>
     </div>
 </div>
 
@@ -478,7 +527,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#KMP%E7%AE%97%E6%B3%95"><span class="nav-text">KMP算法</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%9F%E5%BC%83"><span class="nav-text">废弃</span></a></li></ol>
     </div>
 </div>
 
