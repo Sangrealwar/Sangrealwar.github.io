@@ -157,14 +157,14 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>驱动</td>
-<td>Java，C++，Python</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
+<td>主要驱动</td>
+<td>Java,C++,.Net,Python,ODBC</td>
+<td>Java,JavaScript,Ruby,Go,.NET,PHP,Perl,Python,Eland,Rust</td>
+<td>Java,C++,Scale,Jython,Thrift</td>
+<td>Java,C++</td>
+<td>Java,C++（Mysql 协议）</td>
+<td>Java</td>
+<td>Java</td>
 </tr>
 <tr>
 <td>语法</td>
@@ -182,99 +182,109 @@
 <td></td>
 <td></td>
 <td></td>
-<td>谓词下推</td>
+<td>物化视图，Colocate Join</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>共识算法</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Zen discovery</td>
+<td>借助Zookeeper</td>
+<td>Raft</td>
+<td>类Paxos</td>
+<td>zab</td>
+<td>借助Zookeeper（3.x）</td>
 </tr>
 <tr>
 <td>通用功能</td>
 <td>权限</td>
+<td>权限</td>
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>ACLs</td>
+<td>ACLs</td>
 </tr>
 <tr>
 <td>存储单元结构</td>
-<td>页，段，区</td>
-<td></td>
-<td>块</td>
-<td>页</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Page（页）</br> 长度（extent）</br> 段（segment）</td>
+<td>Shards（分片）</br>Lucene（段）</td>
+<td>块（Block），HFile（StoreFile）</td>
+<td>表（Table），平板（Tablet），Rowset</td>
+<td>Catalogs，数据库，表，分区，分桶</td>
+<td>Znode</td>
+<td>Topic，Partition，Segment，log和index</td>
 </tr>
 <tr>
 <td>辅助加速</td>
-<td>预读</td>
+<td>读：预读</td>
+<td>读：DocValue</br>Fielddata</td>
+<td>Minor Compaction，Major Compaction</td>
+<td>Minor Compaction，Major Compaction，Merging compaction</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>零拷贝（sendfile），顺序写磁盘</td>
 </tr>
 <tr>
 <td>索引优化</td>
-<td>主键索引，二级索引，自适应hash（innodb）</td>
+<td>主键索引</br>二级索引</br>自适应hash（innodb）</td>
+<td>基本都是索引</td>
+<td>主键索引（RowKey）</td>
+<td>Hash，Range，主键索引，跳跃扫描索引</td>
+<td>前缀索引，排序索引，Bitmap，Bloom filter，排序聚合</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>index以首个消息offset命名，便于二分检索</td>
 </tr>
 <tr>
 <td>缓存缓冲</td>
-<td>Buffer pool，Changer Buffer pool，Log Buffer</td>
-<td>Fst，positing list</td>
+<td>Buffer pool</br>Changer Buffer pool</br>Log Buffer</td>
+<td>FST，Delta-encode（增量编码）</td>
+<td>MemStore</td>
+<td>MemRowSet</td>
+<td>QueryCache（pipeline引擎）DataCache</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>基于OS缓存</td>
 </tr>
 <tr>
 <td>高可用</td>
 <td>主从复制（binlog）</br> WAL预写</td>
-<td>副本</td>
+<td>Replicas（主分片），Translog</td>
+<td>Hlog（WAL）</td>
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>副本（Replication）</td>
 </tr>
 <tr>
+<td>数据结构</td>
+<td>B+</td>
+<td>Lucene</td>
+<td>日志结构树（LSM）</td>
+<td>日志结构树（LSM）</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>类似分布式文件系统</td>
+<td>磁盘文件</td>
 </tr>
 <tr>
+<td>特点</td>
+<td>MVCC，事务，锁</td>
+<td>大部分字段创建时缓存在内存，倒排索引提供全文检索，天然分布式</td>
+<td>RegionServer，MetaTable，数据压缩，两次 Compaction，版本号更新</td>
+<td>数据分为 Base，Delta，字段强类型压缩比高，哈希范围索引剪枝，牺牲写入速度带来查询提升</td>
+<td>提供4钟数据模型，多种业界常用的索引加速，</td>
+<td>状态变更推送，可创建临时节点，做分布式锁。</td>
+<td>高吞吐量，高性能消息中间件</td>
+</tr>
+<tr>
+<td>常用工具</td>
+<td>Explain</td>
+<td>Kibana</td>
+<td></td>
+<td>Imapa，Presto 组合</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>各种大数据消息同步场景</td>
 </tr>
 </tbody></table>
 <p>mysql驱动：<a class="link"   href="https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html" >https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html<i class="fas fa-external-link-alt"></i></a> </p>
@@ -2818,6 +2828,8 @@
 <p>在pom中手动增加repository</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;name&gt;$&#123;project.artifactId&#125;&lt;/name&gt;</span><br><span class="line">    &lt;description&gt;Trino&lt;/description&gt;</span><br><span class="line">    &lt;url&gt;https://trino.io&lt;/url&gt;</span><br><span class="line"></span><br><span class="line">    &lt;inceptionYear&gt;2012&lt;/inceptionYear&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 新加的 --&gt;</span><br><span class="line">    &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;releases&gt;</span><br><span class="line">                &lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">            &lt;/releases&gt;</span><br><span class="line">            &lt;snapshots&gt;</span><br><span class="line">                &lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">            &lt;/snapshots&gt;</span><br><span class="line">            &lt;id&gt;nexus&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;nexus&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;https://repo.maven.apache.org/maven2&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">    &lt;/repositories&gt;</span><br></pre></td></tr></table></figure>
 
+<h2 id="打包安装跳过某模块"><a href="#打包安装跳过某模块" class="headerlink" title="打包安装跳过某模块"></a>打包安装跳过某模块</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mvn install -pl !docs -DSkipTests</span><br></pre></td></tr></table></figure>
+
 
 
 
@@ -3496,6 +3508,19 @@
 <li>作为地理信息管理系统，管理，集成，分析空间数据</li>
 <li>作为生物科学的搜索工具存储遗传进化的数据</li>
 </ol>
+<p>2024.12.10 使用方式：<a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/index.html" >https://www.elastic.co/guide/en/elasticsearch/client/index.html<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/index.html" >Java Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/index.html" >JavaScript Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/ruby-api/current/index.html" >Ruby Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/go-api/current/index.html" >Go Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/index.html" >.NET Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html" >PHP Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/perl-api/current/index.html" >Perl Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html" >Python Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/eland/current/index.html" >Eland Client<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/client/rust-api/current/index.html" >Rust Client<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
 <h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>ES将复杂的数据结构序列化成json格式，当文档被存储后，ES使用名为inverted index（倒排索引）来支持快速的全文索引，倒排索引列举了文档中的每一个单词及标识出单词在哪一个文档中出现。</p>
 <p>索引可以被认为是优化过的文档的集合，每一个文档都是字段的集合，字段都是以键值对的方式存储着数据。默认的，每一种字段都有专门的优化过的数据存储结构。例如，大文本存储在倒排索引中，数值和地理字段存储在BKD中。通过使用每一种字段数据结构去拼接和返回结果达到高效查询的目的。</p>
 <p>可以通过<a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl.html" >json风格<i class="fas fa-external-link-alt"></i></a>的查询语言或着<a class="link"   href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/sql-overview.html" >sql风格<i class="fas fa-external-link-alt"></i></a>的查询语言进行搜索。同时ES支持聚合搜索</p>
@@ -3565,10 +3590,21 @@
 <li><p>效果</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">PUT saas-export-goods-reviews-base2/_doc/<span class="number">12312</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uu3321&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span> </span><br><span class="line">POST saas-export-goods-reviews-base2/_search</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;query&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;bool&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;should&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;match&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uu3&quot;</span></span><br><span class="line">          <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"># 效果</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;took&quot;</span> <span class="punctuation">:</span> <span class="number">261</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;timed_out&quot;</span> <span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;_shards&quot;</span> <span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;total&quot;</span> <span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;successful&quot;</span> <span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;skipped&quot;</span> <span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;failed&quot;</span> <span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hits&quot;</span> <span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;total&quot;</span> <span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;value&quot;</span> <span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;relation&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;eq&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;max_score&quot;</span> <span class="punctuation">:</span> <span class="number">10.640834</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hits&quot;</span> <span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;_index&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;saas-export-goods-reviews-base2&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;_type&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;_doc&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;_id&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;12312&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;_score&quot;</span> <span class="punctuation">:</span> <span class="number">10.640834</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;_source&quot;</span> <span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;username&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;uu3321&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h1 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h1><blockquote>
+<h1 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h1><h2 id="Lucene"><a href="#Lucene" class="headerlink" title="Lucene"></a>Lucene</h2><blockquote>
 <p>lucene文件结构：<a class="link"   href="https://lucene.apache.org/core/9_9_1/core/org/apache/lucene/codecs/lucene99/package-summary.html#package.description" >https://lucene.apache.org/core/9_9_1/core/org/apache/lucene/codecs/lucene99/package-summary.html#package.description<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<p>底层基于Lucene存储，	</p>
+<p>底层基于Lucene存储</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Term      Doc_1   Doc_2   Doc_3</span><br><span class="line">------------------------------------</span><br><span class="line">brown   |   X   |   X   |</span><br><span class="line">dog     |   X   |       |   X</span><br><span class="line">dogs    |       |   X   |   X</span><br><span class="line">fox     |   X   |       |   X</span><br><span class="line">foxes   |       |   X   |</span><br><span class="line">in      |       |   X   |</span><br><span class="line">jumped  |   X   |       |   X</span><br><span class="line">lazy    |   X   |   X   |</span><br><span class="line">leap    |       |   X   |</span><br><span class="line">over    |   X   |   X   |   X</span><br><span class="line">quick   |   X   |   X   |   X</span><br><span class="line">summer  |       |   X   |</span><br><span class="line">the     |   X   |       |   X</span><br><span class="line">------------------------------------</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Doc-Value"><a href="#Doc-Value" class="headerlink" title="Doc Value"></a>Doc Value</h2><p>正向存储，便于聚合，排序</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Doc      Terms</span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line">Doc_1 | brown, dog, fox, jumped, lazy, over, quick, the</span><br><span class="line">Doc_2 | brown, dogs, foxes, in, lazy, leap, over, quick, summer</span><br><span class="line">Doc_3 | dog, dogs, fox, jumped, over, quick, the</span><br><span class="line">-----------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h1><p>一般在修改数据字段时，不允许直接在已经新建的索引上修改，但日常工作中，难免遇到提前定义错了mapping类型，或索引内数据需要合并，分割。</p>
 <p>经测试，只要通过spring自动创建的索引（会根据字段类型自动匹配映射类型），再想修改都不可能了。但是如果只是新增一个字段，同时指定正确的类型，这样是可以的。</p>
 <h2 id="Reindex"><a href="#Reindex" class="headerlink" title="Reindex"></a>Reindex</h2><ol>
@@ -3864,7 +3900,7 @@
 
 
 <h2 id="为什么Kafka服务端启动时报zookeeper连接不上"><a href="#为什么Kafka服务端启动时报zookeeper连接不上" class="headerlink" title="为什么Kafka服务端启动时报zookeeper连接不上"></a>为什么Kafka服务端启动时报zookeeper连接不上</h2><p>zookeeper 3.4.10，kafka 2.12-2.1.0，zookeeper启动是成功的，端口2181也是正常，kafka配置的也是2181端口，但启动时依然报错</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 启动命令</span><br><span class="line">bin/kafka-server-start.sh ../config/server.properties</span><br><span class="line"></span><br><span class="line"># 日志</span><br><span class="line"> WARN | Session 0x0 for server localhost/&lt;unresolved&gt;:2181, unexpected error, closing socket connection and attempting reconnect</span><br><span class="line">    java.lang.IllegalArgumentException: Unable to canonicalize address localhost/&lt;unresolved&gt;:2181 because it&#x27;s not resolvable</span><br><span class="line">        at org.apache.zookeeper.SaslServerPrincipal.getServerPrincipal(SaslServerPrincipal.java:65)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 启动命令</span><br><span class="line">bin/kafka-server-start.sh ../config/server.properties</span><br><span class="line"></span><br><span class="line"># 日志</span><br><span class="line"> WARN | Session 0x0 for server localhost/&lt;unresolved&gt;:2181, unexpected error, closing socket connection and attempting reconnect</span><br><span class="line">    java.lang.IllegalArgumentException: Unable to canonicalize address localhost/&lt;unresolved&gt;:2181 because it&#x27;s not resolvable</span><br><span class="line">        at org.apache.zookeeper.SaslServerPrincipal.getServerPrincipal(SaslServerPrincipal.java:65)</span><br><span class="line">        </span><br><span class="line"># 日志</span><br><span class="line">[2025-01-04 17:35:51,346] ERROR Fatal error during KafkaServer startup. Prepare to shutdown (kafka.server.KafkaServer)</span><br><span class="line">kafka.zookeeper.ZooKeeperClientTimeoutException: Timed out waiting for connection while in state: CONNECTING</span><br><span class="line">	at kafka.zookeeper.ZooKeeperClient.$anonfun$waitUntilConnected$3(ZooKeeperClient.scala:268)</span><br><span class="line">	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)</span><br><span class="line">	at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:251)</span><br><span class="line">	at kafka.zookeeper.ZooKeeperClient.waitUntilConnected(ZooKeeperClient.scala:264)</span><br><span class="line">	at kafka.zookeeper.ZooKeeperClient.&lt;init&gt;(ZooKeeperClient.scala:97)</span><br><span class="line">	at kafka.zk.KafkaZkClient$.apply(KafkaZkClient.scala:1694)</span><br><span class="line">	at kafka.server.KafkaServer.createZkClient$1(KafkaServer.scala:348)</span><br><span class="line">	at kafka.server.KafkaServer.initZkClient(KafkaServer.scala:372)</span><br><span class="line">	at kafka.server.KafkaServer.startup(KafkaServer.scala:202)</span><br><span class="line">	at kafka.server.KafkaServerStartable.startup(KafkaServerStartable.scala:38)</span><br><span class="line">	at kafka.Kafka$.main(Kafka.scala:75)</span><br><span class="line">	at kafka.Kafka.main(Kafka.scala)</span><br></pre></td></tr></table></figure>
 
 <p>是因为jdk版本过高导致无法识别，降低到14版本以下即可</p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>分两种方式</p>

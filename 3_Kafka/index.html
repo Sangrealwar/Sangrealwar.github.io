@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Oct 27 2024 18:39:50 GMT+0800">2024-10-27 18:39:50</span>
+                <span class="datetime" data-updated="Sat Jan 04 2025 18:01:18 GMT+0800">2025-01-04 18:01:18</span>
             </span>
         
 
@@ -359,7 +359,7 @@
 
 
 <h2 id="为什么Kafka服务端启动时报zookeeper连接不上"><a href="#为什么Kafka服务端启动时报zookeeper连接不上" class="headerlink" title="为什么Kafka服务端启动时报zookeeper连接不上"></a>为什么Kafka服务端启动时报zookeeper连接不上</h2><p>zookeeper 3.4.10，kafka 2.12-2.1.0，zookeeper启动是成功的，端口2181也是正常，kafka配置的也是2181端口，但启动时依然报错</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 启动命令</span><br><span class="line">bin/kafka-server-start.sh ../config/server.properties</span><br><span class="line"></span><br><span class="line"># 日志</span><br><span class="line"> WARN | Session 0x0 for server localhost/&lt;unresolved&gt;:2181, unexpected error, closing socket connection and attempting reconnect</span><br><span class="line">    java.lang.IllegalArgumentException: Unable to canonicalize address localhost/&lt;unresolved&gt;:2181 because it&#x27;s not resolvable</span><br><span class="line">        at org.apache.zookeeper.SaslServerPrincipal.getServerPrincipal(SaslServerPrincipal.java:65)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 启动命令</span><br><span class="line">bin/kafka-server-start.sh ../config/server.properties</span><br><span class="line"></span><br><span class="line"># 日志</span><br><span class="line"> WARN | Session 0x0 for server localhost/&lt;unresolved&gt;:2181, unexpected error, closing socket connection and attempting reconnect</span><br><span class="line">    java.lang.IllegalArgumentException: Unable to canonicalize address localhost/&lt;unresolved&gt;:2181 because it&#x27;s not resolvable</span><br><span class="line">        at org.apache.zookeeper.SaslServerPrincipal.getServerPrincipal(SaslServerPrincipal.java:65)</span><br><span class="line">        </span><br><span class="line"># 日志</span><br><span class="line">[2025-01-04 17:35:51,346] ERROR Fatal error during KafkaServer startup. Prepare to shutdown (kafka.server.KafkaServer)</span><br><span class="line">kafka.zookeeper.ZooKeeperClientTimeoutException: Timed out waiting for connection while in state: CONNECTING</span><br><span class="line">	at kafka.zookeeper.ZooKeeperClient.$anonfun$waitUntilConnected$3(ZooKeeperClient.scala:268)</span><br><span class="line">	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)</span><br><span class="line">	at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:251)</span><br><span class="line">	at kafka.zookeeper.ZooKeeperClient.waitUntilConnected(ZooKeeperClient.scala:264)</span><br><span class="line">	at kafka.zookeeper.ZooKeeperClient.&lt;init&gt;(ZooKeeperClient.scala:97)</span><br><span class="line">	at kafka.zk.KafkaZkClient$.apply(KafkaZkClient.scala:1694)</span><br><span class="line">	at kafka.server.KafkaServer.createZkClient$1(KafkaServer.scala:348)</span><br><span class="line">	at kafka.server.KafkaServer.initZkClient(KafkaServer.scala:372)</span><br><span class="line">	at kafka.server.KafkaServer.startup(KafkaServer.scala:202)</span><br><span class="line">	at kafka.server.KafkaServerStartable.startup(KafkaServerStartable.scala:38)</span><br><span class="line">	at kafka.Kafka$.main(Kafka.scala:75)</span><br><span class="line">	at kafka.Kafka.main(Kafka.scala)</span><br></pre></td></tr></table></figure>
 
 <p>是因为jdk版本过高导致无法识别，降低到14版本以下即可</p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>分两种方式</p>
@@ -569,7 +569,7 @@
             
 <footer class="footer border-box">
     <div class="copyright-info info-item">
-        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
         
             &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">EmiyaQ</a>
         

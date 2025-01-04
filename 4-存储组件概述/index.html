@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Dec 09 2024 18:32:52 GMT+0800">2024-12-09 18:32:52</span>
+                <span class="datetime" data-updated="Sat Jan 04 2025 18:32:30 GMT+0800">2025-01-04 18:32:30</span>
             </span>
         
 
@@ -297,14 +297,14 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>驱动</td>
-<td>Java，C++，Python</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
-<td>我我我我我我我</td>
+<td>主要驱动</td>
+<td>Java,C++,.Net,Python,ODBC</td>
+<td>Java,JavaScript,Ruby,Go,.NET,PHP,Perl,Python,Eland,Rust</td>
+<td>Java,C++,Scale,Jython,Thrift</td>
+<td>Java,C++</td>
+<td>Java,C++（Mysql 协议）</td>
+<td>Java</td>
+<td>Java</td>
 </tr>
 <tr>
 <td>语法</td>
@@ -322,99 +322,109 @@
 <td></td>
 <td></td>
 <td></td>
-<td>谓词下推</td>
+<td>物化视图，Colocate Join</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>共识算法</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Zen discovery</td>
+<td>借助Zookeeper</td>
+<td>Raft</td>
+<td>类Paxos</td>
+<td>zab</td>
+<td>借助Zookeeper（3.x）</td>
 </tr>
 <tr>
 <td>通用功能</td>
 <td>权限</td>
+<td>权限</td>
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>ACLs</td>
+<td>ACLs</td>
 </tr>
 <tr>
 <td>存储单元结构</td>
-<td>页，段，区</td>
-<td></td>
-<td>块</td>
-<td>页</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Page（页）</br> 长度（extent）</br> 段（segment）</td>
+<td>Shards（分片）</br>Lucene（段）</td>
+<td>块（Block），HFile（StoreFile）</td>
+<td>表（Table），平板（Tablet），Rowset</td>
+<td>Catalogs，数据库，表，分区，分桶</td>
+<td>Znode</td>
+<td>Topic，Partition，Segment，log和index</td>
 </tr>
 <tr>
 <td>辅助加速</td>
-<td>预读</td>
+<td>读：预读</td>
+<td>读：DocValue</br>Fielddata</td>
+<td>Minor Compaction，Major Compaction</td>
+<td>Minor Compaction，Major Compaction，Merging compaction</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>零拷贝（sendfile），顺序写磁盘</td>
 </tr>
 <tr>
 <td>索引优化</td>
-<td>主键索引，二级索引，自适应hash（innodb）</td>
+<td>主键索引</br>二级索引</br>自适应hash（innodb）</td>
+<td>基本都是索引</td>
+<td>主键索引（RowKey）</td>
+<td>Hash，Range，主键索引，跳跃扫描索引</td>
+<td>前缀索引，排序索引，Bitmap，Bloom filter，排序聚合</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>index以首个消息offset命名，便于二分检索</td>
 </tr>
 <tr>
 <td>缓存缓冲</td>
-<td>Buffer pool，Changer Buffer pool，Log Buffer</td>
-<td>Fst，positing list</td>
+<td>Buffer pool</br>Changer Buffer pool</br>Log Buffer</td>
+<td>FST，Delta-encode（增量编码）</td>
+<td>MemStore</td>
+<td>MemRowSet</td>
+<td>QueryCache（pipeline引擎）DataCache</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>基于OS缓存</td>
 </tr>
 <tr>
 <td>高可用</td>
 <td>主从复制（binlog）</br> WAL预写</td>
-<td>副本</td>
+<td>Replicas（主分片），Translog</td>
+<td>Hlog（WAL）</td>
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>副本（Replication）</td>
 </tr>
 <tr>
+<td>数据结构</td>
+<td>B+</td>
+<td>Lucene</td>
+<td>日志结构树（LSM）</td>
+<td>日志结构树（LSM）</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>类似分布式文件系统</td>
+<td>磁盘文件</td>
 </tr>
 <tr>
+<td>特点</td>
+<td>MVCC，事务，锁</td>
+<td>大部分字段创建时缓存在内存，倒排索引提供全文检索，天然分布式</td>
+<td>RegionServer，MetaTable，数据压缩，两次 Compaction，版本号更新</td>
+<td>数据分为 Base，Delta，字段强类型压缩比高，哈希范围索引剪枝，牺牲写入速度带来查询提升</td>
+<td>提供4钟数据模型，多种业界常用的索引加速，</td>
+<td>状态变更推送，可创建临时节点，做分布式锁。</td>
+<td>高吞吐量，高性能消息中间件</td>
+</tr>
+<tr>
+<td>常用工具</td>
+<td>Explain</td>
+<td>Kibana</td>
+<td></td>
+<td>Imapa，Presto 组合</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>各种大数据消息同步场景</td>
 </tr>
 </tbody></table>
 <p>mysql驱动：<a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html" >https://dev.mysql.com/doc/refman/5.7/en/connectors-apis.html<i class="fas fa-external-link-alt"></i></a> </p>
@@ -492,7 +502,7 @@
             
 <footer class="footer border-box">
     <div class="copyright-info info-item">
-        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
         
             &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">EmiyaQ</a>
         
