@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sat Jan 04 2025 18:32:30 GMT+0800">2025-01-04 18:32:30</span>
+                <span class="datetime" data-updated="Thu Jan 09 2025 23:08:46 GMT+0800">2025-01-09 23:08:46</span>
             </span>
         
 
@@ -348,8 +348,8 @@
 </tr>
 <tr>
 <td>存储单元结构</td>
-<td>Page（页）</br> 长度（extent）</br> 段（segment）</td>
-<td>Shards（分片）</br>Lucene（段）</td>
+<td>Page（页），长度（extent）， 段（segment）</td>
+<td>Shards（分片），Lucene（段）</td>
 <td>块（Block），HFile（StoreFile）</td>
 <td>表（Table），平板（Tablet），Rowset</td>
 <td>Catalogs，数据库，表，分区，分桶</td>
@@ -359,7 +359,7 @@
 <tr>
 <td>辅助加速</td>
 <td>读：预读</td>
-<td>读：DocValue</br>Fielddata</td>
+<td>读：DocValue，Fielddata；写：merge（已删除数据）</td>
 <td>Minor Compaction，Major Compaction</td>
 <td>Minor Compaction，Major Compaction，Merging compaction</td>
 <td></td>
@@ -368,7 +368,7 @@
 </tr>
 <tr>
 <td>索引优化</td>
-<td>主键索引</br>二级索引</br>自适应hash（innodb）</td>
+<td>主键索引，二级索引，自适应hash（innodb）</td>
 <td>基本都是索引</td>
 <td>主键索引（RowKey）</td>
 <td>Hash，Range，主键索引，跳跃扫描索引</td>
@@ -378,7 +378,7 @@
 </tr>
 <tr>
 <td>缓存缓冲</td>
-<td>Buffer pool</br>Changer Buffer pool</br>Log Buffer</td>
+<td>Buffer pool，Changer Buffer pool，Log Buffer</td>
 <td>FST，Delta-encode（增量编码）</td>
 <td>MemStore</td>
 <td>MemRowSet</td>
@@ -388,7 +388,7 @@
 </tr>
 <tr>
 <td>高可用</td>
-<td>主从复制（binlog）</br> WAL预写</td>
+<td>主从复制（binlog），WAL预写</td>
 <td>Replicas（主分片），Translog</td>
 <td>Hlog（WAL）</td>
 <td></td>
@@ -409,10 +409,10 @@
 <tr>
 <td>特点</td>
 <td>MVCC，事务，锁</td>
-<td>大部分字段创建时缓存在内存，倒排索引提供全文检索，天然分布式</td>
+<td>大部分字段创建时缓存在内存，倒排索引提供全文检索，天然分布式；典型的 Scatter-Gather 模型</td>
 <td>RegionServer，MetaTable，数据压缩，两次 Compaction，版本号更新</td>
 <td>数据分为 Base，Delta，字段强类型压缩比高，哈希范围索引剪枝，牺牲写入速度带来查询提升</td>
-<td>提供4钟数据模型，多种业界常用的索引加速，</td>
+<td>提供4钟数据模型，多种业界常用的索引加速能力，更新频繁（有完善的中文文档））</td>
 <td>状态变更推送，可创建临时节点，做分布式锁。</td>
 <td>高吞吐量，高性能消息中间件</td>
 </tr>
