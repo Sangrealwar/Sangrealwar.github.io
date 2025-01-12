@@ -9,7 +9,7 @@
     
     <title>
         
-            知识图谱 |
+            工作杂谈 |
         
         The winter sunshine
     </title>
@@ -189,7 +189,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        知识图谱
+                        工作杂谈
                     </div>
                 
 
@@ -215,12 +215,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-10-19 17:43:19</span>
+                <span class="datetime">2025-01-12 20:28:17</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Jan 12 2025 20:29:44 GMT+0800">2025-01-12 20:29:44</span>
+                <span class="datetime" data-updated="Sun Jan 12 2025 20:29:51 GMT+0800">2025-01-12 20:29:51</span>
             </span>
         
 
@@ -246,63 +246,67 @@
                     
 
                     
-                         <h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><ul>
-<li>基础知识</li>
+                         <h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><ul>
+<li>扩展性</li>
 </ul>
-<a href="/5_Java%E5%9F%BA%E7%A1%80/" title="Java基础知识">Java基础</a>
-
-<a href="/1_%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《深入理解Java虚拟机》笔记">Java虚拟机笔记</a>
-
-<a href="/1_%E3%80%8Ajava%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《java多线程编程实战指南》笔记">Java多线程笔记</a>
-
+<p>系统层面：横向扩展，纵向扩展</p>
+<p>代码级别：if，case，策略模式，多接口实现</p>
 <ul>
-<li>设计模式</li>
+<li>可读性</li>
 </ul>
-<a href="/5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a>
-
-
-
-<h1 id="架构思想"><a href="#架构思想" class="headerlink" title="架构思想"></a>架构思想</h1><a href="/1_%E3%80%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E5%88%97%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《微服务系列》笔记">微服务笔记</a>
-
-<a href="/1_%E3%80%8A%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《数据密集型应用系统设计》笔记">数据密集型应用系统设计笔记</a>
-
-<a href="/4_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" title="分布式事务">分布式事务</a>
-
-<blockquote>
-<p>待设计：领域驱动设计</p>
-</blockquote>
-<h1 id="应用组件"><a href="#应用组件" class="headerlink" title="应用组件"></a>应用组件</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><ul>
-<li>常见业务系统搭配</li>
-</ul>
-<p>最常用的OLTP存储：<a href="/3-Mysql/" title="3_Mysql">Mysql</a></p>
-<p>最常用的内存存储：<a href="/3_Redis/" title="Redis使用指南">Redis</a></p>
-<p>最常用的搜索平台，常用于分库分表后数据检索，是一个典型的一层MapReduce模型的存储组件：<a href="/3_Elasticsearch/" title="Elasticsearch">Elasticsearch</a></p>
-<p>常用的分布式协调存储，常用于微服务下的配置中心，服务注册中心等，少部分用于分布式锁：<a href="/3_Zookeeper/" title="Zookeeper">Zookeeper</a></p>
-<blockquote>
-<p>待补充rocketmq</p>
-</blockquote>
+<p>业务代码还是框架代码，业务代码的变动频率高，重业务流程，因此需要结合注释理解，尽量将使用的变量放在代码块附近，减少记忆负担。框架代码注重模板结构，对于接口定义，异常定义要求高。</p>
 <ul>
-<li>大数据搭配</li>
+<li>稳定性</li>
 </ul>
-<p>传统的OLAP大数据组件，物美价廉，能提供较为稳定的大规模数据计算查询：<a href="/3_Hive/" title="Hive初识">Hive</a></p>
-<p>OLAP的一种存储组件，介于Hbase和Hive之间的分布式数据列式存储：<a href="/3_Kudu/" title="Kudu">Kudu</a></p>
-<p>老牌的消息队列，性价比高，吞吐量高：<a href="/3_Kafka/" title="Kafka">Kafka</a></p>
-<p>较新的OLAP和OLTP的存储</p>
-<blockquote>
-<p>待补充Starrocks</p>
-</blockquote>
-<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ul>
-<li>常见业务系统搭配</li>
+<p>稳定性是软件开发过程中和运行中需要重点关注的指标，稳定的前提是软件可用，并在较长的时间内能够持续提供服务。</p>
+<p>1）从底层视角，系统能够抵御偶尔的网络中断，硬件故障等不可抗拒因素。例如异地多活，请求重试，数据冗余等手段；</p>
+<p>2）从运行视角，系统能允许已知的功能异常，并能够防止异常扩散。例如熔断，降级等；</p>
+<p>3）从使用角度，系统能够提供运行状态仪表盘，能够及时获知系统的运行情况、异常情况，并有对应的应急手段。例如异常通知，功能降级等。</p>
+<p>结合上述3个视角，为了能够达到较高的稳定性，一般也从3个方面入手</p>
+<p>1）开发阶段：尽量减少异常的出现，在软件开发过程中，依靠科学的软件开发思想，以及完善的辅助工具（如sonar，findbugs等），减少出现问题的可能性。同时，为了能够抵御偶发的异常，重试也是必不可少，比如指数退避重试（这里的重试要避免无脑重试，当竞争激烈时，重试后依然竞争激烈）；</p>
+<p>2）部署阶段：两地三中心，多副本等机制，这些方式在一定程度上牺牲数据的一致性，换来整体系统的稳定性。多副本包括计算多副本和存储多副本，区别在于，计算多副本没有状态，扩缩容仅与流量相关，成本较低。二存储多副本存在主从切换恢复等一系列问题，成本较高；</p>
+<p>3）维护阶段：需要有完善的监控指标，系统需要暴露机器运行指标，业务运行指标等监控数据，搭建告警平台，在微服务背景下，告警，日志监控都需要统一的平台处理，比如分布式链路追踪（Tracing，SkyWalking，Zipkin等）。同时，针对告警也需要区分优先级，注意阈值处理，防止告警噪音，降低告警敏感度。在每一次异常处理后，需要组织复盘，从而反哺系统，避免下一次出现类似问题。</p>
+<h1 id="WBS"><a href="#WBS" class="headerlink" title="WBS"></a>WBS</h1><ul>
+<li>关于估时评估</li>
 </ul>
-<p>常用的流式实时计算，内嵌存储，提供端到端一致性计算：<a href="/3_Flink/" title="Flink（未完成）">Flink</a></p>
+<p>在有完善的脚手架的前提下，一个表单的CUD可以按1天评估；稍微携带业务逻辑，并且业务逻辑相对较直观（经验判断法：能够在3分钟内解释清楚），可以按照1-3天评估；携带业务能力，虽无详细描述，但存在类似业务功能，且功能边界清晰，可以按照3-5天评估。</p>
+<p>工作项不要基于太细的功能描述，否则估时偏低会导致与实际不符，估时太高解释型不强。（反例：新增了中断字段。该功能常与如何形成中断，如何恢复中断关联，仅仅考虑存储中断字段，会导致估时较少）。</p>
+<p>功能上需要考虑连贯性，可以从数据流的角度分析：数据是如何来的，如何发生流转，数据如何存储，数据是否有清理机制，在何时被清理，是否会向外部系统暴露数据，是否会主动向外部推送数据。</p>
+<p>历史功能迭代，一般都是增加接口，现有接口增加字段。那么需要考虑，当接口增加字段时，底层数据增加的数据，是否会被上游查询接口感知，新增的分支判断逻辑是否会遗漏历史功能，是否新增了不可达的分支，导致默认值错误。</p>
 <ul>
-<li>大数据搭配</li>
+<li>关于项目管理方式</li>
 </ul>
-<p>搭配Kudu，在多数据源基础上实现联邦聚合查询，内存处理，秒&#x2F;分钟级计算，性能较高：<a href="/3_Presto/" title="Presto">Presto</a> <a href="/1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《Presto实战》笔记">Presto实战笔记</a></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>认证授权的常规方式：<a href="/5_Oauth2%E8%AE%A4%E8%AF%81%E6%96%B9%E5%BC%8F/" title="Oauth2">Oauth2</a></p>
-<p>各种混乱的日志框架：<a href="/5_Java%E7%9A%84log%E6%A1%86%E6%9E%B6/" title="Java的各种Log框架">Java的log框架</a></p>
-<p>云原生框架初探：<a href="/3_Quarkus/" title="Quarkus">Quarkus</a></p>
-<p>工作杂谈：<a href="/5-%E5%B7%A5%E4%BD%9C%E6%9D%82%E8%B0%88/" title="工作杂谈">工作杂谈</a></p>
+<p>项目执行，始于立项调研，终于上线复盘。不管是大项目，还是小任务，都需要了解项目的背景，特别需要抓住主要矛盾，以及立场。（例如，当功能涉及2个团队时，需要明确，哪个团队是主要负责，经验判断法：当出现问题时，哪个团队最受影响，则该团队是主要负责人。明确主要负责后，核心且变动的逻辑需要收敛在一起，当出现分歧时，需要以当前团队目标出发，辅助整体目标，给出争执方案，如无法协调，则上升寻求解决）。</p>
+<p>对上管理时，如出现抉择寻求上级领导帮助时，忌讳毫无解决方案，至少需要有一个解决方案，且该解决方案需要明确可行性方案（比如要x个人，x天时间，xxx职位完成xxx事项），如条件允许，可提供多个解决方案，但需要有偏向。</p>
+<h1 id="问题范式"><a href="#问题范式" class="headerlink" title="问题范式"></a>问题范式</h1><ul>
+<li>分布式模块设计</li>
+</ul>
+<p>在一个分布式系统，每个模块都是一个独立的包，甚至是一个独立的微服务。现在软件发展相对比较成熟，善于利用脚手架会更快提高开发速度。例如（orm映射：mybatic-plus，maven项目骨架构建）。设计模块时，需要考虑以下几点</p>
+<p>基于认知负载理论，系统会根据业务域划分为子系统，子系统之间通过适配层进行信息交换，控制复杂度。在每个子系统，根据<strong>洋葱</strong>模型划分，外层是数据适配层，内核是领域服务、存储。子系统之间信息交换有多种方式，有同步请求，常见的框架&#x2F;协议有Dubbo，Netty，Http，特点是低延迟。也有异步通信，各种消息中间件，或者定时轮询ETL，特点是高延迟，高吞吐量。</p>
+<p>同步请求响应主要考虑：成功，失败，超时无响应。</p>
+<p>成功需要关注耗时，延迟敏感型业务需要有限流降级策略，尽可能控制响应耗时；</p>
+<p>失败需要关注异常，异常有请求异常，业务异常，系统异常等。请求异常主要是指因网络请求，或限流频控引发的异常，在一定时间内可自动重试恢复，可以编写自动重试，或延迟退避重试策略，但重试需注意次数，经验法不超过3次。业务异常顾名思义，是指业务相关的校验，拦截异常，通常返回上游，可适当进行封装。系统异常主要是指非受检异常或其他未知异常，如业务模块无法处理，可向上直接抛出异常，或日志记录后，向上异常信息，保证异常信息不被吞掉。</p>
+<p>超时无响应通常会以异常的形式出现。一般在同步接口调用时，上游会约定超时时间，当超时未获取响应结果时，会认为是异常，但这种异常由于无法获取结果，因此无法判定是否能够重试，也无法向上返回请求成功失败。因此这种场景，需存在反查校验机制，能够识别本次操作是否成功，当反查操作成功时，则无需再次重试，反查操作失败时，则需重试。且下游因做好幂等或并发处理，防止因重试带来数据错误。</p>
+<p>分布式环境下，异步请求返回主要考虑：乱序、积压、异常。</p>
+<p>因为异步请求对响应时间不敏感，在开发测试过程中，很容易忽略消息乱序造成的影响。设计过程中，首先考虑消息发送时乱序的可能，其次需要考虑在消息流转过程中，保持消息有序性，最终消息最终触达时，如果是分批写入，需要保持有序性聚合。具体场景举例</p>
+<p>场景1，发送消息，并发新增删除，新增在前，但新增动作并<strong>没有同步响应</strong>或<strong>没有考虑响应返回</strong>，N秒后触发删除，这个时候会先构造删除消息，再构造新增消息，导致产生了<strong>乱序</strong>消息。这种在设计时应避免这种业务不明的操作，可以设计为，删除必须指定唯一id，基于新增后的数据唯一id删除，这样可以从业务上，保证新增响应后，再处理删除消息，保证发送时有序。</p>
+<p>场景2，发送消息，并发更新，这种场景下，需要区分消息产生是基于何种数据变化，如果是程序执行DB操作后，同步发送消息，因为程序处理在多线程的场景下，那并发更新是存在乱序的可能。如果是执行DB操作后，监听DB变更，再发送消息，由于DB是唯一资源，产生的变更日志和数据变更是在一个事务中，因此能构造有序消息。</p>
+<p>场景3，消息流转，通过Flink，或者容器多线程并行处理，分区Key前后没有保持一致。</p>
+<p>场景4，消息触达，容器多线程并行处理，分区Key没有保持一致。</p>
+<p>时序性保证后，另一个需要考虑的是消息积压，尽管异步请求，积压是正常情况，但积压暴露出系统吞吐量不足，且会增大磁盘负担，当超过一定阈值后，一般消息中间件都会有清理策略，可能会导致未处理的消息丢失，造成业务影响。思考思路如下：</p>
+<p>首先确定系统是否在正常消费，很多情况是由于消费系统异常，造成消息积压，此时需要及时恢复消息消费，同时准备调整消息过期策略和磁盘容量，保证在系统消费前，保证消息不丢失。</p>
+<p>其次确定系统消费速率是否能提升，评估时尤其需要注意外部依赖评估，避免提高消费能力后，导致下游系统崩溃，引起故障雪崩。内部依赖考虑是否能通过多线程并发，多级通道转发，无效消息过滤，分批数据聚合等方式加快消息处理速度。</p>
+<p>应急手段，快速隔离大规模消息，转发至额外通道，优先保证正常业务处理。大规模消息一般是，大KA产生业务，业务异常产生消息。当采用额外通道时，需要额外考虑消息有序性，额外通道转会普通通道的前提时，额外通道为空<strong>且</strong>额外通道消息无积压。</p>
+<p>日常设计时，应在消费时，能够通过消息自身，或者内存&#x2F;缓存配置，过滤无效消息，降低消息消费压力。其次需要考虑批量聚合处理，一般采用异步的场景，短时间内会有相同租户，或者相同业务线消息，聚合处理能够减少下游压力，提高消费速度。</p>
+<p>消息消费时，异常的处理不像同步响应那样，能够反馈上游异常，”把锅甩干净”。当消费时异常时，可根据如下思路分析；</p>
+<p>是否是消息格式问题，如果是，那基本重试也无法处理，打印日志，跳过即可。</p>
+<p>是否是业务异常，如果是，需要区分能否重试，如果可以重试，可能因为业务变化，导致消息又可以消费，那这种如何处理，是否需要重试，比如，增加积分消息，因为业务开关未打开，积分无法入账，但随后业务打开开关，积分可以入账，此时能否重试？经验判断，一般业务异常是不重试，以消息消费那一刻的系统状态为准。如果不能重试，属于业务数据异常，则只能阻塞消费。</p>
+<p>是否是网络通信异常，一般是指下游依赖请求超时，或者消息客户端断联，一般是直接重试。如果是客户端断联，需要考虑重试时偏移量处理，保证消息不丢失的情况下，都是消费后提交偏移量+幂等搭配”食用”，如果是下游依赖请求超时，那一般要考虑下游是否支持幂等，如果不能支持幂等，需要考虑下游提供反查能力，保证再次重试时，下游能正常处理。</p>
+<p>其他未知异常，通常考虑消息不丢失，无法识别的异常，都是无脑重试。当遇到无法重试的业务异常和未知异常，消费会阻塞，引起积压，一般有几种处理方式，1) 记录重试日志后，跳过异常消息，后续通过定时任务或手动补偿。但重试补偿时，需考虑时序性问题，重试时，时间离消息发送时间已经隔了很久，环境很可能发生变化。2) 通过其他途径，处理异常消息带来的影响后，跳过异常消息。</p>
+<p>增加库存消息，需要回写到Es，但是新增仓位也是异步同步Es，导致增加库存消息无法定位到Es具体某一行，导致无法处理</p>
+<ul>
+<li>领域划分</li>
+</ul>
 
                     
                 </div>
@@ -323,31 +327,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/hexo%E9%85%8D%E7%BD%AE/"
-                                   title="hexo配置"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">hexo配置</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6%E8%B0%83%E7%A0%94/"
-                                   title="表达式计算框架调研"
+                                   href="/5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
+                                   title="设计模式"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">表达式计算框架调研</span>
+                                        <span class="post-nav-title-item text-ellipsis">设计模式</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -375,7 +363,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"><span class="nav-text">编程语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3"><span class="nav-text">架构思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%BB%84%E4%BB%B6"><span class="nav-text">应用组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8"><span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97"><span class="nav-text">计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">软件生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WBS"><span class="nav-text">WBS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%8C%83%E5%BC%8F"><span class="nav-text">问题范式</span></a></li></ol>
     </div>
 </div>
 
@@ -535,7 +523,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"><span class="nav-text">编程语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3"><span class="nav-text">架构思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%BB%84%E4%BB%B6"><span class="nav-text">应用组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8"><span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97"><span class="nav-text">计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">软件生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WBS"><span class="nav-text">WBS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%8C%83%E5%BC%8F"><span class="nav-text">问题范式</span></a></li></ol>
     </div>
 </div>
 
