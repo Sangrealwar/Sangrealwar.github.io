@@ -98,8 +98,8 @@
 <ol>
 <li>常用基于端口和适配器架构（六边形架构）</li>
 </ol>
-<p>分布式环境下，请求响应可能出现3种状态：成功，失败，无响应</p>
-<p>处理同步：耗时</p>
+<p>分布式环境下，请求响应可能出现3种状态：成功，失败，超时无响应。成功需要关注耗时，延迟敏感型业务需要有限流降级策略，尽可能控制响应耗时；失败需要关注异常，异常有可重试异常，业务异常，系统异常等。可重试异常主要是指因网络请求，或限流频控引发的异常，在一定时间内可自动重试恢复，可以编写自动重试，或延迟退避重试策略，但重试需注意次数，经验法不超过3次。业务异常主要是指</p>
+<p>处理同步：耗时，超时</p>
 <p>处理异步：乱序</p>
 <p>处理异常：可处理异常，不可处理异常</p>
 <ul>
@@ -112,15 +112,12 @@
     <url>/5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer"/>
 
-<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><img  
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p><img  
                        lazyload
                        alt="image"
-                       data-src="/5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1.png"
-                        class=""
-                 >
-
-
-
+                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1.png"
+                       
+                 ></p>
 <h1 id="文字版"><a href="#文字版" class="headerlink" title="文字版"></a>文字版</h1><h2 class="topic">
 <a name="78r9fk70sj5tk0fllgfjrsqodp">创建型</a>
 </h2>
