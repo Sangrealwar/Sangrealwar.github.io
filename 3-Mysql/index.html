@@ -259,7 +259,12 @@
 <p>无特殊说明，下文使用的引擎均指InnoDB</p>
 </blockquote>
 <h2 id="插件化引擎"><a href="#插件化引擎" class="headerlink" title="插件化引擎"></a>插件化引擎</h2><p>官网体系图：<a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/pluggable-storage-overview.html" >https://dev.mysql.com/doc/refman/8.0/en/pluggable-storage-overview.html<i class="fas fa-external-link-alt"></i></a> </p>
-
+<img  
+                       lazyload
+                       alt="image"
+                       data-src="/3-Mysql/9.png"
+                        class=""
+                 >
 
 <p>从体系图可以看出，最上层是应用层，Mysql提供Shell以及各类变成语言应用连接驱动，与外界进行交互。中间层是服务层，服务层应用包括NoSql操作接口，Sql操作接口，语法解析，权限，查询缓存，缓冲区。底层是具体的存储引擎，以及磁盘存储介质，redo log，undo log，binlog等。</p>
 <h2 id="InnoDB引擎"><a href="#InnoDB引擎" class="headerlink" title="InnoDB引擎"></a>InnoDB引擎</h2><p>官网InnoDB架构：<a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html" >https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html<i class="fas fa-external-link-alt"></i></a> </p>

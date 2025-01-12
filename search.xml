@@ -15,7 +15,7 @@
 <ul>
 <li>设计模式</li>
 </ul>
-<a href="/5-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="5-设计模式">设计模式</a>
+<a href="/5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a>
 
 
 
@@ -108,14 +108,14 @@
 ]]></content>
   </entry>
   <entry>
-    <title>5-设计模式</title>
-    <url>/5-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p><img  
-                       lazyload
-                       alt="image"
-                       data-src="/./5-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image1.png"
-                       
-                 ></p>
+    <title>设计模式</title>
+    <url>/5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
+
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1>
+
+
+
 <h1 id="文字版"><a href="#文字版" class="headerlink" title="文字版"></a>文字版</h1><h2 class="topic">
 <a name="78r9fk70sj5tk0fllgfjrsqodp">创建型</a>
 </h2>
@@ -629,7 +629,12 @@
 <p>无特殊说明，下文使用的引擎均指InnoDB</p>
 </blockquote>
 <h2 id="插件化引擎"><a href="#插件化引擎" class="headerlink" title="插件化引擎"></a>插件化引擎</h2><p>官网体系图：<a class="link"   href="https://dev.mysql.com/doc/refman/8.0/en/pluggable-storage-overview.html" >https://dev.mysql.com/doc/refman/8.0/en/pluggable-storage-overview.html<i class="fas fa-external-link-alt"></i></a> </p>
-
+<img  
+                       lazyload
+                       alt="image"
+                       data-src="/3-Mysql/9.png"
+                        class=""
+                 >
 
 <p>从体系图可以看出，最上层是应用层，Mysql提供Shell以及各类变成语言应用连接驱动，与外界进行交互。中间层是服务层，服务层应用包括NoSql操作接口，Sql操作接口，语法解析，权限，查询缓存，缓冲区。底层是具体的存储引擎，以及磁盘存储介质，redo log，undo log，binlog等。</p>
 <h2 id="InnoDB引擎"><a href="#InnoDB引擎" class="headerlink" title="InnoDB引擎"></a>InnoDB引擎</h2><p>官网InnoDB架构：<a class="link"   href="https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html" >https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html<i class="fas fa-external-link-alt"></i></a> </p>
@@ -3129,7 +3134,7 @@
 
 <blockquote>
 <p>如果启动时，datanode出现如下报错：</p>
-<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link"   href="mailto:&#x34;&#52;&#57;&#x34;&#48;&#64;&#119;&#x65;&#105;&#x71;&#105;&#x61;&#110;&#100;&#x65;&#77;&#97;&#x63;&#66;&#111;&#111;&#x6b;&#45;&#x50;&#x72;&#x6f;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;" >&#x34;&#52;&#57;&#x34;&#48;&#64;&#119;&#x65;&#105;&#x71;&#105;&#x61;&#110;&#100;&#x65;&#77;&#97;&#x63;&#66;&#111;&#111;&#x6b;&#45;&#x50;&#x72;&#x6f;&#x2e;&#108;&#x6f;&#x63;&#97;&#x6c;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</p>
+<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link"   href="mailto:&#52;&#52;&#57;&#52;&#x30;&#64;&#119;&#x65;&#x69;&#113;&#105;&#97;&#x6e;&#x64;&#101;&#x4d;&#x61;&#99;&#66;&#x6f;&#x6f;&#107;&#45;&#80;&#x72;&#x6f;&#x2e;&#x6c;&#x6f;&#99;&#97;&#108;" >&#52;&#52;&#57;&#52;&#x30;&#64;&#119;&#x65;&#x69;&#113;&#105;&#97;&#x6e;&#x64;&#101;&#x4d;&#x61;&#99;&#66;&#x6f;&#x6f;&#107;&#45;&#80;&#x72;&#x6f;&#x2e;&#x6c;&#x6f;&#99;&#97;&#108;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</p>
 </blockquote>
 <p>说明clusterID已经创建过，简单暴力的方式（不适合生产），就是直接删除datanode下的文件，然后重新</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#rm -rf /tmp/hadoop-&#123;username&#125;/*</span></span><br><span class="line"><span class="comment">#rm -rf /tmp/hadoop-root/*</span></span><br></pre></td></tr></table></figure>
