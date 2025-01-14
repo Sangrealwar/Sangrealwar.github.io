@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Jan 12 2025 20:29:44 GMT+0800">2025-01-12 20:29:44</span>
+                <span class="datetime" data-updated="Mon Jan 13 2025 23:53:28 GMT+0800">2025-01-13 23:53:28</span>
             </span>
         
 
@@ -278,27 +278,31 @@
 <p>最常用的内存存储：<a href="/3_Redis/" title="Redis使用指南">Redis</a></p>
 <p>最常用的搜索平台，常用于分库分表后数据检索，是一个典型的一层MapReduce模型的存储组件：<a href="/3_Elasticsearch/" title="Elasticsearch">Elasticsearch</a></p>
 <p>常用的分布式协调存储，常用于微服务下的配置中心，服务注册中心等，少部分用于分布式锁：<a href="/3_Zookeeper/" title="Zookeeper">Zookeeper</a></p>
-<blockquote>
-<p>待补充rocketmq</p>
-</blockquote>
 <ul>
 <li>大数据搭配</li>
 </ul>
 <p>传统的OLAP大数据组件，物美价廉，能提供较为稳定的大规模数据计算查询：<a href="/3_Hive/" title="Hive初识">Hive</a></p>
 <p>OLAP的一种存储组件，介于Hbase和Hive之间的分布式数据列式存储：<a href="/3_Kudu/" title="Kudu">Kudu</a></p>
-<p>老牌的消息队列，性价比高，吞吐量高：<a href="/3_Kafka/" title="Kafka">Kafka</a></p>
 <p>较新的OLAP和OLTP的存储</p>
 <blockquote>
 <p>待补充Starrocks</p>
 </blockquote>
+<p>老牌的消息队列，性价比高，吞吐量高：<a href="/3_Kafka/" title="Kafka">Kafka</a></p>
+<blockquote>
+<p>待补充rocketmq</p>
+</blockquote>
 <h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ul>
+<li>最常见的容器应用服务器</li>
+</ul>
+<p>SpringBoot：内嵌http服务端容器，是站在Spring和Tomcat之上的优秀开源产品，以”约定大于配置”的开箱即用的优秀特性，深受Java开发者好评<a href="/3-SpringBoot/" title="3_SpringBoot">SpringBoot-待完善</a></p>
+<ul>
 <li>常见业务系统搭配</li>
 </ul>
-<p>常用的流式实时计算，内嵌存储，提供端到端一致性计算：<a href="/3_Flink/" title="Flink（未完成）">Flink</a></p>
+<p>Flink：常用的流式实时计算，内嵌存储，提供端到端一致性计算<a href="/3_Flink/" title="Flink（未完成）">Flink</a></p>
 <ul>
 <li>大数据搭配</li>
 </ul>
-<p>搭配Kudu，在多数据源基础上实现联邦聚合查询，内存处理，秒&#x2F;分钟级计算，性能较高：<a href="/3_Presto/" title="Presto">Presto</a> <a href="/1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《Presto实战》笔记">Presto实战笔记</a></p>
+<p>Presto：搭配Kudu，在多数据源基础上实现联邦聚合查询，内存处理，秒&#x2F;分钟级计算，性能较高：<a href="/3_Presto/" title="Presto">Presto</a> <a href="/1_%E3%80%8APresto%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/" title="《Presto实战》笔记">Presto实战笔记</a></p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>认证授权的常规方式：<a href="/5_Oauth2%E8%AE%A4%E8%AF%81%E6%96%B9%E5%BC%8F/" title="Oauth2">Oauth2</a></p>
 <p>各种混乱的日志框架：<a href="/5_Java%E7%9A%84log%E6%A1%86%E6%9E%B6/" title="Java的各种Log框架">Java的log框架</a></p>
 <p>云原生框架初探：<a href="/3_Quarkus/" title="Quarkus">Quarkus</a></p>
