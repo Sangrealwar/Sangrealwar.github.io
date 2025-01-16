@@ -533,6 +533,7 @@
 <li>Undo Tablespaces</li>
 </ul>
 <p>实际存储在Undo表空间，数据更新后，未commit前，会写入undo log，用于回滚和mvvc</p>
+<p>* </p>
 <h2 id="锁（Locking）"><a href="#锁（Locking）" class="headerlink" title="锁（Locking）"></a>锁（Locking）</h2><ul>
 <li>共享锁，排他锁</li>
 </ul>
@@ -633,7 +634,7 @@
 </ul>
 <p>类似于update一样，锁定行</p>
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ul>
-<li><p>主键索引</p>
+<li><p>主键索引（聚集索引）</p>
 </li>
 <li><p>列式索引</p>
 </li>
@@ -659,7 +660,7 @@
 <h2 id="Binlog"><a href="#Binlog" class="headerlink" title="Binlog"></a>Binlog</h2><blockquote>
 <p> 配置：<a class="link"   href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html" >https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<p>常用于主从复制</p>
+<p>常用于主从复制，是服务层日志，和具体引擎无关，用于故障恢复，主从复制。</p>
 <ul>
 <li><p>Crach-Safe，分布式事务保证redo log与binlog的一致性</p>
 <ul>
@@ -765,7 +766,21 @@
 <p>START SLAVE;</p>
 <p>查看同步状态：</p>
 <p>SHOW SLAVE STATUS</p>
-<h1 id="Mysql杂七杂八"><a href="#Mysql杂七杂八" class="headerlink" title="Mysql杂七杂八"></a>Mysql杂七杂八</h1><h2 id="有关排序"><a href="#有关排序" class="headerlink" title="有关排序"></a>有关排序</h2><blockquote>
+<h1 id="Mysql杂七杂八"><a href="#Mysql杂七杂八" class="headerlink" title="Mysql杂七杂八"></a>Mysql杂七杂八</h1><h2 id="与MyISAM对比"><a href="#与MyISAM对比" class="headerlink" title="与MyISAM对比"></a>与MyISAM对比</h2><ul>
+<li>Innodb的聚集索引（Clustered Indx）包含了数据文件和主键索引，Myisam不支持聚集索引，也就是说Mysiam没有主键；</li>
+<li>Innodb支持事务，Mysiam<strong>不</strong>支持事务，同样Mysiam也不支持MVCC；</li>
+<li>Innodb支持外键，Mysiam<strong>不</strong>支持外键</li>
+<li>Innodb支持行级锁，Mysiam<strong>只</strong>支持表锁</li>
+</ul>
+<h2 id="索引失效"><a href="#索引失效" class="headerlink" title="索引失效"></a>索引失效</h2><ul>
+<li>字段类型不匹配，字符集不匹配</li>
+<li>索引使用函数，计算</li>
+<li>联合索引没有命中最左匹配</li>
+<li>左连接，看右侧表是否有索引。右连接同理</li>
+</ul>
+<h2 id="count-和count-字段-的区别"><a href="#count-和count-字段-的区别" class="headerlink" title="count(*)和count(字段)的区别"></a>count(*)和count(字段)的区别</h2><p>COUNT( * )：统计结果集中所有行的数量，包括包含 NULL 的行。<br>COUNT(1)：统计结果集中所有行的数量，和 COUNT( * ) 功能相同。</p>
+<p>COUNT(字段名)：统计结果集中某个字段非 NULL 值的数量。<br>COUNT(主键字段名)：统计结果集中某个主键字段非 NULL 值的数量</p>
+<h2 id="排序字符集对结果影响"><a href="#排序字符集对结果影响" class="headerlink" title="排序字符集对结果影响"></a>排序字符集对结果影响</h2><blockquote>
 <p> group by 会默认排序，但最好跟上order by ，order by会在group by之后排序。</p>
 </blockquote>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `crowd_info` (</span><br><span class="line">  `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">  `crowd_type` tinyint(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;人群类型&#x27;</span>,</span><br><span class="line">  `crowd_name` <span class="type">varchar</span>(<span class="number">32</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;人群名&#x27;</span>,</span><br><span class="line">  `description` <span class="type">varchar</span>(<span class="number">256</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;人群描述&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">20534127</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_bin COMMENT<span class="operator">=</span><span class="string">&#x27;人群&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5051</span>, <span class="number">2</span>, <span class="string">&#x27;AD&#x27;</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5052</span>, <span class="number">2</span>, <span class="string">&#x27;是多少大&#x27;</span>, <span class="string">&#x27;阿萨德&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5053</span>, <span class="number">2</span>, <span class="string">&#x27;tantest&#x27;</span>, <span class="string">&#x27;1111&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5054</span>, <span class="number">2</span>, <span class="string">&#x27;zzy&#x27;</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5055</span>, <span class="number">2</span>, <span class="string">&#x27;zy去111&#x27;</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5056</span>, <span class="number">2</span>, <span class="string">&#x27;test人群包测试&#x27;</span>, <span class="string">&#x27;12121&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5215</span>, <span class="number">2</span>, <span class="string">&#x27;ad&#x27;</span>, <span class="string">&#x27;asdasd&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="number">1111</span>`.`crowd_info`(`id`, `crowd_type`, `crowd_name`, `description`) <span class="keyword">VALUES</span> (<span class="number">5216</span>, <span class="number">2</span>, <span class="string">&#x27;whg-验证一下人群名称&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br></pre></td></tr></table></figure>
