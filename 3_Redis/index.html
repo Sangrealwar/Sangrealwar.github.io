@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Dec 02 2024 21:46:13 GMT+0800">2024-12-02 21:46:13</span>
+                <span class="datetime" data-updated="Thu Jan 16 2025 22:23:39 GMT+0800">2025-01-16 22:23:39</span>
             </span>
         
 
@@ -286,11 +286,17 @@
 <li>随机过期时间</li>
 <li>保持Redis稳定性</li>
 </ul>
-<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><p>定时过期</p>
+<h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><ul>
+<li>定时过期</li>
+</ul>
 <p>针对Key设置过期时间，内存友好，CPU不友好，容易影响吞吐量</p>
-<p>惰性过期</p>
+<ul>
+<li>惰性过期</li>
+</ul>
 <p>当访问Key时，判断Key是否过期，对CPU友好，但内存过期慢。</p>
-<p>定期过期</p>
+<ul>
+<li>定期过期</li>
+</ul>
 <p>每个一定时间，扫描一定数量的过期Key，可以指定扫描的间隔，以及每一次扫描的限定耗时。</p>
 <h1 id="内存淘汰策略"><a href="#内存淘汰策略" class="headerlink" title="内存淘汰策略"></a>内存淘汰策略</h1><p>8种策略</p>
 <table>
