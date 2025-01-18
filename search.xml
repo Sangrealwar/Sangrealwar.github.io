@@ -405,7 +405,8 @@
 </tr>
 </tbody></table>
 <p>注1：根据网络资料，Clickhouse的join相对不高。由于多主架构的原因，没有主节点做查询调度，所以在做分布式Shuffle join时，会把数据发送到其他所有节点，用来做本地hashjoin。但多主架构，每个节点都可以响应查询请求，如果是单表查询，性能高。</p>
-<h1 id="选型关注点"><a href="#选型关注点" class="headerlink" title="选型关注点"></a>选型关注点</h1><h3 id="运维难度"><a href="#运维难度" class="headerlink" title="运维难度"></a>运维难度</h3><h3 id="自动数据均衡分片"><a href="#自动数据均衡分片" class="headerlink" title="自动数据均衡分片"></a>自动数据均衡分片</h3><h2 id="数据更新方式"><a href="#数据更新方式" class="headerlink" title="数据更新方式"></a>数据更新方式</h2><h3 id="原地更新"><a href="#原地更新" class="headerlink" title="原地更新"></a>原地更新</h3><p>典型应用：Mysql。最普通的，能想到的更新方式，一般通过两阶段加锁保证并发安全。</p>
+<h1 id="选型关注点"><a href="#选型关注点" class="headerlink" title="选型关注点"></a>选型关注点</h1><h3 id="运维难度"><a href="#运维难度" class="headerlink" title="运维难度"></a>运维难度</h3><p>TODO</p>
+<h2 id="数据更新方式"><a href="#数据更新方式" class="headerlink" title="数据更新方式"></a>数据更新方式</h2><h3 id="原地更新"><a href="#原地更新" class="headerlink" title="原地更新"></a>原地更新</h3><p>典型应用：Mysql。最普通的，能想到的更新方式，一般通过两阶段加锁保证并发安全。</p>
 <h3 id="Copy-On-write"><a href="#Copy-On-write" class="headerlink" title="Copy-On-write"></a>Copy-On-write</h3><p>典型应用：</p>
 <h3 id="Merge-On-Read"><a href="#Merge-On-Read" class="headerlink" title="Merge-On-Read"></a>Merge-On-Read</h3><p>典型应用：Hbase，Elasticsearch，RocksDB。特点是写入性能高，但是查询时因为需要额外合并。当然并不是说这些数据库查询性能很差，由于有索引的存在（点名Elasticsearch），在特定场景下，查询性能是很强的。</p>
 <h3 id="Delta-store"><a href="#Delta-store" class="headerlink" title="Delta-store"></a>Delta-store</h3><p>典型应用：Kudu。利用主键保存基础数据，其他数据作为Delta追加变更。特点是牺牲部分写入性能，提高主键查询性能（但也就是根据主键查询性能高，其他变更数据依然是需要Merge），但很难建立非主键索引。</p>
