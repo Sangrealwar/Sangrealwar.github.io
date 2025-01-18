@@ -28,7 +28,9 @@
 <blockquote>
 <p>待设计：领域驱动设计</p>
 </blockquote>
-<h1 id="应用组件"><a href="#应用组件" class="headerlink" title="应用组件"></a>应用组件</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><ul>
+<h1 id="应用组件"><a href="#应用组件" class="headerlink" title="应用组件"></a>应用组件</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><a href="/4-%E5%AD%98%E5%82%A8%E7%BB%84%E4%BB%B6%E6%A6%82%E8%BF%B0/" title="4_存储组件概述">存储组件</a>
+
+<ul>
 <li>常见业务系统搭配</li>
 </ul>
 <p>最常用的OLTP存储：<a href="/3-Mysql/" title="3_Mysql">Mysql</a></p>
@@ -5660,5 +5662,10 @@
 <p>是否是网络通信异常，一般是指下游依赖请求超时，或者消息客户端断联，一般是直接重试。如果是客户端断联，需要考虑重试时偏移量处理，保证消息不丢失的情况下，都是消费后提交偏移量+幂等搭配”食用”，如果是下游依赖请求超时，那一般要考虑下游是否支持幂等，如果不能支持幂等，需要考虑下游提供反查能力，保证再次重试时，下游能正常处理。</p>
 <p>其他未知异常，通常考虑消息不丢失，无法识别的异常，都是无脑重试。当遇到无法重试的业务异常和未知异常，消费会阻塞，引起积压，一般有几种处理方式，1) 记录重试日志后，跳过异常消息，后续通过定时任务或手动补偿。但重试补偿时，需考虑时序性问题，重试时，时间离消息发送时间已经隔了很久，环境很可能发生变化。2) 通过其他途径，处理异常消息带来的影响后，跳过异常消息。</p>
 <h3 id="领域划分"><a href="#领域划分" class="headerlink" title="领域划分"></a>领域划分</h3><h2 id="实时系统设计"><a href="#实时系统设计" class="headerlink" title="实时系统设计"></a>实时系统设计</h2>]]></content>
+  </entry>
+  <entry>
+    <title>4_计算节点概述</title>
+    <url>/4-%E8%AE%A1%E7%AE%97%E8%8A%82%E7%82%B9%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h1 id="基本架构逻辑"><a href="#基本架构逻辑" class="headerlink" title="基本架构逻辑"></a>基本架构逻辑</h1>]]></content>
   </entry>
 </search>
