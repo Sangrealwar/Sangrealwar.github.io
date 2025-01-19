@@ -153,20 +153,20 @@
 <h1 id="食用指南"><a href="#食用指南" class="headerlink" title="食用指南"></a>食用指南</h1><h2 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h2><p><img  
                        lazyload
                        alt="image"
-                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2.png"
+                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/22.png"
                        
                  ></p>
 <h2 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h2><p><img  
                        lazyload
                        alt="image"
-                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3.png"
+                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/33.png"
                        
                  ></p>
 <h2 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h2><p>TODO未完成</p>
 <p><img  
                        lazyload
                        alt="image"
-                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4.png"
+                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/44.png"
                        
                  ></p>
 <h1 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h1><p><img  
@@ -3106,7 +3106,7 @@
 
 <blockquote>
 <p>如果启动时，datanode出现如下报错：</p>
-<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link"   href="mailto:&#x34;&#52;&#x39;&#x34;&#48;&#64;&#119;&#x65;&#105;&#x71;&#105;&#97;&#x6e;&#100;&#x65;&#77;&#x61;&#99;&#66;&#x6f;&#x6f;&#107;&#45;&#x50;&#x72;&#111;&#46;&#x6c;&#111;&#99;&#97;&#x6c;" >&#x34;&#52;&#x39;&#x34;&#48;&#64;&#119;&#x65;&#105;&#x71;&#105;&#97;&#x6e;&#100;&#x65;&#77;&#x61;&#99;&#66;&#x6f;&#x6f;&#107;&#45;&#x50;&#x72;&#111;&#46;&#x6c;&#111;&#99;&#97;&#x6c;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</p>
+<p>2023-05-01 17:19:49,627 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Acknowledging ACTIVE Namenode during handshakeBlock pool <registering> (Datanode Uuid unassigned) service to localhost&#x2F;127.0.0.1:9000<br>2023-05-01 17:19:49,630 INFO org.apache.hadoop.hdfs.server.common.Storage: Using 1 threads to upgrade data directories (dfs.datanode.parallel.volumes.load.threads.num&#x3D;1, dataDirs&#x3D;1)<br>2023-05-01 17:19:49,636 INFO org.apache.hadoop.hdfs.server.common.Storage: Lock on &#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data&#x2F;in_use.lock acquired by nodename <a class="link"   href="mailto:&#x34;&#x34;&#57;&#52;&#48;&#64;&#119;&#x65;&#x69;&#x71;&#105;&#x61;&#x6e;&#100;&#101;&#x4d;&#97;&#x63;&#x42;&#x6f;&#x6f;&#x6b;&#x2d;&#80;&#114;&#111;&#46;&#x6c;&#x6f;&#x63;&#x61;&#108;" >&#x34;&#x34;&#57;&#52;&#48;&#64;&#119;&#x65;&#x69;&#x71;&#105;&#x61;&#x6e;&#100;&#101;&#x4d;&#97;&#x63;&#x42;&#x6f;&#x6f;&#x6b;&#x2d;&#80;&#114;&#111;&#46;&#x6c;&#x6f;&#x63;&#x61;&#108;<i class="fas fa-external-link-alt"></i></a><br>2023-05-01 17:19:49,640 WARN org.apache.hadoop.hdfs.server.common.Storage: Failed to add storage directory [DISK]file:&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data<br>java.io.IOException: Incompatible clusterIDs in &#x2F;private&#x2F;tmp&#x2F;hadoop-weiqian&#x2F;dfs&#x2F;data: namenode clusterID &#x3D; CID-f94bf14f-588b-4b3a-9211-0ed559ed8428; datanode clusterID &#x3D; CID-1b3b1006-e635-4285-b45a-5ef8d75b58a1<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.doTransition(DataStorage.java:746)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadStorageDirectory(DataStorage.java:296)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.loadDataStorage(DataStorage.java:409)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.addStorageLocations(DataStorage.java:389)<br>at org.apache.hadoop.hdfs.server.datanode.DataStorage.recoverTransitionRead(DataStorage.java:561)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initStorage(DataNode.java:1753)<br>at org.apache.hadoop.hdfs.server.datanode.DataNode.initBlockPool(DataNode.java:1689)<br>at org.apache.hadoop.hdfs.server.datanode.BPOfferService.verifyAndSetNamespaceInfo(BPOfferService.java:394)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:295)<br>at org.apache.hadoop.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:854)<br>at java.base&#x2F;java.lang.Thread.run(Thread.java:833)</p>
 </blockquote>
 <p>说明clusterID已经创建过，简单暴力的方式（不适合生产），就是直接删除datanode下的文件，然后重新</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#rm -rf /tmp/hadoop-&#123;username&#125;/*</span></span><br><span class="line"><span class="comment">#rm -rf /tmp/hadoop-root/*</span></span><br></pre></td></tr></table></figure>
@@ -4527,8 +4527,8 @@
 <p>github：<a class="link"   href="https://github.com/eclipse-vertx/vert.x" >https://github.com/eclipse-vertx/vert.x<i class="fas fa-external-link-alt"></i></a></p>
 ]]></content>
       <tags>
-        <tag>云原生</tag>
         <tag>组件</tag>
+        <tag>云原生</tag>
       </tags>
   </entry>
   <entry>
