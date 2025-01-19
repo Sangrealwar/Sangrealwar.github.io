@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Jan 19 2025 00:20:17 GMT+0800">2025-01-19 00:20:17</span>
+                <span class="datetime" data-updated="Sun Jan 19 2025 10:29:17 GMT+0800">2025-01-19 10:29:17</span>
             </span>
         
 
@@ -282,7 +282,7 @@
 </li>
 </ul>
 <h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>参选组件</p>
-<p>Mysql，Redis，Elasticsearch，Hbase，Kudu，Starrocks，Kafka，Zookeeper</p>
+<p>Mysql，Elasticsearch，Hbase，Kudu，Starrocks，Kafka，Zookeeper，CLickhouse</p>
 <table>
 <thead>
 <tr>
@@ -339,7 +339,7 @@
 <td>类Paxos</td>
 <td>zab</td>
 <td>借助Zookeeper（3.x）</td>
-<td></td>
+<td>Clickhouse keeper（兼容Zookeeper）</td>
 </tr>
 <tr>
 <td>通用功能</td>
@@ -383,7 +383,7 @@
 <td>前缀索引，排序索引，Bitmap，Bloom filter，排序聚合</td>
 <td></td>
 <td>index以首个消息offset命名，便于二分检索</td>
-<td>Skipping Index等</td>
+<td>Skipping Index</td>
 </tr>
 <tr>
 <td>缓存缓冲</td>
@@ -427,25 +427,36 @@
 <td>提供4钟数据模型，多种业界常用的索引加速能力，更新频繁（有完善的中文文档））</td>
 <td>状态变更推送，可创建临时节点，做分布式锁。</td>
 <td>高吞吐量，高性能消息中间件</td>
-<td>多主架构；矢量化计算，极致的压榨CPU，因此并发不高；支持多种join算法，但性能不佳；</td>
+<td>多主架构；矢量化计算，极致的压榨CPU，因此并发不高；支持多种join算法；</td>
 </tr>
 <tr>
-<td>常用工具</td>
+<td>热门关键词</td>
 <td>Explain</td>
 <td>Kibana</td>
 <td></td>
 <td>Imapa，Presto 组合</td>
 <td></td>
 <td></td>
-<td>各种大数据消息同步场景</td>
+<td></td>
 <td></td>
 </tr>
+<tr>
+<td>常用场景</td>
+<td>典型OLTP型数据库，满足日常业务需求</td>
+<td>昂贵的高效的搜索引擎，可作为二级索引搭配Hbase实现多条件实时查询</td>
+<td>成本较低性能较强的Kv数据存储</td>
+<td>即席实时多维度关联查询，多数据源查询</td>
+<td>实时查询，</td>
+<td>集群服务发现</td>
+<td>各种大数据消息同步场景</td>
+<td>大宽表实时查询</td>
+</tr>
 </tbody></table>
-<p>注1：根据网络资料，Clickhouse的join相对不高。由于多主架构的原因，没有主节点做查询调度，所以在做分布式Shuffle join时，会把数据发送到其他所有节点，用来做本地hashjoin。但多主架构，每个节点都可以响应查询请求，如果是单表查询，性能高。</p>
+<p>注1：根据网络资料，Clickhouse的join相对不高。由于多主架构的原因，没有主节点做查询调度，所以在做分布式Shuffle join时，会把数据发送到其他所有节点，用来做本地Hash join。但多主架构，每个节点都可以响应查询请求，如果是单表查询，性能高。</p>
 <h1 id="选型关注点"><a href="#选型关注点" class="headerlink" title="选型关注点"></a>选型关注点</h1><h3 id="运维难度"><a href="#运维难度" class="headerlink" title="运维难度"></a>运维难度</h3><p>TODO</p>
 <h2 id="数据更新方式"><a href="#数据更新方式" class="headerlink" title="数据更新方式"></a>数据更新方式</h2><h3 id="原地更新"><a href="#原地更新" class="headerlink" title="原地更新"></a>原地更新</h3><p>典型应用：Mysql。最普通的，能想到的更新方式，一般通过两阶段加锁保证并发安全。</p>
 <h3 id="Copy-On-write"><a href="#Copy-On-write" class="headerlink" title="Copy-On-write"></a>Copy-On-write</h3><p>典型应用：</p>
-<h3 id="Merge-On-Read"><a href="#Merge-On-Read" class="headerlink" title="Merge-On-Read"></a>Merge-On-Read</h3><p>典型应用：Hbase，Elasticsearch，RocksDB。特点是写入性能高，但是查询时因为需要额外合并。当然并不是说这些数据库查询性能很差，由于有索引的存在（点名Elasticsearch），在特定场景下，查询性能是很强的。</p>
+<h3 id="Merge-On-Read"><a href="#Merge-On-Read" class="headerlink" title="Merge-On-Read"></a>Merge-On-Read</h3><p>典型应用：Hbase，Elasticsearch，RocksDB。特点是写入性能高，但是查询时需要额外处理合并，相比写入要弱。当然并不是说这些数据库查询性能很差，由于有索引的存在（点名Elasticsearch），在特定场景下，查询性能是很强的。</p>
 <h3 id="Delta-store"><a href="#Delta-store" class="headerlink" title="Delta-store"></a>Delta-store</h3><p>典型应用：Kudu。利用主键保存基础数据，其他数据作为Delta追加变更。特点是牺牲部分写入性能，提高主键查询性能（但也就是根据主键查询性能高，其他变更数据依然是需要Merge），但很难建立非主键索引。</p>
 <h3 id="Delete-Insert"><a href="#Delete-Insert" class="headerlink" title="Delete-Insert"></a>Delete-Insert</h3><p>典型应用：Starrocks。统一利用主键，但是在写入时，已经将更新后的数据处理好，查询时只需要排除标记删除的数据。特点是查询能够支持索引，谓词下推等优化（因为有更新后的完整数据），同时写入性能也还行（只是标记历史数据是删除的）。</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>目前看下来，要提高查询能力，就要牺牲写入能力。要想构建索引，就需要完整数据。LSM提高写入的同时，牺牲查询性能，同时集群需要在查询时惰性合并，以及周期性Megre。因此Starrocks目前看下来，从结构上看，在OLAP场景下，索引支持能力较好，同时写入性能不弱，是一个不错的选择。</p>
