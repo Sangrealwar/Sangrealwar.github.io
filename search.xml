@@ -1945,13 +1945,34 @@
     <url>/5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer"/>
 
-<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p><img  
+
+
+<h1 id="食用指南"><a href="#食用指南" class="headerlink" title="食用指南"></a>食用指南</h1><h2 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2.png"
+                       
+                 ></p>
+<h2 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3.png"
+                       
+                 ></p>
+<h2 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h2><p>TODO未完成</p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4.png"
+                       
+                 ></p>
+<h1 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h1><p><img  
                        lazyload
                        alt="image"
                        data-src="/./5_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1.png"
                        
                  ></p>
-<h1 id="文字版"><a href="#文字版" class="headerlink" title="文字版"></a>文字版</h1><h2 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>标记: 优先级 1</p>
+<h1 id="文字版"><a href="#文字版" class="headerlink" title="文字版"></a>文字版</h1><h2 id="创建型-1"><a href="#创建型-1" class="headerlink" title="创建型"></a>创建型</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>标记: 优先级 1</p>
 <p>一般工厂：客户端传递需要生成的参数，由工厂类完成选择判断，生成具体的产品</p>
 <p>工厂模式：转移了判断，将具体的工厂升级为抽象工厂，由客户端决定实例化哪个工厂，从而产生具体的产品</p>
 <p>目标：解耦分离，将产品构造的逻辑封装在工厂中，使得工厂产生的对象能够相互独立修改，提高扩展性</p>
@@ -1987,7 +2008,7 @@
 <p>状体类的process方法会传入主体上下文，通过内在状态的变更改变对象主体</p>
 <h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>一个类内部不想暴露访问内部元素的方法，由迭代器完成，迭代器可以通过继承实现不同的遍历方式</p>
 <h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>标记: 优先级 2</p>
-<h3 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h3><h3 id="中介"><a href="#中介" class="headerlink" title="中介"></a>中介</h3><h3 id="模板方法"><a href="#模板方法" class="headerlink" title="模板方法"></a>模板方法</h3><h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><h3 id="访问者"><a href="#访问者" class="headerlink" title="访问者"></a>访问者</h3><h3 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h3><h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>标记: 优先级 1</p>
+<h3 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h3><h3 id="中介"><a href="#中介" class="headerlink" title="中介"></a>中介</h3><h3 id="模板方法"><a href="#模板方法" class="headerlink" title="模板方法"></a>模板方法</h3><h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><h3 id="访问者"><a href="#访问者" class="headerlink" title="访问者"></a>访问者</h3><h3 id="结构型-1"><a href="#结构型-1" class="headerlink" title="结构型"></a>结构型</h3><h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>标记: 优先级 1</p>
 <p>将对象组合成树的形式，使用用户对单个对象和组合对象的使用有一致性</p>
 <p>透明模式，所有子对象实现的方法都相同</p>
 <p>安全方式，某些叶子节点不需要实现的add，remove等增加子对象的方法不作为接口</p>
@@ -5679,5 +5700,16 @@
     <title>4_计算节点概述</title>
     <url>/4-%E8%AE%A1%E7%AE%97%E8%8A%82%E7%82%B9%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<h1 id="基本架构逻辑"><a href="#基本架构逻辑" class="headerlink" title="基本架构逻辑"></a>基本架构逻辑</h1>]]></content>
+  </entry>
+  <entry>
+    <title>面经</title>
+    <url>/%E9%9D%A2%E7%BB%8F/</url>
+    <content><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="如何实现优雅启停"><a href="#如何实现优雅启停" class="headerlink" title="如何实现优雅启停"></a>如何实现优雅启停</h2><ul>
+<li><p>优雅启动</p>
+</li>
+<li><p>优雅停机</p>
+</li>
+</ul>
+]]></content>
   </entry>
 </search>
