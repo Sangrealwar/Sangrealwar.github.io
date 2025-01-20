@@ -9,7 +9,7 @@
     
     <title>
         
-            3_SpringBoot |
+            3_Spring家族 |
         
         The winter sunshine
     </title>
@@ -189,7 +189,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        3_SpringBoot
+                        3_Spring家族
                     </div>
                 
 
@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Jan 13 2025 23:51:15 GMT+0800">2025-01-13 23:51:15</span>
+                <span class="datetime" data-updated="Sun Jan 19 2025 23:34:07 GMT+0800">2025-01-19 23:34:07</span>
             </span>
         
 
@@ -246,26 +246,78 @@
                     
 
                     
-                         <p>Springboot是什么</p>
+                         <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Spring使用了哪些设计模式"><a href="#Spring使用了哪些设计模式" class="headerlink" title="Spring使用了哪些设计模式"></a>Spring使用了哪些设计模式</h2><ul>
+<li>代理模式</li>
+</ul>
+<p>各种Aop代理对象，增强了bean的功能，面向切面编程，提高开发速度。</p>
+<ul>
+<li>观察者模式</li>
+</ul>
+<p>后置处理器，各种后置处理监听方法，解耦事件发生的动作和处理的动作。</p>
+<ul>
+<li>工厂模式</li>
+</ul>
+<p>bean的构建。</p>
+<ul>
+<li>单里模式</li>
+</ul>
+<p>Bean默认就是一个单例。</p>
+<ul>
+<li>模板模式</li>
+</ul>
+<p>Dao中template结尾的抽象类，定义了统一的接口定义，方便使用。</p>
+<h2 id="Spring如何加载Bean"><a href="#Spring如何加载Bean" class="headerlink" title="Spring如何加载Bean"></a>Spring如何加载Bean</h2><h3 id="定义阶段"><a href="#定义阶段" class="headerlink" title="定义阶段"></a>定义阶段</h3><p><strong>BeanDefination</strong></p>
+<p>每一个Bean的定义信息，根据<strong>BeanDefinationReader</strong>从各个地方加载进来，包括xml，java</p>
+<p><strong>BeanDefinationRegistry</strong></p>
+<p>存放bean定义的一个注册表</p>
+<p><strong>BeanFactoryPostProcessor</strong></p>
+<p>负责对bean定义进行后置增强，例如</p>
+<h3 id="实例化阶段"><a href="#实例化阶段" class="headerlink" title="实例化阶段"></a>实例化阶段</h3><p><strong>BeanWrapper</strong></p>
+<p>统一对Bean的访问，给所有bean定义了一个接口，封装反射等操作。</p>
+<p><strong>Aware</strong></p>
+<p>中文翻译”对…感兴趣的”，搭配xxx，表示需要对xxx感兴趣，需要对xxx做某些操作。例如ApplicationContextAware，更多例子可以看ApplicationContextAwareProcessor。</p>
+<p><strong>BeanPostProcessor</strong></p>
+<p>bean创建的前&#x2F;后置增强，是作用在bean创建过程中的增强，通过Aware接口，表示某个bean对其他bean感兴趣，因此在BeanPostProcessor里。典型场景是各种AOP。</p>
+<p><strong>InitializingBean</strong>，<strong>DisposableBean</strong></p>
+<p>如果需要在前置处理后执行初始化逻辑，可以实现InitializingBean接口，在afterPropertiesSet方法内做一些初始化。也可以用init-method参数。DisposableBean销毁同理。</p>
+<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><ul>
+<li>三级缓存解决了什么问题</li>
+</ul>
+<p>假如只有二级缓存，虽然在属性赋值阶段，能构造被依赖bean的对象B，但如果执行BeanPostProcessor后发现对象B需要代理时，会发现属性赋值的对象B不是真正的代理对象B’，造成混乱。</p>
+<p>* </p>
+<h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><ul>
+<li>Springboot是什么</li>
+</ul>
 <p>建立在已有的Spring框架之上，能够避免样板配置，基于”约定大于配置”的原则，减少开发时间，使用JavaConfig，有效避免XML。内嵌Web服务器，不需要单独部署Tomcat</p>
-<p>配置文件：application文件</p>
+<ul>
+<li>配置文件：application文件</li>
+</ul>
 <p>1 命令行参数</p>
 <p>2 系统环境变量</p>
 <p>3 yaml</p>
 <p>4 properties</p>
-<p>主要注解：@SpringBootApplication</p>
-<p>常见的Starters</p>
-<h1 id="Springboot优雅启停"><a href="#Springboot优雅启停" class="headerlink" title="Springboot优雅启停"></a>Springboot优雅启停</h1><h2 id="JVM有shutdownHook机制"><a href="#JVM有shutdownHook机制" class="headerlink" title="JVM有shutdownHook机制"></a>JVM有shutdownHook机制</h2><p>通过Runtime.addShutDownHook，注册回调函数，在程序退出前执行函数</p>
+<ul>
+<li>主要注解：@SpringBootApplication</li>
+</ul>
+<h2 id="SpringBoot生命周期"><a href="#SpringBoot生命周期" class="headerlink" title="SpringBoot生命周期"></a>SpringBoot生命周期</h2><blockquote>
+<p>版本2.1.0.BUILD-SNAPSHOT</p>
+</blockquote>
+<h3 id="ApplicationStartingEvent-开始启动"><a href="#ApplicationStartingEvent-开始启动" class="headerlink" title="ApplicationStartingEvent 开始启动"></a>ApplicationStartingEvent 开始启动</h3><p>从run方法进入，初始化事件监听发送器（SpringApplicationRunListeners）。</p>
+<h3 id="ApplicationEnvironmentPreparedEvent-环境已准备好"><a href="#ApplicationEnvironmentPreparedEvent-环境已准备好" class="headerlink" title="ApplicationEnvironmentPreparedEvent 环境已准备好"></a>ApplicationEnvironmentPreparedEvent 环境已准备好</h3><p>封装好命令行参数（ApplicationArguments），构造好环境变量对象（ConfigurableEnvironment）</p>
+<h3 id="ApplicationPreparedEvent-上下文已初始化"><a href="#ApplicationPreparedEvent-上下文已初始化" class="headerlink" title="ApplicationPreparedEvent 上下文已初始化"></a>ApplicationPreparedEvent 上下文已初始化</h3><p>打印bannar；构造好ConfigurableApplicationContext对象。初始化ConfigurableApplicationContext对象。</p>
+<h3 id="ApplicationStartedEvent-应用成功启动"><a href="#ApplicationStartedEvent-应用成功启动" class="headerlink" title="ApplicationStartedEvent 应用成功启动"></a>ApplicationStartedEvent 应用成功启动</h3><p><strong>启动Spring容器，加载Bean</strong>；启动WebServer，打开端口监听。这个事件后，bean已经初始化完了，</p>
+<h3 id="ApplicationReadyEvent-应用已就绪"><a href="#ApplicationReadyEvent-应用已就绪" class="headerlink" title="ApplicationReadyEvent 应用已就绪"></a>ApplicationReadyEvent 应用已就绪</h3><p>紧接着应用成功启动后的就绪操作，中间就隔了一个callRunners方法。</p>
+<h3 id="ApplicationFailedEvent-应用失败"><a href="#ApplicationFailedEvent-应用失败" class="headerlink" title="ApplicationFailedEvent 应用失败"></a>ApplicationFailedEvent 应用失败</h3><p>启动异常了。</p>
+<h2 id="Springboot优雅启停"><a href="#Springboot优雅启停" class="headerlink" title="Springboot优雅启停"></a>Springboot优雅启停</h2><h3 id="JVM有shutdownHook机制"><a href="#JVM有shutdownHook机制" class="headerlink" title="JVM有shutdownHook机制"></a>JVM有shutdownHook机制</h3><p>通过Runtime.addShutDownHook，注册回调函数，在程序退出前执行函数</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加hook thread，重写其run方法</span></span><br><span class="line">Runtime.getRuntime().addShutdownHook(<span class="keyword">new</span> <span class="title class_">Thread</span>()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;this is hook demo...&quot;</span>);</span><br><span class="line">        <span class="comment">// jvm 退出的钩子逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<h2 id="Spring添加钩子函数"><a href="#Spring添加钩子函数" class="headerlink" title="Spring添加钩子函数"></a>Spring添加钩子函数</h2><p>SpringApplication.run方法内，会自动调用registerShutdownHook，并在关闭时发布ContextClosedEvent事件</p>
+<h3 id="Spring添加钩子函数"><a href="#Spring添加钩子函数" class="headerlink" title="Spring添加钩子函数"></a>Spring添加钩子函数</h3><p>SpringApplication.run方法内，会自动调用registerShutdownHook，并在关闭时发布ContextClosedEvent事件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">META-INF/spring.factories</span><br><span class="line">org.springframework.context.ApplicationListener=com.example.project.MyListener</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="K8s环境"><a href="#K8s环境" class="headerlink" title="K8s环境"></a>K8s环境</h2><p>提供Liveness和Readiness探针，有多种探测状态，比如httpget，需要在SpringBoot注册http接口，在http接口实现内完成销毁资源操作</p>
+<h3 id="K8s环境"><a href="#K8s环境" class="headerlink" title="K8s环境"></a>K8s环境</h3><p>提供Liveness和Readiness探针，有多种探测状态，比如httpget，需要在SpringBoot注册http接口，在http接口实现内完成销毁资源操作</p>
 <p>注意下线判断级联问题，比如，存活探针监测多个下游时，如果其中某一个下游有降级策略，那需要考虑是否需要监测这个下游，或者延长总时长</p>
-
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>当存在多个shutdownHook时，容易出现并发问题</p>
+<h2 id="疑问-1"><a href="#疑问-1" class="headerlink" title="疑问"></a>疑问</h2>
                     
                 </div>
 
@@ -337,7 +389,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Springboot%E4%BC%98%E9%9B%85%E5%90%AF%E5%81%9C"><span class="nav-text">Springboot优雅启停</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM%E6%9C%89shutdownHook%E6%9C%BA%E5%88%B6"><span class="nav-text">JVM有shutdownHook机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E6%B7%BB%E5%8A%A0%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="nav-text">Spring添加钩子函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8s%E7%8E%AF%E5%A2%83"><span class="nav-text">K8s环境</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E4%BD%BF%E7%94%A8%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-text">Spring使用了哪些设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E5%A6%82%E4%BD%95%E5%8A%A0%E8%BD%BDBean"><span class="nav-text">Spring如何加载Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E9%98%B6%E6%AE%B5"><span class="nav-text">定义阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="nav-text">实例化阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-text">疑问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">SpringBoot生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationStartingEvent-%E5%BC%80%E5%A7%8B%E5%90%AF%E5%8A%A8"><span class="nav-text">ApplicationStartingEvent 开始启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationEnvironmentPreparedEvent-%E7%8E%AF%E5%A2%83%E5%B7%B2%E5%87%86%E5%A4%87%E5%A5%BD"><span class="nav-text">ApplicationEnvironmentPreparedEvent 环境已准备好</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationPreparedEvent-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%B2%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">ApplicationPreparedEvent 上下文已初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationStartedEvent-%E5%BA%94%E7%94%A8%E6%88%90%E5%8A%9F%E5%90%AF%E5%8A%A8"><span class="nav-text">ApplicationStartedEvent 应用成功启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationReadyEvent-%E5%BA%94%E7%94%A8%E5%B7%B2%E5%B0%B1%E7%BB%AA"><span class="nav-text">ApplicationReadyEvent 应用已就绪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationFailedEvent-%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5"><span class="nav-text">ApplicationFailedEvent 应用失败</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Springboot%E4%BC%98%E9%9B%85%E5%90%AF%E5%81%9C"><span class="nav-text">Springboot优雅启停</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E6%9C%89shutdownHook%E6%9C%BA%E5%88%B6"><span class="nav-text">JVM有shutdownHook机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E6%B7%BB%E5%8A%A0%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="nav-text">Spring添加钩子函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K8s%E7%8E%AF%E5%A2%83"><span class="nav-text">K8s环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE-1"><span class="nav-text">疑问</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -497,7 +549,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Springboot%E4%BC%98%E9%9B%85%E5%90%AF%E5%81%9C"><span class="nav-text">Springboot优雅启停</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM%E6%9C%89shutdownHook%E6%9C%BA%E5%88%B6"><span class="nav-text">JVM有shutdownHook机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E6%B7%BB%E5%8A%A0%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="nav-text">Spring添加钩子函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8s%E7%8E%AF%E5%A2%83"><span class="nav-text">K8s环境</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E4%BD%BF%E7%94%A8%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-text">Spring使用了哪些设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E5%A6%82%E4%BD%95%E5%8A%A0%E8%BD%BDBean"><span class="nav-text">Spring如何加载Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E9%98%B6%E6%AE%B5"><span class="nav-text">定义阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="nav-text">实例化阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-text">疑问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">SpringBoot生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationStartingEvent-%E5%BC%80%E5%A7%8B%E5%90%AF%E5%8A%A8"><span class="nav-text">ApplicationStartingEvent 开始启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationEnvironmentPreparedEvent-%E7%8E%AF%E5%A2%83%E5%B7%B2%E5%87%86%E5%A4%87%E5%A5%BD"><span class="nav-text">ApplicationEnvironmentPreparedEvent 环境已准备好</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationPreparedEvent-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%B2%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">ApplicationPreparedEvent 上下文已初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationStartedEvent-%E5%BA%94%E7%94%A8%E6%88%90%E5%8A%9F%E5%90%AF%E5%8A%A8"><span class="nav-text">ApplicationStartedEvent 应用成功启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationReadyEvent-%E5%BA%94%E7%94%A8%E5%B7%B2%E5%B0%B1%E7%BB%AA"><span class="nav-text">ApplicationReadyEvent 应用已就绪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationFailedEvent-%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5"><span class="nav-text">ApplicationFailedEvent 应用失败</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Springboot%E4%BC%98%E9%9B%85%E5%90%AF%E5%81%9C"><span class="nav-text">Springboot优雅启停</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E6%9C%89shutdownHook%E6%9C%BA%E5%88%B6"><span class="nav-text">JVM有shutdownHook机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E6%B7%BB%E5%8A%A0%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="nav-text">Spring添加钩子函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K8s%E7%8E%AF%E5%A2%83"><span class="nav-text">K8s环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE-1"><span class="nav-text">疑问</span></a></li></ol></li></ol>
     </div>
 </div>
 
