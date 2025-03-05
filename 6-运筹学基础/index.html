@@ -9,7 +9,7 @@
     
     <title>
         
-            面经 |
+            6-运筹学基础 |
         
         The winter sunshine
     </title>
@@ -189,7 +189,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        面经
+                        6-运筹学基础
                     </div>
                 
 
@@ -215,12 +215,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2025-01-19 10:52:14</span>
+                <span class="datetime">2025-02-01 19:40:07</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Jan 19 2025 23:33:54 GMT+0800">2025-01-19 23:33:54</span>
+                <span class="datetime" data-updated="Sat Feb 01 2025 20:32:06 GMT+0800">2025-02-01 20:32:06</span>
             </span>
         
 
@@ -246,7 +246,45 @@
                     
 
                     
-                         
+                         <h1 id="单纯形法"><a href="#单纯形法" class="headerlink" title="单纯形法"></a>单纯形法</h1><ul>
+<li>标准型定义：</li>
+</ul>
+<p>标准形式的四个特征：</p>
+<ol>
+<li>目标函数为max（若原问题为min z，则令z_1&#x3D;-z）</li>
+<li>约束条件为等式（若为≤ ，则加上松弛变量，若为≥ ，则减去松弛变量）</li>
+<li>决策变量为非负（若x_i&lt;0，则令新x_i&#x3D;-x_i）</li>
+<li>限额系数b为正数（若小于0，则等式两边添负号；若等于0表示可能出现退化）</li>
+</ol>
+<ul>
+<li>原公式：</li>
+</ul>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./6-%E8%BF%90%E7%AD%B9%E5%AD%A6%E5%9F%BA%E7%A1%80/image1.png"
+                       
+                 ></p>
+<ul>
+<li>添加松弛变量后：</li>
+</ul>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./6-%E8%BF%90%E7%AD%B9%E5%AD%A6%E5%9F%BA%E7%A1%80/image2.png"
+                       
+                 ></p>
+<ul>
+<li>通俗理解</li>
+</ul>
+<ol>
+<li>构造单位阵，确定基变量。一般是新增的松弛变量构成单位阵，上述例子里的x3,x4,x5。</li>
+<li>测算检验数，找出检验数大于0的最大的那个。可以理解为，假设增加1个单位x1，需要增加&#x2F;减少多少个基变量，需要增加&#x2F;减少多少基变量对应的利润。x2，x3同理，同时找出，会导致利润增加的哪个x，则这个需要入基（也就是说需要重新测算）。第一轮迭代假如是x2.</li>
+<li>找出出基变量。可以理解为，已经确定入基变量，那”全力”生产入基变量时，最”严格约束”是多少，也就是约束b &#x2F; 对应入基变量的系数，第一轮迭代时，x2对应的系数是 (2 0 4)T 。分别约束是( 8&#x2F;2 ∞ 12&#x2F;4)，这里选择第三个，对应的原基变量是X5。</li>
+<li>通过初等行变换，换基，形成新的单位阵。循环迭代后，直到所有检验数都 &lt;&#x3D; 0。</li>
+</ol>
+<h2 id="附参考"><a href="#附参考" class="headerlink" title="附参考"></a>附参考</h2><p><a class="link"   target="_blank" rel="noopener" href="https://www.zhihu.com/question/26840528" >单纯形法理解<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="列生成"><a href="#列生成" class="headerlink" title="列生成"></a>列生成</h1>
                     
                 </div>
 
@@ -266,31 +304,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/6-%E8%BF%90%E7%AD%B9%E5%AD%A6%E5%9F%BA%E7%A1%80/"
-                                   title="6-运筹学基础"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">6-运筹学基础</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/4-%E8%AE%A1%E7%AE%97%E8%8A%82%E7%82%B9%E6%A6%82%E8%BF%B0/"
-                                   title="4_计算节点概述"
+                                   href="/%E9%9D%A2%E7%BB%8F/"
+                                   title="面经"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">4_计算节点概述</span>
+                                        <span class="post-nav-title-item text-ellipsis">面经</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -318,7 +340,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95"><span class="nav-text">单纯形法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%8F%82%E8%80%83"><span class="nav-text">附参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E7%94%9F%E6%88%90"><span class="nav-text">列生成</span></a></li></ol>
     </div>
 </div>
 
@@ -478,7 +500,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95"><span class="nav-text">单纯形法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%8F%82%E8%80%83"><span class="nav-text">附参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E7%94%9F%E6%88%90"><span class="nav-text">列生成</span></a></li></ol>
     </div>
 </div>
 

@@ -220,7 +220,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Thu Dec 26 2024 22:19:07 GMT+0800">2024-12-26 22:19:07</span>
+                <span class="datetime" data-updated="Wed Feb 12 2025 15:00:01 GMT+0800">2025-02-12 15:00:01</span>
             </span>
         
 
@@ -255,7 +255,10 @@
                     
 
                     
-                         <h1 id="Dubbo线程池无法释放"><a href="#Dubbo线程池无法释放" class="headerlink" title="Dubbo线程池无法释放"></a>Dubbo线程池无法释放</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+                         <h1 id="Dubbo线程池无法释放"><a href="#Dubbo线程池无法释放" class="headerlink" title="Dubbo线程池无法释放"></a>Dubbo线程池无法释放</h1><ul>
+<li>背景</li>
+</ul>
+<blockquote>
 <p>使用Redis+Mysql号段生成全局唯一ID</p>
 </blockquote>
 <ol>
@@ -268,11 +271,17 @@
 </ol>
 </li>
 </ol>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
+<ul>
+<li>小结</li>
+</ul>
+<ol>
 <li>增加循环最大值判断</li>
 <li>无限循环时，需要考虑<strong>查询条件</strong>因其他线程<strong>变更</strong>的情况，<strong>避免无限循环</strong></li>
 </ol>
-<h1 id="Pod偶发重启"><a href="#Pod偶发重启" class="headerlink" title="Pod偶发重启"></a>Pod偶发重启</h1><h2 id="背景-1"><a href="#背景-1" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<h1 id="Pod偶发重启"><a href="#Pod偶发重启" class="headerlink" title="Pod偶发重启"></a>Pod偶发重启</h1><ul>
+<li>背景</li>
+</ul>
+<blockquote>
 <p>服务部署在K8s集群，每个服务的健康状态通过周期性healthcheck接口监测，当监测失败时，会触发服务重启</p>
 </blockquote>
 <ol>
@@ -282,10 +291,23 @@
 <li>在重启的几次监测时间段内，均发生了一次<strong>慢查询请求</strong>，该请求会查询db数据，耗时比较长（1分钟以上）</li>
 <li>存活探针相继失败，这里dubbo执行了重试，并根据加权随机路由到仅有的2台机器上，在<strong>最后一次重试</strong>时（前两次都因为接口请求太长而失败），<strong>接口请求会与存活探针请求争抢唯一的mysql连接</strong>，如果存活探针能够抢到连接，则不会发生重启，否则会<strong>由于3次健康检测接口均无响应，导致重启</strong></li>
 </ol>
-<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><ol>
+<ul>
+<li>小结</li>
+</ul>
+<ol>
 <li>减少慢查询</li>
 <li>适当增加mysql连接池的连接数，减少健康检查抢占不到mysql连接的情况</li>
 </ol>
+<h1 id="joda中LocalDateTime有关时间的处理"><a href="#joda中LocalDateTime有关时间的处理" class="headerlink" title="joda中LocalDateTime有关时间的处理"></a>joda中LocalDateTime有关时间的处理</h1><p>在给”MM&#x2F;dd”格式的字符串赋值年的时候，如果碰上非闰年，且赋值02&#x2F;29，会将02&#x2F;29视为02&#x2F;28输出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime1</span> <span class="operator">=</span> DateTimeFormat.forPattern(<span class="string">&quot;MM/dd&quot;</span>).parseDateTime(<span class="string">&quot;02/28&quot;</span>).withYear(<span class="number">2025</span>).dayOfMonth().roundFloorCopy();</span><br><span class="line">System.out.println(dateTime1);</span><br><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime2</span> <span class="operator">=</span> DateTimeFormat.forPattern(<span class="string">&quot;MM/dd&quot;</span>).parseDateTime(<span class="string">&quot;02/29&quot;</span>).withYear(<span class="number">2025</span>).dayOfMonth().roundFloorCopy();</span><br><span class="line">System.out.println(dateTime2);</span><br><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime3</span> <span class="operator">=</span> DateTimeFormat.forPattern(<span class="string">&quot;MM/dd&quot;</span>).parseDateTime(<span class="string">&quot;02/28&quot;</span>).withYear(<span class="number">2020</span>).dayOfMonth().roundFloorCopy();</span><br><span class="line">System.out.println(dateTime3);</span><br><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime4</span> <span class="operator">=</span> DateTimeFormat.forPattern(<span class="string">&quot;MM/dd&quot;</span>).parseDateTime(<span class="string">&quot;02/29&quot;</span>).withYear(<span class="number">2020</span>).dayOfMonth().roundFloorCopy();</span><br><span class="line">System.out.println(dateTime4);</span><br><span class="line"><span class="type">DateTime</span> <span class="variable">dateTime6</span> <span class="operator">=</span> DateTimeFormat.forPattern(<span class="string">&quot;MM/dd&quot;</span>).parseDateTime(<span class="string">&quot;03/01&quot;</span>).withYear(<span class="number">2020</span>).dayOfMonth().roundFloorCopy();</span><br><span class="line">System.out.println(dateTime6);</span><br><span class="line"></span><br><span class="line"><span class="number">2025</span>-<span class="number">02</span>-28T00:<span class="number">00</span>:<span class="number">00.000</span>+08:<span class="number">00</span></span><br><span class="line"><span class="number">2025</span>-<span class="number">02</span>-28T00:<span class="number">00</span>:<span class="number">00.000</span>+08:<span class="number">00</span></span><br><span class="line"><span class="number">2020</span>-<span class="number">02</span>-28T00:<span class="number">00</span>:<span class="number">00.000</span>+08:<span class="number">00</span></span><br><span class="line"><span class="number">2020</span>-<span class="number">02</span>-29T00:<span class="number">00</span>:<span class="number">00.000</span>+08:<span class="number">00</span></span><br><span class="line"><span class="number">2020</span>-<span class="number">03</span>-01T00:<span class="number">00</span>:<span class="number">00.000</span>+08:<span class="number">00</span></span><br></pre></td></tr></table></figure>
+
+<p>原因是因为底层joda方法内部将超过2月29号的天减1了，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">org.joda.time.chrono.BasicGJChronology#setYear</span><br><span class="line"></span><br><span class="line">  <span class="type">long</span> <span class="title function_">setYear</span><span class="params">(<span class="type">long</span> instant, <span class="type">int</span> year)</span> &#123;</span><br><span class="line">  <span class="type">int</span> <span class="variable">thisYear</span> <span class="operator">=</span> getYear(instant);</span><br><span class="line">  <span class="type">int</span> <span class="variable">dayOfYear</span> <span class="operator">=</span> getDayOfYear(instant, thisYear);</span><br><span class="line">  <span class="type">int</span> <span class="variable">millisOfDay</span> <span class="operator">=</span> getMillisOfDay(instant);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (dayOfYear &gt; (<span class="number">31</span> + <span class="number">28</span>)) &#123; <span class="comment">// after Feb 28</span></span><br><span class="line">    <span class="keyword">if</span> (isLeapYear(thisYear)) &#123;</span><br><span class="line">      <span class="comment">// Current date is Feb 29 or later.</span></span><br><span class="line">      <span class="keyword">if</span> (!isLeapYear(year)) &#123;</span><br><span class="line">        <span class="comment">// Moving to a non-leap year, Feb 29 does not exist.</span></span><br><span class="line">        dayOfYear--;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Current date is Mar 01 or later.</span></span><br><span class="line">      <span class="keyword">if</span> (isLeapYear(year)) &#123;</span><br><span class="line">        <span class="comment">// Moving to a leap year, account for Feb 29.</span></span><br><span class="line">        dayOfYear++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  instant = getYearMonthDayMillis(year, <span class="number">1</span>, dayOfYear);</span><br><span class="line">  instant += millisOfDay;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> instant;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1>
                     
                 </div>
@@ -358,7 +380,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%97%A0%E6%B3%95%E9%87%8A%E6%94%BE"><span class="nav-text">Dubbo线程池无法释放</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pod%E5%81%B6%E5%8F%91%E9%87%8D%E5%90%AF"><span class="nav-text">Pod偶发重启</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF-1"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TODO"><span class="nav-text">TODO</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%97%A0%E6%B3%95%E9%87%8A%E6%94%BE"><span class="nav-text">Dubbo线程池无法释放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pod%E5%81%B6%E5%8F%91%E9%87%8D%E5%90%AF"><span class="nav-text">Pod偶发重启</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#joda%E4%B8%ADLocalDateTime%E6%9C%89%E5%85%B3%E6%97%B6%E9%97%B4%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">joda中LocalDateTime有关时间的处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TODO"><span class="nav-text">TODO</span></a></li></ol>
     </div>
 </div>
 
@@ -518,7 +540,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%97%A0%E6%B3%95%E9%87%8A%E6%94%BE"><span class="nav-text">Dubbo线程池无法释放</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pod%E5%81%B6%E5%8F%91%E9%87%8D%E5%90%AF"><span class="nav-text">Pod偶发重启</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF-1"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TODO"><span class="nav-text">TODO</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%97%A0%E6%B3%95%E9%87%8A%E6%94%BE"><span class="nav-text">Dubbo线程池无法释放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pod%E5%81%B6%E5%8F%91%E9%87%8D%E5%90%AF"><span class="nav-text">Pod偶发重启</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#joda%E4%B8%ADLocalDateTime%E6%9C%89%E5%85%B3%E6%97%B6%E9%97%B4%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">joda中LocalDateTime有关时间的处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TODO"><span class="nav-text">TODO</span></a></li></ol>
     </div>
 </div>
 
