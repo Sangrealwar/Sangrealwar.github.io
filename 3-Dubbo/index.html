@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="人生，总有些黑暗的隧道需要自己穿越">
+    <meta name="author" content="EmiyaQ">
+    
+    <title>
+        
+            3-Dubbo |
+        
+        The winter sunshine
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"sangrealwar.github.io","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"The winter sunshine","author":"EmiyaQ","avatar":"/images/pig.png","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","categories":"/categories"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               The winter sunshine
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        3-Dubbo
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/pig.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">EmiyaQ</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-03-08 17:42:17</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sun Mar 09 2025 18:05:35 GMT+0800">2025-03-09 18:05:35</span>
+            </span>
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="Dubbo是什么"><a href="#Dubbo是什么" class="headerlink" title="Dubbo是什么"></a>Dubbo是什么</h1><blockquote>
+<p>该章节内容均来自<a class="link"   target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh-cn/" >官网<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一款云原生微服务开发框架。构建具备内置 RPC、流量管控、安全、可观测能力的应用，支持Kubernetes和VM部署环境。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li>高性能、可伸缩的服务发现机制，与Nacos，Zookeeper等注册中心适配；</li>
+<li>流量管控。提供路由规则，实现全链路灰度、金丝雀发布、重试等服务治理能力；</li>
+<li>灵活部署。支持虚拟机、k8s、服务网格等部署方式；</li>
+<li>多种通信协议。支持Http2、gRpc、Rpc，Rest等通信方式；</li>
+<li>可扩展。通过定制Filter、Router、Service等自定义调用，管控行为；</li>
+<li>多SDK。Java、Golang、Python等客户端；</li>
+<li>可观测。提供Metrics、Tracing、Accesslog，了解服务运行状态；</li>
+<li>认证鉴权。支持TLS链路和认证加密、基于请求鉴权；</li>
+<li>服务网格（Service Mesh）。无缝接入Istio治理体系；</li>
+<li>生态丰富。一站式微服务适配，包括注册中心、网关、限流降级、负载均衡、一致性事务、一致性消息、链路追踪等。</li>
+</ul>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3-Dubbo/image1.jpeg"
+                        alt="image-2022062517"
+                 ></p>
+<h3 id="服务调用"><a href="#服务调用" class="headerlink" title="服务调用"></a>服务调用</h3><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3-Dubbo/image4.jpeg"
+                        alt="image-2022062517"
+                 ></p>
+<p>如图所示，消费方调用会经过多层Filter，在Cluster中获取获取执行逻辑，如LoadBalance，经过一堆Filter扩展点传递，最终将Invocation通过线程池请求出去，最终通过这里（org.apache.dubbo.rpc.protocol.dubbo.DubboInvoker#doInvoke）调用，线程池从这里获取（org.apache.dubbo.rpc.protocol.AbstractInvoker#getCallbackExecutor），在Invoke时，会经过channel（比如默认采用的netty管道）发送信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> netty发送消息</span><br><span class="line">org.apache.dubbo.rpc.protocol.dubbo.DubboInvoker#doInvoke</span><br><span class="line">org.apache.dubbo.remoting.exchange.support.header.HeaderExchangeChannel#request(java.lang.Object, <span class="type">int</span>, java.util.concurrent.ExecutorService)</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> CompletableFuture&lt;Object&gt; <span class="title function_">request</span><span class="params">(Object request, <span class="type">int</span> timeout, ExecutorService executor)</span> <span class="keyword">throws</span> RemotingException &#123;</span><br><span class="line">        <span class="keyword">if</span> (closed) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RemotingException</span>(<span class="built_in">this</span>.getLocalAddress(), <span class="literal">null</span>,</span><br><span class="line">                    <span class="string">&quot;Failed to send request &quot;</span> + request + <span class="string">&quot;, cause: The channel &quot;</span> + <span class="built_in">this</span> + <span class="string">&quot; is closed!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// create request.</span></span><br><span class="line">        <span class="type">Request</span> <span class="variable">req</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Request</span>();</span><br><span class="line">        req.setVersion(Version.getProtocolVersion());</span><br><span class="line">        req.setTwoWay(<span class="literal">true</span>);</span><br><span class="line">        req.setData(request);</span><br><span class="line">        <span class="type">DefaultFuture</span> <span class="variable">future</span> <span class="operator">=</span> DefaultFuture.newFuture(channel, req, timeout, executor);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            channel.send(req);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemotingException e) &#123;</span><br><span class="line">            future.cancel();</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> future;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">org.apache.dubbo.remoting.transport.AbstractClient#send</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">send</span><span class="params">(Object message, <span class="type">boolean</span> sent)</span> <span class="keyword">throws</span> RemotingException &#123;</span><br><span class="line">        <span class="keyword">if</span> (needReconnect &amp;&amp; !isConnected()) &#123;</span><br><span class="line">            connect();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Channel</span> <span class="variable">channel</span> <span class="operator">=</span> getChannel();</span><br><span class="line">        <span class="comment">//TODO Can the value returned by getChannel() be null? need improvement.</span></span><br><span class="line">        <span class="keyword">if</span> (channel == <span class="literal">null</span> || !channel.isConnected()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RemotingException</span>(<span class="built_in">this</span>, <span class="string">&quot;message can not send, because channel is closed . url:&quot;</span> + getUrl());</span><br><span class="line">        &#125;</span><br><span class="line">        channel.send(message, sent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> netty接收消息</span><br><span class="line">org.apache.dubbo.remoting.transport.netty4.NettyServerHandler#channelRead</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">NettyChannel</span> <span class="variable">channel</span> <span class="operator">=</span> NettyChannel.getOrAddChannel(ctx.channel(), url, handler);</span><br><span class="line">        handler.received(channel, msg);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="应用级别服务发现"><a href="#应用级别服务发现" class="headerlink" title="应用级别服务发现"></a>应用级别服务发现</h3><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh-cn/blog/2021/06/02/dubbo3-%E5%BA%94%E7%94%A8%E7%BA%A7%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/#4-%E5%BA%94%E7%94%A8%E7%BA%A7%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" >应用级服务发现工作原理<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<p>假设有2个服务提供者</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">&quot;org.apache.dubbo.samples.basic.api.DemoService&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;demoService&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">&quot;org.apache.dubbo.samples.basic.api.GreetingService&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;greetingService&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果是服务级别注册。注册中心数据如下。两个ip，分别有两个服务提供方，一共4条数据。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dubbo://192.168.0.103:20880/org.apache.dubbo.samples.basic.api.DemoService?anyhost=true&amp;application=demo-provider&amp;default=true&amp;deprecated=false&amp;dubbo=2.0.2&amp;dynamic=true&amp;generic=false&amp;interface=org.apache.dubbo.samples.basic.api.DemoService&amp;methods=testVoid,sayHello&amp;pid=995&amp;release=2.7.7&amp;side=provider&amp;timestamp=1596988171266</span><br><span class="line">dubbo://192.168.0.103:20880/org.apache.dubbo.samples.basic.api.GreetingService?anyhost=true&amp;application=demo-provider&amp;default=true&amp;deprecated=false&amp;dubbo=2.0.2&amp;dynamic=true&amp;generic=false&amp;interface=org.apache.dubbo.samples.basic.api.GreetingService&amp;methods=greeting&amp;pid=995&amp;release=2.7.7&amp;side=provider&amp;timestamp=1596988170816</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dubbo://192.168.0.104:20880/org.apache.dubbo.samples.basic.api.DemoService?anyhost=true&amp;application=demo-provider&amp;default=true&amp;deprecated=false&amp;dubbo=2.0.2&amp;dynamic=true&amp;generic=false&amp;interface=org.apache.dubbo.samples.basic.api.DemoService&amp;methods=testVoid,sayHello&amp;pid=995&amp;release=2.7.7&amp;side=provider&amp;timestamp=1596988171266</span><br><span class="line"></span><br><span class="line">dubbo://192.168.0.104:20880/org.apache.dubbo.samples.basic.api.GreetingService?anyhost=true&amp;application=demo-provider&amp;default=true&amp;deprecated=false&amp;dubbo=2.0.2&amp;dynamic=true&amp;generic=false&amp;interface=org.apache.dubbo.samples.basic.api.GreetingService&amp;methods=greeting&amp;pid=995&amp;release=2.7.7&amp;side=provider&amp;timestamp=1596988170816</span><br></pre></td></tr></table></figure>
+
+<p>如果是应用级别注册。注册中心数据如下，两个ip，一共就2条数据。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;demo-provider&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;192.168.0.103:20880&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;192.168.0.103&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">20880</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;metadata&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;dubbo.endpoints&quot;</span><span class="punctuation">:</span> <span class="string">&quot;[&#123;\&quot;port\&quot;:20880,\&quot;protocol\&quot;:\&quot;dubbo\&quot;&#125;]&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dubbo.metadata.storage-type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dubbo.revision&quot;</span><span class="punctuation">:</span> <span class="string">&quot;6785535733750099598&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;time&quot;</span><span class="punctuation">:</span> <span class="number">1583461240877</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;demo-provider&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;192.168.0.104:20880&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;192.168.0.104&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">20880</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;metadata&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;dubbo.endpoints&quot;</span><span class="punctuation">:</span> <span class="string">&quot;[&#123;\&quot;port\&quot;:20880,\&quot;protocol\&quot;:\&quot;dubbo\&quot;&#125;]&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dubbo.metadata.storage-type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dubbo.revision&quot;</span><span class="punctuation">:</span> <span class="string">&quot;7829635812370099387&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;time&quot;</span><span class="punctuation">:</span> <span class="number">1583461240877</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里会存在几个问题</p>
+<ol>
+<li>主流微服务模型，如SpringCloud，K8s都是注册了应用及ip端口，没有具体的接口（rpc方法）</li>
+<li>当某个接口类下的方法增多时，注册中心推送给各消费方的数据量会增加。一般应用数量运维可控，但是方法数量会随着开发迭代而提升，相对不可控。</li>
+</ol>
+<p>为此，Dubbo有如下调整</p>
+<ol>
+<li>注册中心以”应用-实例列表”格式组织数据，不保存RPC服务信息</li>
+<li>Client – Server 自行协商 RPC 方法信息</li>
+</ol>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3-Dubbo/image2.jpeg"
+                        alt="image-2022062517"
+                 ></p>
+<p>为了兼容历史接口级别注册，在配置中心会维护接口服务 -&gt; 应用 的关系</p>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="/./3-Dubbo/image3.jpeg"
+                        alt="image-2022062517"
+                 ></p>
+<p>所以使用上，需要遵循消费方指定应用，应用-&gt;接口关系存储到源数据中心，消费方和应用放可通过直接调用或调用元数据中心获取关心，从而继续接口级别调用。具体配置参考官网。</p>
+<h1 id="工作实践"><a href="#工作实践" class="headerlink" title="工作实践"></a>工作实践</h1><p>工作中用的比较多的是Dubbo2.x版本</p>
+<ul>
+<li>序列化<ul>
+<li>默认用的是hessian序列化，需要对象实现Serializable接口</li>
+</ul>
+</li>
+<li>通信协议<ul>
+<li>默认用rpc协议，端口20880</li>
+</ul>
+</li>
+<li>注册中心<ul>
+<li>Zookeeper注册中心，或者Nacos</li>
+</ul>
+</li>
+<li>配置中心<ul>
+<li>一般默认跟着注册中心走，zookeeper或者Nacos</li>
+<li>做一些服务管理工作，比如Nacos上可以管理的服务上下线</li>
+</ul>
+</li>
+<li>Spi扩展点<ul>
+<li>优雅下线扩展点，ShutdownHookCallback</li>
+<li>调用拦截扩展点，Filter</li>
+</ul>
+</li>
+<li>服务注册级别<ul>
+<li>接口服务级别。也就是类+方法级别</li>
+</ul>
+</li>
+</ul>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/6-%E8%BF%90%E7%AD%B9%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+                                   title="6-运筹学基础"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">6-运筹学基础</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">Dubbo是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8"><span class="nav-text">服务调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%BA%A7%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0"><span class="nav-text">应用级别服务发现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%AE%9E%E8%B7%B5"><span class="nav-text">工作实践</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">EmiyaQ</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">Dubbo是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8"><span class="nav-text">服务调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%BA%A7%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0"><span class="nav-text">应用级别服务发现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%AE%9E%E8%B7%B5"><span class="nav-text">工作实践</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
